@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="480.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Cadastro">
+   <children>
+    <Button layoutX="307.0" layoutY="303.0" mnemonicParsing="false" text="Cadastrar" />
+      <TextField fx:id="txtNome" layoutX="94.0" layoutY="54.0" />
+      <TextField fx:id="txtSenha" layoutX="94.0" layoutY="116.0" />
+      <TextField fx:id="txtEmail" layoutX="266.0" layoutY="54.0" />
+      <TextField fx:id="txtCPF" layoutX="94.0" layoutY="168.0" />
+      <Label layoutX="266.0" layoutY="37.0" text="E-mail" />
+      <Label layoutX="94.0" layoutY="37.0" text="Nome" />
+      <Label layoutX="94.0" layoutY="96.0" text="Senha" />
+      <Label layoutX="266.0" layoutY="96.0" text="País" />
+      <Label layoutX="94.0" layoutY="148.0" text="CPF" />
+      <CheckBox layoutX="264.0" layoutY="172.0" mnemonicParsing="false" text="Você é um pesquisador?" />
+      <ComboBox layoutX="265.0" layoutY="116.0" prefWidth="150.0" />
+      <DatePicker layoutX="441.0" layoutY="54.0" />
+      <Label layoutX="441.0" layoutY="29.0" text="Data de Nascimento" />
+   </children>
+</AnchorPane>
