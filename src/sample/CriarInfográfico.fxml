@@ -11,7 +11,7 @@
       <PieChart layoutX="459.0" layoutY="40.0" prefHeight="163.0" prefWidth="218.0" />
       <Button id="btnCarregarImagens" layoutX="57.0" layoutY="321.0" mnemonicParsing="false" onAction="#carregaImagem" text="Carregar Imagem" />
       <TextArea layoutX="57.0" layoutY="85.0" prefHeight="200.0" prefWidth="200.0" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="289.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageBox" fitHeight="150.0" fitWidth="200.0" layoutX="289.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true" />
       <Button layoutX="660.0" layoutY="447.0" mnemonicParsing="false" text="Salvar" />
       <LineChart layoutX="519.0" layoutY="94.0" prefHeight="191.0" prefWidth="218.0">
         <xAxis>
