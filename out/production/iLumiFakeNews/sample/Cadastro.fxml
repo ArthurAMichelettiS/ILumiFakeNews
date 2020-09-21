@@ -19,5 +19,6 @@
       <ComboBox layoutX="265.0" layoutY="116.0" prefWidth="150.0" />
       <DatePicker layoutX="441.0" layoutY="54.0" />
       <Label layoutX="441.0" layoutY="29.0" text="Data de Nascimento" />
+      <DialogPane />
    </children>
 </AnchorPane>
