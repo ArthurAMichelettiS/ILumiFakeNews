@@ -30,7 +30,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Button layoutX="539.0" layoutY="508.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="265.0" text="Cadastrar" />
+      <Button fx:id="btnCriarCadastro" layoutX="539.0" layoutY="508.0" mnemonicParsing="false" onAction="#abreCadastro" prefHeight="25.0" prefWidth="265.0" text="Cadastrar" />
       <Text layoutX="539.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Novo no iLumi? Se cadastre para aproveitar ao maximo!" textAlignment="CENTER" wrappingWidth="265.0">
          <font>
             <Font size="13.0" />
