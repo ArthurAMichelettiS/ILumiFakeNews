@@ -21,6 +21,17 @@ public class CriarCadastro {
             final Stage stage = (Stage) source.getScene().getWindow();
             stage.close();
             }
+
+        public void voltaLogin(ActionEvent actionEvent) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+                Stage primaryStage = new Stage();
+                primaryStage.setTitle("Login");
+                primaryStage.setScene(new Scene(root, 790.0, 517.0));
+                primaryStage.show();
+                final Node source = (Node) actionEvent.getSource();
+                final Stage stage = (Stage) source.getScene().getWindow();
+                stage.close();
         }
+}
 
 
