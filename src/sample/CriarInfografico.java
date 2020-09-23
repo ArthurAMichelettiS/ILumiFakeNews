@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CriarInfográfico implements Initializable {
+public class CriarInfografico {
 
     public ImageView imageBox;
 
@@ -28,10 +28,5 @@ public class CriarInfográfico implements Initializable {
             Image image = SwingFXUtils.toFXImage(bufferedImage, null);
             imageBox.setImage(image);
         }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 }
