@@ -13,6 +13,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CriarInfográfico implements Initializable {
+
+    public ImageView imageBox;
+
     public void carregaImagem() throws IOException {
         JFileChooser chooseFile = new JFileChooser();
         JPanel test = new JPanel();
@@ -22,10 +25,8 @@ public class CriarInfográfico implements Initializable {
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = chooseFile.getSelectedFile();
             BufferedImage bufferedImage = ImageIO.read(selectedFile);
-            ImageView myImageView = new ImageView();
             Image image = SwingFXUtils.toFXImage(bufferedImage, null);
-            myImageView.setImage(image);
-
+            imageBox.setImage(image);
         }
     }
 
