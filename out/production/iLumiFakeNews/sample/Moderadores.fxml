@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="443.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Moderadores">
-
+<AnchorPane fx:id="panelModeradores" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Moderadores" >
+   <children>
+      <Button fx:id="btnDenuncias" layoutX="166.0" layoutY="211.0" mnemonicParsing="false" onAction="#btnDenuncias" prefHeight="52.0" prefWidth="90.0" text="Denúncias" />
+      <Button fx:id="btnValidacoes" layoutX="346.0" layoutY="211.0" mnemonicParsing="false" onAction="#btnValidacoes" prefHeight="52.0" prefWidth="90.0" text="Validações" />
+      <Label fx:id="denNotification" layoutX="253.0" layoutY="192.0" text="0" />
+      <Label fx:id="valNotification" layoutX="433.0" layoutY="192.0" text="0" />
+      <Label fx:id="moderadoresLbl" layoutX="229.0" layoutY="41.0" text="Moderadores">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>

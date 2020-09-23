@@ -12,14 +12,14 @@ public class Moderadores {
     public void btnDenuncias() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Denuncias.fxml"));
         Stage primaryStage = new Stage();
-        primaryStage.setTitle("Criar Infográfico");
+        primaryStage.setTitle("Denúncias");
         primaryStage.setScene(new Scene(root, 790.0, 517.0));
         primaryStage.show();
     }
     public void btnValidacoes() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Validacoes.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ValidacoesDocs.fxml"));
         Stage primaryStage = new Stage();
-        primaryStage.setTitle("Criar Infográfico");
+        primaryStage.setTitle("Validações");
         primaryStage.setScene(new Scene(root, 790.0, 517.0));
         primaryStage.show();
     }

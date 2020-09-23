@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ValidacoesDocs">
+   <children>
+      <Label layoutX="244.0" layoutY="37.0" text="Validações">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageDocCFoto" fitHeight="150.0" fitWidth="200.0" layoutX="61.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageComprovantePesquisador" fitHeight="150.0" fitWidth="200.0" layoutX="336.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
+      <CheckBox fx:id="cbxEValidoValidacoes" layoutX="61.0" layoutY="342.0" mnemonicParsing="false" text="É válido?" />
+      <Button fx:id="btnProximoValidacoes" layoutX="462.0" layoutY="338.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Próximo" />
+      <Button fx:id="btnSelectDocFoto" layoutX="61.0" layoutY="285.0" mnemonicParsing="false" onAction="#carregaDocFoto" text="Selecionar Doc c/ Foto" />
+      <Button fx:id="btnSelectComprovante" layoutX="336.0" layoutY="285.0" mnemonicParsing="false" onAction="#carregaComprovante" text="Selecionar Comprovante" />
+   </children>
+</AnchorPane>
