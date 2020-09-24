@@ -16,7 +16,7 @@
       <Label layoutX="507.0" layoutY="147.0" text="Senha" />
       <Label layoutX="683.0" layoutY="88.0" text="País" />
       <Label layoutX="513.0" layoutY="88.0" text="CPF" />
-      <CheckBox fx:id="chRes" layoutX="851.0" layoutY="172.0" mnemonicParsing="false" text="Você é um pesquisador?" />
+      <CheckBox fx:id="chRes" layoutX="851.0" layoutY="172.0" mnemonicParsing="false" onAction="#ckValidacoes" text="Você é um pesquisador?" />
       <DatePicker fx:id="dpNIver" layoutX="851.0" layoutY="54.0" />
       <Label layoutX="851.0" layoutY="37.0" text="Data de Nascimento" />
       <Button fx:id="btnPic" layoutX="155.0" layoutY="404.0" mnemonicParsing="false" text="Selecione uma foto" />

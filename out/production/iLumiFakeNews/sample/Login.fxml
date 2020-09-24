@@ -20,7 +20,7 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <Text layoutX="540.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+      <Text layoutX="540.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail">
          <font>
             <Font size="18.0" />
          </font>

@@ -12,11 +12,11 @@ import java.io.IOException;
 
 public class Moderadores {
     public void btnDenuncias() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Denuncias.fxml"));
+        /*Parent root = FXMLLoader.load(getClass().getResource("Denuncias.fxml"));
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Denúncias");
         primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+        primaryStage.show();*/
     }
     public void btnValidacoes() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("ValidacoesDocs.fxml"));

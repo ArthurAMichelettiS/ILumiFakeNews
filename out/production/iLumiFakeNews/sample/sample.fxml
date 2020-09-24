@@ -16,6 +16,6 @@
    </rowConstraints>
    <children>
       <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#abreFeed" prefHeight="26.0" prefWidth="216.0" text="Outros users" GridPane.rowIndex="3" />
-      <Button fx:id="btnModeradores" mnemonicParsing="false" onAction="#abreModera" prefHeight="25.0" prefWidth="207.0" text="Moderadores" GridPane.rowIndex="2" />
+      <Button fx:id="btnModeradores" mnemonicParsing="false" onAction="#abreModera" prefHeight="25.0" prefWidth="229.0" text="Moderadores" GridPane.rowIndex="2" />
    </children>
 </GridPane>
