@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class ValidacoesDocs {
+public class ArquivosParaValidacoes {
     public ImageView imageDocCFoto;
     public ImageView imageComprovantePesquisador;
 

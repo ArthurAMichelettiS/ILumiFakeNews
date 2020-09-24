@@ -19,9 +19,9 @@ public class Moderadores {
         primaryStage.show();*/
     }
     public void btnValidacoes() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ValidacoesDocs.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ValidacoesDoc.fxml"));
         Stage primaryStage = new Stage();
-        primaryStage.setTitle("Validações");
+        primaryStage.setTitle("Validação de documentos");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

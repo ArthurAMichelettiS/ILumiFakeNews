@@ -5,11 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import java.io.IOException;
 
@@ -43,7 +40,7 @@ public class CriarCadastro {
     public void ckValidacoes(ActionEvent actionEvent) throws IOException {
         final CheckBox source = (CheckBox) actionEvent.getSource();
         if(source.isSelected()){
-            Parent root = FXMLLoader.load(getClass().getResource("ValidacoesDocs.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("ArquivosParaValidacoes.fxml"));
             Stage primaryStage = new Stage();
             primaryStage.setTitle("Validações");
             primaryStage.setScene(new Scene(root));
