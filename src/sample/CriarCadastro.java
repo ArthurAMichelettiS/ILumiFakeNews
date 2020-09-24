@@ -16,6 +16,7 @@ public class CriarCadastro {
             Stage primaryStage = new Stage();
             primaryStage.setTitle("Login");
             primaryStage.setScene(new Scene(root, 790.0, 517.0));
+            primaryStage.setMaximized(true);
             primaryStage.show();
             final Node source = (Node) actionEvent.getSource();
             final Stage stage = (Stage) source.getScene().getWindow();
@@ -27,6 +28,7 @@ public class CriarCadastro {
                 Stage primaryStage = new Stage();
                 primaryStage.setTitle("Login");
                 primaryStage.setScene(new Scene(root, 790.0, 517.0));
+                primaryStage.setMaximized(true);
                 primaryStage.show();
                 final Node source = (Node) actionEvent.getSource();
                 final Stage stage = (Stage) source.getScene().getWindow();

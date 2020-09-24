@@ -24,6 +24,7 @@ public class Controller {
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Login");
         primaryStage.setScene(new Scene(root, 790.0, 517.0));
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 

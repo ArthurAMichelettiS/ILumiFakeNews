@@ -15,6 +15,7 @@ public class VisualizaPost {
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Feed");
         primaryStage.setScene(new Scene(root, 790.0, 517.0));
+        primaryStage.setMaximized(true);
         primaryStage.show();
         final Node source = (Node) actionEvent.getSource();
         final Stage stage = (Stage) source.getScene().getWindow();
