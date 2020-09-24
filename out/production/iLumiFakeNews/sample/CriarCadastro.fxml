@@ -4,28 +4,28 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CriarCadastro">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CriarCadastro">
    <children>
-    <Button fx:id="cbCadastro" layoutX="709.0" layoutY="444.0" mnemonicParsing="false" onAction="#cadastraUser" text="Cadastrar" />
-      <TextField fx:id="txtNome" layoutX="279.0" layoutY="54.0" />
-      <TextField fx:id="txtSenha" layoutX="279.0" layoutY="168.0" />
-      <TextField fx:id="txtEmail" layoutX="448.0" layoutY="54.0" />
-      <TextField fx:id="txtCPF" layoutX="279.0" layoutY="105.0" />
-      <Label layoutX="453.0" layoutY="37.0" text="E-mail" />
-      <Label layoutX="281.0" layoutY="37.0" text="Nome" />
-      <Label layoutX="299.0" layoutY="147.0" text="Senha" />
-      <Label layoutX="483.0" layoutY="88.0" text="País" />
-      <Label layoutX="289.0" layoutY="88.0" text="CPF" />
-      <CheckBox fx:id="chRes" layoutX="627.0" layoutY="172.0" mnemonicParsing="false" text="Você é um pesquisador?" />
-      <DatePicker fx:id="dpNIver" layoutX="615.0" layoutY="54.0" />
-      <Label layoutX="615.0" layoutY="37.0" text="Data de Nascimento" />
-      <Button fx:id="btnPic" layoutX="79.0" layoutY="202.0" mnemonicParsing="false" text="Selecione uma foto" />
-      <ComboBox fx:id="cbGen" layoutX="615.0" layoutY="105.0" prefHeight="26.0" prefWidth="174.0" promptText="Selecione o seu gênero" />
-      <ComboBox fx:id="cbPais" layoutX="448.0" layoutY="105.0" prefWidth="150.0" promptText="Selecione o seu país" />
-      <Label layoutX="621.0" layoutY="88.0" text="Gênero" />
-      <ImageView fx:id="ivProfile" fitHeight="150.0" fitWidth="200.0" layoutX="38.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="453.0" layoutY="147.0" text="Confirme a sua senha" />
-      <TextField layoutX="448.0" layoutY="168.0" />
-      <Button fx:id="btnVoltar" layoutX="14.0" layoutY="444.0" mnemonicParsing="false" onAction="#voltaLogin" text="Voltar" />
+    <Button fx:id="cbCadastro" layoutX="1199.0" layoutY="680.0" mnemonicParsing="false" onAction="#cadastraUser" text="Cadastrar" />
+      <TextField fx:id="txtNome" layoutX="684.0" layoutY="54.0" />
+      <TextField fx:id="txtSenha" layoutX="507.0" layoutY="168.0" />
+      <TextField fx:id="txtEmail" layoutX="507.0" layoutY="54.0" />
+      <TextField fx:id="txtCPF" layoutX="507.0" layoutY="104.0" />
+      <Label layoutX="507.0" layoutY="37.0" text="E-mail" />
+      <Label layoutX="688.0" layoutY="37.0" text="Nome" />
+      <Label layoutX="507.0" layoutY="147.0" text="Senha" />
+      <Label layoutX="683.0" layoutY="88.0" text="País" />
+      <Label layoutX="513.0" layoutY="88.0" text="CPF" />
+      <CheckBox fx:id="chRes" layoutX="851.0" layoutY="172.0" mnemonicParsing="false" text="Você é um pesquisador?" />
+      <DatePicker fx:id="dpNIver" layoutX="851.0" layoutY="54.0" />
+      <Label layoutX="851.0" layoutY="37.0" text="Data de Nascimento" />
+      <Button fx:id="btnPic" layoutX="155.0" layoutY="404.0" mnemonicParsing="false" text="Selecione uma foto" />
+      <ComboBox fx:id="cbGen" layoutX="851.0" layoutY="104.0" prefHeight="26.0" prefWidth="174.0" promptText="Selecione o seu gênero" />
+      <ComboBox fx:id="cbPais" layoutX="683.0" layoutY="104.0" prefWidth="150.0" promptText="Selecione o seu país" />
+      <Label layoutX="851.0" layoutY="88.0" text="Gênero" />
+      <ImageView fx:id="ivProfile" fitHeight="347.0" fitWidth="352.0" layoutX="38.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="684.0" layoutY="147.0" text="Confirme a sua senha" />
+      <TextField layoutX="684.0" layoutY="168.0" />
+      <Button fx:id="btnVoltar" layoutX="14.0" layoutY="680.0" mnemonicParsing="false" onAction="#voltaLogin" text="Voltar" />
    </children>
 </AnchorPane>

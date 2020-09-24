@@ -15,23 +15,23 @@ public class Controller {
         Parent root = FXMLLoader.load(getClass().getResource("CriarInfografico.fxml"));
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Criar Infográfico");
-        primaryStage.setScene(new Scene(root, 790.0, 517.0));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
-    public void abreLogin(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+    public void abreFeed(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Feed.fxml"));
         Stage primaryStage = new Stage();
-        primaryStage.setTitle("Login");
-        primaryStage.setScene(new Scene(root, 790.0, 517.0));
+        primaryStage.setTitle("Feed");
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
-    public void abreModeradores() throws  Exception {
+    public void abreModera(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Moderadores.fxml"));
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Moderadores");
-        primaryStage.setScene(new Scene(root, 790.0, 517.0));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 }

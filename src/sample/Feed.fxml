@@ -11,14 +11,13 @@
    <children>
       <ImageView fitHeight="148.0" fitWidth="208.0" layoutX="21.0" layoutY="81.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../Downloads/014933a1cb3b03c7d756adad7bcd2466.jpg" />
          </image>
       </ImageView>
       <Label layoutX="53.0" layoutY="244.0" prefHeight="17.0" prefWidth="144.0" text="Nome do usuário" textFill="#b23144">
          <font>
             <Font name="Corbel Light" size="17.0" />
          </font></Label>
-      <Label layoutX="640.0" prefHeight="85.0" prefWidth="115.0" text="Ilumi" textAlignment="JUSTIFY" textFill="#ffd692" textOverrun="WORD_ELLIPSIS">
+      <Label layoutX="632.0" prefHeight="85.0" prefWidth="127.0" text="ILumi" textAlignment="JUSTIFY" textFill="#ffd692" textOverrun="WORD_ELLIPSIS">
          <font>
             <Font name="Corbel Light" size="55.0" />
          </font></Label>
@@ -39,6 +38,7 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <ScrollBar layoutX="950.0" layoutY="14.0" orientation="VERTICAL" prefHeight="550.0" prefWidth="25.0" />
+                        <Button layoutX="27.0" layoutY="113.0" mnemonicParsing="false" onAction="#btnVerPostagem" prefHeight="25.0" prefWidth="115.0" text="Ver postagem" />
                      </children>
                   </AnchorPane>
             </content>
@@ -54,6 +54,9 @@
           </Tab>
         </tabs>
       </TabPane>
+      <Button layoutX="29.0" layoutY="43.0" mnemonicParsing="false" onAction="#FazLogin" prefHeight="25.0" prefWidth="96.0" text="Fazer Login" />
+      <Button layoutX="133.0" layoutY="43.0" mnemonicParsing="false" onAction="#btnFazPostagem" prefHeight="25.0" prefWidth="115.0" text="Fazer Postagem" />
+      <Button layoutX="257.0" layoutY="43.0" mnemonicParsing="false" onAction="#btnVerPerfil" prefHeight="25.0" prefWidth="115.0" text="Ver perfil" />
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />
