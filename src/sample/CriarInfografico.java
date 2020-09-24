@@ -1,9 +1,13 @@
 package sample;
 
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
@@ -28,5 +32,31 @@ public class CriarInfografico {
             Image image = SwingFXUtils.toFXImage(bufferedImage, null);
             imageBox.setImage(image);
         }
+    }
+
+    public void voltarPostagem(ActionEvent actionEvent) throws IOException {
+         /*Parent root = FXMLLoader.load(getClass().getResource("CriarPost.fxml"));
+                Stage primaryStage = new Stage();
+                primaryStage.setTitle("CriarPost");
+                primaryStage.setScene(new Scene(root));
+                primaryStage.show();*/
+
+        final Node source = (Node) actionEvent.getSource();
+        final Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+    }
+
+    public void salvarInfografico(ActionEvent actionEvent) throws IOException {
+        /*Parent root = FXMLLoader.load(getClass().getResource("CriarPost.fxml"));
+                Stage primaryStage = new Stage();
+                primaryStage.setTitle("Criar Post");
+                primaryStage.setScene(new Scene(root));
+                primaryStage.show();*/
+
+        //salva infografico, poe no post
+
+        final Node source = (Node) actionEvent.getSource();
+        final Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 }

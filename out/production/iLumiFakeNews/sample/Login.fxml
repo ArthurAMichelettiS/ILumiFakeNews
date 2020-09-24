@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Login">
    <children>
-      <Button layoutX="539.0" layoutY="363.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="265.0" text="Login">
+      <Button layoutX="539.0" layoutY="363.0" mnemonicParsing="false" onAction="#fazLogin" prefHeight="69.0" prefWidth="265.0" text="Login">
          <font>
             <Font size="18.0" />
          </font></Button>
@@ -41,5 +41,6 @@
             <Font size="36.0" />
          </font>
       </Text>
+      <Button fx:id="btnCriarCadastro1" layoutX="306.0" layoutY="592.0" mnemonicParsing="false" onAction="#voltar" prefHeight="25.0" prefWidth="94.0" text="Voltar" />
    </children>
 </AnchorPane>
