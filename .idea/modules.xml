@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/business/business.iml" filepath="$PROJECT_DIR$/business/business.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comum/comum.iml" filepath="$PROJECT_DIR$/comum/comum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dao/dao.iml" filepath="$PROJECT_DIR$/dao/dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/iLumiFakeNews.iml" filepath="$PROJECT_DIR$/iLumiFakeNews.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javafx/javafx.iml" filepath="$PROJECT_DIR$/javafx/javafx.iml" />
     </modules>
   </component>
 </project>
