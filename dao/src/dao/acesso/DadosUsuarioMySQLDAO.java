@@ -1,16 +1,16 @@
-package acesso;
+package dao.acesso;
 
-import com.comum.DadosUsuario;
-import com.comum.Entidade;
-import com.comum.Usuario;
-import com.dao.basis.MySQLDAO;
+import comum.*;
+import comum.Entidade;
+import comum.Usuario;
+import dao.basis.MySQLDAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DadosUsuarioMySQLDAO <E extends Entidade> extends MySQLDAO
+public class DadosUsuarioMySQLDAO <E extends Entidade> extends basis.MySQLDAO
 {
     public DadosUsuarioMySQLDAO() {
         super(Usuario.class);
@@ -26,7 +26,7 @@ public class DadosUsuarioMySQLDAO <E extends Entidade> extends MySQLDAO
             entidade.setSobrenome(rs.getString("sobrenome"));
             entidade.setNumteste(rs.getInt("Numero de testes"));
         } catch (SQLException ex) {
-            Logger.getLogger(com.dao.acesso.DadosUsuarioMySQLDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(dao.acesso.DadosUsuarioMySQLDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return (E)entidade;
     }

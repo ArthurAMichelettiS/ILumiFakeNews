@@ -1,3 +1,5 @@
+package comum;
+
 public class DadosUsuario extends Entidade{
 
     private String Nome;

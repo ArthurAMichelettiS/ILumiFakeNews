@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package acesso;
+package dao.acesso;
 
-import basis;
-
+import comum.*;
 import comum.Entidade;
 import comum.Usuario;
 import dao.basis.MySQLDAO;
