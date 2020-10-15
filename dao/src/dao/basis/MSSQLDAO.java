@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * @param <E>
  */
 public abstract class MSSQLDAO <E extends Entidade> extends DAO {
-    final String STRING_CONEXAO = "jdbc:sqlserver://sql5080.site4now.net/DB_A688E3_IlumiDB?useTimezone=true&serverTimezone=UTC";
+    final String STRING_CONEXAO = "jdbc:sqlserver://sql5080.site4now.net";
     final String USUARIO = "DB_A688E3_IlumiDB_admin";
     final String SENHA = "IlumiFake01";
     private String tabela;
