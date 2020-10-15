@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.Denuncias">
+   <children>
+      <Label fx:id="lblDenuncias" layoutX="576.0" layoutY="221.0" text="Denúncias">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="txtAreaDenuncias" layoutX="422.0" layoutY="300.0" prefHeight="200.0" prefWidth="200.0" />
+      <CheckBox fx:id="cbxConfirmaDenuncia" layoutX="723.0" layoutY="381.0" mnemonicParsing="false" text="Confirma a denúncia?" />
+      <Button fx:id="btnProximoDenuncia" layoutX="723.0" layoutY="457.0" mnemonicParsing="false" onAction="#irProProximo" text="Próximo" />
+      <Button fx:id="btnProximoDenuncia1" layoutX="314.0" layoutY="555.0" mnemonicParsing="false" onAction="#voltarModeradores" text="Voltar" />
+   </children>
+</AnchorPane>

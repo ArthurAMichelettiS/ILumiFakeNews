@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.CriarPost">
+    <children>
+        <Button layoutX="542.0" layoutY="630.0" mnemonicParsing="false" onAction="#salvarPostagem" prefHeight="51.0" prefWidth="212.0" text="Postar">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <TextArea layoutX="301.0" layoutY="132.0" prefHeight="200.0" prefWidth="429.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <TextField layoutX="301.0" layoutY="79.0" prefHeight="25.0" prefWidth="224.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Button layoutX="301.0" layoutY="393.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="179.0" text="Adicionar anexos" />
+      <Label layoutX="301.0" layoutY="59.0" text="Titulo" />
+      <Label layoutX="301.0" layoutY="113.0" text="Texto" />
+      <ComboBox layoutX="758.0" layoutY="104.0" prefHeight="25.0" prefWidth="191.0" promptText="selecione uma tag" />
+      <ListView layoutX="758.0" layoutY="136.0" prefHeight="200.0" prefWidth="191.0" />
+      <ListView layoutX="301.0" layoutY="428.0" prefHeight="178.0" prefWidth="429.0" />
+      <Button layoutX="959.0" layoutY="104.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="+" />
+      <Button layoutX="794.0" layoutY="394.0" mnemonicParsing="false" onAction="#fazerInfografico" prefHeight="25.0" prefWidth="155.0" text="Fazer Infográfico" />
+      <Button layoutX="959.0" layoutY="136.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="-" />
+      <Label layoutX="301.0" layoutY="370.0" text="Adicione imagens videos ou pdfs!" />
+      <Label layoutX="794.0" layoutY="350.0" prefHeight="41.0" prefWidth="155.0" text="Faça seu proprio infografico para por na sua postagem!" wrapText="true" />
+      <ImageView fitHeight="178.0" fitWidth="200.0" layoutX="754.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="61.0" layoutY="636.0" mnemonicParsing="false" onAction="#voltarFeed" prefHeight="30.0" prefWidth="149.0" text="Voltar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>

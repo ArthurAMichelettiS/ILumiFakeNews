@@ -32,7 +32,7 @@ public class Usuario extends Entidade {
     }
 
     public String getLogin() {
-        return  login;
+        return login;
     }
     
     public void setLogin(String login) {
