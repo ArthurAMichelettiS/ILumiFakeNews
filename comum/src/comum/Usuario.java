@@ -5,17 +5,60 @@ package comum;/*
  */
 
 
+import java.util.Date;
+
 /**
  *
  * @author gabriell
  */
 public class Usuario extends Entidade {
 
-
     private String senha;
 
-    private String login;
+    private String email;
 
+    private Date nascimento;
+
+    private String CPF;
+
+    private String pais;
+
+    private String genero;
+
+    public Date getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(Date nascimento) {
+        this.nascimento = nascimento;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getCPF() {
+        return CPF;
+    }
+
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     /**
      * @return the senha
@@ -31,12 +74,12 @@ public class Usuario extends Entidade {
         this.senha = senha;
     }
 
-    public String getLogin() {
-        return login;
+    public String getEmail() {
+        return email;
     }
     
-    public void setLogin(String login) {
-        this.login = login;
-    }
+
+
+
     
 }
