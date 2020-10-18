@@ -22,7 +22,7 @@ public class Feed {
             System.out.println(e.getMessage());
             d = null;
         }
-        d.getLogin();
+        d.getEmail();
 
     }
 
