@@ -1,17 +1,17 @@
 package telas;
 
 import javafx.event.ActionEvent;
-import javafx.scene.Node;
-import javafx.stage.Stage;
-
-import java.io.IOException;
+import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 
 public class ValidacoesDoc {
 
 
-    public void voltar(ActionEvent actionEvent) throws IOException {
-        final Node source = (Node) actionEvent.getSource();
-        final Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
+    @FXML
+    private AnchorPane rootPane;
+
+
+    public void btnVoltarAction(ActionEvent actionEvent) {
+        HelperTelas.getInstance().VoltarTela(rootPane);
     }
 }

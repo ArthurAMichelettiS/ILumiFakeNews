@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane focusTraversable="true" prefHeight="720.0" prefWidth="1280.0" styleClass="-fx-background-color: #084559;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.Feed">
+<AnchorPane fx:id="rootPane" focusTraversable="true" prefHeight="720.0" prefWidth="1280.0" styleClass="-fx-background-color: #084559;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.Feed">
    <children>
       <ImageView fitHeight="148.0" fitWidth="208.0" layoutX="21.0" layoutY="81.0" pickOnBounds="true">
          <image>

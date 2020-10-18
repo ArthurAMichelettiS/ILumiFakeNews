@@ -1,30 +1,21 @@
 package telas;
 
 import javafx.event.ActionEvent;
-import javafx.scene.Node;
-import javafx.stage.Stage;
-
-
-import java.io.IOException;
+import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 
 public class Denuncias {
+
+    @FXML
+    private AnchorPane rootPane;
 
     public void irProProximo(){
         //altera o texto do Text Area para o próximo comentário denunciado
     }
 
-    public void voltarModeradores(ActionEvent actionEvent) throws IOException {
-        /*Parent root = FXMLLoader.load(getClass().getResource("CriarPost.fxml"));
-                Stage primaryStage = new Stage();
-                primaryStage.setTitle("Criar Post");
-                primaryStage.setScene(new Scene(root));
-                primaryStage.show();*/
+    public void voltarModeradores(ActionEvent actionEvent){
 
-        //salva infografico, poe no post
-
-        final Node source = (Node) actionEvent.getSource();
-        final Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
+        HelperTelas.getInstance().VoltarTela(rootPane);
     }
 
 }

@@ -1,51 +1,50 @@
 package telas;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 
 import java.io.IOException;
 
 public class CriarCadastro {
+
+    @FXML
+    private AnchorPane rootPane;
+
     public void cadastraUser(ActionEvent actionEvent) throws IOException {
-            /*Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-            Stage primaryStage = new Stage();
-            primaryStage.setTitle("Login");
-            primaryStage.setScene(new Scene(root));
-            primaryStage.show();*/
 
-            //salvar cadastro
+        //salvar cadastro
 
-            final Node source = (Node) actionEvent.getSource();
-            final Stage stage = (Stage) source.getScene().getWindow();
-            stage.close();
-        }
+        HelperTelas.getInstance().VoltarTela(rootPane);
+    }
 
-        public void voltaLogin(ActionEvent actionEvent) throws IOException {
-                /*Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-                Stage primaryStage = new Stage();
-                primaryStage.setTitle("Login");
-                primaryStage.setScene(new Scene(root));
-                primaryStage.show();*/
+    public void voltaLogin(ActionEvent actionEvent) throws IOException {
 
-                final Node source = (Node) actionEvent.getSource();
-                final Stage stage = (Stage) source.getScene().getWindow();
-                stage.close();
-        }
+        HelperTelas.getInstance().VoltarTela(rootPane);
+    }
 
     public void ckValidacoes(ActionEvent actionEvent) throws IOException {
         final CheckBox source = (CheckBox) actionEvent.getSource();
+
         if(source.isSelected()){
             Parent root = FXMLLoader.load(getClass().getResource("ArquivosParaValidacoes.fxml"));
             Stage primaryStage = new Stage();
             primaryStage.setTitle("Validações");
             primaryStage.setScene(new Scene(root));
-            primaryStage.show();
+
+            final Node src = (Node) actionEvent.getSource();
+            final Stage stage = (Stage) src.getScene().getWindow();
+            primaryStage.initOwner(stage);
+            primaryStage.initModality(Modality.APPLICATION_MODAL);
+            primaryStage.showAndWait();
+            //HelperTelas.getInstance().IrParaTela(rootPane, "ArquivosParaValidacoes.fxml");
         }
     }
 }

@@ -1,33 +1,22 @@
 package telas;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-import java.io.IOException;
+import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 
 public class Moderadores {
-    public void btnDenuncias() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Denuncias.fxml"));
-        Stage primaryStage = new Stage();
-        primaryStage.setTitle("Denúncias");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+
+    @FXML
+    private AnchorPane rootPane;
+
+    public void btnDenuncias() {
+        HelperTelas.getInstance().IrParaTela(rootPane, "Denuncias.fxml");
     }
-    public void btnValidacoes() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ValidacoesDoc.fxml"));
-        Stage primaryStage = new Stage();
-        primaryStage.setTitle("Validação de documentos");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+    public void btnValidacoes() {
+        HelperTelas.getInstance().IrParaTela(rootPane, "ValidacoesDoc.fxml");
     }
 
-    public void voltar(ActionEvent actionEvent) throws IOException {
-        final Node source = (Node) actionEvent.getSource();
-        final Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
+    public void btnVoltarAction(ActionEvent actionEvent) {
+        HelperTelas.getInstance().VoltarTela(rootPane);
     }
 }

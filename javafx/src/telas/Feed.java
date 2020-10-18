@@ -1,57 +1,41 @@
 package telas;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-import java.io.IOException;
+import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 
 public class Feed {
 
-    public void FazLogin(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        Stage primaryStage = new Stage();
+    @FXML
+    private AnchorPane rootPane;
 
+    public void FazLogin(ActionEvent actionEvent) {
+        HelperTelas.getInstance().IrParaTela(rootPane, "Login.fxml");
+
+
+        //test banco
         comum.Usuario d;
         try {
              d = (comum.Usuario)business.Acesso.listaDadosUsuario()[0];
         }
         catch (Exception e){
-            System.out.printf(e.getMessage());
+            System.out.println(e.getMessage());
             d = null;
         }
-
-        primaryStage.setTitle(d.getLogin());
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
-
+        d.getLogin();
 
     }
 
-    public void btnFazPostagem(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("CriarPost.fxml"));
-        Stage primaryStage = new Stage();
-        primaryStage.setTitle("Criar postagem");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+    public void btnFazPostagem(ActionEvent actionEvent){
+        HelperTelas.getInstance().IrParaTela(rootPane, "CriarPost.fxml");
     }
 
-    public void btnVerPostagem(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("VisualizaPost.fxml"));
-        Stage primaryStage = new Stage();
-        primaryStage.setTitle("Postagem");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+    public void btnVerPostagem(ActionEvent actionEvent){
+        HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
     }
 
-    public void btnVerPerfil(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Perfil.fxml"));
-        Stage primaryStage = new Stage();
-        primaryStage.setTitle("Perfil");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+    public void btnVerPerfil(ActionEvent actionEvent){
+        HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
     }
 
 }

@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane focusTraversable="true" prefHeight="720.0" prefWidth="1280.0" styleClass="-fx-background-color: #084559;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.Perfil">
+<AnchorPane fx:id="rootPane" focusTraversable="true" prefHeight="720.0" prefWidth="1280.0" styleClass="-fx-background-color: #084559;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.Perfil">
    <children>
       <ImageView fitHeight="209.0" fitWidth="284.0" layoutX="21.0" layoutY="20.0" pickOnBounds="true">
          <image>
@@ -97,7 +97,7 @@
          </font>
       </Label>
       <TextArea layoutX="46.0" layoutY="369.0" prefHeight="90.0" prefWidth="200.0" />
-       <Button layoutX="640.0" layoutY="662.0" mnemonicParsing="false" onAction="#voltar" prefHeight="33.0" prefWidth="131.0" text="Voltar ao Feed" textFill="#b23144">
+       <Button fx:id="btnVoltar" layoutX="640.0" layoutY="662.0" mnemonicParsing="false" onAction="#btnVoltarAction" prefHeight="33.0" prefWidth="131.0" text="Voltar ao Feed" textFill="#b23144">
            <font>
                <Font name="Corbel Light" size="14.0" />
            </font>

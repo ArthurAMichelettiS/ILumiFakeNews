@@ -1,56 +1,24 @@
 package telas;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-
-import java.io.IOException;
+import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 
 public class CriarPost {
 
-    public void salvarPostagem(ActionEvent actionEvent) throws IOException {
-        /*Parent root = FXMLLoader.load(getClass().getResource("CriarPost.fxml"));
-                Stage primaryStage = new Stage();
-                primaryStage.setTitle("Criar Post");
-                primaryStage.setScene(new Scene(root));
-                primaryStage.show();*/
+    @FXML
+    private AnchorPane rootPane;
+    public void salvarPostagem(ActionEvent actionEvent){
 
-        //salva infografico, poe no post
 
-        final Node source = (Node) actionEvent.getSource();
-        final Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
+        //salva post e stuff
+
+        HelperTelas.getInstance().VoltarTela(rootPane);
     }
 
-    public void voltarFeed(ActionEvent actionEvent) throws IOException {
-        /*Parent root = FXMLLoader.load(getClass().getResource("CriarPost.fxml"));
-                Stage primaryStage = new Stage();
-                primaryStage.setTitle("Criar Post");
-                primaryStage.setScene(new Scene(root));
-                primaryStage.show();*/
+    public void voltarFeed(ActionEvent actionEvent){
 
-        //salva infografico, poe no post
-
-        final Node source = (Node) actionEvent.getSource();
-        final Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
+        HelperTelas.getInstance().VoltarTela(rootPane);
     }
 
-    public void fazerInfografico(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("CriarInfografico.fxml"));
-                Stage primaryStage = new Stage();
-                primaryStage.setTitle("Criar infográfico");
-                primaryStage.setScene(new Scene(root));
-                primaryStage.show();
-
-        //salva infografico, poe no post
-
-        /*final Node source = (Node) actionEvent.getSource();
-        final Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();*/
-    }
 }
