@@ -5,6 +5,7 @@ package comum;/*
  */
 
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -17,7 +18,7 @@ public class Usuario extends Entidade {
 
     private String email;
 
-    private Date nascimento;
+    private LocalDate nascimento;
 
     private String CPF;
 
@@ -25,11 +26,11 @@ public class Usuario extends Entidade {
 
     private String genero;
 
-    public Date getNascimento() {
+    public LocalDate getNascimento() {
         return nascimento;
     }
 
-    public void setNascimento(Date nascimento) {
+    public void setNascimento(LocalDate nascimento) {
         this.nascimento = nascimento;
     }
 

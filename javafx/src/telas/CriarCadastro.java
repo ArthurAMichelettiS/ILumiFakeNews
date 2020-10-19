@@ -1,5 +1,6 @@
 package telas;
 
+import comum.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +8,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -18,9 +22,43 @@ public class CriarCadastro {
     @FXML
     private AnchorPane rootPane;
 
+    @FXML
+    private TextField txtNome;
+
+    @FXML
+    private TextField txtSenha;
+
+    @FXML
+    private TextField txtEmail;
+
+    @FXML
+    private TextField txtCPF;
+
+    @FXML
+    private DatePicker dpNiver;
+
+    @FXML
+    private CheckBox chRes;
+
+    @FXML
+    private ComboBox cbGen;
+
+    @FXML
+    private ComboBox cbPais;
+
     public void cadastraUser(ActionEvent actionEvent) throws IOException {
 
         //salvar cadastro
+        Usuario d = new Usuario();
+
+        d.setEmail(txtEmail.getText());
+        d.setSenha(txtSenha.getText());
+        d.setNascimento(dpNiver.getValue());
+        d.setCPF(txtCPF.getText());
+        d.setPais(cbPais.getValue().toString());
+        d.setGenero(cbGen.getValue().toString());
+
+
 
         HelperTelas.getInstance().VoltarTela(rootPane);
     }
