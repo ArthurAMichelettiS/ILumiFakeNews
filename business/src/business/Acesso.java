@@ -22,4 +22,8 @@ public class Acesso {
         UsuarioMSSQLDAO dados = new UsuarioMSSQLDAO();
         return dados.lista().toArray();
     }
+
+    public static void enviaDadosUsuario(Usuario d) throws SQLException{
+        UsuarioMSSQLDAO dados = new UsuarioMSSQLDAO();
+    }
 }

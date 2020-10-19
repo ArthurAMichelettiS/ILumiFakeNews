@@ -17,6 +17,10 @@ public class DadosUsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO
         setTabela("tbDadosUsuario");
     }
 
+    public void InsereUsuarioMSSQLDAO(){
+
+    }
+
     //atribui os campos de login e senha de uma tabela em um usuário
     @Override
     protected E preencheEntidade(ResultSet rs) {
