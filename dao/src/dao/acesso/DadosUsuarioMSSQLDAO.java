@@ -42,6 +42,11 @@ public class DadosUsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO
         return null;
     }
 
+    @Override
+    public void Insere(Entidade entidade) throws SQLException {
+
+    }
+
     //retorna o select para localizar um login
     @Override
     protected String getLocalizaCommand(){

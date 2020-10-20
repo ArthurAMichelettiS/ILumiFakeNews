@@ -25,5 +25,6 @@ public class Acesso {
 
     public static void enviaDadosUsuario(Usuario d) throws SQLException{
         UsuarioMSSQLDAO dados = new UsuarioMSSQLDAO();
+        dados.Insere(d);
     }
 }

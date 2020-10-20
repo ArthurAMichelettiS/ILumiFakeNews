@@ -9,8 +9,7 @@ import comum.Entidade;
 import comum.Usuario;
 import dao.basis.MSSQLDAO;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -50,4 +49,34 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     protected String getLocalizaCommand(){
         return "select * from usuario where email = ?";
     }
+
+    @Override
+    public void Insere(Entidade entidade) throws SQLException {
+        Usuario e = (Usuario) entidade;
+        try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
+            System.out.println("Banco conectado!");
+            // ? => binding
+            String SQL = setNovoUsuarioCommand();
+            try (PreparedStatement stmt = conexao.prepareStatement(SQL)) {
+                stmt.setString(1, e.getEmail());
+                stmt.setString(2, e.getSenha());
+                stmt.setString(3, e.getPais());
+                stmt.setString(4, e.getNome());
+                stmt.setString(5, e.getGenero());
+                stmt.setString(6, e.getNascimento().toString());
+                stmt.executeQuery();
+
+            }
+        }
+        catch (SQLException ea)
+        {
+            System.out.println(ea);
+        }
+    }
+
+
+
+
+
+
 }

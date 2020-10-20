@@ -22,7 +22,6 @@ public class Usuario extends Entidade {
 
     private LocalDate nascimento;
 
-    private String CPF;
 
     private String pais;
 
@@ -52,14 +51,6 @@ public class Usuario extends Entidade {
         this.genero = genero;
     }
 
-    public String getCPF() {
-        return CPF;
-    }
-
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
-    }
-
     public String getPais() {
         return pais;
     }
@@ -67,6 +58,7 @@ public class Usuario extends Entidade {
     public void setPais(String pais) {
         this.pais = pais;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }

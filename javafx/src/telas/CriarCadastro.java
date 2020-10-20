@@ -34,9 +34,6 @@ public class CriarCadastro {
     private TextField txtEmail;
 
     @FXML
-    private TextField txtCPF;
-
-    @FXML
     private DatePicker dpNiver;
 
     @FXML
@@ -259,7 +256,6 @@ public class CriarCadastro {
         d.setNome(txtNome.getText());
         d.setSenha(txtSenha.getText());
         d.setNascimento(dpNiver.getValue());
-        d.setCPF(txtCPF.getText());
         d.setPais(cbPais.getValue().toString());
         d.setGenero(cbGen.getValue().toString());
 

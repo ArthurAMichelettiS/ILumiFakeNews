@@ -8,6 +8,7 @@ package dao.basis;
 import comum.Entidade;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -28,7 +29,7 @@ public abstract class DAO <E extends Entidade> {
     public abstract E seleciona(int id);
     public abstract E localiza(String codigo) throws SQLException;
     public abstract ArrayList<E> lista() throws SQLException;
-    public abstract void Insere() throws SQLException;
+    public abstract void Insere(E entidade) throws SQLException;
     
     protected E getInstanceOfE()
     {
