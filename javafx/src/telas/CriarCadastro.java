@@ -256,6 +256,7 @@ public class CriarCadastro {
         Usuario d = new Usuario();
 
         d.setEmail(txtEmail.getText());
+        d.setNome(txtNome.getText());
         d.setSenha(txtSenha.getText());
         d.setNascimento(dpNiver.getValue());
         d.setCPF(txtCPF.getText());

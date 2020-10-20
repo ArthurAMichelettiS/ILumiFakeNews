@@ -14,6 +14,8 @@ import java.util.Date;
  */
 public class Usuario extends Entidade {
 
+    private String Nome;
+
     private String senha;
 
     private String email;
@@ -25,6 +27,14 @@ public class Usuario extends Entidade {
     private String pais;
 
     private String genero;
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public void setNome(String nome) {
+        Nome = nome;
+    }
 
     public LocalDate getNascimento() {
         return nascimento;
