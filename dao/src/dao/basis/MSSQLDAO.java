@@ -21,10 +21,11 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
     final String USUARIO = "DB_A688E3_IlumiDB_admin";
     final String SENHA = "IlumiFake01";
     private String tabela;
-    private String Nome;
+    private String nome;
     private String senha;
     private String email;
     private LocalDate nascimento;
+    private String RG;
     private String CPF;
     private String pais;
     private String genero;
@@ -87,9 +88,31 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
     }
 
     //Para ser utilizado pelos DAOs para inserção de usuário no banco
-    protected String setNovoUsuarioCommand() { return "insert into Usuario ( values";}
+    protected String setNovoUsuarioCommand() { return "insert into Usuario (E-mail, Senha, Pais, " +
+                                            "Nome, CPF, Genero, RG, DataNasc) values "
+                                            + email + senha + pais + nome + CPF + genero + RG + nascimento;}
 
+    @Override
+    public void Insere() throws SQLException {
+        try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
+            System.out.println("Banco conectado!");
+            // ? => binding
+            String SQL = setNovoUsuarioCommand();
+            try (PreparedStatement stmt = conexao.prepareStatement(SQL)) {
+                try (ResultSet rs = stmt.executeQuery()) {
 
+                }
+                catch (SQLException e)
+                {
+                    System.out.println("Query falha");
+                }
+            }
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Conexão falhou");
+        }
+    }
     //atribui os campos de row de uma tabela na entidade
     protected abstract E preencheEntidade(ResultSet rs);
 
