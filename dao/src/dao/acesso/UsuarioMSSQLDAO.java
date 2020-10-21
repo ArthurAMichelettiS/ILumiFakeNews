@@ -29,7 +29,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     protected E preencheEntidade(ResultSet rs) {
         Usuario entidade = new Usuario();
         try {
-            entidade.setEmail(rs.getString("E-mail"));
+            entidade.setEmail(rs.getString("Email"));
             entidade.setSenha(rs.getString("Senha"));
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioMSSQLDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -64,6 +64,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
                 stmt.setString(4, e.getNome());
                 stmt.setString(5, e.getGenero());
                 stmt.setString(6, e.getNascimento().toString());
+                System.out.println(stmt);
                 stmt.executeQuery();
 
             }

@@ -13,7 +13,7 @@ public class Feed {
         HelperTelas.getInstance().IrParaTela(rootPane, "Login.fxml");
 
 
-        //test banco
+        /* //test banco
         comum.Usuario d;
         try {
              d = (comum.Usuario)business.Acesso.listaDadosUsuario()[0];
@@ -23,7 +23,7 @@ public class Feed {
             d = null;
         }
         d.getEmail();
-
+        */
     }
 
     public void btnFazPostagem(ActionEvent actionEvent){
