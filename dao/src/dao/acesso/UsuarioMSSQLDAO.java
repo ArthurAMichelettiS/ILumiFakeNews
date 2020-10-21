@@ -44,7 +44,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         return null;
     }
 
-    //retorna o select para localizar um login
+    //retorna o select para localizar um logi
     @Override
     protected String getLocalizaCommand(){
         return "select * from usuario where email = ?";
