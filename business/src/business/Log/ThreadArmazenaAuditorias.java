@@ -7,26 +7,35 @@ import java.sql.SQLException;
 
 public class ThreadArmazenaAuditorias extends Thread {
 
-    public static boolean ativo;
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public boolean ativo;
 
     @Override
     public void run(){
-        ativo = true;
+        setAtivo(true);
         AuditoriaMSSQLDAO dados = new AuditoriaMSSQLDAO<>();
         Auditoria a = new Auditoria();
 
-        while (ativo){
+        while (isAtivo()){
            String msg = ControleAuditoria.getInstance().removeProxAuditoria();
 
-            if(msg!=null){
-                a.setDescricao(msg);
-                a.setIdTipo(0);
-                try {
+           try {
+                if(msg!=null){
+                    a.setDescricao(msg);
+                    a.setIdTipo(0);
                     dados.Insere(a);
-                    Thread.sleep(1);
-                } catch (SQLException | InterruptedException throwables) {
-                    throwables.printStackTrace();
                 }
+                Thread.sleep(1);
+
+            } catch (SQLException | InterruptedException erro) {
+                erro.printStackTrace();
             }
 
 

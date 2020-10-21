@@ -39,12 +39,16 @@ public class ControleAuditoria {
         thread.start();
     }
 
-    public void pararThread(){
+    public void pararThread() {
+
+        thread.setAtivo(false);
         try{
-            thread.join(2000);
+            thread.join(5000);
+            if(thread.isAlive())
+                thread.interrupt();
         }
-        catch (Exception erro){
-            //log
+        catch (InterruptedException erro){
+            erro.printStackTrace();
         }
     }
 }

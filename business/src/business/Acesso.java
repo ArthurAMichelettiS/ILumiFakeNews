@@ -1,7 +1,4 @@
 
-
-
-
 package business;
 
 import business.Log.ControleAuditoria;
@@ -13,10 +10,10 @@ import java.sql.SQLException;
 
 public class Acesso {
 
-    public static boolean validaLogin(Usuario u) throws SQLException {
+    public static boolean validaLogin(String email, String senha) throws SQLException {
         UsuarioMSSQLDAO dao = new UsuarioMSSQLDAO();
-        Usuario encontrado = (Usuario) dao.localiza(u.getEmail());
-        return true;
+        Usuario encontrado = (Usuario) dao.localiza(email);
+        return senha.equals(encontrado.getSenha());
     }
 
     public static Object[] listaDadosUsuario() throws SQLException {

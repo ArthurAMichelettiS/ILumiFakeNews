@@ -1,7 +1,6 @@
 package telas;
 
 import business.Log.ControleAuditoria;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,12 +14,16 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Inicio protótipo");
         primaryStage.setScene(new Scene(root));
-        primaryStage.show();
         ControleAuditoria.getInstance().iniciaThread();
+        primaryStage.show();
     }
 
-
     public static void main(String[] args) {
-        Application.launch(args);
+        try{
+            Application.launch(args);
+        }
+        finally {
+            ControleAuditoria.getInstance().pararThread();
+        }
     }
 }

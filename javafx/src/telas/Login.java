@@ -2,6 +2,7 @@ package telas;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -10,6 +11,12 @@ public class Login {
 
     @FXML
     private AnchorPane rootPane;
+
+    @FXML
+    private TextField txtSenha;
+
+    @FXML
+    private TextField txtEmail;
 
 
     public void abreCadastro(ActionEvent actionEvent) throws IOException {
@@ -23,6 +30,17 @@ public class Login {
     public void fazLogin(ActionEvent actionEvent) throws IOException {
 
         //loga user
+        /*try{
+            if(Acesso.validaLogin(txtEmail.getText(), txtSenha.getText())){
+                //logado
+            }
+            else{
+                new Alert(Alert.AlertType.ERROR, "Login Invalido!").showAndWait();
+            }
+        }
+        catch (SQLException erro) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, erro);
+        }*/
 
         HelperTelas.getInstance().VoltarTela(rootPane);
     }

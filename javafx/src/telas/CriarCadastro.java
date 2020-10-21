@@ -8,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -31,13 +28,13 @@ public class CriarCadastro {
     private TextField txtSenha;
 
     @FXML
+    private TextField txtSenhaConf;
+
+    @FXML
     private TextField txtEmail;
 
     @FXML
     private DatePicker dpNiver;
-
-    @FXML
-    private CheckBox chRes;
 
     @FXML
     private ComboBox cbGen;
@@ -248,20 +245,27 @@ public class CriarCadastro {
         cbGen.getItems().addAll("Masculino","Feminino","Prefiro Não Dizer");
     }
 
-    public void cadastraUser(ActionEvent actionEvent) throws IOException, SQLException {
-        //salvar cadastro
+    public void cadastraUser(ActionEvent actionEvent) {
+
         Usuario d = new Usuario();
 
-        d.setEmail(txtEmail.getText());
-        d.setNome(txtNome.getText());
-        d.setSenha(txtSenha.getText());
-        d.setNascimento(dpNiver.getValue());
-        d.setPais(cbPais.getValue().toString());
-        d.setGenero(cbGen.getValue().toString());
+        try{
+            d.setEmail(txtEmail.getText());
+            d.setNome(txtNome.getText());
+            d.setSenha(txtSenha.getText());
+            d.setNascimento(dpNiver.getValue());
+            d.setPais(cbPais.getValue().toString());
+            d.setGenero(cbGen.getValue().toString());
 
-        Acesso.enviaDadosUsuario(d);
-
-        HelperTelas.getInstance().VoltarTela(rootPane);
+            Acesso.enviaDadosUsuario(d);
+            HelperTelas.getInstance().VoltarTela(rootPane);
+        }
+        catch (SQLException erro){
+            new Alert(Alert.AlertType.ERROR, "Algo de errado ao salvar!").showAndWait();
+        }
+        catch (Exception erro){
+            new Alert(Alert.AlertType.ERROR, "Há valores incorretos!").showAndWait();
+        }
     }
 
     public void voltaLogin(ActionEvent actionEvent) throws IOException {

@@ -9,15 +9,16 @@ import comum.Entidade;
 import comum.Usuario;
 import dao.basis.MSSQLDAO;
 
-import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     public UsuarioMSSQLDAO() {
         super(Usuario.class);
-        setTabela("usuario");
+        setTabela("Usuario");
+        setColunaLocaliza("Email");
     }
 
     @Override
@@ -33,49 +34,27 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
             entidade.setEmail(rs.getString("Email"));
             entidade.setSenha(rs.getString("Senha"));
         } catch (SQLException ex) {
-            Logger.getLogger(UsuarioMSSQLDAO.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
         return (E)entidade;
     }
     
     
     @Override
-    public Entidade seleciona(int id) {
-        // Não há retorno por id
+    public Entidade localizaPorId(int id) {
         return null;
     }
 
-    //retorna o select para localizar um logi
     @Override
-    protected String getLocalizaCommand(){
-        return "select * from usuario where email = ?";
+    protected void preencheStatement(Entidade entidade, PreparedStatement stmt) throws SQLException {
+        Usuario u = (Usuario) entidade;
+        stmt.setString(1, u.getEmail());
+        stmt.setString(2, u.getSenha());
+        stmt.setString(3, u.getPais());
+        stmt.setString(4, u.getNome());
+        stmt.setString(5, u.getGenero());
+        String s = u.getNascimento().toString().replace("-","/");
+        stmt.setString(6, s);
     }
-
-    @Override
-    public void Insere(Entidade entidade) throws SQLException {
-        Usuario e = (Usuario) entidade;
-        try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
-            System.out.println("Banco conectado! 2");
-            // ? => binding
-            String SQL = setInsertCommand();
-            try (PreparedStatement stmt = conexao.prepareStatement(SQL)) {
-                stmt.setString(1, e.getEmail());
-                stmt.setString(2, e.getSenha());
-                stmt.setString(3, e.getPais());
-                stmt.setString(4, e.getNome());
-                stmt.setString(5, e.getGenero());
-                String s = e.getNascimento().toString().replace("-","/");
-                stmt.setString(6, s);
-
-                System.out.println(stmt);
-                stmt.executeQuery();
-            }
-        }
-        catch (SQLException ea)
-        {
-            System.out.println(ea.getMessage());
-        }
-    }
-
 
 }

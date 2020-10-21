@@ -10,16 +10,16 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <TextField layoutX="539.0" layoutY="240.0" prefHeight="30.0" prefWidth="265.0">
+      <TextField fx:id="txtEmail" layoutX="539.0" layoutY="240.0" prefHeight="30.0" prefWidth="265.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="539.0" layoutY="315.0" prefHeight="30.0" prefWidth="265.0">
+      <PasswordField fx:id="txtSenha" layoutX="539.0" layoutY="315.0" prefHeight="30.0" prefWidth="265.0">
          <font>
             <Font size="14.0" />
          </font>
-      </TextField>
+      </PasswordField>
       <Text layoutX="540.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail">
          <font>
             <Font size="18.0" />

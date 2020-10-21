@@ -7,18 +7,12 @@ package dao.basis;
 
 import comum.Entidade;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
-/**
- *
- * @author gabriell
- * @param <E>
- */
+
 public abstract class DAO <E extends Entidade> {
-    
-    //DAO genérico para ser acessado pelo business com funções de localizar e listar do banco
     
     protected Class<E> entityClass;
 
@@ -26,7 +20,7 @@ public abstract class DAO <E extends Entidade> {
         this.entityClass = entityClass;
     }
     
-    public abstract E seleciona(int id);
+    public abstract E localizaPorId(int id);
     public abstract E localiza(String codigo) throws SQLException;
     public abstract ArrayList<E> lista() throws SQLException;
     public abstract void Insere(E entidade) throws SQLException;
@@ -35,11 +29,10 @@ public abstract class DAO <E extends Entidade> {
     {
         try
         {
-            return entityClass.newInstance();
+            return entityClass.getDeclaredConstructor().newInstance();
         }
-        catch (IllegalAccessException | InstantiationException e)
+        catch (IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e)
         {
-            // Oops, no default constructor
             throw new RuntimeException(e);
         }
     }

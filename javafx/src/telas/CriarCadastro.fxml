@@ -8,14 +8,12 @@
    <children>
     <Button fx:id="btnCadastro" layoutX="1199.0" layoutY="680.0" mnemonicParsing="false" onAction="#cadastraUser" text="Cadastrar" />
       <TextField fx:id="txtNome" layoutX="684.0" layoutY="54.0" />
-      <TextField fx:id="txtSenha" layoutX="507.0" layoutY="168.0" />
+      <PasswordField fx:id="txtSenha" layoutX="507.0" layoutY="168.0" />
       <TextField fx:id="txtEmail" layoutX="507.0" layoutY="54.0" />
-      <TextField fx:id="txtCPF" layoutX="507.0" layoutY="104.0" />
       <Label layoutX="507.0" layoutY="37.0" text="E-mail" />
       <Label layoutX="688.0" layoutY="37.0" text="Nome" />
       <Label layoutX="507.0" layoutY="147.0" text="Senha" />
       <Label layoutX="683.0" layoutY="88.0" text="País" />
-      <Label layoutX="513.0" layoutY="88.0" text="CPF" />
       <CheckBox fx:id="chRes" layoutX="851.0" layoutY="172.0" mnemonicParsing="false" onAction="#ckValidacoes" text="Você é um pesquisador?" />
       <DatePicker fx:id="dpNiver" layoutX="851.0" layoutY="54.0" />
       <Label layoutX="851.0" layoutY="37.0" text="Data de Nascimento" />
@@ -25,7 +23,7 @@
       <Label layoutX="851.0" layoutY="88.0" text="Gênero" />
       <ImageView fx:id="ivProfile" fitHeight="347.0" fitWidth="352.0" layoutX="38.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="684.0" layoutY="147.0" text="Confirme a sua senha" />
-      <TextField layoutX="684.0" layoutY="168.0" />
+      <TextField fx:id="txtSenhaConf" layoutX="684.0" layoutY="168.0" />
       <Button fx:id="btnVoltar" layoutX="14.0" layoutY="680.0" mnemonicParsing="false" onAction="#voltaLogin" text="Voltar" />
    </children>
 </AnchorPane>

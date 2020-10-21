@@ -35,6 +35,7 @@ public class HelperTelas {
 
         try{
             AnchorPane pane = FXMLLoader.load(getClass().getResource(telasAcessadas.peek()));
+            painelOrigem.getStylesheets().clear();
             painelOrigem.getChildren().setAll(pane);
             telaAtual = telasAcessadas.pop();
         }

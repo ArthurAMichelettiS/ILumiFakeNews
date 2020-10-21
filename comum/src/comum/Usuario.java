@@ -6,12 +6,8 @@ package comum;/*
 
 
 import java.time.LocalDate;
-import java.util.Date;
 
-/**
- *
- * @author gabriell
- */
+
 public class Usuario extends Entidade {
 
     private String Nome;
@@ -22,10 +18,11 @@ public class Usuario extends Entidade {
 
     private LocalDate nascimento;
 
-
     private String pais;
 
     private String genero;
+
+
 
     public String getNome() {
         return Nome;
@@ -63,26 +60,16 @@ public class Usuario extends Entidade {
         this.email = email;
     }
 
-    /**
-     * @return the senha
-     */
+    public String getEmail() {
+        return email;
+    }
+
     public String getSenha() {
         return senha;
     }
 
-    /**
-     * @param senha the senha to set
-     */
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-    public String getEmail() {
-        return email;
-    }
-    
-
-
-
     
 }
