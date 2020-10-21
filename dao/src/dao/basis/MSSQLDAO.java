@@ -84,7 +84,7 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
         ArrayList<E> entidades = new ArrayList();
 
         try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
-            System.out.println("Banco conectado!");
+            System.out.println("Banco conectado! 3");
             // ? => binding
             String SQL = getListaCommand();
             try (PreparedStatement stmt = conexao.prepareStatement(SQL)) {

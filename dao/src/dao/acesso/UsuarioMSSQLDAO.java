@@ -22,7 +22,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected String setInsertCommand() { return "insert into Usuario (Email, Senha, Pais, " +
-            "Nome, Genero, DataNasc) values ?,?,?,?,?,?";}
+            "Nome, Genero, DataNasc) values (?,?,?,?,?,?)";}
 
 
     //atribui os campos de login e senha de uma tabela em um usuário
@@ -55,7 +55,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     public void Insere(Entidade entidade) throws SQLException {
         Usuario e = (Usuario) entidade;
         try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
-            System.out.println("Banco conectado!");
+            System.out.println("Banco conectado! 2");
             // ? => binding
             String SQL = setInsertCommand();
             try (PreparedStatement stmt = conexao.prepareStatement(SQL)) {

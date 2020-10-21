@@ -52,5 +52,10 @@ public class DadosUsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO
     protected String getLocalizaCommand(){
         return "select * from tbDadosUsuario where nome = ?";
     }
+
+    @Override
+    protected String setInsertCommand() {
+        return null;
+    }
 }
 

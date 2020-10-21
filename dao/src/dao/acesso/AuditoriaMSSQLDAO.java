@@ -2,7 +2,6 @@ package dao.acesso;
 
 import comum.Auditoria;
 import comum.Entidade;
-import comum.Usuario;
 import dao.basis.MSSQLDAO;
 
 import java.sql.*;
@@ -11,13 +10,13 @@ import java.util.logging.Logger;
 
 public class AuditoriaMSSQLDAO <E extends Entidade> extends MSSQLDAO {
     public AuditoriaMSSQLDAO() {
-        super(Usuario.class);
+        super(Auditoria.class);
         setTabela("Auditoria");
     }
 
     @Override
     protected String setInsertCommand() { return "insert into "+ tabela +" (descricao, " +
-            "DataNasc) values ?,?";}
+            "IdTipo) values (?,?)";}
 
     //atribui os campos de login e senha de uma tabela em um usuário
     @Override
@@ -49,7 +48,7 @@ public class AuditoriaMSSQLDAO <E extends Entidade> extends MSSQLDAO {
     public void Insere(Entidade entidade) throws SQLException {
         Auditoria e = (Auditoria) entidade;
         try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
-            System.out.println("Banco conectado!");
+            System.out.println("Banco conectado! 1");
             // ? => binding
             String SQL = setInsertCommand();
             try (PreparedStatement stmt = conexao.prepareStatement(SQL)) {

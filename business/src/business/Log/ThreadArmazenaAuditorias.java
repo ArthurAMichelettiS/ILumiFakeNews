@@ -12,26 +12,24 @@ public class ThreadArmazenaAuditorias extends Thread {
     @Override
     public void run(){
         ativo = true;
+        AuditoriaMSSQLDAO dados = new AuditoriaMSSQLDAO<>();
+        Auditoria a = new Auditoria();
+
         while (ativo){
            String msg = ControleAuditoria.getInstance().removeProxAuditoria();
 
-
-            AuditoriaMSSQLDAO dados = new AuditoriaMSSQLDAO<>();
-            Auditoria a = new Auditoria();
-            a.setDescricao(msg);
-            a.setIdTipo(0);
-            try {
-                dados.Insere(a);
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
+            if(msg!=null){
+                a.setDescricao(msg);
+                a.setIdTipo(0);
+                try {
+                    dados.Insere(a);
+                    Thread.sleep(1);
+                } catch (SQLException | InterruptedException throwables) {
+                    throwables.printStackTrace();
+                }
             }
 
-            try {
-                Thread.sleep(1);
-            }
-            catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
         }
     }
 
