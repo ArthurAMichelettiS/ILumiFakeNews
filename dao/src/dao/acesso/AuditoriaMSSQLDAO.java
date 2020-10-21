@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao.acesso;
 
+import comum.Auditoria;
 import comum.Entidade;
 import comum.Usuario;
 import dao.basis.MSSQLDAO;
@@ -13,61 +9,53 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
-    public UsuarioMSSQLDAO() {
+public class AuditoriaMSSQLDAO <E extends Entidade> extends MSSQLDAO {
+    public AuditoriaMSSQLDAO() {
         super(Usuario.class);
-        setTabela("usuario");
+        setTabela("Auditoria");
     }
 
     @Override
-    protected String setInsertCommand() { return "insert into Usuario (Email, Senha, Pais, " +
-            "Nome, Genero, DataNasc) values ?,?,?,?,?,?";}
-
+    protected String setInsertCommand() { return "insert into "+ tabela +" (descricao, " +
+            "DataNasc) values ?,?";}
 
     //atribui os campos de login e senha de uma tabela em um usuário
     @Override
     protected E preencheEntidade(ResultSet rs) {
-        Usuario entidade = new Usuario();
+        Auditoria entidade = new Auditoria();
         try {
-            entidade.setEmail(rs.getString("Email"));
-            entidade.setSenha(rs.getString("Senha"));
+            entidade.setIdTipo(rs.getInt("IdTipo"));
+            entidade.setDescricao(rs.getString("descricao"));
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioMSSQLDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return (E)entidade;
     }
-    
-    
+
+
     @Override
     public Entidade seleciona(int id) {
         // Não há retorno por id
         return null;
     }
 
-    //retorna o select para localizar um logi
+    //retorna o select para localizar um login
     @Override
     protected String getLocalizaCommand(){
-        return "select * from usuario where email = ?";
+        return "select * from " + tabela + " where id = ?";
     }
 
     @Override
     public void Insere(Entidade entidade) throws SQLException {
-        Usuario e = (Usuario) entidade;
+        Auditoria e = (Auditoria) entidade;
         try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
             System.out.println("Banco conectado!");
             // ? => binding
             String SQL = setInsertCommand();
             try (PreparedStatement stmt = conexao.prepareStatement(SQL)) {
-                stmt.setString(1, e.getEmail());
-                stmt.setString(2, e.getSenha());
-                stmt.setString(3, e.getPais());
-                stmt.setString(4, e.getNome());
-                stmt.setString(5, e.getGenero());
-                String s = e.getNascimento().toString().replace("-","/");
-                stmt.setString(6, s);
+                stmt.setString(1, e.getDescricao());
+                stmt.setInt(2, e.getIdTipo());
 
-                System.out.println(stmt);
                 stmt.executeQuery();
             }
         }

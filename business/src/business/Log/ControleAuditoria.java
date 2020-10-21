@@ -1,4 +1,4 @@
-package dao.Auditoria;
+package business.Log;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -28,8 +28,8 @@ public class ControleAuditoria {
     }
 
     public String removeProxAuditoria(){
-        String msg = auditoriasParaSalvar.poll();
-        return msg;
+        //msg
+        return auditoriasParaSalvar.poll();
     }
 
     public void iniciaThread(){
@@ -39,14 +39,12 @@ public class ControleAuditoria {
         thread.start();
     }
 
-    public void pararThead(){
+    public void pararThread(){
         try{
             thread.join(2000);
-
         }
         catch (Exception erro){
             //log
         }
     }
-
 }

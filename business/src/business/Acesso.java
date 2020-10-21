@@ -4,6 +4,7 @@
 
 package business;
 
+import business.Log.ControleAuditoria;
 import comum.Usuario;
 import dao.acesso.UsuarioMSSQLDAO;
 
@@ -26,5 +27,6 @@ public class Acesso {
     public static void enviaDadosUsuario(Usuario d) throws SQLException{
         UsuarioMSSQLDAO dados = new UsuarioMSSQLDAO();
         dados.Insere(d);
+        ControleAuditoria.getInstance().AddAuditoria("Usuario salvo: " + d.getEmail());
     }
 }

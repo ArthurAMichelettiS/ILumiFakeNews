@@ -8,7 +8,6 @@ package dao.basis;
 import comum.Entidade;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -20,7 +19,7 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
     protected final String STRING_CONEXAO = "jdbc:sqlserver://sql5080.site4now.net";
     protected final String USUARIO = "DB_A688E3_IlumiDB_admin";
     protected final String SENHA = "IlumiFake01";
-    private String tabela;
+    protected String tabela;
 
     public MSSQLDAO(Class entityClass) {
         super(entityClass);
@@ -36,12 +35,6 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
         return null;
     }
 
-    /**
-     *
-     * @param codigo
-     * @return
-     * @throws SQLException
-     */
     @Override
     public E localiza (String codigo) throws SQLException {
         E entidade = null;
@@ -79,8 +72,8 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
     }
 
     //Para ser utilizado pelos DAOs para inserção de usuário no banco
-    protected String setNovoUsuarioCommand() { return "insert into Usuario (Email, Senha, Pais, " +
-                                                "Nome, Genero, DataNasc) values  (?,?,?,?,?,?)";}
+    protected abstract String setInsertCommand() ;
+
 
     //atribui os campos de row de uma tabela na entidade
     protected abstract E preencheEntidade(ResultSet rs);
