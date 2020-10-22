@@ -9,14 +9,19 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+import java.awt.*;
+import java.io.File;
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class CriarCadastro {
+public class CriarCadastro{
 
     @FXML
     private AnchorPane rootPane;
@@ -41,6 +46,9 @@ public class CriarCadastro {
 
     @FXML
     private ComboBox cbPais;
+
+    @FXML
+    private ImageView ivProfile;
 
     @FXML
     private void initialize() {
@@ -290,6 +298,17 @@ public class CriarCadastro {
             //HelperTelas.getInstance().IrParaTela(rootPane, "ArquivosParaValidacoes.fxml");
         }
     }
-}
+
+    public void selecionaImagem(ActionEvent actionEvent) {
+        Stage primaryStage = new Stage();
+        primaryStage.setTitle("JavaFX App");
+
+        FileChooser fileChooser = new FileChooser();
+        File selectedFile = fileChooser.showOpenDialog(primaryStage);
+        primaryStage.show();
+        }
+
+    }
+
 
 

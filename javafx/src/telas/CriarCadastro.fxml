@@ -17,7 +17,7 @@
       <CheckBox fx:id="chRes" layoutX="851.0" layoutY="172.0" mnemonicParsing="false" onAction="#ckValidacoes" text="Você é um pesquisador?" />
       <DatePicker fx:id="dpNiver" layoutX="851.0" layoutY="54.0" />
       <Label layoutX="851.0" layoutY="37.0" text="Data de Nascimento" />
-      <Button fx:id="btnPic" layoutX="155.0" layoutY="404.0" mnemonicParsing="false" text="Selecione uma foto" />
+      <Button fx:id="btnPic" layoutX="155.0" layoutY="404.0" mnemonicParsing="false" onAction="#selecionaImagem" text="Selecione uma foto" />
       <ComboBox fx:id="cbGen" layoutX="851.0" layoutY="104.0" prefHeight="26.0" prefWidth="174.0" promptText="Selecione o seu gênero" />
       <ComboBox fx:id="cbPais" layoutX="683.0" layoutY="104.0" prefWidth="150.0" promptText="Selecione o seu país" />
       <Label layoutX="851.0" layoutY="88.0" text="Gênero" />
