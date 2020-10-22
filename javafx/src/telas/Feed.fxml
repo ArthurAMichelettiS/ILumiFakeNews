@@ -10,15 +10,20 @@
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootPane" focusTraversable="true" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../new%201.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.Feed">
    <children>
-      <ImageView fitHeight="148.0" fitWidth="208.0" layoutX="21.0" layoutY="81.0" pickOnBounds="true">
-         <image>
+      <HBox layoutX="21.0" layoutY="81.0">
+         <children>
+            <ImageView fitHeight="148.0" fitWidth="208.0" pickOnBounds="true">
+               <image>
          </image>
-      </ImageView>
+            </ImageView>
+         </children>
+      </HBox>
       <Label layoutX="48.0" layoutY="251.0" prefHeight="17.0" prefWidth="144.0" text="Nome do usuário" textFill="#b23144">
          <font>
             <Font name="Corbel Light" size="17.0" />
