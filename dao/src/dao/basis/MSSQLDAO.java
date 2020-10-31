@@ -32,7 +32,7 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
 
     @Override
     public E localizaPorId(int id) {
-        // Não há retorno por id
+        // Não há retorno por idA
         return null;
     }
 

@@ -31,7 +31,8 @@ public abstract class DAO <E extends Entidade> {
         {
             return entityClass.getDeclaredConstructor().newInstance();
         }
-        catch (IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e)
+        catch (IllegalAccessException | InstantiationException |
+                NoSuchMethodException | InvocationTargetException e)
         {
             throw new RuntimeException(e);
         }
