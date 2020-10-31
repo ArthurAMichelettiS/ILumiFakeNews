@@ -59,6 +59,7 @@ public class HelperTelas {
         }
         catch (Exception erro){
             //log
+            System.out.printf(erro.getMessage());
         }
     }
 }
