@@ -2,6 +2,7 @@
 package business;
 
 import business.Log.ControleAuditoria;
+import comum.Postagem;
 import comum.Usuario;
 import comum.enums.TipoUsuario;
 import dao.basis.DAO;
@@ -32,6 +33,16 @@ public class Acesso {
         DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
         dao.Insere(u);
         ControleAuditoria.getInstance().AddAuditoria("Usuario salvo: " + u.getEmail());
+    }
+
+    public static void enviaPost (Postagem p) throws SQLException{
+        DAO dao = EntidadeDAO.POSTAGEM.getEntidadeDAO();
+        dao.Insere(p);
+    }
+
+    public static void enviaPostCientifico (Postagem pc) throws SQLException {
+        DAO dao = EntidadeDAO.POSTAGEM.getEntidadeDAO();
+        dao.Insere(pc);
     }
     
     public static boolean ehModeradorLogado(){
