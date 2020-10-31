@@ -1,11 +1,18 @@
 package telas;
 
+import business.Acesso;
+import business.DefinicoesPadrao;
+import comum.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Login {
 
@@ -30,9 +37,11 @@ public class Login {
     public void fazLogin(ActionEvent actionEvent) throws IOException {
 
         //loga user
-        /*try{
-            if(Acesso.validaLogin(txtEmail.getText(), txtSenha.getText())){
-                //logado
+        try{
+            Usuario logando = Acesso.validaLogin(txtEmail.getText(), txtSenha.getText());
+            if(logando != null){
+                DefinicoesPadrao.getInstance().setUsuarioLogado(logando);
+                HelperTelas.getInstance().VoltarTela(rootPane);
             }
             else{
                 new Alert(Alert.AlertType.ERROR, "Login Invalido!").showAndWait();
@@ -40,9 +49,8 @@ public class Login {
         }
         catch (SQLException erro) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, erro);
-        }*/
+        }
 
-        HelperTelas.getInstance().VoltarTela(rootPane);
     }
 }
 

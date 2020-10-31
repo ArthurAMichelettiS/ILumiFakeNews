@@ -9,15 +9,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import java.awt.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -259,6 +257,7 @@ public class CriarCadastro{
         Usuario d = new Usuario();
 
         try{
+
             d.setEmail(txtEmail.getText());
             d.setNome(txtNome.getText());
             d.setSenha(txtSenha.getText());

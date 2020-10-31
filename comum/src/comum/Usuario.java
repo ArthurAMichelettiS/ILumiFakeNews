@@ -22,6 +22,7 @@ public class Usuario extends Entidade {
 
     private String genero;
 
+    private int idTipoDeUsuario;
 
 
     public String getNome() {
@@ -71,5 +72,12 @@ public class Usuario extends Entidade {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
+    public int getIdTipoDeUsuario() {
+        return idTipoDeUsuario;
+    }
+
+    public void setIdTipoDeUsuario(int idTipoDeUsuario) {
+        this.idTipoDeUsuario = idTipoDeUsuario;
+    }
 }

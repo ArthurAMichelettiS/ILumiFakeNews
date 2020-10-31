@@ -3,6 +3,7 @@ package telas;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
+import java.net.URL;
 import java.util.Stack;
 
 public class HelperTelas {
@@ -50,8 +51,8 @@ public class HelperTelas {
         try{
             //if(!destino.substring(destino.length() - 4).equals(".fxml"))
               //  destino = destino + ".fxml";
-
-            AnchorPane pane = FXMLLoader.load(getClass().getResource(destino));
+            URL s = getClass().getResource(destino);
+            AnchorPane pane = FXMLLoader.load(s);
             painelOrigem.getChildren().setAll(pane);
             telasAcessadas.add(telaAtual);
             telaAtual = destino;

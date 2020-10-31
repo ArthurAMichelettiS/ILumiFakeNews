@@ -8,6 +8,7 @@ public class CriarPost {
 
     @FXML
     private AnchorPane rootPane;
+
     public void salvarPostagem(ActionEvent actionEvent){
 
 

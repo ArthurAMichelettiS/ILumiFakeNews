@@ -11,10 +11,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Feed.fxml"));
         primaryStage.setTitle("Inicio protótipo");
         primaryStage.setScene(new Scene(root));
         ControleAuditoria.getInstance().iniciaThread();
+        HelperTelas.getInstance().setTelaInicial("Feed.fxml");
         primaryStage.show();
     }
 

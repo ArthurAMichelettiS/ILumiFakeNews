@@ -8,7 +8,6 @@ public class Postagem extends Entidade {
 
     private String Conteudo;
 
-    private int Numteste;
 
 
     public String getTitulo() {
@@ -27,13 +26,6 @@ public class Postagem extends Entidade {
         Conteudo = conteudo;
     }
 
-    public int getNumteste() {
-        return Numteste;
-    }
-
-    public void setNumteste(int numteste) {
-        Numteste = numteste;
-    }
 }
 
 

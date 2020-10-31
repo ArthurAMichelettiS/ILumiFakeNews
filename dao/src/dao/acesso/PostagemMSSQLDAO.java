@@ -25,7 +25,6 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO
         try {
             entidade.setTitulo(rs.getString("titulo"));
             entidade.setConteudo(rs.getString("conteudo"));
-            entidade.setNumteste(rs.getInt("Numero de testes"));
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
