@@ -23,6 +23,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.regex.Pattern;
 
 public class CriarPostCientifico {
 
@@ -35,6 +37,9 @@ public class CriarPostCientifico {
 
     @FXML
     private AnchorPane rootPane;
+
+    @FXML
+    private TextArea txtTags;
 
     public byte[] person_image;
 
@@ -49,6 +54,7 @@ public class CriarPostCientifico {
             Postagem pc = new Postagem();
             pc.setTitulo(txtTitulo.getText());
             pc.setConteudo(txtConteudo.getText());
+            pc.setTags(Arrays.asList(txtTags.getText().split(Pattern.quote(" "))));
             pc.setImagem(person_image);
             Acesso.enviaPostCientifico(pc);
             HelperTelas.getInstance().VoltarTela(rootPane);

@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.sql.SQLException;
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 public class CriarPost {
 
@@ -34,7 +35,7 @@ public class CriarPost {
             Postagem p = new Postagem();
             p.setTitulo(txtTituloPergunta.getText());
             p.setConteudo(txtConteudo.getText());
-            p.setTags(Arrays.asList(txtTags.getText().split(" ",50)));
+            p.setTags(Arrays.asList(txtTags.getText().split(Pattern.quote(" "))));
             Acesso.enviaPost(p);
             HelperTelas.getInstance().VoltarTela(rootPane);
         }
