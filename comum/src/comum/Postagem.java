@@ -1,6 +1,8 @@
 package comum;
 
-import java.awt.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Postagem extends Entidade {
 
@@ -9,6 +11,8 @@ public class Postagem extends Entidade {
     private String Titulo;
 
     private String Conteudo;
+
+    private List<String> Tags;
 
     private byte[] Imagem;
 
@@ -31,6 +35,10 @@ public class Postagem extends Entidade {
     public byte[] getImagem() { return Imagem; }
 
     public void setImagem(byte[] imagem) { Imagem = imagem; }
+
+    public List<String> getTags() { return Tags; }
+
+    public void setTags(List<String> tags) { Tags = tags; }
 }
 
 

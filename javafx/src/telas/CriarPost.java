@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.sql.SQLException;
+import java.util.Arrays;
 
 public class CriarPost {
 
@@ -18,6 +19,9 @@ public class CriarPost {
 
     @FXML
     private TextArea txtConteudo;
+
+    @FXML
+    private TextArea txtTags;
 
     @FXML
     private AnchorPane rootPane;
@@ -30,6 +34,7 @@ public class CriarPost {
             Postagem p = new Postagem();
             p.setTitulo(txtTituloPergunta.getText());
             p.setConteudo(txtConteudo.getText());
+            p.setTags(Arrays.asList(txtTags.getText().split(" ",50)));
             Acesso.enviaPost(p);
             HelperTelas.getInstance().VoltarTela(rootPane);
         }
