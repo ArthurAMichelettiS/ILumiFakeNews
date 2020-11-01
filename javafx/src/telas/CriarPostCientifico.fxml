@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../new%201.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.CriarPostCientifico">
+<AnchorPane fx:id="rootPane" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../new%201.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.CriarPostCientifico">
     <children>
         <Button layoutX="542.0" layoutY="630.0" mnemonicParsing="false" onAction="#salvarPostagem" prefHeight="51.0" prefWidth="212.0" text="Postar">
          <font>
@@ -34,5 +40,6 @@
       </Button>
       <Label layoutX="26.0" layoutY="25.0" prefHeight="79.0" prefWidth="297.0" styleClass="label-header" text="Criar postagem" />
       <Label layoutX="91.0" layoutY="94.0" styleClass="label-header" text="científica" />
+      <ImageView fx:id="ivAnexo" fitHeight="150.0" fitWidth="359.0" layoutX="401.0" layoutY="446.0" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>

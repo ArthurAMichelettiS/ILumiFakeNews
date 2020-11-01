@@ -1,5 +1,7 @@
 package comum;
 
+import java.awt.*;
+
 public class Postagem extends Entidade {
 
     //TODO
@@ -8,7 +10,7 @@ public class Postagem extends Entidade {
 
     private String Conteudo;
 
-
+    private byte[] Imagem;
 
     public String getTitulo() {
         return Titulo;
@@ -26,6 +28,9 @@ public class Postagem extends Entidade {
         Conteudo = conteudo;
     }
 
+    public byte[] getImagem() { return Imagem; }
+
+    public void setImagem(byte[] imagem) { Imagem = imagem; }
 }
 
 

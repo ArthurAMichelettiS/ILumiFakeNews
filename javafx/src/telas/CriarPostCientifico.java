@@ -12,11 +12,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -32,7 +36,10 @@ public class CriarPostCientifico {
     @FXML
     private AnchorPane rootPane;
 
-    public ImageView selectedImage;
+    public byte[] person_image;
+
+    @FXML
+    public ImageView ivAnexo;
 
     public void salvarPostagem(ActionEvent actionEvent) {
 
@@ -42,6 +49,7 @@ public class CriarPostCientifico {
             Postagem pc = new Postagem();
             pc.setTitulo(txtTitulo.getText());
             pc.setConteudo(txtConteudo.getText());
+            pc.setImagem(person_image);
             Acesso.enviaPostCientifico(pc);
             HelperTelas.getInstance().VoltarTela(rootPane);
         } catch (SQLException erro) {
@@ -54,17 +62,30 @@ public class CriarPostCientifico {
 
     public void anexar(ActionEvent actionEvent) throws IOException {
 
+        /*
         JFileChooser chooseFile = new JFileChooser();
         JPanel test = new JPanel();
         chooseFile.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
         int result = chooseFile.showOpenDialog(test);
+         */
 
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = chooseFile.getSelectedFile();
-            BufferedImage bufferedImage = ImageIO.read(selectedFile);
-            Image image = SwingFXUtils.toFXImage(bufferedImage, null);
-            selectedImage.setImage(image);
+        Stage primaryStage = new Stage();
+        FileChooser fileChooser = new FileChooser();
+        File selectedFile = fileChooser.showOpenDialog(primaryStage);
+        Image image = new Image(selectedFile.toURI().toString());
+        ivAnexo.setImage(image);
+
+
+        FileInputStream fis = new FileInputStream(selectedFile);
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        byte[] buf = new byte[10241];
+        for (int readNum; (readNum = fis.read(buf)) != -1; ) {
+            bos.write(buf, 0, readNum);
         }
+        person_image = bos.toByteArray();
+
+
     }
 
     public void voltarFeed(ActionEvent actionEvent) {

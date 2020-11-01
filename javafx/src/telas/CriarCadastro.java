@@ -20,7 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class CriarCadastro{
+public class CriarCadastro {
 
     @FXML
     private AnchorPane rootPane;
@@ -248,15 +248,15 @@ public class CriarCadastro{
                 "Vietname",
                 "Zâmbia",
                 "Zimbábue"
-                );
-        cbGen.getItems().addAll("Masculino","Feminino","Prefiro Não Dizer");
+        );
+        cbGen.getItems().addAll("Masculino", "Feminino", "Prefiro Não Dizer");
     }
 
     public void cadastraUser(ActionEvent actionEvent) {
 
         Usuario d = new Usuario();
 
-        try{
+        try {
 
             d.setEmail(txtEmail.getText());
             d.setNome(txtNome.getText());
@@ -268,11 +268,9 @@ public class CriarCadastro{
 
             Acesso.enviaDadosUsuario(d);
             HelperTelas.getInstance().VoltarTela(rootPane);
-        }
-        catch (SQLException erro){
+        } catch (SQLException erro) {
             new Alert(Alert.AlertType.ERROR, "Algo de errado ao salvar!").showAndWait();
-        }
-        catch (Exception erro){
+        } catch (Exception erro) {
             new Alert(Alert.AlertType.ERROR, "Há valores incorretos!").showAndWait();
         }
     }
@@ -285,7 +283,7 @@ public class CriarCadastro{
     public void ckValidacoes(ActionEvent actionEvent) throws IOException {
         final CheckBox source = (CheckBox) actionEvent.getSource();
 
-        if(source.isSelected()){
+        if (source.isSelected()) {
             Parent root = FXMLLoader.load(getClass().getResource("ArquivosParaValidacoes.fxml"));
             Stage primaryStage = new Stage();
             primaryStage.setTitle("Validações");
@@ -301,14 +299,17 @@ public class CriarCadastro{
     }
 
     public void selecionaImagem(ActionEvent actionEvent) {
-        Stage primaryStage = new Stage();
-        FileChooser fileChooser = new FileChooser();
-        File selectedFile = fileChooser.showOpenDialog(primaryStage);
-        Image image = new Image(selectedFile.toURI().toString());
-        ivProfile.setImage(image);
+        try {
+            Stage primaryStage = new Stage();
+            FileChooser fileChooser = new FileChooser();
+            File selectedFile = fileChooser.showOpenDialog(primaryStage);
+            Image image = new Image(selectedFile.toURI().toString());
+            ivProfile.setImage(image);
+        } catch (Exception ex) {
+            //nothing
         }
-
     }
+}
 
 
 

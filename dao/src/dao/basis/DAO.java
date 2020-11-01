@@ -11,7 +11,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
 public abstract class DAO <E extends Entidade> {
     
     protected Class<E> entityClass;

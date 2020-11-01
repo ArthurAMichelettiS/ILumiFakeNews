@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class ArquivosParaValidacoes {
+
     public ImageView imageDocCFoto;
     public ImageView imageComprovantePesquisador;
 
