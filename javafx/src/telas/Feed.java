@@ -11,7 +11,6 @@ public class Feed {
     @FXML
     private AnchorPane rootPane;
 
-
     @FXML
     public Button btnFazLogin;
 
@@ -30,7 +29,6 @@ public class Feed {
 
     public void FazLogin(ActionEvent actionEvent) {
         HelperTelas.getInstance().IrParaTela(rootPane, "Login.fxml");
-
     }
 
     public void btnFazPostagem(ActionEvent actionEvent){
@@ -41,8 +39,11 @@ public class Feed {
         HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
     }
 
+    public void btnFazPostCientifico(ActionEvent actionEvent){
+        HelperTelas.getInstance().IrParaTela(rootPane, "CriarPostCientifico.fxml");
+    }
+
     public void btnVerPerfil(ActionEvent actionEvent){
         HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
     }
-
 }

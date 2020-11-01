@@ -25,7 +25,7 @@ public class ArquivosParaValidacoes {
     public void carregaDocFoto() throws IOException {
         JFileChooser chooseFile = new JFileChooser();
         JPanel test = new JPanel();
-        chooseFile.setCurrentDirectory(new File(System.getProperty("user.home")));
+        chooseFile.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
         int result = chooseFile.showOpenDialog(test);
 
         if (result == JFileChooser.APPROVE_OPTION) {

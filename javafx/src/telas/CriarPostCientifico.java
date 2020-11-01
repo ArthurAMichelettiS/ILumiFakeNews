@@ -7,13 +7,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -26,10 +27,7 @@ public class CriarPostCientifico {
     private TextField txtTitulo;
 
     @FXML
-    private TextField txtConteudo;
-
-    @FXML
-    private ComboBox cbxTag;
+    private TextArea txtConteudo;
 
     @FXML
     private AnchorPane rootPane;
@@ -58,7 +56,7 @@ public class CriarPostCientifico {
 
         JFileChooser chooseFile = new JFileChooser();
         JPanel test = new JPanel();
-        chooseFile.setCurrentDirectory(new File(System.getProperty("user.home")));
+        chooseFile.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
         int result = chooseFile.showOpenDialog(test);
 
         if (result == JFileChooser.APPROVE_OPTION) {

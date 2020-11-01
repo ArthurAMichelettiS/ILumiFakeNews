@@ -13,7 +13,6 @@ import java.sql.SQLException;
 
 public class CriarPost {
 
-
     @FXML
     private TextField txtTituloPergunta;
 
