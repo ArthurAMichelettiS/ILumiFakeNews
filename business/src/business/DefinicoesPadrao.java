@@ -50,4 +50,9 @@ public class DefinicoesPadrao {
         this.usuarioLogado = usuarioLogado;
         this.tipoUsuario = TipoUsuario.getTipoUsuarioPorId(usuarioLogado.getIdTipoDeUsuario());
     }
+
+    public void DeslogarUsuario(){
+        this.usuarioLogado = null;
+        this.tipoUsuario = null;
+    }
 }

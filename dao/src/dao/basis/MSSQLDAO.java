@@ -48,7 +48,7 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
                 stmt.setString(1, codigo);
 
                 try (ResultSet rs = stmt.executeQuery()) {
-                    if (rs.first()){
+                    if (rs.next()){
                         entidade = preencheEntidade(rs);
                     }
                 }

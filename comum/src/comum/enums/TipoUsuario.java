@@ -1,9 +1,9 @@
 package comum.enums;
 
 public enum TipoUsuario {
-    MODERADOR(0),
-    COMUM(1),
-    PESQUISADOR(2);
+    COMUM(0),
+    PESQUISADOR(1),
+    MODERADOR(2);
 
     int idTipo;
 
@@ -18,11 +18,11 @@ public enum TipoUsuario {
     public static TipoUsuario getTipoUsuarioPorId(int id){
         switch (id){
             case 0:
-                return TipoUsuario.MODERADOR;
-            case 1:
                 return TipoUsuario.COMUM;
-            case 2:
+            case 1:
                 return TipoUsuario.PESQUISADOR;
+            case 2:
+                return TipoUsuario.MODERADOR;
             default:
                 return null;
         }

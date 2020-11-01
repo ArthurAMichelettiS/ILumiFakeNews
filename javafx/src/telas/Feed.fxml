@@ -86,6 +86,7 @@
         </tabs>
       </TabPane>
        <Button fx:id="btnFazLogin" layoutX="29.0" layoutY="30.0" mnemonicParsing="false" onAction="#FazLogin" prefHeight="33.0" prefWidth="133.0" text="Fazer Login" />
+       <Button fx:id="btnFazLogoff" layoutX="29.0" layoutY="30.0" mnemonicParsing="false" onAction="#btnFazLogoff" prefHeight="33.0" prefWidth="133.0" text="Fazer Logoff" />
        <Button fx:id="btnModerar" layoutX="1071.0" layoutY="30.0" mnemonicParsing="false" onAction="#btnOnActionModerar" prefHeight="33.0" prefWidth="133.0" text="Moderar" />
       <Button fx:id="btnFazPost" layoutX="358.0" layoutY="659.0" mnemonicParsing="false" onAction="#btnFazPostagem" prefHeight="33.0" prefWidth="156.0" text="Fazer Postagem" />
       <Button fx:id="btnFazPostCientifico" layoutX="958.0" layoutY="659.0" mnemonicParsing="false" onAction="#btnFazPostCientifico" prefHeight="33.0" prefWidth="200.0" text="Fazer Post Científico" />

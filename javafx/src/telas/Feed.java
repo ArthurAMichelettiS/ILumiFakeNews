@@ -1,6 +1,7 @@
 package telas;
 
 import business.Acesso;
+import business.DefinicoesPadrao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -15,11 +16,23 @@ public class Feed {
     public Button btnFazLogin;
 
     @FXML
+    public Button btnFazLogoff;
+
+    @FXML
+    public Button btnFazPost;
+
+    @FXML
+    public Button btnFazPostCientifico;
+
+    @FXML
     public Button btnModerar;
 
     @FXML
     private void initialize() {
+        btnFazPostCientifico.setVisible(Acesso.ehPesquisadorLogado());
+        btnFazPost.setVisible(!Acesso.ehModeradorLogado());
         btnFazLogin.setVisible(!Acesso.ehLogado());
+        btnFazLogoff.setVisible(Acesso.ehLogado());
         btnModerar.setVisible(Acesso.ehModeradorLogado());
     }
 
@@ -45,5 +58,10 @@ public class Feed {
 
     public void btnVerPerfil(ActionEvent actionEvent){
         HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
+    }
+
+    public void btnFazLogoff(ActionEvent actionEvent) {
+        DefinicoesPadrao.getInstance().DeslogarUsuario();
+        HelperTelas.getInstance().IrParaTela(rootPane, "Login.fxml");
     }
 }

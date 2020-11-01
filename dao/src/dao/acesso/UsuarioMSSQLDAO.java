@@ -23,7 +23,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected String setInsertCommand() { return "insert into Usuario (Email, Senha, Pais, " +
-            "Nome, Genero, DataNasc) values (?,?,?,?,?,?)";}
+            "Nome, Genero, DataNasc, IdTipoDeUsuário) values (?,?,?,?,?,?,?)";}
 
 
     //atribui os campos de login e senha de uma tabela em um usuário
@@ -33,6 +33,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         try {
             entidade.setEmail(rs.getString("Email"));
             entidade.setSenha(rs.getString("Senha"));
+            entidade.setIdTipoDeUsuario(rs.getInt("IdTipoDeUsuário"));
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -55,6 +56,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         stmt.setString(5, u.getGenero());
         String s = u.getNascimento().toString().replace("-","/");
         stmt.setString(6, s);
+        stmt.setInt(7, u.getIdTipoDeUsuario());
     }
 
 }

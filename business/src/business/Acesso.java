@@ -18,9 +18,10 @@ public class Acesso {
         DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
 
         Usuario encontrado = (Usuario) dao.localiza(email);
-        if(senha.equals(encontrado.getSenha()))
-            return encontrado;
-        return null;
+        if(encontrado == null || !senha.equals(encontrado.getSenha())){
+            return null;
+        }
+        return encontrado;
     }
 
     public static Object[] listaDadosUsuario() throws SQLException {
