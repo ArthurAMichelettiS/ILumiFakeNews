@@ -2,11 +2,9 @@ package telas;
 
 import business.Acesso;
 import comum.Postagem;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -14,10 +12,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,7 +21,6 @@ import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class CriarPostCientifico {
-
 
     @FXML
     private TextField txtTitulo;
@@ -68,13 +61,6 @@ public class CriarPostCientifico {
 
     public void anexar(ActionEvent actionEvent) throws IOException {
 
-        /*
-        JFileChooser chooseFile = new JFileChooser();
-        JPanel test = new JPanel();
-        chooseFile.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
-        int result = chooseFile.showOpenDialog(test);
-         */
-
         Stage primaryStage = new Stage();
         FileChooser fileChooser = new FileChooser();
         File selectedFile = fileChooser.showOpenDialog(primaryStage);
@@ -91,11 +77,9 @@ public class CriarPostCientifico {
         }
         person_image = bos.toByteArray();
 
-
     }
 
     public void voltarFeed(ActionEvent actionEvent) {
-
         HelperTelas.getInstance().VoltarTela(rootPane);
     }
 }
