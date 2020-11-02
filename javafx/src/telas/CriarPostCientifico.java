@@ -12,9 +12,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import java.io.ByteArrayOutputStream;
+
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -67,15 +66,7 @@ public class CriarPostCientifico {
         Image image = new Image(selectedFile.toURI().toString());
         ivAnexo.setImage(image);
 
-
-        FileInputStream fis = new FileInputStream(selectedFile);
-
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        byte[] buf = new byte[10241];
-        for (int readNum; (readNum = fis.read(buf)) != -1; ) {
-            bos.write(buf, 0, readNum);
-        }
-        person_image = bos.toByteArray();
+        person_image = Acesso.imgToBytes(selectedFile);
 
     }
 
