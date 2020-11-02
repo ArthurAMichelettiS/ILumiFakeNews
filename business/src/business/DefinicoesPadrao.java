@@ -41,7 +41,6 @@ public class DefinicoesPadrao {
 
     private Usuario usuarioLogado;
 
-
     public Usuario getUsuarioLogado(){
         return usuarioLogado;
     }

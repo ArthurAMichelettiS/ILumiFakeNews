@@ -25,6 +25,15 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     protected String setInsertCommand() { return "insert into Usuario (Email, Senha, Pais, " +
             "Nome, Genero, DataNasc, IdTipoDeUsuário) values (?,?,?,?,?,?,?)";}
 
+    @Override
+    protected String getLocalizaCommand() {
+        return "select * from Usuario where Email = ?";
+    }
+
+    @Override
+    protected String setAlterCommand() {
+        return "update Usuario set Email = ?, Senha = ?, Bio = ? where Email = ?";
+    }
 
     //atribui os campos de login e senha de uma tabela em um usuário
     @Override
@@ -47,7 +56,17 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     }
 
     @Override
-    protected void preencheStatement(Entidade entidade, PreparedStatement stmt) throws SQLException {
+    public void Alter(Entidade entidade) throws SQLException {
+
+    }
+
+    @Override
+    protected void preencheStatementSelect(String e, PreparedStatement stmt) throws SQLException {
+        stmt.setString(1, e);
+    }
+
+    @Override
+    protected void preencheStatementInsert(Entidade entidade, PreparedStatement stmt) throws SQLException {
         Usuario u = (Usuario) entidade;
         stmt.setString(1, u.getEmail());
         stmt.setString(2, u.getSenha());
@@ -57,6 +76,15 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         String s = u.getNascimento().toString().replace("-","/");
         stmt.setString(6, s);
         stmt.setInt(7, u.getIdTipoDeUsuario());
+    }
+
+    @Override
+    protected void preencheStatementAlter(Entidade entidade, PreparedStatement stmt) throws SQLException {
+        Usuario u = (Usuario) entidade;
+        stmt.setString(1, u.getEmail());
+        stmt.setString(2, u.getSenha());
+        stmt.setString(3, u.getBio());
+        stmt.setString(4, u.getEmail());
     }
 
 }

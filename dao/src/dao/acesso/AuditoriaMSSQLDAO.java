@@ -32,11 +32,21 @@ public class AuditoriaMSSQLDAO <E extends Entidade> extends MSSQLDAO {
     }
 
     @Override
-    protected void preencheStatement(Entidade entidade, PreparedStatement stmt) throws SQLException {
+    protected void preencheStatementInsert(Entidade entidade, PreparedStatement stmt) throws SQLException {
         Auditoria e = (Auditoria) entidade;
 
         stmt.setString(1, e.getDescricao());
         stmt.setInt(2, e.getIdTipo());
+    }
+
+    @Override
+    protected void preencheStatementAlter(Entidade entidade, PreparedStatement stmt) throws SQLException {
+
+    }
+
+    @Override
+    protected String setAlterCommand() {
+        return null;
     }
 
 

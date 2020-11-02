@@ -69,7 +69,13 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
 
     protected abstract E preencheEntidade(ResultSet rs);
 
-    protected abstract void preencheStatement(E entidade, PreparedStatement stmt) throws SQLException;
+    protected abstract void preencheStatementInsert(E entidade, PreparedStatement stmt) throws SQLException;
+
+    protected abstract void preencheStatementAlter(E entidade, PreparedStatement stmt) throws SQLException;
+
+    protected abstract void preencheStatementSelect (String e, PreparedStatement stmt) throws SQLException;
+
+    protected abstract String setAlterCommand();
 
 
     @Override
@@ -79,7 +85,7 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
             String SQL = setInsertCommand();
             try (PreparedStatement stmt = conexao.prepareStatement(SQL)) {
 
-                preencheStatement((E)entidade, stmt);
+                preencheStatementInsert((E)entidade, stmt);
 
                 stmt.executeUpdate();
             }
@@ -110,4 +116,23 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
 
         return entidades;
       }
+
+
+    @Override
+    public void Alter(Entidade entidade) throws SQLException {
+        try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
+
+            String SQL = setAlterCommand();
+            try (PreparedStatement stmt = conexao.prepareStatement(SQL)) {
+
+                preencheStatementAlter((E)entidade, stmt);
+
+                stmt.executeUpdate();
+            }
+        }
+        catch (SQLException ea)
+        {
+            System.out.println(ea.getMessage());
+        }
+    }
 }
