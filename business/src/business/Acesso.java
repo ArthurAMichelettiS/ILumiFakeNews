@@ -2,12 +2,12 @@
 package business;
 
 import business.Log.ControleAuditoria;
-import comum.Entidade;
 import comum.Postagem;
 import comum.Usuario;
 import comum.enums.TipoUsuario;
 import dao.basis.DAO;
 import dao.enums.EntidadeDAO;
+import javafx.scene.control.Alert;
 
 import java.sql.SQLException;
 
@@ -23,6 +23,17 @@ public class Acesso {
             return null;
         }
         return encontrado;
+    }
+
+    public static void validaNovaSenha (String senha, String senhaconf) throws Exception {
+       try{
+        if (senha != senhaconf || senha == null)
+        {
+            throw new Exception();
+        }
+    } catch (Exception erro) {
+        new Alert(Alert.AlertType.ERROR, "Há valores incorretos!").showAndWait();
+    }
     }
 
     public static Object[] listaDadosUsuario() throws SQLException {

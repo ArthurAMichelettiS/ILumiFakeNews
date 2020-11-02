@@ -1,5 +1,6 @@
 package telas;
 
+import business.DefinicoesPadrao;
 import business.Acesso;
 import comum.Usuario;
 import javafx.event.ActionEvent;
@@ -8,8 +9,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-
 import java.sql.SQLException;
+
 
 public class Perfil {
 
@@ -26,7 +27,19 @@ public class Perfil {
     private TextField txtEmail;
 
     @FXML
+    private TextField txtBio;
+
+    @FXML
     private ImageView ivProfile;
+
+    @FXML
+    private void initialize(){
+        Usuario user = DefinicoesPadrao.getInstance().getUsuarioLogado();
+        txtEmail.setText(user.getEmail());
+        txtBio.setText(user.getBio());
+        txtSenha.setText(user.getSenha());
+        txtSenhaConf.setText(user.getSenha());
+    }
 
     public void btnVoltarAction(ActionEvent actionEvent) {
         HelperTelas.getInstance().VoltarTela(rootPane);
@@ -34,16 +47,9 @@ public class Perfil {
 
     public void editarCadastro (ActionEvent actionEvent) {
 
-        Usuario user = new Usuario();
-
-
+        Usuario user = DefinicoesPadrao.getInstance().getUsuarioLogado();
         try {
-
-            user.setEmail(txtEmail.getText());
-            user.setSenha(txtSenha.getText());
-            user.setIdTipoDeUsuario(2);
-
-            Acesso.enviaDadosUsuario(user);
+            Acesso.alterarDadosUsuario(user);
             HelperTelas.getInstance().VoltarTela(rootPane);
 
         } catch (SQLException erro) {
