@@ -42,6 +42,11 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO
     }
 
     @Override
+    protected void preencheStatementSelect(String e, PreparedStatement stmt) throws SQLException {
+
+    }
+
+    @Override
     protected String setAlterCommand() {
         return null;
     }
