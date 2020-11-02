@@ -3,6 +3,7 @@ package dao.acesso;
 import comum.Entidade;
 import dao.basis.MSSQLDAO;
 
+import javax.swing.text.html.HTML;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,11 +15,12 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected String setInsertCommand() {
-        return null;
+        return "insert into Tags (idTag, descricao) values (?,?)";
     }
 
     @Override
-    protected Entidade preencheEntidade(ResultSet rs) {
+    protected E preencheEntidade(ResultSet rs) {
+
         return null;
     }
 

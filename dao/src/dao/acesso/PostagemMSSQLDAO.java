@@ -19,7 +19,7 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected String setInsertCommand() {
-        return "insert into Postagem (titulo, conteudo, imagem) values (?,?,?)";
+        return "insert into Postagem (titulo, conteudo) values (?,?)";
     }
 
     @Override
@@ -46,7 +46,6 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         Postagem p = (Postagem) entidade;
         stmt.setString(1, p.getTitulo());
         stmt.setString(2, p.getConteudo());
-        stmt.setBytes(3, p.getImagem());
     }
 
     @Override
@@ -73,9 +72,4 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         return null;
     }
 
-    @Override
-    public void Insere(Entidade entidade) throws SQLException {
-
-    }
 }
-
