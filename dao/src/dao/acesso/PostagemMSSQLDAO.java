@@ -9,8 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO
-{
+public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     //TODO
 
     public PostagemMSSQLDAO() {
@@ -20,35 +19,52 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO
     }
 
     @Override
+    protected String setInsertCommand() {
+        return "insert into Postagem (titulo, conteudo, imagem) values (?,?,?)";
+    }
+
+    @Override
     protected E preencheEntidade(ResultSet rs) {
         Postagem entidade = new Postagem();
         try {
             entidade.setTitulo(rs.getString("titulo"));
             entidade.setConteudo(rs.getString("conteudo"));
+            entidade.setImagem(rs.getBytes("imagem"));
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return (E)entidade;
+        return (E) entidade;
+    }
+
+    @Override
+    protected String getLocalizaCommand() {
+        return "select * from Postagem where idpost = ?";
     }
 
     @Override
     protected void preencheStatementInsert(Entidade entidade, PreparedStatement stmt) throws SQLException {
-
+        Postagem p = (Postagem) entidade;
+        stmt.setString(1, p.getTitulo());
+        stmt.setString(2, p.getConteudo());
+        stmt.setBytes(3, p.getImagem());
     }
 
     @Override
     protected void preencheStatementAlter(Entidade entidade, PreparedStatement stmt) throws SQLException {
-
+        Postagem p = (Postagem) entidade;
+        stmt.setString(1, p.getTitulo());
+        stmt.setString(2, p.getConteudo());
+        stmt.setBytes(3, p.getImagem());
     }
 
     @Override
     protected void preencheStatementSelect(String e, PreparedStatement stmt) throws SQLException {
-
+        stmt.setString(1, e);
     }
 
     @Override
     protected String setAlterCommand() {
-        return null;
+        return "update Postagem set titulo = ?, conteudo = ?, imagem = ? where idpost = ?";
     }
 
 
@@ -60,13 +76,6 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO
     @Override
     public void Insere(Entidade entidade) throws SQLException {
 
-    }
-
-
-
-    @Override
-    protected String setInsertCommand() {
-        return null;
     }
 }
 
