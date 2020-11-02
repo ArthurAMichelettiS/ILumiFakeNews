@@ -42,7 +42,11 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         try {
             entidade.setEmail(rs.getString("Email"));
             entidade.setSenha(rs.getString("Senha"));
+            entidade.setPais(rs.getString("Pais"));
+            entidade.setNome(rs.getString("Nome"));
             entidade.setIdTipoDeUsuario(rs.getInt("IdTipoDeUsuário"));
+            entidade.setGenero(rs.getString("Genero"));
+            entidade.setBio(rs.getString("Bio"));
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
