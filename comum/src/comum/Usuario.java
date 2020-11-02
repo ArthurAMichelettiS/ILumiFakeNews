@@ -24,6 +24,16 @@ public class Usuario extends Entidade {
 
     private int idTipoDeUsuario;
 
+    private byte[] Imagem;
+
+    public byte[] getImagem() {
+        return Imagem;
+    }
+
+    public void setImagem(byte[] imagem) {
+        Imagem = imagem;
+    }
+
     public String getBio() {
         return bio;
     }

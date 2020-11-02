@@ -40,7 +40,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     protected E preencheEntidade(ResultSet rs) {
         Usuario entidade = new Usuario();
         try {
-            entidade.setId(rs.getInt("Id"));
+            entidade.setId(rs.getInt("IdUser"));
             entidade.setEmail(rs.getString("Email"));
             entidade.setSenha(rs.getString("Senha"));
             entidade.setPais(rs.getString("Pais"));

@@ -257,7 +257,7 @@ public class CriarCadastro {
         Usuario d = new Usuario();
 
         try {
-
+            Acesso.validaLogin(txtSenha.getText(), txtSenhaConf.getText());
             d.setEmail(txtEmail.getText());
             d.setNome(txtNome.getText());
             d.setSenha(txtSenha.getText());
