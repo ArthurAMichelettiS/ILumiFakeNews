@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../new%201.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.CriarPost">
+    <children>
+        <Button layoutX="542.0" layoutY="630.0" mnemonicParsing="false" onAction="#salvarPostagem" prefHeight="51.0" prefWidth="212.0" text="Postar">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <TextArea layoutX="372.0" layoutY="151.0" prefHeight="200.0" prefWidth="429.0" styleClass="textarea" stylesheets="@../new%201.css">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <TextField layoutX="372.0" layoutY="79.0" prefHeight="25.0" prefWidth="224.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Button layoutX="372.0" layoutY="394.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="179.0" text="Adicionar anexos" />
+      <Label layoutX="372.0" layoutY="54.0" text="Titulo" />
+      <Label layoutX="372.0" layoutY="125.0" text="Texto" />
+      <ComboBox layoutX="907.0" layoutY="243.0" prefHeight="25.0" prefWidth="191.0" promptText="selecione uma tag" />
+      <ListView layoutX="907.0" layoutY="287.0" prefHeight="213.0" prefWidth="191.0" styleClass="text-field" stylesheets="@../new%201.css" />
+      <ListView layoutX="372.0" layoutY="432.0" prefHeight="178.0" prefWidth="429.0" styleClass="text-field" stylesheets="@../new%201.css" />
+      <Button layoutX="1120.0" layoutY="344.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="63.0" text="+" />
+      <Button layoutX="1120.0" layoutY="386.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="63.0" text="-" />
+      <Label layoutX="372.0" layoutY="371.0" text="Adicione imagens videos ou pdfs!" />
+      <Button layoutX="61.0" layoutY="636.0" mnemonicParsing="false" onAction="#voltarFeed" prefHeight="30.0" prefWidth="149.0" text="Voltar" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="1130.0" AnchorPane.topAnchor="651.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="42.0" layoutY="20.0" prefHeight="79.0" prefWidth="237.0" styleClass="label-header" text="O que está " />
+      <Label layoutX="29.0" layoutY="93.0" styleClass="label-header" text="acontecendo?" />
+    </children>
+</AnchorPane>

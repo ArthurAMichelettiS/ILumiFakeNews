@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootPane" prefHeight="720.0" prefWidth="1280.0" styleClass="background" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.Login">
+   <children>
+      <Button layoutX="539.0" layoutY="363.0" mnemonicParsing="false" onAction="#fazLogin" prefHeight="69.0" prefWidth="265.0" text="Login">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <TextField fx:id="txtEmail" layoutX="539.0" layoutY="240.0" prefHeight="30.0" prefWidth="265.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="txtSenha" layoutX="539.0" layoutY="315.0" prefHeight="30.0" prefWidth="265.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <Text layoutX="540.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-bright" text="E-mail">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="540.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnCriarCadastro" layoutX="539.0" layoutY="508.0" mnemonicParsing="false" onAction="#abreCadastro" prefHeight="25.0" prefWidth="265.0" text="Cadastrar" />
+      <Text layoutX="539.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Novo no iLumi? Se cadastre para aproveitar ao maximo!" textAlignment="CENTER" wrappingWidth="265.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="621.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="iLumi">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnVoltar" layoutX="306.0" layoutY="592.0" mnemonicParsing="false" onAction="#btnVoltarAction" prefHeight="25.0" prefWidth="94.0" text="Voltar" />
+   </children>
+</AnchorPane>
