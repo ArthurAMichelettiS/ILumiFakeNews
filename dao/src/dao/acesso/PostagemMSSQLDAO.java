@@ -27,6 +27,7 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     protected E preencheEntidade(ResultSet rs) {
         Postagem entidade = new Postagem();
         try {
+            entidade.setId(rs.getInt("Id"));
             entidade.setTitulo(rs.getString("titulo"));
             entidade.setConteudo(rs.getString("conteudo"));
             entidade.setImagem(rs.getBytes("imagem"));
