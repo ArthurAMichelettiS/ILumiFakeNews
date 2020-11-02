@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootPane" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../new%201.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.CriarPostCientifico">
     <children>
@@ -24,7 +28,7 @@
       <Label layoutX="372.0" layoutY="125.0" text="Texto" />
       <ListView layoutX="372.0" layoutY="456.0" prefHeight="178.0" prefWidth="429.0" styleClass="text-field" stylesheets="@../new%201.css" />
       <Label layoutX="372.0" layoutY="371.0" text="Adicione uma imagem" />
-      <Button layoutX="61.0" layoutY="636.0" mnemonicParsing="false" onAction="#voltarFeed" prefHeight="30.0" prefWidth="149.0" text="Voltar" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="1130.0" AnchorPane.topAnchor="651.0">
+      <Button layoutX="61.0" layoutY="636.0" mnemonicParsing="false" onAction="#voltarFeed" prefHeight="39.0" prefWidth="101.0" text="Voltar" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="1116.0" AnchorPane.topAnchor="651.0">
          <font>
             <Font size="18.0" />
          </font>

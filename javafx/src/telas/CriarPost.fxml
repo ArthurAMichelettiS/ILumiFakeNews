@@ -23,7 +23,7 @@
          </font></TextField>
       <Label layoutX="372.0" layoutY="49.0" text="Título da pergunta" />
       <Label layoutX="372.0" layoutY="124.0" prefHeight="21.0" prefWidth="43.0" text="Texto" />
-      <Button layoutX="61.0" layoutY="636.0" mnemonicParsing="false" onAction="#voltarFeed" prefHeight="30.0" prefWidth="149.0" text="Voltar" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="1130.0" AnchorPane.topAnchor="651.0">
+      <Button layoutX="61.0" layoutY="636.0" mnemonicParsing="false" onAction="#voltarFeed" prefHeight="39.0" prefWidth="101.0" text="Voltar" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="1116.0" AnchorPane.topAnchor="651.0">
          <font>
             <Font size="18.0" />
          </font>

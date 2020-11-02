@@ -17,10 +17,14 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TextArea fx:id="txtAreaDenuncias" layoutX="56.0" layoutY="157.0" prefHeight="407.0" prefWidth="534.0" styleClass="textarea" />
+      <HBox layoutX="56.0" layoutY="157.0" styleClass="hbox-group">
+         <children>
+            <TextArea fx:id="txtAreaDenuncias" prefHeight="407.0" prefWidth="534.0" styleClass="textarea" />
+         </children>
+      </HBox>
       <CheckBox fx:id="cbxConfirmaDenuncia" layoutX="575.0" layoutY="593.0" mnemonicParsing="false" styleClass="label" text="Confirma a denúncia?" />
       <Button fx:id="btnProximoDenuncia" layoutX="1125.0" layoutY="651.0" mnemonicParsing="false" onAction="#irProProximo" text="Próximo" />
-      <Button fx:id="btnProximoDenuncia1" layoutX="314.0" layoutY="555.0" mnemonicParsing="false" onAction="#voltarModeradores" text="Voltar" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="1130.0" AnchorPane.topAnchor="651.0" />
+      <Button fx:id="btnProximoDenuncia1" layoutX="314.0" layoutY="555.0" mnemonicParsing="false" onAction="#voltarModeradores" prefHeight="39.0" prefWidth="104.0" text="Voltar" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="1113.0" AnchorPane.topAnchor="651.0" />
       <Label layoutX="100.0" layoutY="119.0" text="Descreva sua denúncia:" />
       <HBox layoutX="649.0" layoutY="157.0" prefHeight="407.0" prefWidth="534.0">
          <children>

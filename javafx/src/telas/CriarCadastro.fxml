@@ -40,7 +40,7 @@
       </HBox>
       <Label layoutX="89.0" layoutY="512.0" text="Confirme a sua senha:" />
       <TextField fx:id="txtSenhaConf" layoutX="88.0" layoutY="552.0" />
-      <Button fx:id="btnVoltar" layoutX="14.0" layoutY="680.0" mnemonicParsing="false" onAction="#voltaLogin" text="Voltar" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="1130.0" AnchorPane.topAnchor="651.0" />
+      <Button fx:id="btnVoltar" layoutX="14.0" layoutY="680.0" mnemonicParsing="false" onAction="#voltaLogin" prefHeight="39.0" prefWidth="101.0" text="Voltar" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="1116.0" AnchorPane.topAnchor="651.0" />
       <Label layoutX="46.0" layoutY="27.0" styleClass="label-header" text="Vamos fazer seu cadastro!" />
    </children>
 </AnchorPane>
