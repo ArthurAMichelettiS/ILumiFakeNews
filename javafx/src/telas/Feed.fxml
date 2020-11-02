@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ScrollBar?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../new%201.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.Feed">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../new%201.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.Feed">
    <children>
       <HBox layoutX="30.0" layoutY="86.0" styleClass="hbox-group">
          <children>
@@ -26,6 +18,7 @@
          </font>
       </Label>
       <Button fx:id="btnFazLogoff" layoutX="39.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnFazLogoff" prefHeight="33.0" prefWidth="133.0" text="Fazer Logoff" />
+      <Button fx:id="btnFazLogin" layoutX="39.0" layoutY="40.0" mnemonicParsing="false" onAction="#FazLogin" prefHeight="33.0" prefWidth="133.0" text="Fazer Logoff" />
       <Button fx:id="btnModerar" layoutX="1081.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnOnActionModerar" prefHeight="33.0" prefWidth="133.0" text="Moderar" />
       <TabPane layoutX="275.0" layoutY="95.0" prefHeight="546.0" prefWidth="989.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
