@@ -49,6 +49,7 @@ public class Perfil {
 
         Usuario user = DefinicoesPadrao.getInstance().getUsuarioLogado();
         try {
+            Acesso.validaNovaSenha(txtSenha.getText(), txtSenhaConf.getText());
             Acesso.alterarDadosUsuario(user);
             HelperTelas.getInstance().VoltarTela(rootPane);
 
