@@ -9,6 +9,7 @@ import dao.basis.DAO;
 import dao.enums.EntidadeDAO;
 import javafx.scene.control.Alert;
 
+import java.io.*;
 import java.sql.SQLException;
 
 
@@ -76,5 +77,16 @@ public class Acesso {
     public static boolean ehLogado(){
         return DefinicoesPadrao.getInstance().getTipoUsuario() != null;
     }
-    
+
+    public static byte[] imgToBytes(File file) throws IOException {
+        FileInputStream fis = new FileInputStream(file);
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        byte[] buf = new byte[10241];
+        for (int readNum; (readNum = fis.read(buf)) != -1; ) {
+            bos.write(buf, 0, readNum);
+        }
+        return bos.toByteArray();
+    }
+
 }

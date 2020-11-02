@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
-    //TODO
 
     public PostagemMSSQLDAO() {
         super(Usuario.class);

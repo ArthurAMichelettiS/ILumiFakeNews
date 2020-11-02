@@ -21,7 +21,7 @@ public enum EntidadeDAO {
     }
 
     static private DAO getUsuarioDao(){
-            return new UsuarioMSSQLDAO<>();
+        return new UsuarioMSSQLDAO<>();
     }
 
     static private DAO getPostagemDao(){
