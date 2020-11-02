@@ -2,6 +2,7 @@
 package business;
 
 import business.Log.ControleAuditoria;
+import comum.Entidade;
 import comum.Postagem;
 import comum.Usuario;
 import comum.enums.TipoUsuario;
@@ -35,6 +36,12 @@ public class Acesso {
         dao.Insere(u);
         ControleAuditoria.getInstance().AddAuditoria("Usuario salvo: " + u.getEmail());
     }
+
+    public static void alterarDadosUsuario(Usuario u)  throws SQLException{
+        DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
+        dao.Alter(u);
+    }
+
 
     public static void enviaPost (Postagem p) throws SQLException{
         DAO dao = EntidadeDAO.POSTAGEM.getEntidadeDAO();

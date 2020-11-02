@@ -24,6 +24,16 @@ public class Usuario extends Entidade {
 
     private int idTipoDeUsuario;
 
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    private String bio;
+
 
     public String getNome() {
         return Nome;
