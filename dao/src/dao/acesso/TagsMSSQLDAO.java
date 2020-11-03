@@ -4,19 +4,35 @@ import comum.Entidade;
 import comum.Tag;
 import dao.basis.MSSQLDAO;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
     public TagsMSSQLDAO() {
         super(Tag.class);
         setTabela("Tags");
         setColunaLocaliza("descricao");
+        setColunaChaveId("idTags");
     }
 
     @Override
-    protected String setInsertCommand() {
-        return "insert into Tags (idTag, descricao) values (?,?)";
+    protected PreparedStatement CriaPreparedStatementAltera(Connection con, Entidade e) throws SQLException {
+        String SQL = "update Tags set descricao = ? where idpost = ?";
+        PreparedStatement stmt = con.prepareStatement(SQL);
+        Tag t = (Tag) e;
+        stmt.setString(1, t.getTag());
+        return stmt;
+    }
+
+    @Override
+    protected PreparedStatement CriaPreparedStatementInsere(Connection con, Entidade e) throws SQLException {
+        String SQL = "insert into Tags (idTag, descricao) values (?,?)";
+        PreparedStatement stmt = con.prepareStatement(SQL);
+        Tag t = (Tag) e;
+        stmt.setString(1, t.getTag());
+        return stmt;
     }
 
 
@@ -30,34 +46,6 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
             ex.printStackTrace();
         }
         return (E) entidade;
-    }
-
-
-    @Override
-    protected void preencheStatementInsert(Entidade entidade, PreparedStatement stmt) throws SQLException {
-        Tag t = (Tag) entidade;
-        stmt.setString(1, t.getTag());
-    }
-
-    @Override
-    protected void preencheStatementAlter(Entidade entidade, PreparedStatement stmt) throws SQLException {
-        Tag t = (Tag) entidade;
-        stmt.setString(1, t.getTag());
-    }
-
-    @Override
-    protected void preencheStatementSelect(String e, PreparedStatement stmt) throws SQLException {
-        stmt.setString(1, e);
-    }
-
-    @Override
-    protected String setAlterCommand() {
-        return "update Tags set descricao = ? where idpost = ?";
-    }
-
-    @Override
-    protected String getLocalizaCommand() {
-        return "select * from Tags where idtag = ?";
     }
 
 }

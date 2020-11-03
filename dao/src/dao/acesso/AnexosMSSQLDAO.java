@@ -2,9 +2,9 @@ package dao.acesso;
 
 import comum.Anexo;
 import comum.Entidade;
-import comum.Usuario;
 import dao.basis.MSSQLDAO;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,8 +17,23 @@ public class AnexosMSSQLDAO <E extends Entidade> extends MSSQLDAO {
     }
 
     @Override
-    protected String setInsertCommand() {
-        return "insert into Anexos (Anexo,IdPost) values (?,?)";
+    protected PreparedStatement CriaPreparedStatementInsere(Connection con, Entidade e) throws SQLException {
+        String SQL ="insert into Anexos (Anexo,IdPost) values (?,?)";
+        PreparedStatement stmt = con.prepareStatement(SQL);
+        Anexo u = new Anexo();
+        stmt.setInt(1, u.getIdPost());
+        stmt.setBytes(2, u.getAnexo());
+        return stmt;
+    }
+
+    @Override
+    protected PreparedStatement CriaPreparedStatementAltera(Connection con, Entidade e) throws SQLException {
+        String SQL = "update Anexos set Anexo = ? where IdPost = ?";
+        PreparedStatement stmt = con.prepareStatement(SQL);
+        Anexo a = (Anexo) e;
+        stmt.setInt(1, a.getIdPost());
+        stmt.setBytes(2, a.getAnexo());
+        return stmt;
     }
 
     @Override
@@ -32,35 +47,5 @@ public class AnexosMSSQLDAO <E extends Entidade> extends MSSQLDAO {
         }
         return (E)entidade;
     }
-
-    @Override
-    protected void preencheStatementInsert(Entidade entidade, PreparedStatement stmt) throws SQLException {
-        Anexo u = new Anexo();
-        stmt.setInt(1, u.getIdPost());
-        stmt.setBytes(2, u.getAnexo());
-    }
-
-    @Override
-    protected void preencheStatementAlter(Entidade entidade, PreparedStatement stmt) throws SQLException {
-        Anexo a = (Anexo) entidade;
-        stmt.setInt(1, a.getIdPost());
-        stmt.setBytes(2, a.getAnexo());
-    }
-
-    @Override
-    protected String setAlterCommand() {
-        return "update Anexos set Anexo = ? where IdPost = ?";
-    }
-
-    @Override
-    protected String getLocalizaCommand() {
-        return "select * from Anexos where IdPost = ?";
-    }
-
-    @Override
-    protected void preencheStatementSelect(String e, PreparedStatement stmt) throws SQLException {
-        stmt.setString(1, e);
-    }
-
 
 }

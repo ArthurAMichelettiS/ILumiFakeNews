@@ -17,6 +17,9 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
     protected final String SENHA = "IlumiFake01";
     protected String tabela;
     protected String colunaLocaliza;
+    protected String colunaChaveId;
+
+
 
     public MSSQLDAO(Class entityClass) {
         super(entityClass);
@@ -30,10 +33,30 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
         colunaLocaliza = value;
     }
 
+    public void setColunaChaveId(String colunaChaveId) {
+        this.colunaChaveId = colunaChaveId;
+    }
+
     @Override
-    public E localizaPorId(int id) {
-        // Não há retorno por idA
-        return null;
+    public E localizaPorId(int id) throws SQLException {
+        return localiza(Integer.toString(id));
+    }
+
+    protected PreparedStatement CriaPreparedStatementLocaliza(Connection con, String codigo) throws SQLException {
+        String SQL = "select * from " + tabela + "  where " + colunaLocaliza +" = ?";
+        PreparedStatement stmt = con.prepareStatement(SQL);
+        stmt.setString(1, codigo);
+        return stmt;
+    }
+
+    abstract protected PreparedStatement CriaPreparedStatementInsere(Connection con, Entidade e) throws SQLException;
+
+    abstract protected PreparedStatement CriaPreparedStatementAltera(Connection con, Entidade e) throws SQLException;
+
+    protected PreparedStatement CriaPreparedStatementListagem(Connection con) throws SQLException{
+        String SQL = "select * from " + tabela;
+        PreparedStatement stmt = con.prepareStatement(SQL);
+        return stmt;
     }
 
     @Override
@@ -41,11 +64,7 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
         E entidade = null;
         try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA )) {
 
-            String SQL = getLocalizaCommand();
-
-            try (PreparedStatement stmt = conexao.prepareStatement(SQL)) {
-
-                stmt.setString(1, codigo);
+            try (PreparedStatement stmt = CriaPreparedStatementLocaliza(conexao, codigo);) {
 
                 try (ResultSet rs = stmt.executeQuery()) {
                     if (rs.next()){
@@ -57,36 +76,11 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
         return entidade;
     }
 
-    protected String getLocalizaCommand(){
-        return "select * from " + tabela + "  where " + colunaLocaliza +" = ?";
-    }
-
-    protected String getListaCommand() {
-        return "select * from " + tabela;
-    }
-
-    protected abstract String setInsertCommand() ;
-
-    protected abstract E preencheEntidade(ResultSet rs);
-
-    protected abstract void preencheStatementInsert(E entidade, PreparedStatement stmt) throws SQLException;
-
-    protected abstract void preencheStatementAlter(E entidade, PreparedStatement stmt) throws SQLException;
-
-    protected abstract void preencheStatementSelect (String e, PreparedStatement stmt) throws SQLException;
-
-    protected abstract String setAlterCommand();
-
-
     @Override
     public void Insere(Entidade entidade) throws SQLException {
         try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
 
-            String SQL = setInsertCommand();
-            try (PreparedStatement stmt = conexao.prepareStatement(SQL)) {
-
-                preencheStatementInsert((E)entidade, stmt);
-
+            try (PreparedStatement stmt = CriaPreparedStatementInsere(conexao, entidade)) {
                 stmt.executeUpdate();
             }
         }
@@ -97,13 +91,46 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
     }
 
     @Override
-    public ArrayList<E> lista() throws SQLException {
+    public void Alter(Entidade entidade) throws SQLException {
+        try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
+
+            try (PreparedStatement stmt = CriaPreparedStatementAltera(conexao, entidade)) {
+                stmt.executeUpdate();
+            }
+        }
+        catch (SQLException ea)
+        {
+            System.out.println(ea.getMessage());
+        }
+    }
+
+    protected abstract E preencheEntidade(ResultSet rs);
+
+    @Override
+    public ArrayList listaFiltro(String filtro) throws SQLException {
         ArrayList<E> entidades = new ArrayList<E>();
 
         try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
 
-            String SQL = getListaCommand();
-            try (PreparedStatement stmt = conexao.prepareStatement(SQL)) {
+            try (PreparedStatement stmt = CriaPreparedStatementLocaliza(conexao, filtro)) {
+                try (ResultSet rs = stmt.executeQuery()) {
+                    while (rs.next()){
+                        E entidade = preencheEntidade(rs);
+                        entidades.add(entidade);
+                    }
+                }
+            }
+        }
+        return entidades;
+    }
+
+    @Override
+    public ArrayList<E> listaTodos() throws SQLException {
+        ArrayList<E> entidades = new ArrayList<E>();
+
+        try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
+
+            try (PreparedStatement stmt = CriaPreparedStatementListagem(conexao)) {
                 try (ResultSet rs = stmt.executeQuery()) {
 
                     while (rs.next()){
@@ -117,22 +144,4 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
         return entidades;
       }
 
-
-    @Override
-    public void Alter(Entidade entidade) throws SQLException {
-        try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
-
-            String SQL = setAlterCommand();
-            try (PreparedStatement stmt = conexao.prepareStatement(SQL)) {
-
-                preencheStatementAlter((E)entidade, stmt);
-
-                stmt.executeUpdate();
-            }
-        }
-        catch (SQLException ea)
-        {
-            System.out.println(ea.getMessage());
-        }
-    }
 }

@@ -54,7 +54,7 @@ public class Acesso {
 
     public static Object[] listaDadosUsuario() throws SQLException {
         DAO dados = EntidadeDAO.USUARIO.getEntidadeDAO();
-        return dados.lista().toArray();
+        return dados.listaTodos().toArray();
     }
 
 

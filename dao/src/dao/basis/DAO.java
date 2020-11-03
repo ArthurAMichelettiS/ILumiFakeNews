@@ -19,9 +19,10 @@ public abstract class DAO <E extends Entidade> {
         this.entityClass = entityClass;
     }
     
-    public abstract E localizaPorId(int id);
+    public abstract E localizaPorId(int id) throws SQLException;
     public abstract E localiza(String codigo) throws SQLException;
-    public abstract ArrayList<E> lista() throws SQLException;
+    public abstract ArrayList<E> listaTodos() throws SQLException;
+    public abstract ArrayList<E> listaFiltro(String filtro) throws SQLException;
     public abstract void Insere(E entidade) throws SQLException;
     public abstract void Alter (E entidade) throws SQLException;
     
