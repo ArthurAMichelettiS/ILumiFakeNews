@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AnexosMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
+public class AnexosMSSQLDAO <E extends Entidade> extends MSSQLDAO {
     public AnexosMSSQLDAO(Class entityClass) {
         super(entityClass);
         setTabela("Anexos");

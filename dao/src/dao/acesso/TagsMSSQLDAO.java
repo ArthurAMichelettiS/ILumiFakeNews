@@ -33,12 +33,13 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
     @Override
     protected void preencheStatementInsert(Entidade entidade, PreparedStatement stmt) throws SQLException {
         Tag t = (Tag) entidade;
-
+        stmt.setString(1, t.getTag());
     }
 
     @Override
     protected void preencheStatementAlter(Entidade entidade, PreparedStatement stmt) throws SQLException {
-
+        Tag t = (Tag) entidade;
+        stmt.setString(1, t.getTag());
     }
 
     @Override
@@ -48,7 +49,7 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected String setAlterCommand() {
-        return null;
+        return "update Tags set descricao = ? where idpost = ?";
     }
 
     @Override
