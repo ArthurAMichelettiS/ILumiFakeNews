@@ -12,8 +12,6 @@ public class Postagem extends Entidade {
 
     private String Conteudo;
 
-    private List<String> Tags;
-
     private byte[] Imagem;
 
     public String getTitulo() {
@@ -36,9 +34,6 @@ public class Postagem extends Entidade {
 
     public void setImagem(byte[] imagem) { Imagem = imagem; }
 
-    public List<String> getTags() { return Tags; }
-
-    public void setTags(List<String> tags) { Tags = tags; }
 }
 
 
