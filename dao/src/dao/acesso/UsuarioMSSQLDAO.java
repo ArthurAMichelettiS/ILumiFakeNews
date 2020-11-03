@@ -51,7 +51,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         stmt.setString(1, u.getEmail());
         stmt.setString(2, u.getSenha());
         stmt.setString(3, u.getBio());
-        stmt.setString(4, String.valueOf(u.getId()));
+        stmt.setInt(4, u.getId());
 
         return stmt;
     }
