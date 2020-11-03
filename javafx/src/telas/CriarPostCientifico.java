@@ -46,7 +46,7 @@ public class CriarPostCientifico {
             Postagem pc = new Postagem();
             pc.setTitulo(txtTitulo.getText());
             pc.setConteudo(txtConteudo.getText());
-            pc.setTags(Arrays.asList(txtTags.getText().split(Pattern.quote(" "))));
+            pc.setStringTags(Arrays.asList(txtTags.getText().split(Pattern.quote(" "))));
             pc.setImagem(person_image);
             Acesso.enviaPostCientifico(pc);
             HelperTelas.getInstance().VoltarTela(rootPane);

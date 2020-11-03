@@ -9,8 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
-    public TagsMSSQLDAO(Class entityClass) {
-        super(entityClass);
+    public TagsMSSQLDAO() {
+        super(Tag.class);
+        setTabela("Tags");
+        setColunaLocaliza("descricao");
     }
 
     @Override
@@ -44,7 +46,7 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected void preencheStatementSelect(String e, PreparedStatement stmt) throws SQLException {
-
+        stmt.setString(1, e);
     }
 
     @Override
@@ -56,4 +58,5 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
     protected String getLocalizaCommand() {
         return "select * from Tags where idtag = ?";
     }
+
 }

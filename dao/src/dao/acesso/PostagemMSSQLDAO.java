@@ -3,6 +3,7 @@ package dao.acesso;
 import comum.Entidade;
 import comum.Postagem;
 import comum.Usuario;
+import dao.basis.DAO;
 import dao.basis.MSSQLDAO;
 
 import java.sql.PreparedStatement;
@@ -65,6 +66,15 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     protected String setAlterCommand() {
         return "update Postagem set titulo = ?, conteudo = ?, imagem = ? where idpost = ?";
     }
+
+    @Override
+    public Entidade localiza(String codigo) throws SQLException {
+        Postagem p = (Postagem) super.localiza(codigo);
+        DAO d = new TagsMSSQLDAO<>();
+        p.setTags(d.lista());
+        return p;
+    }
+
 
 
     @Override

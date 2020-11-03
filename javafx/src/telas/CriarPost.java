@@ -35,7 +35,7 @@ public class CriarPost {
             Postagem p = new Postagem();
             p.setTitulo(txtTituloPergunta.getText());
             p.setConteudo(txtConteudo.getText());
-            p.setTags(Arrays.asList(txtTags.getText().split(Pattern.quote(" "))));
+            p.setStringTags(Arrays.asList(txtTags.getText().split(Pattern.quote(" "))));
             Acesso.enviaPost(p);
             HelperTelas.getInstance().VoltarTela(rootPane);
         }

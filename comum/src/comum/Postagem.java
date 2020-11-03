@@ -7,24 +7,21 @@ import java.util.List;
 public class Postagem extends Entidade {
 
 
-
     private String Titulo;
 
     private String Conteudo;
 
-    private byte[] Imagem;
+    private Anexo imagem = new Anexo();
 
-    private Anexo imagem;
-
-    public void setImagem(Anexo imagem) {
-        this.imagem = imagem;
+    public void setImagem(byte[] imagem) {
+        this.imagem.setAnexo(imagem);
     }
 
     public List<Tag> getTags() {
         return tags;
     }
 
-    public void setTags(List<String> tags) {
+    public void setStringTags(List<String> tags) {
         List<Tag> tgs = new ArrayList<>();
         for (String tag:
              tags) {
@@ -33,6 +30,10 @@ public class Postagem extends Entidade {
             tgs.add(t);
         }
         this.tags = tgs;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 
     private List<Tag> tags;
@@ -53,9 +54,7 @@ public class Postagem extends Entidade {
         Conteudo = conteudo;
     }
 
-    public byte[] getImagem() { return Imagem; }
-
-    public void setImagem(byte[] imagem) { Imagem = imagem; }
+    public byte[] getImagem() { return imagem.getAnexo(); }
 
 }
 

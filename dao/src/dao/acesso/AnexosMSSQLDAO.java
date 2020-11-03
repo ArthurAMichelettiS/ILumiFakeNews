@@ -9,8 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AnexosMSSQLDAO <E extends Entidade> extends MSSQLDAO {
-    public AnexosMSSQLDAO(Class entityClass) {
-        super(entityClass);
+    public AnexosMSSQLDAO() {
+        super(Anexo.class);
         setTabela("Anexos");
         setColunaLocaliza("IdPost");
     }
