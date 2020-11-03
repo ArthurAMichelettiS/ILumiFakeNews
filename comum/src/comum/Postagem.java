@@ -54,7 +54,13 @@ public class Postagem extends Entidade {
         Conteudo = conteudo;
     }
 
-    public byte[] getImagem() { return imagem.getAnexo(); }
+    public byte[] getImagemBytes() { return imagem.getAnexo(); }
+
+    public Anexo getImagem() {
+        imagem.setIdPost(getId());
+        return imagem;
+    }
+
 
 }
 

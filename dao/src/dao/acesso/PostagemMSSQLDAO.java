@@ -2,6 +2,7 @@ package dao.acesso;
 
 import comum.Entidade;
 import comum.Postagem;
+import comum.Tag;
 import comum.Usuario;
 import dao.basis.DAO;
 import dao.basis.MSSQLDAO;
@@ -21,24 +22,55 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     }
 
     @Override
+    public void Insere(Entidade entidade) throws SQLException {
+        super.Insere(entidade);
+
+        Postagem p = (Postagem) entidade;
+        AnexosMSSQLDAO daoAnexo = new AnexosMSSQLDAO();
+        daoAnexo.Insere(p.getImagem());
+
+        TagsMSSQLDAO daoTag = new TagsMSSQLDAO();
+        for (Tag tg:
+                p.getTags()) {
+            daoTag.Insere(tg);
+        }
+    }
+
+    @Override
+    public void Alter(Entidade entidade) throws SQLException {
+        super.Alter(entidade);
+
+        Postagem p = (Postagem) entidade;
+        AnexosMSSQLDAO daoAnexo = new AnexosMSSQLDAO();
+        daoAnexo.Alter(p.getImagem());
+
+        TagsMSSQLDAO daoTag = new TagsMSSQLDAO();
+        for (Tag tg:
+                p.getTags()) {
+            daoTag.Alter(tg);
+        }
+    }
+
+    @Override
     protected PreparedStatement CriaPreparedStatementInsere(Connection con, Entidade e) throws SQLException {
         String SQL = "insert into Postagem (titulo, conteudo) values (?,?)";
         PreparedStatement stmt = con.prepareStatement(SQL);
         Postagem p = (Postagem) e;
         stmt.setString(1, p.getTitulo());
         stmt.setString(2, p.getConteudo());
+
         return stmt;
     }
 
     @Override
     protected PreparedStatement CriaPreparedStatementAltera(Connection con, Entidade e) throws SQLException {
-        String SQL = "update Postagem set titulo = ?, conteudo = ?, imagem = ? where idpost = ?";
+        String SQL = "update Postagem set titulo = ?, conteudo = ?, where idpost = ?";
         PreparedStatement stmt = con.prepareStatement(SQL);
         Postagem p = (Postagem) e;
         stmt.setString(1, p.getTitulo());
         stmt.setString(2, p.getConteudo());
-        stmt.setBytes(3, p.getImagem());
-        stmt.setInt(4, p.getId());
+        stmt.setInt(3, p.getId());
+
         return stmt;
     }
 

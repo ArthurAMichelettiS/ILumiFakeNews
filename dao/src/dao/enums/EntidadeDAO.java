@@ -8,7 +8,7 @@ import dao.basis.DAO;
 public enum EntidadeDAO {
     USUARIO(getUsuarioDao()),
     POSTAGEM(getPostagemDao()),
-    AUDITORIA(getUsuarioDao());
+    AUDITORIA(getAuditoriaDao());
 
 
     DAO entidadeDAO;
