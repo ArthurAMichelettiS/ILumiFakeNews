@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 
 import java.io.*;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 
 public class Acesso {
@@ -35,6 +36,20 @@ public class Acesso {
     } catch (Exception erro) {
         new Alert(Alert.AlertType.ERROR, "Há valores incorretos!").showAndWait();
     }
+    }
+    public static void validaDataNasc (LocalDate data) throws Exception
+    {
+        try {
+            LocalDate antes;
+            antes = LocalDate.now().plusYears(-13);
+
+            if (!data.isBefore(antes)){
+                throw new Exception();
+            }
+        }
+        catch (Exception erro){
+            new Alert(Alert.AlertType.ERROR, "Data de Nascimento inválida").showAndWait();
+        }
     }
 
     public static Object[] listaDadosUsuario() throws SQLException {

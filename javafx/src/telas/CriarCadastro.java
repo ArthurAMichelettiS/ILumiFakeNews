@@ -1,7 +1,9 @@
 package telas;
 
 import business.Acesso;
+import static business.ValidacoesJavafxMascara.mascaraEmail;
 import comum.Usuario;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +22,8 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Locale;
+
+
 
 public class CriarCadastro {
 
@@ -60,6 +64,7 @@ public class CriarCadastro {
             cbPais.getItems().add(name);
         }
         cbGen.getItems().addAll("Masculino", "Feminino", "Prefiro Não Dizer");
+        mascaraEmail(txtEmail);
     }
 
     public void cadastraUser(ActionEvent actionEvent) {
@@ -68,6 +73,8 @@ public class CriarCadastro {
 
         try {
             Acesso.validaLogin(txtSenha.getText(), txtSenhaConf.getText());
+            Acesso.validaDataNasc(dpNiver.getValue());
+
             d.setEmail(txtEmail.getText());
             d.setNome(txtNome.getText());
             d.setSenha(txtSenha.getText());
