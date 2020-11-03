@@ -44,14 +44,14 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected PreparedStatement CriaPreparedStatementAltera(Connection con, Entidade e) throws SQLException {
-        String SQL = "update Usuario set Email = ?, Senha = ?, Bio = ? where Email = ?";
+        String SQL = "update Usuario set Email = ?, Senha = ?, Bio = ? where IdUser = ?";
         PreparedStatement stmt = con.prepareStatement(SQL);
 
         Usuario u = (Usuario) e;
         stmt.setString(1, u.getEmail());
         stmt.setString(2, u.getSenha());
         stmt.setString(3, u.getBio());
-        stmt.setString(4, u.getEmail());
+        stmt.setString(4, String.valueOf(u.getId()));
 
         return stmt;
     }
