@@ -14,6 +14,7 @@ public class AnexosMSSQLDAO <E extends Entidade> extends MSSQLDAO {
         super(Anexo.class);
         setTabela("Anexos");
         setColunaLocaliza("IdPost");
+        setColunaChaveId("IdAnexo");
     }
 
     @Override

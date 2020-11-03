@@ -1,6 +1,7 @@
 package telas;
 
 import business.Acesso;
+import business.DefinicoesPadrao;
 import comum.Postagem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -48,6 +49,7 @@ public class CriarPostCientifico {
             pc.setConteudo(txtConteudo.getText());
             pc.setStringTags(Arrays.asList(txtTags.getText().split(Pattern.quote(" "))));
             pc.setImagem(person_image);
+            pc.setIdUser(DefinicoesPadrao.getInstance().getUsuarioLogado().getId());
             Acesso.enviaPostCientifico(pc);
             HelperTelas.getInstance().VoltarTela(rootPane);
         } catch (SQLException erro) {

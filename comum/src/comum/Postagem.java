@@ -11,6 +11,16 @@ public class Postagem extends Entidade {
 
     private String Conteudo;
 
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
+    private int idUser;
+
     private Anexo imagem = new Anexo();
 
     public void setImagem(byte[] imagem) {

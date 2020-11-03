@@ -45,7 +45,13 @@ public class Feed {
     }
 
     public void btnFazPostagem(ActionEvent actionEvent){
-        HelperTelas.getInstance().IrParaTela(rootPane, "CriarPost.fxml");
+        if(Acesso.ehLogado()){
+            HelperTelas.getInstance().IrParaTela(rootPane, "CriarPost.fxml");
+        }
+        else{
+            HelperTelas.getInstance().IrParaTela(rootPane, "Login.fxml");
+        }
+
     }
 
     public void btnVerPostagem(ActionEvent actionEvent){

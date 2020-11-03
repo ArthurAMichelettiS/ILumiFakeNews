@@ -14,12 +14,12 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
         super(Tag.class);
         setTabela("Tags");
         setColunaLocaliza("descricao");
-        setColunaChaveId("idTags");
+        setColunaChaveId("idTag");
     }
-
+    
     @Override
     protected PreparedStatement CriaPreparedStatementAltera(Connection con, Entidade e) throws SQLException {
-        String SQL = "update Tags set descricao = ? where idpost = ?";
+        String SQL = "update Tags set descricao = ? where idTag = ?";
         PreparedStatement stmt = con.prepareStatement(SQL);
         Tag t = (Tag) e;
         stmt.setString(1, t.getTag());
@@ -40,7 +40,7 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
     protected E preencheEntidade(ResultSet rs) {
         Tag entidade = new Tag();
         try {
-            entidade.setId(rs.getInt("idtag"));
+            entidade.setId(rs.getInt("idTag"));
             entidade.setTag(rs.getString("descricao"));
         } catch (SQLException ex){
             ex.printStackTrace();

@@ -2,7 +2,6 @@ package dao.acesso;
 
 import comum.Entidade;
 import comum.Postagem;
-import comum.Tag;
 import comum.Usuario;
 import dao.basis.DAO;
 import dao.basis.MSSQLDAO;
@@ -29,11 +28,11 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         AnexosMSSQLDAO daoAnexo = new AnexosMSSQLDAO();
         daoAnexo.Insere(p.getImagem());
 
-        TagsMSSQLDAO daoTag = new TagsMSSQLDAO();
+        /*TagsMSSQLDAO daoTag = new TagsMSSQLDAO();
         for (Tag tg:
                 p.getTags()) {
             daoTag.Insere(tg);
-        }
+        }*/
     }
 
     @Override
@@ -44,20 +43,21 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         AnexosMSSQLDAO daoAnexo = new AnexosMSSQLDAO();
         daoAnexo.Alter(p.getImagem());
 
-        TagsMSSQLDAO daoTag = new TagsMSSQLDAO();
+        /*TagsMSSQLDAO daoTag = new TagsMSSQLDAO();
         for (Tag tg:
                 p.getTags()) {
             daoTag.Alter(tg);
-        }
+        }*/
     }
 
     @Override
     protected PreparedStatement CriaPreparedStatementInsere(Connection con, Entidade e) throws SQLException {
-        String SQL = "insert into Postagem (titulo, conteudo) values (?,?)";
+        String SQL = "insert into Postagem (titulo, conteudo, IdUser) values (?,?, ?)";
         PreparedStatement stmt = con.prepareStatement(SQL);
         Postagem p = (Postagem) e;
         stmt.setString(1, p.getTitulo());
         stmt.setString(2, p.getConteudo());
+        stmt.setInt(3, p.getIdUser());
 
         return stmt;
     }
@@ -79,10 +79,11 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     protected E preencheEntidade(ResultSet rs) {
         Postagem entidade = new Postagem();
         try {
-            entidade.setId(rs.getInt("Id"));
+            entidade.setId(rs.getInt("IdPost"));
             entidade.setTitulo(rs.getString("titulo"));
             entidade.setConteudo(rs.getString("conteudo"));
             entidade.setImagem(rs.getBytes("imagem"));
+            entidade.setIdUser(rs.getInt("idUser"));
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
