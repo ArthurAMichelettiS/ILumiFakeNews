@@ -7,7 +7,6 @@ import dao.basis.MSSQLDAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
     public TagsMSSQLDAO() {
         super(Tag.class);
@@ -20,6 +19,7 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
         return "insert into Tags (idTag, descricao) values (?,?)";
     }
 
+
     @Override
     protected E preencheEntidade(ResultSet rs) {
         Tag entidade = new Tag();
@@ -31,6 +31,7 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
         }
         return (E) entidade;
     }
+
 
     @Override
     protected void preencheStatementInsert(Entidade entidade, PreparedStatement stmt) throws SQLException {

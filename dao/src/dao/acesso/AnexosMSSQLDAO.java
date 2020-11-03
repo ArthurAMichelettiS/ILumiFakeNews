@@ -2,6 +2,7 @@ package dao.acesso;
 
 import comum.Anexo;
 import comum.Entidade;
+import comum.Usuario;
 import dao.basis.MSSQLDAO;
 
 import java.sql.PreparedStatement;
@@ -24,8 +25,8 @@ public class AnexosMSSQLDAO <E extends Entidade> extends MSSQLDAO {
     protected E preencheEntidade(ResultSet rs) {
         Anexo entidade = new Anexo();
         try {
-            entidade.setIdPost(rs.getInt("IdUser"));
-            entidade.setAnexo(rs.getBytes("Email"));
+            entidade.setIdPost(rs.getInt("IdPost"));
+            entidade.setAnexo(rs.getBytes("Anexo"));
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -41,16 +42,25 @@ public class AnexosMSSQLDAO <E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected void preencheStatementAlter(Entidade entidade, PreparedStatement stmt) throws SQLException {
-
-    }
-
-    @Override
-    protected void preencheStatementSelect(String e, PreparedStatement stmt) throws SQLException {
-
+        Anexo a = (Anexo) entidade;
+        stmt.setInt(1, a.getIdPost());
+        stmt.setBytes(2, a.getAnexo());
     }
 
     @Override
     protected String setAlterCommand() {
-        return null;
+        return "update Anexos set Anexo = ? where IdPost = ?";
     }
+
+    @Override
+    protected String getLocalizaCommand() {
+        return "select * from Anexos where IdPost = ?";
+    }
+
+    @Override
+    protected void preencheStatementSelect(String e, PreparedStatement stmt) throws SQLException {
+        stmt.setString(1, e);
+    }
+
+
 }
