@@ -1,10 +1,9 @@
 package dao.acesso;
 
 import comum.Entidade;
-import comum.Tags;
+import comum.Tag;
 import dao.basis.MSSQLDAO;
 
-import javax.swing.text.html.HTML;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,10 +20,10 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected E preencheEntidade(ResultSet rs) {
-        Tags entidade = new Tags();
+        Tag entidade = new Tag();
         try {
-            entidade.setTags(rs.getInt("idtag"));
-            entidade.setTags(rs.getString("descricao"));
+            entidade.setId(rs.getInt("idtag"));
+            entidade.setTag(rs.getString("descricao"));
         } catch (SQLException ex){
             ex.printStackTrace();
         }
@@ -33,7 +32,7 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected void preencheStatementInsert(Entidade entidade, PreparedStatement stmt) throws SQLException {
-        Tags t = (Tags) entidade;
+        Tag t = (Tag) entidade;
 
     }
 

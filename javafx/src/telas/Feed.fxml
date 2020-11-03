@@ -18,7 +18,7 @@
          </font>
       </Label>
       <Button fx:id="btnFazLogoff" layoutX="39.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnFazLogoff" prefHeight="33.0" prefWidth="133.0" text="Fazer Logoff" />
-      <Button fx:id="btnFazLogin" layoutX="39.0" layoutY="40.0" mnemonicParsing="false" onAction="#FazLogin" prefHeight="33.0" prefWidth="133.0" text="Fazer Logoff" />
+      <Button fx:id="btnFazLogin" layoutX="39.0" layoutY="40.0" mnemonicParsing="false" onAction="#FazLogin" prefHeight="33.0" prefWidth="133.0" text="Fazer Login" />
       <Button fx:id="btnModerar" layoutX="1081.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnOnActionModerar" prefHeight="33.0" prefWidth="133.0" text="Moderar" />
       <TabPane layoutX="275.0" layoutY="95.0" prefHeight="546.0" prefWidth="989.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>

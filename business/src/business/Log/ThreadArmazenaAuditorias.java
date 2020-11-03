@@ -1,7 +1,8 @@
 package business.Log;
 
 import comum.Auditoria;
-import dao.acesso.AuditoriaMSSQLDAO;
+import dao.basis.DAO;
+import dao.enums.EntidadeDAO;
 
 import java.sql.SQLException;
 
@@ -20,7 +21,7 @@ public class ThreadArmazenaAuditorias extends Thread {
     @Override
     public void run(){
         setAtivo(true);
-        AuditoriaMSSQLDAO dados = new AuditoriaMSSQLDAO<>();
+        DAO dados = EntidadeDAO.AUDITORIA.getEntidadeDAO();
         Auditoria a = new Auditoria();
 
         while (isAtivo()){

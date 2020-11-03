@@ -1,5 +1,6 @@
 package dao.acesso;
 
+import comum.Anexo;
 import comum.Entidade;
 import dao.basis.MSSQLDAO;
 
@@ -10,21 +11,32 @@ import java.sql.SQLException;
 public class AnexosMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
     public AnexosMSSQLDAO(Class entityClass) {
         super(entityClass);
+        setTabela("Anexos");
+        setColunaLocaliza("IdPost");
     }
 
     @Override
     protected String setInsertCommand() {
-        return null;
+        return "insert into Anexos (Anexo,IdPost) values (?,?)";
     }
 
     @Override
-    protected Entidade preencheEntidade(ResultSet rs) {
-        return null;
+    protected E preencheEntidade(ResultSet rs) {
+        Anexo entidade = new Anexo();
+        try {
+            entidade.setIdPost(rs.getInt("IdUser"));
+            entidade.setAnexo(rs.getBytes("Email"));
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return (E)entidade;
     }
 
     @Override
     protected void preencheStatementInsert(Entidade entidade, PreparedStatement stmt) throws SQLException {
-
+        Anexo u = new Anexo();
+        stmt.setInt(1, u.getIdPost());
+        stmt.setBytes(2, u.getAnexo());
     }
 
     @Override

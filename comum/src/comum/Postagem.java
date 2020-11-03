@@ -6,13 +6,36 @@ import java.util.List;
 
 public class Postagem extends Entidade {
 
-    //TODO
+
 
     private String Titulo;
 
     private String Conteudo;
 
     private byte[] Imagem;
+
+    private Anexo imagem;
+
+    public void setImagem(Anexo imagem) {
+        this.imagem = imagem;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        List<Tag> tgs = new ArrayList<>();
+        for (String tag:
+             tags) {
+            Tag t = new Tag();
+            t.setTag(tag);
+            tgs.add(t);
+        }
+        this.tags = tgs;
+    }
+
+    private List<Tag> tags;
 
     public String getTitulo() {
         return Titulo;

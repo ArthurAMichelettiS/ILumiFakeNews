@@ -10,6 +10,7 @@ public enum EntidadeDAO {
     POSTAGEM(getPostagemDao()),
     AUDITORIA(getUsuarioDao());
 
+
     DAO entidadeDAO;
 
     EntidadeDAO(DAO dao){
