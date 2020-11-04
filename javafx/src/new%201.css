@@ -40,10 +40,10 @@
     -fx-size: 35;
     -fx-border-width: 0 0 1 0;
     -fx-background-color: transparent;
-    -fx-border-color:
+    -fx-border-color: 
         transparent
         transparent
-        derive(-fx-base, 80%)
+        derive(-fx-base, 80%) 
         transparent;
     -fx-border-insets: 0 10 1 0;
 }
@@ -102,13 +102,13 @@
 .root { -fx-focus-color: transparent; }
 
 .textarea{
-
+	
 	-fx-text-fill: #084559;
     -fx-opacity: 0.1;
 	 -fx-font-size: 12pt;
     -fx-font-family: "Segoe UI Semibold";
 	-fx-background-color: derive(#084559,20%);
-
+	
 }
 
 
@@ -117,12 +117,12 @@
 }
 
 .date-picker-popup > .month-year-pane {
-
+   
     -fx-background-color:  derive(#084559,20%) ;
 }
 
 .date-picker-popup  {
-
+   
     -fx-background-color: derive(#084559,20%) ;
 }
 
@@ -132,7 +132,7 @@
 	  -fx-border-color: derive(#084559,70%) ;
 }
 
-.combo-box .list-cell
+.combo-box .list-cell 
 {
     -fx-background: derive(#084559,20%);
     -fx-background-color: derive(#084559,20%);
@@ -141,10 +141,10 @@
     -fx-text-fill: white;
     -fx-opacity: 0.6;
     -fx-padding: 3 0 2 7;
-    -fx-cell-size: 1.66667em;
+    -fx-cell-size: 1.66667em; 
 }
 
-.combo-box-popup .list-view
+.combo-box-popup .list-view 
 {
     -fx-background-color: derive(#084559,50%), derive(#084559,50%);
 	-fx-font-size: 9pt;
@@ -152,9 +152,9 @@
     -fx-text-fill: white;
     -fx-background-insets: 0, 1;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
-}
+} 
 
-.combo-box-popup .list-view .list-cell
+.combo-box-popup .list-view .list-cell 
 {
     -fx-padding: 4 0 4 5;
 
@@ -162,20 +162,20 @@
     -fx-background-color: derive(#084559,20%);
 }
 
-.combo-box-popup .list-view .list-cell:filled:selected, .combo-box-popup .list-view .list-cell:filled:selected:hover
+.combo-box-popup .list-view .list-cell:filled:selected, .combo-box-popup .list-view .list-cell:filled:selected:hover 
 {
     -fx-background: -fx-accent;
     -fx-background-color: -fx-selection-bar;
     -fx-text-fill: -fx-selection-bar-text;
 }
 
-.combo-box-popup .list-view .list-cell:filled:hover
+.combo-box-popup .list-view .list-cell:filled:hover 
 {
     -fx-background-color: derive(#084559,20%);
     -fx-text-fill: -fx-text-inner-color;
 }
 
-.combo-box-base
+.combo-box-base  
 {
     -fx-skin: "com.sun.javafx.scene.control.skin.ComboBoxBaseSkin";
     -fx-background-color: derive(#084559,20%), derive(#084559,20%), derive(#084559,20%), derive(#084559,20%);
@@ -189,7 +189,7 @@
     -fx-color: -fx-hover-base;
 }
 
-.combo-box-base:showing
+.combo-box-base:showing 
 {
     -fx-color: -fx-pressed-base;
 }
@@ -223,12 +223,12 @@
 .hbox-group {
     -fx-border-color: #FFD692;
 	-fx-border-width: 5px;
-
+	
 }
 
 .button {
-
-    -fx-padding: 5 22 5 22;
+	
+    -fx-padding: 5 22 5 22;   
     -fx-border-color: #084559;
     -fx-border-width: 2;
     -fx-background-radius: 30px;
@@ -253,10 +253,10 @@
 
 .button:focused {
     -fx-border-color: #FFD692, #FFD692;
-    -fx-border-width: 1, 1;
+    -fx-border-width: 2;
     -fx-border-style: solid, segments(1, 1);
-    -fx-border-radius: 0, 0;
-    -fx-border-insets: 1 1 1 1, 0;
+    -fx-border-radius: 30px;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
 
 .button:disabled, .button:default:disabled {
