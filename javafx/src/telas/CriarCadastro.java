@@ -91,7 +91,7 @@ public class CriarCadastro {
         } catch (SQLException erro) {
             new Alert(Alert.AlertType.ERROR, "Algo de errado ao salvar!").showAndWait();
         } catch (Exception erro) {
-            new Alert(Alert.AlertType.ERROR, "Há valores incorretos!").showAndWait();
+            new Alert(Alert.AlertType.ERROR, erro.getMessage()).showAndWait();
         }
     }
 

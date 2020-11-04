@@ -7,7 +7,6 @@ import comum.Usuario;
 import comum.enums.TipoUsuario;
 import dao.basis.DAO;
 import dao.enums.EntidadeDAO;
-import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 
 import java.io.*;
@@ -30,39 +29,28 @@ public class  Acesso {
 
     public static void validaNovaSenha (String senha, String senhaconf) throws Exception
     {
-       try
-       {
         if (senha == null || senha.trim().isEmpty()) {
-            throw new Exception();
+            throw new Exception("Preencha os campos de senha");
         }
         else if (senhaconf == null || senhaconf.trim().isEmpty())
         {
-            throw new Exception();
+            throw new Exception("Preencha os campos de senha");
         }
         else if (senha.equals(senhaconf))
         {
-            throw new Exception();
+            throw new Exception("Senha Confirmada Inválida");
         }
-       }
-       catch (Exception erro)
-       {
-        new Alert(Alert.AlertType.ERROR, "Há valores incorretos!").showAndWait();
-       }
+
     }
 
-    public static void validaDataNasc (LocalDate data) throws Exception
-    {
-        try {
-            LocalDate antes;
-            antes = LocalDate.now().plusYears(-13);
+    public static void validaDataNasc (LocalDate data) throws Exception {
+        LocalDate antes;
+        antes = LocalDate.now().plusYears(-13);
 
-            if (!data.isBefore(antes)){
-                throw new Exception();
-            }
+        if (!data.isBefore(antes)){
+            throw new Exception("Data de Nascimento inválida");
         }
-        catch (Exception erro){
-            new Alert(Alert.AlertType.ERROR, "Data de Nascimento inválida").showAndWait();
-        }
+
     }
 
     public static Object[] listaDadosUsuario() throws SQLException {
