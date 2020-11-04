@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 
-public class Acesso {
+public class  Acesso {
 
     public static Usuario validaLogin(String email, String senha) throws SQLException {
 
@@ -28,16 +28,28 @@ public class Acesso {
         return encontrado;
     }
 
-    public static void validaNovaSenha (String senha, String senhaconf) throws Exception {
-       try{
-        if (senha != senhaconf || senha == null)
+    public static void validaNovaSenha (String senha, String senhaconf) throws Exception
+    {
+       try
+       {
+        if (senha == null || senha.trim().isEmpty()) {
+            throw new Exception();
+        }
+        else if (senhaconf == null || senhaconf.trim().isEmpty())
         {
             throw new Exception();
         }
-    } catch (Exception erro) {
+        else if (senha.equals(senhaconf))
+        {
+            throw new Exception();
+        }
+       }
+       catch (Exception erro)
+       {
         new Alert(Alert.AlertType.ERROR, "Há valores incorretos!").showAndWait();
+       }
     }
-    }
+
     public static void validaDataNasc (LocalDate data) throws Exception
     {
         try {
@@ -102,6 +114,17 @@ public class Acesso {
 
     public static byte[] imgToBytes(File file) throws IOException {
         FileInputStream fis = new FileInputStream(file);
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        byte[] buf = new byte[10241];
+        for (int readNum; (readNum = fis.read(buf)) != -1; ) {
+            bos.write(buf, 0, readNum);
+        }
+        return bos.toByteArray();
+    }
+
+    public static byte[] ConvertImage(Image image) throws IOException {
+        FileInputStream fis = new FileInputStream(String.valueOf(image));
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         byte[] buf = new byte[10241];

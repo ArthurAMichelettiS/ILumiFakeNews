@@ -1,7 +1,9 @@
 package telas;
 
 import business.Acesso;
+import static business.ValidacoesJavafxMascara.mascaraEmail;
 import comum.Usuario;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,8 +22,6 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Locale;
-
-import static business.ValidacoesJavafxMascara.mascaraEmail;
 
 
 
@@ -74,7 +74,7 @@ public class CriarCadastro {
         Usuario d = new Usuario();
 
         try {
-            Acesso.validaLogin(txtSenha.getText(), txtSenhaConf.getText());
+            Acesso.validaNovaSenha(txtSenha.getText().trim(), txtSenhaConf.getText().trim());
             Acesso.validaDataNasc(dpNiver.getValue());
 
             d.setEmail(txtEmail.getText());
@@ -85,6 +85,7 @@ public class CriarCadastro {
             d.setGenero(cbGen.getValue().toString());
             d.setIdTipoDeUsuario(0);
             d.setImagem(imgBytes);
+
             Acesso.enviaDadosUsuario(d);
             HelperTelas.getInstance().VoltarTela(rootPane);
         } catch (SQLException erro) {
