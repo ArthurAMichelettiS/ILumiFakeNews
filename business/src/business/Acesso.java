@@ -8,9 +8,8 @@ import comum.enums.TipoUsuario;
 import dao.basis.DAO;
 import dao.enums.EntidadeDAO;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -77,9 +76,15 @@ public class Acesso {
         dao.Insere(p);
     }
 
+    public static Postagem obtemPost (int id) throws SQLException{
+        DAO dao = EntidadeDAO.POSTAGEM.getEntidadeDAO();
+        return (Postagem) dao.localizaPorId(id);
+    }
+
     public static void enviaPostCientifico (Postagem pc) throws SQLException {
         DAO dao = EntidadeDAO.POSTAGEM.getEntidadeDAO();
         dao.Insere(pc);
+        ControleAuditoria.getInstance().AddAuditoria("Postagem salva: " + pc.getTitulo());
     }
     
     public static boolean ehModeradorLogado(){
@@ -99,15 +104,14 @@ public class Acesso {
         FileInputStream fis = new FileInputStream(file);
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        byte[] buf = new byte[1200000];
+        byte[] buf = new byte[10241];
         for (int readNum; (readNum = fis.read(buf)) != -1; ) {
             bos.write(buf, 0, readNum);
         }
         return bos.toByteArray();
     }
 
-    public static BufferedImage bytesToImg(byte[] img) throws IOException {
-        return ImageIO.read(new ByteArrayInputStream(img));
+    public static Image bytesToImg(byte[] img)  {
+        return new Image(new ByteArrayInputStream(img));
     }
-
 }

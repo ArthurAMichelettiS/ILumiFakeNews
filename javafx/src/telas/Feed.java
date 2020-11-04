@@ -39,7 +39,7 @@ public class Feed {
         btnFazLogoff.setVisible(Acesso.ehLogado());
         btnModerar.setVisible(Acesso.ehModeradorLogado());
         if(Acesso.ehLogado()){
-            //ivUser.setImage();
+            ivUser.setImage(Acesso.bytesToImg(DefinicoesPadrao.getInstance().getUsuarioLogado().getImagem()));
         }
     }
 

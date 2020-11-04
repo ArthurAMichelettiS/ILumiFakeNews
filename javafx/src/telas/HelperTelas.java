@@ -21,6 +21,16 @@ public class HelperTelas {
         return instance;
     }
 
+    public int getIdPostNavega() {
+        return idPostNavega;
+    }
+
+    public void setIdPostNavega(int idPostNavega) {
+        this.idPostNavega = idPostNavega;
+    }
+
+    private int idPostNavega;
+
     public void setTelaInicial(String tela){
         telaAtual = tela;
     }

@@ -83,7 +83,7 @@ public class CriarCadastro {
             d.setNascimento(dpNiver.getValue());
             d.setPais(cbPais.getValue().toString());
             d.setGenero(cbGen.getValue().toString());
-            d.setIdTipoDeUsuario(2);
+            d.setIdTipoDeUsuario(0);
             d.setImagem(imgBytes);
             Acesso.enviaDadosUsuario(d);
             HelperTelas.getInstance().VoltarTela(rootPane);

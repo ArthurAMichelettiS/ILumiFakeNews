@@ -39,6 +39,7 @@ public class Perfil {
         txtBio.setText(user.getBio());
         txtSenha.setText(user.getSenha());
         txtSenhaConf.setText(user.getSenha());
+        ivProfile.setImage(Acesso.bytesToImg(user.getImagem()));
     }
 
     public void btnVoltarAction(ActionEvent actionEvent) {
