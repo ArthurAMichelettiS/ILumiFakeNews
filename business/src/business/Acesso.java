@@ -13,6 +13,8 @@ import java.io.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
+import org.apache.commons.validator.GenericValidator;
+
 
 public class  Acesso {
 
@@ -53,11 +55,14 @@ public class  Acesso {
 
     }
 
-    public static Object[] listaDadosUsuario() throws SQLException {
-        DAO dados = EntidadeDAO.USUARIO.getEntidadeDAO();
-        return dados.listaTodos().toArray();
-    }
+    public static void validaEmail (String email) throws Exception{
+        GenericValidator valid = new GenericValidator();
 
+        if (!GenericValidator.isEmail(email))
+        {
+            throw new Exception("E-mail inválido");
+        }
+    }
 
     public static void enviaDadosUsuario(Usuario u) throws SQLException{
         DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
@@ -69,7 +74,6 @@ public class  Acesso {
         DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
         dao.Alter(u);
     }
-
 
     public static void enviaPost (Postagem p) throws SQLException{
         DAO dao = EntidadeDAO.POSTAGEM.getEntidadeDAO();

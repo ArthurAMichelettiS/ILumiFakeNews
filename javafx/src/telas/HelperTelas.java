@@ -39,6 +39,16 @@ public class HelperTelas {
 
     private String telaAtual;
 
+    public boolean isCkvalida() {
+        return ckvalida;
+    }
+
+    public void setCkvalida(boolean ckvalida) {
+        this.ckvalida = ckvalida;
+    }
+
+    private boolean ckvalida = false;
+
     public void VoltarTela(AnchorPane painelOrigem){
 
         if(telasAcessadas.isEmpty())

@@ -37,11 +37,7 @@
                            </font>
                         </Button>
                         <Button layoutX="695.0" layoutY="461.0" mnemonicParsing="false" onAction="#btnVerPerfil" prefHeight="33.0" prefWidth="79.0" text="☆" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="717.0" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="461.0" />
-                        <Button layoutX="548.0" layoutY="461.0" mnemonicParsing="false" onAction="#btnVerPerfil" prefHeight="33.0" prefWidth="111.0" text="reportar" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="573.0" AnchorPane.rightAnchor="305.0" AnchorPane.topAnchor="461.0">
-                           <font>
-                              <Font size="11.0" />
-                           </font>
-                        </Button>
+                        <Button layoutX="548.0" layoutY="461.0" mnemonicParsing="false" onAction="#btnVerPerfil" prefHeight="33.0" prefWidth="111.0" text="Reportar" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="573.0" AnchorPane.rightAnchor="305.0" AnchorPane.topAnchor="461.0" />
                      </children>
                   </AnchorPane>
                </content>

@@ -25,6 +25,8 @@ import java.util.Locale;
 
 
 
+
+
 public class CriarCadastro {
 
     @FXML
@@ -66,7 +68,6 @@ public class CriarCadastro {
             cbPais.getItems().add(name);
         }
         cbGen.getItems().addAll("Masculino", "Feminino", "Prefiro Não Dizer");
-        mascaraEmail(txtEmail);
     }
 
     public void cadastraUser(ActionEvent actionEvent) {
@@ -76,6 +77,7 @@ public class CriarCadastro {
         try {
             Acesso.validaNovaSenha(txtSenha.getText().trim(), txtSenhaConf.getText().trim());
             Acesso.validaDataNasc(dpNiver.getValue());
+            Acesso.validaEmail(txtEmail.getText());
 
             d.setEmail(txtEmail.getText());
             d.setNome(txtNome.getText());
