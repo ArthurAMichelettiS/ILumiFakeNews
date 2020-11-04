@@ -1,9 +1,7 @@
 package telas;
 
 import business.Acesso;
-import static business.ValidacoesJavafxMascara.mascaraEmail;
 import comum.Usuario;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +20,8 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Locale;
+
+import static business.ValidacoesJavafxMascara.mascaraEmail;
 
 
 
@@ -54,6 +54,8 @@ public class CriarCadastro {
     @FXML
     private ImageView ivProfile;
 
+    private byte[] imgBytes;
+
     @FXML
     private void initialize() {
         String[] countryCodes = java.util.Locale.getISOCountries();
@@ -82,7 +84,7 @@ public class CriarCadastro {
             d.setPais(cbPais.getValue().toString());
             d.setGenero(cbGen.getValue().toString());
             d.setIdTipoDeUsuario(2);
-
+            d.setImagem(imgBytes);
             Acesso.enviaDadosUsuario(d);
             HelperTelas.getInstance().VoltarTela(rootPane);
         } catch (SQLException erro) {
@@ -122,6 +124,7 @@ public class CriarCadastro {
             File selectedFile = fileChooser.showOpenDialog(primaryStage);
             Image image = new Image(selectedFile.toURI().toString());
             ivProfile.setImage(image);
+            imgBytes = Acesso.imgToBytes(selectedFile);
         } catch (Exception ex) {
             //nothing
         }

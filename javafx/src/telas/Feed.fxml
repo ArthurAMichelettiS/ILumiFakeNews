@@ -9,7 +9,7 @@
    <children>
       <HBox layoutX="30.0" layoutY="86.0" styleClass="hbox-group">
          <children>
-            <ImageView fitHeight="164.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="ivUser" fitHeight="164.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </HBox>
       <Label layoutX="642.0" layoutY="10.0" prefHeight="85.0" prefWidth="127.0" styleClass="label-header" text="ILumi" textAlignment="JUSTIFY" textFill="#ffd692" textOverrun="WORD_ELLIPSIS">

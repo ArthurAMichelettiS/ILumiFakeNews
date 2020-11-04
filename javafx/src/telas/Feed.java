@@ -5,6 +5,7 @@ import business.DefinicoesPadrao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class Feed {
@@ -28,12 +29,18 @@ public class Feed {
     public Button btnModerar;
 
     @FXML
+    public ImageView ivUser;
+
+    @FXML
     private void initialize() {
         btnFazPostCientifico.setVisible(Acesso.ehPesquisadorLogado());
         btnFazPost.setVisible(!Acesso.ehModeradorLogado());
         btnFazLogin.setVisible(!Acesso.ehLogado());
         btnFazLogoff.setVisible(Acesso.ehLogado());
         btnModerar.setVisible(Acesso.ehModeradorLogado());
+        if(Acesso.ehLogado()){
+            //ivUser.setImage();
+        }
     }
 
     public void btnOnActionModerar(ActionEvent actionEvent) {

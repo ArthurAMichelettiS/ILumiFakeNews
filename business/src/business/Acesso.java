@@ -9,6 +9,8 @@ import dao.basis.DAO;
 import dao.enums.EntidadeDAO;
 import javafx.scene.control.Alert;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -97,11 +99,15 @@ public class Acesso {
         FileInputStream fis = new FileInputStream(file);
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        byte[] buf = new byte[10241];
+        byte[] buf = new byte[1200000];
         for (int readNum; (readNum = fis.read(buf)) != -1; ) {
             bos.write(buf, 0, readNum);
         }
         return bos.toByteArray();
+    }
+
+    public static BufferedImage bytesToImg(byte[] img) throws IOException {
+        return ImageIO.read(new ByteArrayInputStream(img));
     }
 
 }

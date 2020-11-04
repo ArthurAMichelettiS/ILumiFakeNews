@@ -26,7 +26,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     @Override
     protected PreparedStatement CriaPreparedStatementInsere(Connection con, Entidade e) throws SQLException {
         String SQL = "insert into Usuario (Email, Senha, Pais, " +
-                "Nome, Genero, DataNasc, IdTipoDeUsuário) values (?,?,?,?,?,?,?)";
+                "Nome, Genero, DataNasc, IdTipoDeUsuário, Imagem) values (?,?,?,?,?,?,?,?)";
         PreparedStatement stmt = con.prepareStatement(SQL);
 
         Usuario u = (Usuario) e;
@@ -38,6 +38,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         String s = u.getNascimento().toString().replace("-","/");
         stmt.setString(6, s);
         stmt.setInt(7, u.getIdTipoDeUsuario());
+        stmt.setBytes(8, u.getImagem());
 
         return stmt;
     }
@@ -69,6 +70,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
             entidade.setIdTipoDeUsuario(rs.getInt("IdTipoDeUsuário"));
             entidade.setGenero(rs.getString("Genero"));
             entidade.setBio(rs.getString("Bio"));
+            entidade.setImagem(rs.getBytes("Imagem"));
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
