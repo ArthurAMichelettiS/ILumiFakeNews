@@ -116,6 +116,10 @@ public class CriarCadastro {
             primaryStage.initOwner(stage);
             primaryStage.initModality(Modality.APPLICATION_MODAL);
             primaryStage.showAndWait();
+            if(HelperTelas.getInstance().isCkvalida() == false)
+            {
+                source.setSelected(false);
+            }
             //HelperTelas.getInstance().IrParaTela(rootPane, "ArquivosParaValidacoes.fxml");
         }
     }

@@ -59,4 +59,11 @@ public class ArquivosParaValidacoes {
         final Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
+
+    public void Salvar(ActionEvent actionEvent) {
+        HelperTelas.getInstance().setCkvalida(true);
+        final Node source = (Node) actionEvent.getSource();
+        final Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+    }
 }
