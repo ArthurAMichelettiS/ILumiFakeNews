@@ -58,11 +58,12 @@ public class  Acesso {
 
     public static void validaEmail (String email) throws Exception{
         Usuario finder = localizaUsuario(email);
+        System.out.println(finder.getEmail());
         if (!GenericValidator.isEmail(email))
         {
             throw new Exception("E-mail inválido");
         }
-        if(finder.getEmail() == email)
+        if(finder.getEmail().equals(email))
         {
             throw new Exception("Usuário já cadastrado");
         }
