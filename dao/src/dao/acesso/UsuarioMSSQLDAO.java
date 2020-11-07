@@ -77,5 +77,8 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         return (E)entidade;
     }
 
-
+    @Override
+    public Entidade localiza(String codigo) throws SQLException {
+        return super.localiza(codigo);
+    }
 }

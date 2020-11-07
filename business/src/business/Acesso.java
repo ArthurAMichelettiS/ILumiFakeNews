@@ -2,6 +2,7 @@
 package business;
 
 import business.Log.ControleAuditoria;
+import comum.Entidade;
 import comum.Postagem;
 import comum.Usuario;
 import comum.enums.TipoUsuario;
@@ -38,7 +39,7 @@ public class  Acesso {
         {
             throw new Exception("Preencha os campos de senha");
         }
-        else if (senha.equals(senhaconf))
+        else if (!senha.equals(senhaconf))
         {
             throw new Exception("Senha Confirmada Inválida");
         }
@@ -56,12 +57,23 @@ public class  Acesso {
     }
 
     public static void validaEmail (String email) throws Exception{
-        GenericValidator valid = new GenericValidator();
-
+        Usuario finder = localizaUsuario(email);
         if (!GenericValidator.isEmail(email))
         {
             throw new Exception("E-mail inválido");
         }
+        if(finder.getEmail() == email)
+        {
+            throw new Exception("Usuário já cadastrado");
+        }
+    }
+
+    public static Usuario localizaUsuario(String email) throws SQLException{
+        DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
+
+        Usuario encontrado = (Usuario) dao.localiza(email);
+
+        return encontrado;
     }
 
     public static void enviaDadosUsuario(Usuario u) throws SQLException{
@@ -69,6 +81,8 @@ public class  Acesso {
         dao.Insere(u);
         ControleAuditoria.getInstance().AddAuditoria("Usuario salvo: " + u.getEmail());
     }
+
+
 
     public static void alterarDadosUsuario(Usuario u)  throws SQLException{
         DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
@@ -106,17 +120,6 @@ public class  Acesso {
 
     public static byte[] imgToBytes(File file) throws IOException {
         FileInputStream fis = new FileInputStream(file);
-
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        byte[] buf = new byte[10241];
-        for (int readNum; (readNum = fis.read(buf)) != -1; ) {
-            bos.write(buf, 0, readNum);
-        }
-        return bos.toByteArray();
-    }
-
-    public static byte[] ConvertImage(Image image) throws IOException {
-        FileInputStream fis = new FileInputStream(String.valueOf(image));
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         byte[] buf = new byte[10241];
