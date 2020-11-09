@@ -5,6 +5,7 @@ import business.DefinicoesPadrao;
 import comum.Postagem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -83,8 +84,13 @@ public class Feed {
         HelperTelas.getInstance().IrParaTela(rootPane, "CriarPostCientifico.fxml");
     }
 
-    public void btnVerPerfil(ActionEvent actionEvent){
-        HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
+    public void btnVerPerfil(ActionEvent actionEvent)
+    {
+        if(Acesso.ehLogado()) {
+            HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
+        }
+        else
+            new Alert(Alert.AlertType.ERROR, "Antes de efetuar está ação, favor logar!!!").showAndWait();
     }
 
     public void btnFazLogoff(ActionEvent actionEvent) {

@@ -102,7 +102,7 @@
 .root { -fx-focus-color: transparent; }
 
 .textarea{
-	
+
 	-fx-text-fill: #084559;
     -fx-opacity: 0.1;
 	 -fx-font-size: 12pt;
