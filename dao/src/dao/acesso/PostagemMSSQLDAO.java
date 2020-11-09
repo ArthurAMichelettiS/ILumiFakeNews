@@ -2,6 +2,7 @@ package dao.acesso;
 
 import comum.Entidade;
 import comum.Postagem;
+import comum.Tag;
 import comum.Usuario;
 import dao.basis.DAO;
 import dao.basis.MSSQLDAO;
@@ -22,17 +23,19 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     @Override
     public void Insere(Entidade entidade) throws SQLException {
+        Postagem p = (Postagem) entidade;
+
         super.Insere(entidade);
 
-        Postagem p = (Postagem) entidade;
         AnexosMSSQLDAO daoAnexo = new AnexosMSSQLDAO();
         daoAnexo.Insere(p.getImagem());
 
-        /*TagsMSSQLDAO daoTag = new TagsMSSQLDAO();
+        TagsMSSQLDAO daoTag = new TagsMSSQLDAO();
         for (Tag tg:
                 p.getTags()) {
+            tg.setIdPost(p.getIdPost());
             daoTag.Insere(tg);
-        }*/
+        }
     }
 
     @Override

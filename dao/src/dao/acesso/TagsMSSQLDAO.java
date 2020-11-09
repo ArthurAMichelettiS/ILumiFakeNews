@@ -29,14 +29,11 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected PreparedStatement CriaPreparedStatementInsere(Connection con, Entidade e) throws SQLException {
-        String SQL = "insert into Tag (IdTag, Descricao) values (?,?)";
+        String SQL = "insert into Tag (Descricao) values (?); go; insert into TagPostagem (IdTag, IdPostagem) values (@@IDENTITY,?)";
         PreparedStatement stmt = con.prepareStatement(SQL);
         Tag t = (Tag) e;
         stmt.setString(1, t.getTag());
-        SQL = "insert into TagPostagem (IdTag, IdPostagem) values (?,?)";
-        stmt = con.prepareStatement(SQL);
-        Postagem p = (Postagem) e;
-        stmt.setString(1,String.valueOf(p.getIdPost()));
+        stmt.setString(2,String.valueOf(t.getIdPost()));
         return stmt;
     }
 
