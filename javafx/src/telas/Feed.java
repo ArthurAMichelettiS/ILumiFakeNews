@@ -2,11 +2,16 @@ package telas;
 
 import business.Acesso;
 import business.DefinicoesPadrao;
+import comum.Postagem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+
+import java.sql.SQLException;
 
 public class Feed {
 
@@ -32,7 +37,14 @@ public class Feed {
     public ImageView ivUser;
 
     @FXML
-    private void initialize() {
+    public TextField txtTitulo;
+
+    @FXML
+    public TextArea txtTexto;
+
+    @FXML
+    private void initialize() throws SQLException {
+        //Postagem d = Acesso.obtemPost(04);
         btnFazPostCientifico.setVisible(Acesso.ehPesquisadorLogado());
         btnFazPost.setVisible(!Acesso.ehModeradorLogado());
         btnFazLogin.setVisible(!Acesso.ehLogado());
@@ -41,6 +53,8 @@ public class Feed {
         if(Acesso.ehLogado()){
             ivUser.setImage(Acesso.bytesToImg(DefinicoesPadrao.getInstance().getUsuarioLogado().getImagem()));
         }
+        //txtTitulo.setText(d.getTitulo());
+        //txtTexto.setText(d.getConteudo());
     }
 
     public void btnOnActionModerar(ActionEvent actionEvent) {

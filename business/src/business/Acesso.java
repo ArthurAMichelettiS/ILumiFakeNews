@@ -27,7 +27,7 @@ public class  Acesso {
     {
         if (text.getText().isEmpty())
         {
-            throw new Exception("Campo(s) Vazio(s)");
+            throw new Exception("Existem campo(s) vazio(s)");
         }
     }
 
@@ -35,7 +35,7 @@ public class  Acesso {
     {
         if (data.getValue() == null)
         {
-            throw new Exception("Campo de data Vazia");
+            throw new Exception("Campo de data vazio");
         }
     }
 
@@ -43,7 +43,7 @@ public class  Acesso {
     {
         if (cb.getValue() == null)
         {
-            throw new Exception("Campo(s) Vazio(s)");
+            throw new Exception("Existem campo(s) vazio(s)");
         }
     }
 

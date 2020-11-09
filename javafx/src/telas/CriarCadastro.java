@@ -82,6 +82,7 @@ public class CriarCadastro {
             Acesso.validaCampoVazioData(dpNiver);
             Acesso.validaCampoVazioBox(cbGen);
             Acesso.validaCampoVazioBox(cbPais);
+
             Acesso.validaNovaSenha(txtSenha.getText().trim(), txtSenhaConf.getText().trim());
             Acesso.validaDataNasc(dpNiver.getValue());
             Acesso.validaEmail(txtEmail.getText());
