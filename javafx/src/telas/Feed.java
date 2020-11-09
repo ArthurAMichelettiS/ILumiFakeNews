@@ -44,7 +44,7 @@ public class Feed {
 
     @FXML
     private void initialize() throws SQLException {
-        //Postagem d = Acesso.obtemPost(04);
+        Postagem d = Acesso.obtemPost(04);
         btnFazPostCientifico.setVisible(Acesso.ehPesquisadorLogado());
         btnFazPost.setVisible(!Acesso.ehModeradorLogado());
         btnFazLogin.setVisible(!Acesso.ehLogado());
@@ -53,8 +53,8 @@ public class Feed {
         if(Acesso.ehLogado()){
             ivUser.setImage(Acesso.bytesToImg(DefinicoesPadrao.getInstance().getUsuarioLogado().getImagem()));
         }
-        //txtTitulo.setText(d.getTitulo());
-        //txtTexto.setText(d.getConteudo());
+        txtTitulo.setText(d.getTitulo());
+        txtTexto.setText(d.getConteudo());
     }
 
     public void btnOnActionModerar(ActionEvent actionEvent) {
