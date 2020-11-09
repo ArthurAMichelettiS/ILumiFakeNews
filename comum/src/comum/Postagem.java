@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Postagem extends Entidade {
 
+    private int IdPost;
 
     private String Titulo;
 
@@ -72,6 +73,9 @@ public class Postagem extends Entidade {
     }
 
 
+    public int getIdPost() { return IdPost; }
+
+    public void setIdPost(int idPost) { IdPost = idPost; }
 }
 
 

@@ -1,6 +1,7 @@
 package dao.acesso;
 
 import comum.Entidade;
+import comum.Postagem;
 import comum.Tag;
 import dao.basis.MSSQLDAO;
 
@@ -28,10 +29,14 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected PreparedStatement CriaPreparedStatementInsere(Connection con, Entidade e) throws SQLException {
-        String SQL = "insert into Tags (idTag, descricao) values (?,?)";
+        String SQL = "insert into Tag (IdTag, Descricao) values (?,?)";
         PreparedStatement stmt = con.prepareStatement(SQL);
         Tag t = (Tag) e;
         stmt.setString(1, t.getTag());
+        SQL = "insert into TagPostagem (IdTag, IdPostagem) values (?,?)";
+        stmt = con.prepareStatement(SQL);
+        Postagem p = (Postagem) e;
+        stmt.setString(1,String.valueOf(p.getIdPost()));
         return stmt;
     }
 
@@ -39,9 +44,12 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
     @Override
     protected E preencheEntidade(ResultSet rs) {
         Tag entidade = new Tag();
+        Postagem entidadeP = new Postagem();
         try {
             entidade.setId(rs.getInt("idTag"));
             entidade.setTag(rs.getString("descricao"));
+            entidadeP.setId(rs.getInt("idTag"));
+            entidadeP.setIdPost(rs.getInt("idPost"));
         } catch (SQLException ex){
             ex.printStackTrace();
         }
