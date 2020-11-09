@@ -8,8 +8,12 @@ import comum.Usuario;
 import comum.enums.TipoUsuario;
 import dao.basis.DAO;
 import dao.enums.EntidadeDAO;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 
+import java.awt.*;
 import java.io.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -18,6 +22,30 @@ import org.apache.commons.validator.GenericValidator;
 
 
 public class  Acesso {
+
+    public static void validaCampoVazio (TextField text) throws Exception
+    {
+        if (text.getText().isEmpty())
+        {
+            throw new Exception("Campo(s) Vazio(s)");
+        }
+    }
+
+    public static void validaCampoVazioData (DatePicker data) throws Exception
+    {
+        if (data.getValue() == null)
+        {
+            throw new Exception("Campo de data Vazia");
+        }
+    }
+
+    public static void validaCampoVazioBox (ComboBox cb) throws Exception
+    {
+        if (cb.getValue() == null)
+        {
+            throw new Exception("Campo(s) Vazio(s)");
+        }
+    }
 
     public static Usuario validaLogin(String email, String senha) throws SQLException {
 
@@ -53,8 +81,8 @@ public class  Acesso {
         if (!data.isBefore(antes)){
             throw new Exception("Data de Nascimento inválida");
         }
-
     }
+
 
     public static void validaEmail (String email) throws Exception{
         Usuario finder = localizaUsuario(email);
@@ -62,18 +90,29 @@ public class  Acesso {
         {
             throw new Exception("E-mail inválido");
         }
-        if(finder.getEmail() == email)
+        else if (finder == null)
+        {
+            return;
+        }
+        else if(finder.getEmail().equals(email))
         {
             throw new Exception("Usuário já cadastrado");
         }
     }
 
     public static Usuario localizaUsuario(String email) throws SQLException{
-        DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
+        try {
 
-        Usuario encontrado = (Usuario) dao.localiza(email);
+            DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
 
-        return encontrado;
+            Usuario encontrado = (Usuario) dao.localiza(email);
+
+            return encontrado;
+        }
+        catch (SQLException e)
+        {
+            throw e;
+        }
     }
 
     public static void enviaDadosUsuario(Usuario u) throws SQLException{
