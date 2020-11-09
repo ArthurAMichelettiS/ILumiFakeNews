@@ -97,7 +97,7 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     public Entidade localiza(String codigo) throws SQLException {
         Postagem p = (Postagem) super.localiza(codigo);
         DAO d = new TagsMSSQLDAO<>();
-        //p.setTags(d.listaTodos());
+        p.setTags(d.listaTodos());
         return p;
     }
 

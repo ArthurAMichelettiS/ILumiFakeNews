@@ -20,7 +20,6 @@ import java.time.LocalDate;
 
 import org.apache.commons.validator.GenericValidator;
 
-
 public class  Acesso {
 
     public static void validaCampoVazio (TextField text) throws Exception
@@ -121,8 +120,6 @@ public class  Acesso {
         ControleAuditoria.getInstance().AddAuditoria("Usuario salvo: " + u.getEmail());
     }
 
-
-
     public static void alterarDadosUsuario(Usuario u)  throws SQLException{
         DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
         dao.Alter(u);
@@ -147,12 +144,15 @@ public class  Acesso {
     public static boolean ehModeradorLogado(){
         return DefinicoesPadrao.getInstance().getTipoUsuario() == TipoUsuario.MODERADOR;
     }
+
     public static boolean ehComumLogado(){
         return DefinicoesPadrao.getInstance().getTipoUsuario() == TipoUsuario.COMUM;
     }
+
     public static boolean ehPesquisadorLogado(){
         return DefinicoesPadrao.getInstance().getTipoUsuario() == TipoUsuario.PESQUISADOR;
     }
+
     public static boolean ehLogado(){
         return DefinicoesPadrao.getInstance().getTipoUsuario() != null;
     }

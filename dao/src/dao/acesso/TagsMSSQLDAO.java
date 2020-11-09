@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
     public TagsMSSQLDAO() {
         super(Tag.class);
-        setTabela("Tags");
+        setTabela("Tag");
         setColunaLocaliza("descricao");
         setColunaChaveId("idTag");
     }
