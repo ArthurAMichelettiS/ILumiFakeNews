@@ -2,17 +2,19 @@ package telas;
 
 import business.Acesso;
 import business.DefinicoesPadrao;
+import comp.CustomControlPost;
 import comum.Postagem;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Feed {
 
@@ -44,6 +46,9 @@ public class Feed {
     public TextArea txtTexto;
 
     @FXML
+    public ListView<CustomControlPost> pnPosts;
+
+    @FXML
     private void initialize() throws SQLException {
         Postagem d = Acesso.obtemPost(04);
         btnFazPostCientifico.setVisible(Acesso.ehPesquisadorLogado());
@@ -56,6 +61,19 @@ public class Feed {
         }
         txtTitulo.setText(d.getTitulo());
         txtTexto.setText(d.getConteudo());
+
+        criaListViewPostagem();
+    }
+
+    public void criaListViewPostagem() {
+
+        List<CustomControlPost> list = new ArrayList<CustomControlPost>();
+        for (int i = 0; i < 5; i++) {
+            list.add(new CustomControlPost("Título", "Descrição"));
+        }
+
+        ObservableList<CustomControlPost> myObservableList = FXCollections.observableList(list);
+        pnPosts.setItems(myObservableList);
     }
 
     public void btnOnActionModerar(ActionEvent actionEvent) {

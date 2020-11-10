@@ -63,7 +63,8 @@
                               <Font size="11.0" />
                            </font>
                         </Button>
-                        <Region layoutX="37.0" layoutY="24.0" prefHeight="434.0" prefWidth="926.0" AnchorPane.bottomAnchor="57.0" AnchorPane.topAnchor="24.0" />
+                        <Region layoutX="37.0" layoutY="24.0" prefHeight="434.0" prefWidth="901.0" AnchorPane.bottomAnchor="57.0" AnchorPane.topAnchor="24.0" />
+                        <ListView fx:id="pnPosts" layoutX="27.0" layoutY="31.0" prefHeight="423.0" prefWidth="909.0" />
                      </children>
                   </AnchorPane>
                </content>
