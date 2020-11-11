@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact name="ILumiFakeNews:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ILumiFakeNews_jar</output-path>
+    <root id="root">
+      <element id="archive" name="ILumiFakeNews.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/javafx/src/telas/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="business" />
+        <element id="module-output" name="comum" />
+        <element id="module-output" name="dao" />
+        <element id="module-output" name="iLumiFakeNews" />
+        <element id="module-output" name="javafx" />
+      </element>
+      <element id="library" level="project" name="lib1" />
+      <element id="library" level="project" name="mssql-jdbc-8.4.1.jre14" />
+      <element id="library" level="project" name="lib" />
+      <element id="library" level="project" name="commons-validator-1.7" />
+    </root>
+  </artifact>
+</component>

@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="javafx" name="JavaFXApp">
-    <output-path>$PROJECT_DIR$/out/artifacts/JavaFXApp</output-path>
+  <artifact type="javafx" name="unnamed">
+    <output-path>$PROJECT_DIR$/out/artifacts/unnamed</output-path>
     <properties id="javafx-properties">
       <options>
         <option name="appClass" value="telas.Main" />
@@ -12,9 +12,10 @@
       </options>
     </properties>
     <root id="root">
-      <element id="archive" name="JavaFXApp.jar">
-        <element id="module-output" name="iLumiFakeNews" />
-      </element>
+      <element id="module-output" name="business" />
+      <element id="module-output" name="comum" />
+      <element id="module-output" name="dao" />
+      <element id="module-output" name="javafx" />
     </root>
   </artifact>
 </component>

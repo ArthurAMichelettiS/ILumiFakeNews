@@ -14,7 +14,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     public UsuarioMSSQLDAO() {
         super(Usuario.class);

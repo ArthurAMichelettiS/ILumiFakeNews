@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Main-Class: telas.Main
+Class-Path: src.zip javafx-swt.jar javafx.web.jar javafx.base.jar javafx
+ .fxml.jar javafx.media.jar javafx.swing.jar javafx.controls.jar javafx.
+ graphics.jar commons-validator-1.7.jar mssql-jdbc-8.4.1.jre14.jar mssql
+ -jdbc-8.4.1.jre14.jar src.zip javafx-swt.jar javafx.web.jar javafx.base
+ .jar javafx.fxml.jar javafx.media.jar javafx.swing.jar javafx.controls.
+ jar javafx.graphics.jar commons-validator-1.7.jar mssql-jdbc-8.4.1.jre1
+ 4.jar commons-validator-1.7.jar
+

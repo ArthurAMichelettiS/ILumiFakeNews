@@ -46,6 +46,9 @@ public class Feed {
     public TextArea txtTexto;
 
     @FXML
+    public Label LbNome;
+
+    @FXML
     public ListView<CustomControlPost> pnPosts;
 
     @FXML
@@ -56,6 +59,9 @@ public class Feed {
         btnFazLogin.setVisible(!Acesso.ehLogado());
         btnFazLogoff.setVisible(Acesso.ehLogado());
         btnModerar.setVisible(Acesso.ehModeradorLogado());
+        if(Acesso.ehLogado()){
+            LbNome.setText(DefinicoesPadrao.getInstance().getUsuarioLogado().getNome());
+        }
         if(Acesso.ehLogado()){
             ivUser.setImage(Acesso.bytesToImg(DefinicoesPadrao.getInstance().getUsuarioLogado().getImagem()));
         }
