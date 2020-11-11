@@ -2,7 +2,6 @@
 package business;
 
 import business.Log.ControleAuditoria;
-import comum.Entidade;
 import comum.Postagem;
 import comum.Usuario;
 import comum.enums.TipoUsuario;
@@ -12,13 +11,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import org.apache.commons.validator.GenericValidator;
 
-import java.awt.*;
 import java.io.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
-
-import org.apache.commons.validator.GenericValidator;
+import java.util.ArrayList;
 
 public class  Acesso {
 
@@ -133,6 +131,11 @@ public class  Acesso {
     public static Postagem obtemPost (int id) throws SQLException{
         DAO dao = EntidadeDAO.POSTAGEM.getEntidadeDAO();
         return (Postagem) dao.localizaPorId(id);
+    }
+
+    public static ArrayList obtemListPosts () throws SQLException{
+        DAO dao = EntidadeDAO.POSTAGEM.getEntidadeDAO();
+        return dao.listaTodos();
     }
 
     public static void enviaPostCientifico (Postagem pc) throws SQLException {

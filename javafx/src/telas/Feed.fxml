@@ -48,23 +48,8 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ScrollBar layoutX="950.0" layoutY="14.0" orientation="VERTICAL" prefHeight="475.0" prefWidth="25.0" />
-                        <Button layoutX="72.0" layoutY="441.0" mnemonicParsing="false" onAction="#btnVerPerfil" prefHeight="33.0" prefWidth="127.0" text="Ver Perfil" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="72.0" AnchorPane.rightAnchor="790.0" AnchorPane.topAnchor="461.0" />
-                        <Button layoutX="227.0" layoutY="441.0" mnemonicParsing="false" onAction="#btnVerPerfil" prefHeight="33.0" prefWidth="144.0" text="Seguir perfil" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="227.0" AnchorPane.rightAnchor="618.0" AnchorPane.topAnchor="461.0" />
-                        <Button layoutX="405.0" layoutY="441.0" mnemonicParsing="false" onAction="#btnVerPostagem" prefHeight="33.0" prefWidth="133.0" text="Comentários" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="451.0" AnchorPane.topAnchor="461.0" />
-                        <Button layoutX="826.0" layoutY="458.0" mnemonicParsing="false" onAction="#btnVerPerfil" prefHeight="33.0" prefWidth="80.0" text="👎" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="826.0" AnchorPane.rightAnchor="83.0" AnchorPane.topAnchor="461.0">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="717.0" layoutY="458.0" mnemonicParsing="false" onAction="#btnVerPerfil" prefHeight="33.0" prefWidth="79.0" text="☆" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="717.0" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="461.0" />
-                        <Button layoutX="573.0" layoutY="441.0" mnemonicParsing="false" onAction="#btnVerPerfil" prefHeight="33.0" prefWidth="111.0" text="reportar" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="573.0" AnchorPane.rightAnchor="305.0" AnchorPane.topAnchor="461.0">
-                           <font>
-                              <Font size="11.0" />
-                           </font>
-                        </Button>
                         <Region layoutX="37.0" layoutY="24.0" prefHeight="434.0" prefWidth="901.0" AnchorPane.bottomAnchor="57.0" AnchorPane.topAnchor="24.0" />
-                        <ListView fx:id="pnPosts" layoutX="27.0" layoutY="31.0" prefHeight="423.0" prefWidth="909.0" />
+                        <ListView fx:id="pnPosts" layoutX="6.0" layoutY="5.0" prefHeight="502.0" prefWidth="975.0" />
                      </children>
                   </AnchorPane>
                </content>

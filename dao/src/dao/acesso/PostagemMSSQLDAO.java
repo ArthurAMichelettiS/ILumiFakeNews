@@ -55,7 +55,7 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected PreparedStatement CriaPreparedStatementInsere(Connection con, Entidade e) throws SQLException {
-        String SQL = "insert into Postagem (titulo, conteudo, IdUser) values (?,?, ?)";
+        String SQL = "insert into Postagem (titulo, conteudo, IdUser) values (?,?,?)";
         PreparedStatement stmt = con.prepareStatement(SQL);
         Postagem p = (Postagem) e;
         stmt.setString(1, p.getTitulo());

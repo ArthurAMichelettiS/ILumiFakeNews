@@ -65,11 +65,13 @@ public class Feed {
         criaListViewPostagem();
     }
 
-    public void criaListViewPostagem() {
+    public void criaListViewPostagem() throws SQLException {
 
         List<CustomControlPost> list = new ArrayList<CustomControlPost>();
-        for (int i = 0; i < 5; i++) {
-            list.add(new CustomControlPost("Título", "Descrição"));
+        ArrayList posts = Acesso.obtemListPosts();
+        for (var p : posts) {
+            Postagem post = (Postagem)p;
+            list.add(new CustomControlPost(post.getTitulo(), post.getConteudo()));
         }
 
         ObservableList<CustomControlPost> myObservableList = FXCollections.observableList(list);

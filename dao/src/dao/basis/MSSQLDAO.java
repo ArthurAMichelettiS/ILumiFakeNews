@@ -142,6 +142,6 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
         }
 
         return entidades;
-      }
+    }
 
 }
