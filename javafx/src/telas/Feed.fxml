@@ -19,25 +19,27 @@
       </Label>
       <Button fx:id="btnFazLogoff" layoutX="39.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnFazLogoff" prefHeight="33.0" prefWidth="133.0" text="Fazer Logoff" />
       <Button fx:id="btnFazLogin" layoutX="39.0" layoutY="40.0" mnemonicParsing="false" onAction="#FazLogin" prefHeight="33.0" prefWidth="133.0" text="Fazer Login" />
+      <Button fx:id="btnPesquisa" layoutX="875.0" layoutY="101.0" mnemonicParsing="false" onAction="#PesquisaPosts" prefHeight="35.0" prefWidth="200.0" text="Pesquisar" />
       <Button fx:id="btnModerar" layoutX="1081.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnOnActionModerar" prefHeight="33.0" prefWidth="133.0" text="Moderar" />
+      <TextField fx:id="txtPesquisa" layoutX="576.0" layoutY="99.0" prefHeight="15.0" prefWidth="285.0" promptText="Pesquise uma postagem pelo titulo" />
       <TabPane layoutX="275.0" layoutY="95.0" prefHeight="546.0" prefWidth="989.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab text="Para Você">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="481.0" prefWidth="989.0">
                      <children>
-                        <ScrollBar layoutX="950.0" layoutY="14.0" orientation="VERTICAL" prefHeight="475.0" prefWidth="25.0" />
                         <Region layoutX="20.0" layoutY="14.0" prefHeight="434.0" prefWidth="926.0" />
-                        <Button layoutX="85.0" layoutY="461.0" mnemonicParsing="false" onAction="#btnVerPerfil" prefHeight="33.0" prefWidth="127.0" text="Ver Perfil" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="72.0" AnchorPane.rightAnchor="790.0" AnchorPane.topAnchor="461.0" />
-                        <Button layoutX="229.0" layoutY="461.0" mnemonicParsing="false" onAction="#btnVerPerfil" prefHeight="33.0" prefWidth="144.0" text="Seguir perfil" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="227.0" AnchorPane.rightAnchor="618.0" AnchorPane.topAnchor="461.0" />
-                        <Button layoutX="391.0" layoutY="461.0" mnemonicParsing="false" onAction="#btnVerPostagem" prefHeight="33.0" prefWidth="133.0" text="Comentários" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="451.0" AnchorPane.topAnchor="461.0" />
-                        <Button layoutX="802.0" layoutY="461.0" mnemonicParsing="false" onAction="#btnVerPerfil" prefHeight="33.0" prefWidth="80.0" text="👎" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="826.0" AnchorPane.rightAnchor="83.0" AnchorPane.topAnchor="461.0">
+                        <ScrollBar layoutX="950.0" layoutY="14.0" orientation="VERTICAL" prefHeight="475.0" prefWidth="25.0" />
+                        <Button layoutX="85.0" layoutY="461.0" mnemonicParsing="false"  prefHeight="33.0" prefWidth="127.0" text="Ver Perfil" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="72.0" AnchorPane.rightAnchor="790.0" AnchorPane.topAnchor="461.0" />
+                        <Button layoutX="229.0" layoutY="461.0" mnemonicParsing="false"  prefHeight="33.0" prefWidth="144.0" text="Seguir perfil" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="227.0" AnchorPane.rightAnchor="618.0" AnchorPane.topAnchor="461.0" />
+                        <Button layoutX="391.0" layoutY="461.0" mnemonicParsing="false"  prefHeight="33.0" prefWidth="133.0" text="Comentários" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="451.0" AnchorPane.topAnchor="461.0" />
+                        <Button layoutX="802.0" layoutY="461.0" mnemonicParsing="false"  prefHeight="33.0" prefWidth="80.0" text="👎" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="826.0" AnchorPane.rightAnchor="83.0" AnchorPane.topAnchor="461.0">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="695.0" layoutY="461.0" mnemonicParsing="false" onAction="#btnVerPerfil" prefHeight="33.0" prefWidth="79.0" text="☆" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="717.0" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="461.0" />
-                        <Button layoutX="548.0" layoutY="461.0" mnemonicParsing="false" onAction="#btnVerPerfil" prefHeight="33.0" prefWidth="111.0" text="Reportar" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="573.0" AnchorPane.rightAnchor="305.0" AnchorPane.topAnchor="461.0" />
+                        <Button layoutX="695.0" layoutY="461.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="79.0" text="☆" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="717.0" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="461.0" />
+                        <Button layoutX="548.0" layoutY="461.0" mnemonicParsing="false"  prefHeight="33.0" prefWidth="111.0" text="Reportar" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="573.0" AnchorPane.rightAnchor="305.0" AnchorPane.topAnchor="461.0" />
                         <TextArea fx:id="txtTexto" layoutX="33.0" layoutY="108.0" prefHeight="322.0" prefWidth="904.0" />
                         <TextField fx:id="txtTitulo" layoutX="33.0" layoutY="49.0" prefHeight="38.0" prefWidth="905.0" />
                      </children>

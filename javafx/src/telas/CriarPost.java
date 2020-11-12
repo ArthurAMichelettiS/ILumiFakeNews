@@ -2,6 +2,7 @@ package telas;
 
 import business.Acesso;
 import comum.Postagem;
+import helper.HelperTelas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

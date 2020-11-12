@@ -2,7 +2,6 @@ package dao.acesso;
 
 import comum.Entidade;
 import comum.Postagem;
-import comum.Tag;
 import comum.Usuario;
 import dao.basis.DAO;
 import dao.basis.MSSQLDAO;
@@ -17,7 +16,7 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     public PostagemMSSQLDAO() {
         super(Usuario.class);
         setTabela("Postagem");
-        setColunaLocaliza("IdPost");
+        setColunaLocaliza("Titulo");
         setColunaChaveId("IdPost");
     }
 
@@ -27,15 +26,12 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
         super.Insere(entidade);
 
-        AnexosMSSQLDAO daoAnexo = new AnexosMSSQLDAO();
-        daoAnexo.Insere(p.getImagem());
-
-        TagsMSSQLDAO daoTag = new TagsMSSQLDAO();
+        /*TagsMSSQLDAO daoTag = new TagsMSSQLDAO();
         for (Tag tg:
                 p.getTags()) {
             tg.setIdPost(p.getIdPost());
             daoTag.Insere(tg);
-        }
+        }*/
     }
 
     @Override
@@ -43,8 +39,6 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         super.Alter(entidade);
 
         Postagem p = (Postagem) entidade;
-        AnexosMSSQLDAO daoAnexo = new AnexosMSSQLDAO();
-        daoAnexo.Alter(p.getImagem());
 
         /*TagsMSSQLDAO daoTag = new TagsMSSQLDAO();
         for (Tag tg:
@@ -100,5 +94,7 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         p.setTags(d.listaTodos());
         return p;
     }
+
+
 
 }

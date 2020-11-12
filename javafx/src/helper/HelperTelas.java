@@ -1,4 +1,4 @@
-package telas;
+package helper;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -21,6 +21,7 @@ public class HelperTelas {
         return instance;
     }
 
+
     public int getIdPostNavega() {
         return idPostNavega;
     }
@@ -30,10 +31,6 @@ public class HelperTelas {
     }
 
     private int idPostNavega;
-
-    public void setTelaInicial(String tela){
-        telaAtual = tela;
-    }
 
     private Stack<String> telasAcessadas;
 
@@ -49,19 +46,24 @@ public class HelperTelas {
 
     private boolean ckvalida = false;
 
+    public void setTelaInicial(String tela){
+        telaAtual = tela;
+    }
+
     public void VoltarTela(AnchorPane painelOrigem){
 
         if(telasAcessadas.isEmpty())
             return;
 
         try{
-            AnchorPane pane = FXMLLoader.load(getClass().getResource(telasAcessadas.peek()));
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("/telas/"+telasAcessadas.peek()));
             painelOrigem.getStylesheets().clear();
             painelOrigem.getChildren().setAll(pane);
             telaAtual = telasAcessadas.pop();
         }
         catch (Exception erro){
             //log
+            System.out.print(erro.getMessage());
         }
 
     }
@@ -71,7 +73,7 @@ public class HelperTelas {
         try{
             //if(!destino.substring(destino.length() - 4).equals(".fxml"))
               //  destino = destino + ".fxml";
-            URL s = getClass().getResource(destino);
+            URL s = getClass().getResource("/telas/"+destino);
             AnchorPane pane = FXMLLoader.load(s);
             painelOrigem.getChildren().setAll(pane);
             telasAcessadas.add(telaAtual);
@@ -79,7 +81,7 @@ public class HelperTelas {
         }
         catch (Exception erro){
             //log
-            //System.out.printf(erro.getMessage());
+            System.out.print(erro.getMessage());
         }
     }
 }

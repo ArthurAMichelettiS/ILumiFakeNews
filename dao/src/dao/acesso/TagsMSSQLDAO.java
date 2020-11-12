@@ -45,8 +45,7 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
         try {
             entidade.setId(rs.getInt("idTag"));
             entidade.setTag(rs.getString("descricao"));
-            entidadeP.setId(rs.getInt("idTag"));
-            entidadeP.setIdPost(rs.getInt("idPost"));
+            entidadeP.setId(rs.getInt("idPost"));
         } catch (SQLException ex){
             ex.printStackTrace();
         }

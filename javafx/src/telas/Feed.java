@@ -4,9 +4,11 @@ import business.Acesso;
 import business.DefinicoesPadrao;
 import comp.CustomControlPost;
 import comum.Postagem;
+import helper.HelperTelas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
@@ -52,6 +54,9 @@ public class Feed {
     public ListView<CustomControlPost> pnPosts;
 
     @FXML
+    public TextField txtPesquisa;
+
+    @FXML
     private void initialize() throws SQLException {
         Postagem d = Acesso.obtemPost(04);
         btnFazPostCientifico.setVisible(Acesso.ehPesquisadorLogado());
@@ -63,7 +68,10 @@ public class Feed {
             LbNome.setText(DefinicoesPadrao.getInstance().getUsuarioLogado().getNome());
         }
         if(Acesso.ehLogado()){
-            ivUser.setImage(Acesso.bytesToImg(DefinicoesPadrao.getInstance().getUsuarioLogado().getImagem()));
+            byte[] img = DefinicoesPadrao.getInstance().getUsuarioLogado().getImagem();
+            if(img != null && img.length!=0){
+                ivUser.setImage(Acesso.bytesToImg(img));
+            }
         }
         txtTitulo.setText(d.getTitulo());
         txtTexto.setText(d.getConteudo());
@@ -77,7 +85,8 @@ public class Feed {
         ArrayList posts = Acesso.obtemListPosts();
         for (var p : posts) {
             Postagem post = (Postagem)p;
-            list.add(new CustomControlPost(post.getTitulo(), post.getConteudo()));
+            list.add(new CustomControlPost(post.getTitulo(), post.getConteudo(), post.getId(),
+                     onActionVerPerfil, onActionVerPostagem));
         }
 
         ObservableList<CustomControlPost> myObservableList = FXCollections.observableList(list);
@@ -102,12 +111,30 @@ public class Feed {
 
     }
 
-    public void btnVerPostagem(ActionEvent actionEvent){
-        HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
+    EventHandler<ActionEvent> onActionVerPostagem = new EventHandler<ActionEvent>() {
+        public void handle(ActionEvent actionEvent){
+            HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
+        }
+    };
+
+    EventHandler<ActionEvent> onActionVerPerfil = new EventHandler<ActionEvent>() {
+        public void handle(ActionEvent actionEvent){
+            HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
+        }
+    };
+
+
+    public void btnFazLogoff(ActionEvent actionEvent) {
+        DefinicoesPadrao.getInstance().DeslogarUsuario();
+        HelperTelas.getInstance().IrParaTela(rootPane, "Login.fxml");
     }
 
-    public void btnFazPostCientifico(ActionEvent actionEvent){
-        HelperTelas.getInstance().IrParaTela(rootPane, "CriarPostCientifico.fxml");
+    public void PesquisaPosts(ActionEvent actionEvent) {
+
+    }
+
+    /*public void btnVerPostagem(ActionEvent actionEvent){
+        HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
     }
 
     public void btnVerPerfil(ActionEvent actionEvent)
@@ -117,10 +144,10 @@ public class Feed {
         }
         else
             new Alert(Alert.AlertType.ERROR, "Antes de efetuar está ação, favor logar!!!").showAndWait();
+    }*/
+
+    public void btnFazPostCientifico(ActionEvent actionEvent) {
+        HelperTelas.getInstance().IrParaTela(rootPane, "CriarPostCientifico.fxml");
     }
 
-    public void btnFazLogoff(ActionEvent actionEvent) {
-        DefinicoesPadrao.getInstance().DeslogarUsuario();
-        HelperTelas.getInstance().IrParaTela(rootPane, "Login.fxml");
-    }
 }

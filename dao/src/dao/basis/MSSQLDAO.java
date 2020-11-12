@@ -37,15 +37,19 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
         this.colunaChaveId = colunaChaveId;
     }
 
-    @Override
-    public E localizaPorId(int id) throws SQLException {
-        return localiza(Integer.toString(id));
-    }
+
 
     protected PreparedStatement CriaPreparedStatementLocaliza(Connection con, String codigo) throws SQLException {
         String SQL = "select * from " + tabela + "  where " + colunaLocaliza +" = ?";
         PreparedStatement stmt = con.prepareStatement(SQL);
         stmt.setString(1, codigo);
+        return stmt;
+    }
+
+    protected PreparedStatement CriaPreparedStatementLocalizaPorId(Connection con, int id) throws SQLException {
+        String SQL = "select * from " + tabela + "  where " + colunaChaveId +" = ?";
+        PreparedStatement stmt = con.prepareStatement(SQL);
+        stmt.setInt(1, id);
         return stmt;
     }
 
@@ -73,6 +77,23 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
                 }
             }
         }        
+        return entidade;
+    }
+
+    @Override
+    public E localizaPorId(int id) throws SQLException {
+        E entidade = null;
+        try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA )) {
+
+            try (PreparedStatement stmt = CriaPreparedStatementLocalizaPorId(conexao, id);) {
+
+                try (ResultSet rs = stmt.executeQuery()) {
+                    if (rs.next()){
+                        entidade = preencheEntidade(rs);
+                    }
+                }
+            }
+        }
         return entidade;
     }
 
