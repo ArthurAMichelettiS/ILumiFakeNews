@@ -85,8 +85,7 @@ public class Feed {
         ArrayList posts = Acesso.obtemListPosts();
         for (var p : posts) {
             Postagem post = (Postagem)p;
-            list.add(new CustomControlPost(post.getTitulo(), post.getConteudo(), post.getId(),
-                     onActionVerPerfil, onActionVerPostagem));
+            list.add(new CustomControlPost(post, onActionVerPerfil, onActionVerPostagem));
         }
 
         ObservableList<CustomControlPost> myObservableList = FXCollections.observableList(list);
@@ -113,12 +112,16 @@ public class Feed {
 
     EventHandler<ActionEvent> onActionVerPostagem = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
+            CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
+            HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
             HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
         }
     };
 
     EventHandler<ActionEvent> onActionVerPerfil = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
+            CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
+            HelperTelas.getInstance().setIdPerfilNavega(c.getIdPerfilNavega());
             HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
         }
     };

@@ -1,6 +1,6 @@
 package comp;
 
-import helper.HelperTelas;
+import comum.Postagem;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,19 +15,41 @@ public class CustomControlPost extends VBox {
     private Label label = new Label();
     private HBoxButtonsPost btnsInteragir;
 
-    public CustomControlPost(String titulo, String conteudo, int idPost,
+    private int idPerfilNavega;
+
+    public int getIdPerfilNavega() {
+        return idPerfilNavega;
+    }
+
+    public void setIdPerfilNavega(int idPerfilNavega) {
+        this.idPerfilNavega = idPerfilNavega;
+    }
+
+    public int getIdPostNavega() {
+        return idPostNavega;
+    }
+
+    public void setIdPostNavega(int idPostNavega) {
+        this.idPostNavega = idPostNavega;
+    }
+
+    private int idPostNavega;
+
+    public CustomControlPost(Postagem post,
              EventHandler<ActionEvent> metodoPerfil, EventHandler<ActionEvent> metodoPostagem) {
         super();
 
-        HelperTelas.getInstance().setIdPostNavega(idPost);
+        setIdPerfilNavega(post.getIdUser());
+        setIdPostNavega(post.getId());
+
 
         btnsInteragir = new HBoxButtonsPost(metodoPerfil, metodoPostagem);
 
-        label.setText(titulo);
+        label.setText(post.getTitulo());
         label.setMaxHeight(Double.MAX_VALUE);
         HBox.setHgrow(label, Priority.ALWAYS);
 
-        textField.setText(conteudo);
+        textField.setText(post.getConteudo());
         textField.setMaxHeight(Double.MAX_VALUE);
         HBox.setHgrow(textField, Priority.ALWAYS);
 

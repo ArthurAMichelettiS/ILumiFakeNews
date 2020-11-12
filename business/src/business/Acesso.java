@@ -98,18 +98,23 @@ public class  Acesso {
     }
 
     public static Usuario localizaUsuario(String email) throws SQLException{
-        try {
 
-            DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
+        DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
 
-            Usuario encontrado = (Usuario) dao.localiza(email);
+        Usuario encontrado = (Usuario) dao.localiza(email);
 
-            return encontrado;
-        }
-        catch (SQLException e)
-        {
-            throw e;
-        }
+        return encontrado;
+
+    }
+
+    public static Usuario localizaUsuarioPorId(int idUser) throws SQLException{
+
+        DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
+
+        Usuario encontrado = (Usuario) dao.localizaPorId(idUser);
+
+        return encontrado;
+
     }
 
     public static void enviaDadosUsuario(Usuario u) throws SQLException{

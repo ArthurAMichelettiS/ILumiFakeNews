@@ -1,6 +1,7 @@
 package telas;
 
 import business.Acesso;
+import business.DefinicoesPadrao;
 import comum.Postagem;
 import helper.HelperTelas;
 import javafx.event.ActionEvent;
@@ -37,6 +38,7 @@ public class CriarPost {
             p.setTitulo(txtTituloPergunta.getText());
             p.setConteudo(txtConteudo.getText());
             p.setStringTags(Arrays.asList(txtTags.getText().split(Pattern.quote(" "))));
+            p.setIdUser(DefinicoesPadrao.getInstance().getUsuarioLogado().getId());
             Acesso.enviaPost(p);
             HelperTelas.getInstance().VoltarTela(rootPane);
         }

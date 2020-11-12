@@ -7,6 +7,7 @@ import helper.HelperTelas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -34,13 +35,34 @@ public class Perfil {
     private ImageView ivProfile;
 
     @FXML
-    private void initialize(){
-        Usuario user = DefinicoesPadrao.getInstance().getUsuarioLogado();
+    private Button btnEditarPerfil;
+
+    @FXML
+    private void initialize() throws SQLException {
+        Usuario user;
+        boolean ehEditavel = false;
+        if(HelperTelas.getInstance().getIdPerfilNavega()==-1){
+             user = DefinicoesPadrao.getInstance().getUsuarioLogado();
+             ehEditavel=true;
+        }
+        else{
+            user = Acesso.localizaUsuarioPorId(HelperTelas.getInstance().getIdPerfilNavega());
+        }
+
+        txtBio.setEditable(ehEditavel);
+        txtSenha.setEditable(ehEditavel);
+        txtSenhaConf.setEditable(ehEditavel);
+        txtEmail.setEditable(ehEditavel);
+        btnEditarPerfil.setVisible(ehEditavel);
+
         txtEmail.setText(user.getEmail());
         txtBio.setText(user.getBio());
         txtSenha.setText(user.getSenha());
         txtSenhaConf.setText(user.getSenha());
-        ivProfile.setImage(Acesso.bytesToImg(user.getImagem()));
+
+        if(user.getImagem() != null && user.getImagem().length!=0){
+            ivProfile.setImage(Acesso.bytesToImg(user.getImagem()));
+        }
     }
 
     public void btnVoltarAction(ActionEvent actionEvent) {

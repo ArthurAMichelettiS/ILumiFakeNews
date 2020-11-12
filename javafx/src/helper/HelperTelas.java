@@ -32,6 +32,16 @@ public class HelperTelas {
 
     private int idPostNavega;
 
+    public int getIdPerfilNavega() {
+        return idPerfilNavega;
+    }
+
+    public void setIdPerfilNavega(int idPerfilNavega) {
+        this.idPerfilNavega = idPerfilNavega;
+    }
+
+    private int idPerfilNavega;
+
     private Stack<String> telasAcessadas;
 
     private String telaAtual;
