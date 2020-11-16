@@ -103,12 +103,10 @@
 
 .textarea{
 
-	-fx-text-fill: #084559;
-    -fx-opacity: 0.1;
-	 -fx-font-size: 12pt;
+	-fx-background-color: derive(#084559,50%), derive(#084559,50%);
+	-fx-font-size: 9pt;
     -fx-font-family: "Segoe UI Semibold";
-	-fx-background-color: derive(#084559,20%);
-	
+    -fx-text-fill: white;
 }
 
 
