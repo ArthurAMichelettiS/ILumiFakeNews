@@ -143,6 +143,11 @@ public class  Acesso {
         return dao.listaTodos();
     }
 
+    public static ArrayList obtemPostsFiltro (String filtro) throws SQLException{
+        DAO dao = EntidadeDAO.POSTAGEM.getEntidadeDAO();
+        return dao.listaFiltro(filtro);
+    }
+
     public static void enviaPostCientifico (Postagem pc) throws SQLException {
         DAO dao = EntidadeDAO.POSTAGEM.getEntidadeDAO();
         dao.Insere(pc);

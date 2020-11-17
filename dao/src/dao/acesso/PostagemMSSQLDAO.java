@@ -6,10 +6,8 @@ import comum.Usuario;
 import dao.basis.DAO;
 import dao.basis.MSSQLDAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
@@ -95,6 +93,30 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         return p;
     }
 
+    @Override
+    public ArrayList listaFiltro(String filtro) throws SQLException {
+        ArrayList<E> entidades = new ArrayList<E>();
 
+        try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
+
+            try (PreparedStatement stmt = CriaPreparedStatementListaFiltro(conexao, filtro)) {
+                try (ResultSet rs = stmt.executeQuery()) {
+                    while (rs.next()){
+                        E entidade = preencheEntidade(rs);
+                        entidades.add(entidade);
+                    }
+                }
+            }
+        }
+        return entidades;
+    }
+
+    private PreparedStatement CriaPreparedStatementListaFiltro(Connection con, String filtro) throws SQLException {
+        String SQL = "select * from " + tabela + "  where " + colunaLocaliza + " like ? or Conteudo like ?";
+        PreparedStatement stmt = con.prepareStatement(SQL);
+        stmt.setString(1, "%"+filtro+"%");
+        stmt.setString(2, "%"+filtro+"%");
+        return stmt;
+    }
 
 }

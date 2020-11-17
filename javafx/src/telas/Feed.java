@@ -76,13 +76,13 @@ public class Feed {
         txtTitulo.setText(d.getTitulo());
         txtTexto.setText(d.getConteudo());
 
-        criaListViewPostagem();
+        criaListViewPostagem(Acesso.obtemListPosts());
     }
 
-    public void criaListViewPostagem() throws SQLException {
+    public void criaListViewPostagem(ArrayList posts) throws SQLException {
 
         List<CustomControlPost> list = new ArrayList<CustomControlPost>();
-        ArrayList posts = Acesso.obtemListPosts();
+
         for (var p : posts) {
             Postagem post = (Postagem)p;
             list.add(new CustomControlPost(post, onActionVerPerfil, onActionVerPostagem));
@@ -132,8 +132,8 @@ public class Feed {
         HelperTelas.getInstance().IrParaTela(rootPane, "Login.fxml");
     }
 
-    public void PesquisaPosts(ActionEvent actionEvent) {
-
+    public void PesquisaPosts(ActionEvent actionEvent) throws SQLException {
+        criaListViewPostagem(Acesso.obtemPostsFiltro(txtPesquisa.getText()));
     }
 
     /*public void btnVerPostagem(ActionEvent actionEvent){
