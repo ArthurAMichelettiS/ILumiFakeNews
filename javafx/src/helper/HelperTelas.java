@@ -5,6 +5,8 @@ import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.Stack;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class HelperTelas {
 
@@ -91,7 +93,7 @@ public class HelperTelas {
         }
         catch (Exception erro){
             //log
-            System.out.print(erro.getMessage());
+            Logger.getLogger(HelperTelas.class.getName()).log(Level.SEVERE, null, erro);
         }
     }
 }
