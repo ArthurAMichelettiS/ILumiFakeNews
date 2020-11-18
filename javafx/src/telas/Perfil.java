@@ -2,16 +2,24 @@ package telas;
 
 import business.DefinicoesPadrao;
 import business.Acesso;
+import comp.CustomControlPost;
+import comum.Postagem;
 import comum.Usuario;
 import helper.HelperTelas;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Perfil {
@@ -36,6 +44,9 @@ public class Perfil {
 
     @FXML
     private Button btnEditarPerfil;
+
+    @FXML
+    public ListView<CustomControlPost> pnPostsUser;
 
     @FXML
     private void initialize() throws SQLException {
@@ -63,6 +74,8 @@ public class Perfil {
         if(user.getImagem() != null && user.getImagem().length!=0){
             ivProfile.setImage(Acesso.bytesToImg(user.getImagem()));
         }
+
+        criaListViewPostagemUser(Acesso.obtemListPosts());
     }
 
     public void btnVoltarAction(ActionEvent actionEvent) {
@@ -84,6 +97,39 @@ public class Perfil {
         } catch (Exception erro) {
             new Alert(Alert.AlertType.ERROR, "Há valores incorretos!").showAndWait();
         }
+    }
+
+    EventHandler<ActionEvent> onActionVerPostagem = new EventHandler<ActionEvent>() {
+        public void handle(ActionEvent actionEvent){
+            CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
+            HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
+            HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
+        }
+    };
+
+    EventHandler<ActionEvent> onActionVerPerfil = new EventHandler<ActionEvent>() {
+        public void handle(ActionEvent actionEvent){
+            CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
+            HelperTelas.getInstance().setIdPerfilNavega(c.getIdPerfilNavega());
+            HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
+        }
+    };
+
+
+    public void criaListViewPostagemUser (ArrayList posts) throws SQLException {
+
+        List<CustomControlPost> list = new ArrayList<CustomControlPost>();
+
+        for (var p : posts) {
+
+            if(true) {
+                Postagem post = (Postagem) p;
+                list.add(new CustomControlPost(post, onActionVerPerfil, onActionVerPostagem));
+            }
+        }
+
+        ObservableList<CustomControlPost> myObservableList = FXCollections.observableList(list);
+        pnPostsUser.setItems(myObservableList);
     }
 
 }
