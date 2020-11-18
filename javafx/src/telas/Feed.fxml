@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../new%201.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.Feed">
    <children>
@@ -54,7 +63,7 @@
                               <String fx:value="background" />
                               <String fx:value="list-view" />
                            </styleClass></Region>
-                        <ListView fx:id="pnPosts" layoutX="6.0" layoutY="5.0" prefHeight="510.0" prefWidth="975.0" stylesheets="@../new%201.css">
+                        <ListView fx:id="pnPosts" layoutX="6.0" layoutY="5.0" prefHeight="510.0" prefWidth="975.0" stylesheets="@../new 1.css">
                            <styleClass>
                               <String fx:value="textarea" />
                               <String fx:value="list-view" />

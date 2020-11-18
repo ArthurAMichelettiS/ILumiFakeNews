@@ -18,7 +18,7 @@
 
 <AnchorPane fx:id="rootPane" focusTraversable="true" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../new%201.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.Perfil">
    <children>
-      <HBox layoutX="21.0" layoutY="20.0" styleClass="hbox-group" stylesheets="@../new%201.css" AnchorPane.bottomAnchor="491.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="975.0" AnchorPane.topAnchor="20.0">
+      <HBox layoutX="21.0" layoutY="20.0" styleClass="hbox-group" stylesheets="@../new 1.css" AnchorPane.bottomAnchor="491.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="975.0" AnchorPane.topAnchor="20.0">
          <children>
             <ImageView fx:id="ivProfile" fitHeight="209.0" fitWidth="284.0" mouseTransparent="true" pickOnBounds="true">
                <image>
@@ -31,11 +31,11 @@
          <font>
             <Font name="Corbel Light" size="23.0" />
          </font></Label>
-      <Label layoutX="614.0" layoutY="14.0" prefHeight="62.0" prefWidth="114.0" styleClass="label-header" stylesheets="@../new%201.css" text="ILumi" textAlignment="JUSTIFY" textFill="#ffd692" textOverrun="WORD_ELLIPSIS">
+      <Label layoutX="614.0" layoutY="14.0" prefHeight="62.0" prefWidth="114.0" styleClass="label-header" stylesheets="@../new 1.css" text="ILumi" textAlignment="JUSTIFY" textFill="#ffd692" textOverrun="WORD_ELLIPSIS">
          <font>
             <Font name="Corbel Light" size="54.0" />
          </font></Label>
-      <TabPane layoutX="409.0" layoutY="92.0" pickOnBounds="false" prefHeight="559.0" prefWidth="792.0" stylesheets="@../new%201.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="409.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="92.0">
+      <TabPane layoutX="409.0" layoutY="92.0" pickOnBounds="false" prefHeight="559.0" prefWidth="792.0" stylesheets="@../new 1.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="409.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="92.0">
         <tabs>
           <Tab text="Suas Postagens">
             <content>

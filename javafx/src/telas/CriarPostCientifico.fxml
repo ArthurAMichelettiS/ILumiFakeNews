@@ -15,7 +15,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <TextArea fx:id="txtConteudo" layoutX="372.0" layoutY="151.0" prefHeight="200.0" prefWidth="429.0" styleClass="textarea" stylesheets="@../new%201.css">
+      <TextArea fx:id="txtConteudo" layoutX="372.0" layoutY="151.0" prefHeight="200.0" prefWidth="429.0" styleClass="textarea" stylesheets="@../new 1.css">
          <font>
             <Font size="14.0" />
          </font></TextArea>
@@ -26,7 +26,7 @@
       <Button fx:id="btnAnexar" layoutX="372.0" layoutY="405.0" mnemonicParsing="false" onAction="#anexar" prefHeight="25.0" prefWidth="179.0" text="Anexar" />
       <Label layoutX="372.0" layoutY="54.0" text="Titulo" />
       <Label layoutX="372.0" layoutY="125.0" text="Texto" />
-      <ListView layoutX="372.0" layoutY="456.0" prefHeight="178.0" prefWidth="429.0" styleClass="text-field" stylesheets="@../new%201.css" />
+      <ListView layoutX="372.0" layoutY="456.0" prefHeight="178.0" prefWidth="429.0" styleClass="text-field" stylesheets="@../new 1.css" />
       <Label layoutX="372.0" layoutY="371.0" text="Adicione uma imagem" />
       <Button layoutX="61.0" layoutY="636.0" mnemonicParsing="false" onAction="#voltarFeed" prefHeight="39.0" prefWidth="101.0" text="Voltar" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="1116.0" AnchorPane.topAnchor="651.0">
          <font>
@@ -36,7 +36,7 @@
       <Label layoutX="26.0" layoutY="25.0" prefHeight="79.0" prefWidth="297.0" styleClass="label-header" text="Criar postagem" />
       <Label layoutX="91.0" layoutY="94.0" styleClass="label-header" text="científica" />
       <ImageView fx:id="ivAnexo" fitHeight="150.0" fitWidth="359.0" layoutX="401.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true" />
-      <TextArea fx:id="txtTags" layoutX="907.0" layoutY="283.0" prefHeight="225.0" prefWidth="191.0" styleClass="textarea" stylesheets="@../new%201.css">
+      <TextArea fx:id="txtTags" layoutX="907.0" layoutY="283.0" prefHeight="225.0" prefWidth="191.0" styleClass="textarea" stylesheets="@../new 1.css">
          <font>
             <Font size="14.0" />
          </font>
