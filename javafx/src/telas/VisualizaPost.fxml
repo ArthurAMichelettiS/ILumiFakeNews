@@ -8,7 +8,7 @@
 <AnchorPane fx:id="rootPane" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../new%201.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.VisualizaPost">
    <children>
       <TextField fx:id="txtTitulo" editable="false" layoutX="315.0" layoutY="51.0" prefHeight="26.0" prefWidth="950.0" />
-      <TextArea fx:id="txtConteudo" editable="false" layoutX="315.0" layoutY="156.0" prefHeight="423.0" prefWidth="950.0" styleClass="textarea" stylesheets="@../new%201.css" />
+      <TextArea fx:id="txtConteudo" editable="false" layoutX="315.0" layoutY="156.0" prefHeight="311.0" prefWidth="950.0" styleClass="textarea" stylesheets="@../new%201.css" />
       <Label layoutX="315.0" layoutY="16.0" text="Título:" />
       <Label layoutX="315.0" layoutY="121.0" text="Conteúdo:" />
       <Label layoutX="76.0" layoutY="199.0" text="Nome do Usuário" textFill="#b23144">
@@ -31,9 +31,12 @@
          </children>
       </HBox>
       <Button fx:id="btnVoltar" layoutX="34.0" layoutY="652.0" mnemonicParsing="false" onAction="#btnVoltarAction" prefHeight="39.0" prefWidth="147.0" text="Voltar ao feed" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="1070.0" AnchorPane.topAnchor="651.0" />
-      <TextField layoutX="599.0" layoutY="600.0" prefHeight="105.0" prefWidth="426.0" />
-      <Label layoutX="473.0" layoutY="639.0" text="Comentários:" />
-      <ScrollBar layoutX="1223.0" layoutY="177.0" minHeight="130.0" orientation="VERTICAL" prefHeight="386.0" prefWidth="25.0" />
-      <ScrollBar layoutX="989.0" layoutY="610.0" orientation="VERTICAL" prefHeight="86.0" prefWidth="25.0" />
+      <TextField layoutX="519.0" layoutY="481.0" prefHeight="133.0" prefWidth="510.0" />
+      <Label layoutX="420.0" layoutY="537.0" text="Comentários:" />
+      <ScrollBar layoutX="1223.0" layoutY="177.0" minHeight="130.0" orientation="VERTICAL" prefHeight="263.0" prefWidth="25.0" />
+      <ScrollBar layoutX="1029.0" layoutY="490.0" orientation="VERTICAL" prefHeight="115.0" prefWidth="25.0" />
+      <TextField fx:id="txtInsCom" layoutX="494.0" layoutY="639.0" prefHeight="37.0" prefWidth="592.0" />
+      <Label layoutX="315.0" layoutY="647.0" text="Digite o seu comentário:" />
+      <Button fx:id="btnCom" layoutX="1109.0" layoutY="640.0" mnemonicParsing="false" onAction="#btnComAction" text="Comentar" />
    </children>
 </AnchorPane>
