@@ -1,5 +1,6 @@
 package comum;
 
-public class Comentarios {
+public class Comentarios extends Entidade{
+
 
 }

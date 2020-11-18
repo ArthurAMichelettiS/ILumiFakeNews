@@ -169,6 +169,20 @@
          -fx-text-fill: white;
   }
 
+ .listview{
+
+ 	-fx-font-size: 10pt;
+     -fx-font-family: "Segoe UI Semibold";
+ 	-fx-background-color: derive(#084559,20%);
+ }
+
+ .listview .content{
+      -fx-background-color: derive(#084559,50%), derive(#084559,50%);
+      	-fx-font-size: 9pt;
+          -fx-font-family: "Segoe UI Semibold";
+          -fx-text-fill: white;
+   }
+
 .date-picker .text-field {
     -fx-control-inner-background: #084559 ;
 }
