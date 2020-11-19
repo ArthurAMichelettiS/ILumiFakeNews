@@ -114,8 +114,6 @@ public class Perfil {
             HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
         }
     };
-
-
     public void criaListViewPostagemUser (ArrayList posts) throws SQLException {
 
         List<CustomControlPost> list = new ArrayList<CustomControlPost>();
