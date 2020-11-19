@@ -7,6 +7,8 @@ import comum.Usuario;
 import helper.HelperTelas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -25,6 +27,15 @@ public class VisualizaPost {
     private TextField txtTitulo;
 
     @FXML
+    private TextArea txtConteudo;
+
+    @FXML
+    private TextField txtInsCom;
+
+    @FXML
+    private Button btnCom;
+
+    @FXML
     private void initialize() throws SQLException {
         if(Acesso.ehLogado()){
             Usuario user = DefinicoesPadrao.getInstance().getUsuarioLogado();
@@ -34,6 +45,7 @@ public class VisualizaPost {
         //post especifico a ser visualizado
         Postagem p = Acesso.obtemPost(HelperTelas.getInstance().getIdPostNavega());
         txtTitulo.setText(p.getTitulo());
+        txtConteudo.setText(p.getConteudo());
 
     }
 
@@ -41,4 +53,10 @@ public class VisualizaPost {
 
         HelperTelas.getInstance().VoltarTela(rootPane);
     }
+
+    public void btnComAction (ActionEvent actionEvent) throws SQLException {
+        Postagem p = Acesso.obtemPost(HelperTelas.getInstance().getIdPostNavega());
+    }
+
+
 }

@@ -22,12 +22,13 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        try{
+        try {
             Application.launch(args);
         }
         finally {
             if(!ControleAuditoria.getInstance().threadEhNula())
                 ControleAuditoria.getInstance().pararThread();
         }
+
     }
 }
