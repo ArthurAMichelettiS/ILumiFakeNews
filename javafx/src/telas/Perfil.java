@@ -52,13 +52,13 @@ public class Perfil {
     private void initialize() throws SQLException {
         Usuario user;
         boolean ehEditavel = false;
-        if(HelperTelas.getInstance().getIdPerfilNavega()==-1){
+        //if(HelperTelas.getInstance().getIdPerfilNavega() == -1){
              user = DefinicoesPadrao.getInstance().getUsuarioLogado();
-             ehEditavel=true;
-        }
-        else{
-            user = Acesso.localizaUsuarioPorId(HelperTelas.getInstance().getIdPerfilNavega());
-        }
+             //ehEditavel=true;
+        //}
+        //else{
+            //user = Acesso.localizaUsuarioPorId(HelperTelas.getInstance().getIdPerfilNavega()); -if retorna sempre null
+        //}
 
         txtBio.setEditable(ehEditavel);
         txtSenha.setEditable(ehEditavel);
@@ -75,7 +75,7 @@ public class Perfil {
             ivProfile.setImage(Acesso.bytesToImg(user.getImagem()));
         }
 
-        criaListViewPostagemUser(Acesso.obtemListPosts());
+        //criaListViewPostagemUser(Acesso.obtemListPosts()); -retorna null
     }
 
     public void btnVoltarAction(ActionEvent actionEvent) {

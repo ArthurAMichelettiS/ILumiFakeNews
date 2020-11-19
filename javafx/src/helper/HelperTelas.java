@@ -86,7 +86,7 @@ public class HelperTelas {
             //if(!destino.substring(destino.length() - 4).equals(".fxml"))
               //  destino = destino + ".fxml";
             URL s = getClass().getResource("/telas/"+destino);
-            AnchorPane pane = FXMLLoader.load(s);
+             AnchorPane pane = FXMLLoader.load(s);
             painelOrigem.getChildren().setAll(pane);
             telasAcessadas.add(telaAtual);
             telaAtual = destino;
