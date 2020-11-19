@@ -52,13 +52,13 @@ public class Perfil {
     private void initialize() throws SQLException {
         Usuario user;
         boolean ehEditavel = false;
-        //if(HelperTelas.getInstance().getIdPerfilNavega() == -1){
+        if(HelperTelas.getInstance().getIdPerfilNavega() == -1){
              user = DefinicoesPadrao.getInstance().getUsuarioLogado();
-             //ehEditavel=true;
-        //}
-        //else{
-            //user = Acesso.localizaUsuarioPorId(HelperTelas.getInstance().getIdPerfilNavega()); -if retorna sempre null
-        //}
+             ehEditavel=true;
+        }
+        else{
+            user = Acesso.localizaUsuarioPorId(HelperTelas.getInstance().getIdPerfilNavega());
+        }
 
         txtBio.setEditable(ehEditavel);
         txtSenha.setEditable(ehEditavel);
