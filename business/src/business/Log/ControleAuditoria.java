@@ -19,6 +19,10 @@ public class ControleAuditoria {
     }
     //
 
+    public boolean threadEhNula(){
+        return thread == null;
+    }
+
     private ThreadArmazenaAuditorias thread;
 
     private ConcurrentLinkedQueue<String> auditoriasParaSalvar;

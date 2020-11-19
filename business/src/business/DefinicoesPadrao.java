@@ -15,6 +15,18 @@ public class DefinicoesPadrao {
         //fazer: puxa do banco as tags
     }
 
+    public int getCriterioPesquisaPost() {
+        return CriterioPesquisaPost;
+    }
+
+    public void setCriterioPesquisaPost(int criterioPesquisaPost) {
+        CriterioPesquisaPost = criterioPesquisaPost;
+    }
+
+    //0 -> Titulo, 1 -> Conteudo, 2 -> Usuarios
+    private int CriterioPesquisaPost;
+
+
 
     public List<String> getTagsExistentes() {
         return tagsExistentes;
@@ -30,8 +42,6 @@ public class DefinicoesPadrao {
         }
         return instance;
     }
-
-
 
     private TipoUsuario tipoUsuario;
 

@@ -57,6 +57,11 @@ public class Feed {
     public TextField txtPesquisa;
 
     @FXML
+    public ComboBox cbxPesquisa;
+
+    //public TableView tb;
+
+    @FXML
     private void initialize() throws SQLException {
         Postagem d = Acesso.obtemPost(04);
         btnFazPostCientifico.setVisible(Acesso.ehPesquisadorLogado());
@@ -73,10 +78,15 @@ public class Feed {
                 ivUser.setImage(Acesso.bytesToImg(img));
             }
         }
+
         txtTitulo.setText(d.getTitulo());
         txtTexto.setText(d.getConteudo());
 
         criaListViewPostagem(Acesso.obtemListPosts());
+        cbxPesquisa.getItems().add("Título");
+        cbxPesquisa.getItems().add("Conteúdo");
+        cbxPesquisa.getItems().add("Usuários");
+        cbxPesquisa.getSelectionModel().select(0);
     }
 
     public void criaListViewPostagem(ArrayList posts) throws SQLException {
@@ -91,6 +101,25 @@ public class Feed {
         ObservableList<CustomControlPost> myObservableList = FXCollections.observableList(list);
         pnPosts.setItems(myObservableList);
     }
+
+
+
+    EventHandler<ActionEvent> onActionVerPostagem = new EventHandler<ActionEvent>() {
+        public void handle(ActionEvent actionEvent){
+            CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
+            HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
+            HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
+        }
+    };
+
+    EventHandler<ActionEvent> onActionVerPerfil = new EventHandler<ActionEvent>() {
+        public void handle(ActionEvent actionEvent){
+            CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
+            HelperTelas.getInstance().setIdPerfilNavega(c.getIdPerfilNavega());
+            HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
+        }
+    };
+
 
     public void btnOnActionModerar(ActionEvent actionEvent) {
         HelperTelas.getInstance().IrParaTela(rootPane, "Moderadores.fxml");
@@ -109,22 +138,6 @@ public class Feed {
         }
 
     }
-
-    EventHandler<ActionEvent> onActionVerPostagem = new EventHandler<ActionEvent>() {
-        public void handle(ActionEvent actionEvent){
-            CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
-            HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
-            HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
-        }
-    };
-
-    EventHandler<ActionEvent> onActionVerPerfil = new EventHandler<ActionEvent>() {
-        public void handle(ActionEvent actionEvent){
-            CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
-            HelperTelas.getInstance().setIdPerfilNavega(c.getIdPerfilNavega());
-            HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
-        }
-    };
 
 
     public void btnFazLogoff(ActionEvent actionEvent) {

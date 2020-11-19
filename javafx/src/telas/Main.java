@@ -26,7 +26,8 @@ public class Main extends Application {
             Application.launch(args);
         }
         finally {
-            ControleAuditoria.getInstance().pararThread();
+            if(!ControleAuditoria.getInstance().threadEhNula())
+                ControleAuditoria.getInstance().pararThread();
         }
     }
 }

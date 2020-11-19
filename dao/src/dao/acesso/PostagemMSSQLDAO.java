@@ -112,10 +112,10 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     }
 
     private PreparedStatement CriaPreparedStatementListaFiltro(Connection con, String filtro) throws SQLException {
-        String SQL = "select * from " + tabela + "  where " + colunaLocaliza + " like ? or Conteudo like ?";
+
+        String SQL = "select * from " + tabela + "  where " + colunaLocaliza + " like ?";
         PreparedStatement stmt = con.prepareStatement(SQL);
         stmt.setString(1, "%"+filtro+"%");
-        stmt.setString(2, "%"+filtro+"%");
         return stmt;
     }
 

@@ -17,6 +17,30 @@ public class CustomControlPost extends VBox {
 
     private int idPerfilNavega;
 
+    private int idPostNavega;
+
+    public CustomControlPost(Postagem post,
+             EventHandler<ActionEvent> metodoPerfil, EventHandler<ActionEvent> metodoPostagem) {
+        super();
+
+        setIdPerfilNavega(post.getIdUser());
+        setIdPostNavega(post.getId());
+
+        btnsInteragir = new HBoxButtonsPost(metodoPerfil, metodoPostagem);
+
+        label.setText(post.getTitulo());
+        label.setMaxHeight(Double.MAX_VALUE);
+        HBox.setHgrow(label, Priority.ALWAYS);
+
+        textField.setText(post.getConteudo());
+        textField.setMaxHeight(Double.MAX_VALUE);
+        HBox.setHgrow(textField, Priority.ALWAYS);
+
+        HBox.setHgrow(btnsInteragir, Priority.ALWAYS);
+        this.getChildren().addAll(label, textField, btnsInteragir);
+    }
+
+
     public int getIdPerfilNavega() {
         return idPerfilNavega;
     }
@@ -31,30 +55,6 @@ public class CustomControlPost extends VBox {
 
     public void setIdPostNavega(int idPostNavega) {
         this.idPostNavega = idPostNavega;
-    }
-
-    private int idPostNavega;
-
-    public CustomControlPost(Postagem post,
-             EventHandler<ActionEvent> metodoPerfil, EventHandler<ActionEvent> metodoPostagem) {
-        super();
-
-        setIdPerfilNavega(post.getIdUser());
-        setIdPostNavega(post.getId());
-
-
-        btnsInteragir = new HBoxButtonsPost(metodoPerfil, metodoPostagem);
-
-        label.setText(post.getTitulo());
-        label.setMaxHeight(Double.MAX_VALUE);
-        HBox.setHgrow(label, Priority.ALWAYS);
-
-        textField.setText(post.getConteudo());
-        textField.setMaxHeight(Double.MAX_VALUE);
-        HBox.setHgrow(textField, Priority.ALWAYS);
-
-        HBox.setHgrow(btnsInteragir, Priority.ALWAYS);
-        this.getChildren().addAll(label, textField, btnsInteragir);
     }
 
     public String getText() {
