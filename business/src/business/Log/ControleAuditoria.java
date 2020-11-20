@@ -17,7 +17,6 @@ public class ControleAuditoria {
         }
         return instance;
     }
-    //
 
     public boolean threadEhNula(){
         return thread == null;

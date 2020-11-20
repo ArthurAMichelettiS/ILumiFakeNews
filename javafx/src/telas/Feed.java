@@ -39,6 +39,9 @@ public class Feed {
     public Button btnModerar;
 
     @FXML
+    public Button btnVerMeuPerfil;
+
+    @FXML
     public ImageView ivUser;
 
     @FXML
@@ -69,6 +72,7 @@ public class Feed {
         btnFazLogin.setVisible(!Acesso.ehLogado());
         btnFazLogoff.setVisible(Acesso.ehLogado());
         btnModerar.setVisible(Acesso.ehModeradorLogado());
+        btnVerMeuPerfil.setVisible(Acesso.ehLogado());
         if(Acesso.ehLogado()){
             LbNome.setText(DefinicoesPadrao.getInstance().getUsuarioLogado().getNome());
         }
@@ -78,7 +82,6 @@ public class Feed {
                 ivUser.setImage(Acesso.bytesToImg(img));
             }
         }
-
         txtTitulo.setText(d.getTitulo());
         txtTexto.setText(d.getConteudo());
 
@@ -166,4 +169,8 @@ public class Feed {
         HelperTelas.getInstance().IrParaTela(rootPane, "CriarPostCientifico.fxml");
     }
 
+    public void verMeuPerfil(ActionEvent actionEvent) {
+        HelperTelas.getInstance().setIdPerfilNavega(-1);
+        HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
+    }
 }
