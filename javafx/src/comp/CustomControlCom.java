@@ -1,4 +1,4 @@
-package comp;
+/*package comp;
 
 import comum.Postagem;
 import javafx.beans.property.StringProperty;
@@ -10,8 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
-public class CustomControlCom {
-    public class CustomControlPost extends VBox {
+public class CustomControlCom extends VBox {
         private TextField textField = new TextField();
         private Label label = new Label();
         private HBoxButtonsPost btnsInteragir;
@@ -36,7 +35,7 @@ public class CustomControlCom {
 
         private int idPostNavega;
 
-        public CustomControlPost(Postagem post,
+        public CustomControlCom(Postagem post,
                                  EventHandler<ActionEvent> metodoPerfil, EventHandler<ActionEvent> metodoPostagem) {
             super();
 
@@ -71,4 +70,4 @@ public class CustomControlCom {
         }
 
     }
-}
+}*/

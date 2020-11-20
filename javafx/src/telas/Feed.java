@@ -149,7 +149,7 @@ public class Feed {
         criaListViewPostagem(Acesso.obtemPostsFiltro(txtPesquisa.getText()));
     }
 
-    /*public void btnVerPostagem(ActionEvent actionEvent){
+    public void btnVerPostagem(ActionEvent actionEvent){
         HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
     }
 
@@ -160,7 +160,7 @@ public class Feed {
         }
         else
             new Alert(Alert.AlertType.ERROR, "Antes de efetuar está ação, favor logar!!!").showAndWait();
-    }*/
+    }
 
     public void btnFazPostCientifico(ActionEvent actionEvent) {
         HelperTelas.getInstance().IrParaTela(rootPane, "CriarPostCientifico.fxml");
