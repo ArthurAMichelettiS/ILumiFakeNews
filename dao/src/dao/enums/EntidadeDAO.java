@@ -1,6 +1,7 @@
 package dao.enums;
 
 import dao.acesso.AuditoriaMSSQLDAO;
+import dao.acesso.ComentarioMSSQLDAO;
 import dao.acesso.PostagemMSSQLDAO;
 import dao.acesso.UsuarioMSSQLDAO;
 import dao.basis.DAO;
@@ -8,7 +9,8 @@ import dao.basis.DAO;
 public enum EntidadeDAO {
     USUARIO(getUsuarioDao()),
     POSTAGEM(getPostagemDao()),
-    AUDITORIA(getAuditoriaDao());
+    AUDITORIA(getAuditoriaDao()),
+    COMENTARIO(getComentarioDAO());
 
 
     DAO entidadeDAO;
@@ -32,6 +34,11 @@ public enum EntidadeDAO {
     static private DAO getAuditoriaDao(){
         return new AuditoriaMSSQLDAO();
     }
+
+    static private DAO getComentarioDAO(){
+        return new ComentarioMSSQLDAO();
+    }
+
 
 }
 

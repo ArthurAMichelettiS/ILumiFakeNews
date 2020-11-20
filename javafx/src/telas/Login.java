@@ -5,9 +5,12 @@ import business.DefinicoesPadrao;
 import comum.Usuario;
 import helper.HelperTelas;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -26,6 +29,13 @@ public class Login {
     @FXML
     private TextField txtEmail;
 
+    @FXML
+    public void handle(KeyEvent e){
+
+        if(e.getCode().equals(KeyCode.ENTER))
+            fazerLogin();
+    }
+
 
     public void abreCadastro(ActionEvent actionEvent) throws IOException {
         HelperTelas.getInstance().IrParaTela(rootPane, "CriarCadastro.fxml");
@@ -35,8 +45,8 @@ public class Login {
         HelperTelas.getInstance().VoltarTela(rootPane);
     }
 
-    public void fazLogin(ActionEvent actionEvent) throws IOException {
-
+    public void fazerLogin()
+    {
         //loga user
         try{
             Usuario logando = Acesso.validaLogin(txtEmail.getText(), txtSenha.getText());
@@ -51,7 +61,10 @@ public class Login {
         catch (SQLException erro) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, erro);
         }
+    }
 
+    public void fazLogin(ActionEvent actionEvent) throws IOException {
+        fazerLogin();
     }
 }
 

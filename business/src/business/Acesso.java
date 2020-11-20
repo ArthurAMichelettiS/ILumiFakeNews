@@ -2,6 +2,7 @@
 package business;
 
 import business.Log.ControleAuditoria;
+import comum.Comentario;
 import comum.Postagem;
 import comum.Usuario;
 import comum.enums.TipoUsuario;
@@ -152,6 +153,12 @@ public class  Acesso {
         DAO dao = EntidadeDAO.POSTAGEM.getEntidadeDAO();
         dao.Insere(pc);
         ControleAuditoria.getInstance().AddAuditoria("Postagem salva: " + pc.getTitulo());
+    }
+
+    public static void enviaComentario (Comentario c) throws SQLException{
+        DAO dao = EntidadeDAO.COMENTARIO.getEntidadeDAO();
+        dao.Insere(c);
+        ControleAuditoria.getInstance().AddAuditoria("Comentario salvo: " + c.getConteudo() + " - no post " + c.getIdPost());
     }
     
     public static boolean ehModeradorLogado(){
