@@ -52,9 +52,10 @@ public class VisualizaPost {
 
         //post especifico a ser visualizado
         Postagem p = Acesso.obtemPost(HelperTelas.getInstance().getIdPostNavega());
+        Comentario c = Acesso.obtemComentario(p.getId());
 
         txtTitulo.setText(p.getTitulo());
-        txtConteudo.setText(p.getConteudo());
+        //txtCom.setText(c.getConteudo());
 
     }
 

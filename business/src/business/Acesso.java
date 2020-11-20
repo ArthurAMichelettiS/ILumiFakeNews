@@ -157,9 +157,9 @@ public class  Acesso {
         ControleAuditoria.getInstance().AddAuditoria("Comentario salvo: " + c.getConteudo() + " - no post " + c.getIdPost());
     }
 
-    public static ArrayList obtemComentario(int id) throws SQLException{
+    public static Comentario obtemComentario(int id) throws SQLException{
         DAO dao = EntidadeDAO.COMENTARIO.getEntidadeDAO();
-        return dao.listaTodos();
+        return (Comentario) dao.localizaPorId(id);
     }
     
     public static boolean ehModeradorLogado(){
