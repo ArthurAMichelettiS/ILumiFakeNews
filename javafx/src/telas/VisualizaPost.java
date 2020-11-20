@@ -38,7 +38,7 @@ public class VisualizaPost {
     private TextField txtInsCom;
 
     @FXML
-    private Button btnCom;
+    private TextArea txtCom;
 
     @FXML
     public ListView<CustomControlPost> pnCom;

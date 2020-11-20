@@ -101,9 +101,7 @@ public class  Acesso {
     public static Usuario localizaUsuario(String email) throws SQLException{
 
         DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
-
         Usuario encontrado = (Usuario) dao.localiza(email);
-
         return encontrado;
 
     }
@@ -111,9 +109,7 @@ public class  Acesso {
     public static Usuario localizaUsuarioPorId(int idUser) throws SQLException{
 
         DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
-
         Usuario encontrado = (Usuario) dao.localizaPorId(idUser);
-
         return encontrado;
 
     }
@@ -159,6 +155,11 @@ public class  Acesso {
         DAO dao = EntidadeDAO.COMENTARIO.getEntidadeDAO();
         dao.Insere(c);
         ControleAuditoria.getInstance().AddAuditoria("Comentario salvo: " + c.getConteudo() + " - no post " + c.getIdPost());
+    }
+
+    public static ArrayList obtemComentario(int id) throws SQLException{
+        DAO dao = EntidadeDAO.COMENTARIO.getEntidadeDAO();
+        return dao.listaTodos();
     }
     
     public static boolean ehModeradorLogado(){
