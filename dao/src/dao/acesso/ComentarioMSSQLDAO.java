@@ -48,12 +48,13 @@ public class ComentarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected PreparedStatement CriaPreparedStatementInsere(Connection con, Entidade e) throws SQLException {
-        String SQL = "insert into Comentario (IdPost, Conteudo, Data) values (?,?,?)";
+        String SQL = "insert into Comentario (IdPost, Conteudo, Data, IdUser) values (?,?,?,?)";
         PreparedStatement stmt = con.prepareStatement(SQL);
         Comentario p = (Comentario) e;
         stmt.setInt(1, (p.getIdPost()));
         stmt.setString(2, p.getConteudo());
         stmt.setDate(3, p.getData());
+        stmt.setInt(4, p.getIdUser());
 
         return stmt;
     }

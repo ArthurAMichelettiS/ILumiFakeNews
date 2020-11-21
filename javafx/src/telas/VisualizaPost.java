@@ -55,6 +55,7 @@ public class VisualizaPost {
         Comentario c = Acesso.obtemComentario(p.getId());
 
         txtTitulo.setText(p.getTitulo());
+        txtConteudo.setText(p.getConteudo());
         //txtCom.setText(c.getConteudo());
 
     }
@@ -67,16 +68,20 @@ public class VisualizaPost {
     public void btnComAction (ActionEvent actionEvent) throws SQLException {
 
         try {
+            Acesso.validaCampoVazio(txtInsCom);
             Postagem p = Acesso.obtemPost(HelperTelas.getInstance().getIdPostNavega());
             Comentario c = new Comentario();
             c.setIdPost(p.getId());
             c.setConteudo(txtInsCom.getText());
             java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
             c.setData(date);
+            c.setIdUser(DefinicoesPadrao.getInstance().getUsuarioLogado().getId());
             Acesso.enviaComentario(c);
             HelperTelas.getInstance().VoltarTela(rootPane);
         } catch (SQLException erro) {
             new Alert(Alert.AlertType.ERROR, "Algo de errado ao salvar!").showAndWait();
+        } catch (Exception erro) {
+            new Alert(Alert.AlertType.ERROR, erro.getMessage()).showAndWait();
         }
     }
 }
