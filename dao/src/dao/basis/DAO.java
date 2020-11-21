@@ -23,6 +23,7 @@ public abstract class DAO <E extends Entidade> {
     public abstract E localiza(String codigo) throws SQLException;
     public abstract ArrayList<E> listaTodos() throws SQLException;
     public abstract ArrayList<E> listaFiltro(String filtro) throws SQLException;
+    public abstract ArrayList<E> listaFiltroInt(int filtro) throws SQLException;
     public abstract void Insere(E entidade) throws SQLException;
     public abstract void Alter (E entidade) throws SQLException;
     

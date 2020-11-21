@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact name="Ilumi">
+    <output-path>$PROJECT_DIR$/out/artifacts/Ilumi</output-path>
+    <root id="root">
+      <element id="archive" name="ilumi.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/javafx/src/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="business" />
+        <element id="module-output" name="comum" />
+        <element id="module-output" name="dao" />
+        <element id="module-output" name="javafx" />
+      </element>
+      <element id="library" level="project" name="commons-validator-1.7" />
+      <element id="library" level="project" name="lib" />
+      <element id="library" level="project" name="lib1" />
+      <element id="library" level="project" name="mssql-jdbc-8.4.1.jre14" />
+    </root>
+  </artifact>
+</component>
