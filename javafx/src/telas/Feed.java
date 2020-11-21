@@ -3,7 +3,9 @@ package telas;
 import business.Acesso;
 import business.DefinicoesPadrao;
 import comp.CustomControlPost;
+import comp.HboxUsuario;
 import comum.Postagem;
+import comum.Usuario;
 import helper.HelperTelas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -54,7 +56,7 @@ public class Feed {
     public Label LbNome;
 
     @FXML
-    public ListView<CustomControlPost> pnPosts;
+    public ListView pnPosts;
 
     @FXML
     public TextField txtPesquisa;
@@ -123,6 +125,19 @@ public class Feed {
         }
     };
 
+    EventHandler<ActionEvent> onActionVerPerfilUser = new EventHandler<ActionEvent>() {
+        public void handle(ActionEvent actionEvent){
+            HboxUsuario c = (HboxUsuario) ((Button) actionEvent.getSource()).getParent();
+            HelperTelas.getInstance().setIdPerfilNavega(c.getIdPerfilNavega());
+            HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
+        }
+    };
+
+    EventHandler<ActionEvent> onActionSeguir = new EventHandler<ActionEvent>() {
+        public void handle(ActionEvent actionEvent){
+
+        }
+    };
 
     public void btnOnActionModerar(ActionEvent actionEvent) {
         HelperTelas.getInstance().IrParaTela(rootPane, "Moderadores.fxml");
@@ -149,7 +164,31 @@ public class Feed {
     }
 
     public void PesquisaPosts(ActionEvent actionEvent) throws SQLException {
-        criaListViewPostagem(Acesso.obtemPostsFiltro(txtPesquisa.getText()));
+        switch (cbxPesquisa.getSelectionModel().getSelectedIndex()){
+            case 0:
+                criaListViewPostagem(Acesso.obtemPostsFiltro(txtPesquisa.getText()));
+                break;
+            case 1:
+                break;
+            case 2:
+                criaListViewUsuario(Acesso.obtemUsuariosFiltro(txtPesquisa.getText()));
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void criaListViewUsuario(ArrayList users) {
+
+        List<HboxUsuario> list = new ArrayList<HboxUsuario>();
+
+        for (var u : users) {
+            Usuario user = (Usuario) u;
+            list.add(new HboxUsuario(user, onActionVerPerfilUser, onActionSeguir));
+        }
+
+        ObservableList<HboxUsuario> myObservableList = FXCollections.observableList(list);
+        pnPosts.setItems(myObservableList);
     }
 
     public void btnVerPostagem(ActionEvent actionEvent){
