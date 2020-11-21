@@ -16,6 +16,7 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         setTabela("Postagem");
         setColunaLocaliza("Titulo");
         setColunaChaveId("IdPost");
+        setColunaLocalizaInt("IdUser");
     }
 
     @Override

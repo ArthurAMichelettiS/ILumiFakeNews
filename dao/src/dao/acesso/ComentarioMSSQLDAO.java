@@ -9,42 +9,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class ComentarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     public ComentarioMSSQLDAO() {
         super(Usuario.class);
         setTabela("Comentario");
-        setColunaLocaliza("IdPost");
-        setColunaChaveId("IdPost");
-    }
-
-    @Override
-    public void Insere(Entidade entidade) throws SQLException {
-        Comentario p = (Comentario) entidade;
-
-        super.Insere(entidade);
-
-        /*TagsMSSQLDAO daoTag = new TagsMSSQLDAO();
-        for (Tag tg:
-                p.getTags()) {
-            tg.setIdPost(p.getIdPost());
-            daoTag.Insere(tg);
-        }*/
-    }
-
-    @Override
-    public void Alter(Entidade entidade) throws SQLException {
-        super.Alter(entidade);
-
-        Comentario p = (Comentario) entidade;
-
-        /*TagsMSSQLDAO daoTag = new TagsMSSQLDAO();
-        for (Tag tg:
-                p.getTags()) {
-            daoTag.Alter(tg);
-        }*/
+        setColunaLocalizaInt("IdPost");
+        setColunaChaveId("IdCom");
+        setColunaLocaliza("Conteudo");
     }
 
     @Override

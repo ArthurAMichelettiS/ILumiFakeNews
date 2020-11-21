@@ -18,6 +18,7 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
     protected String tabela;
     protected String colunaLocaliza;
     protected String colunaChaveId;
+    protected String colunaLocalizaInt;
 
 
 
@@ -37,6 +38,10 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
         this.colunaChaveId = colunaChaveId;
     }
 
+    public void setColunaLocalizaInt(String colunaChaveId) {
+        this.colunaLocalizaInt = colunaChaveId;
+    }
+
 
 
     protected PreparedStatement CriaPreparedStatementLocaliza(Connection con, String codigo) throws SQLException {
@@ -48,6 +53,13 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
 
     protected PreparedStatement CriaPreparedStatementLocalizaPorId(Connection con, int id) throws SQLException {
         String SQL = "select * from " + tabela + "  where " + colunaChaveId +" = ?";
+        PreparedStatement stmt = con.prepareStatement(SQL);
+        stmt.setInt(1, id);
+        return stmt;
+    }
+
+    protected PreparedStatement CriaPreparedStatementFiltraPorInt(Connection con, int id) throws SQLException {
+        String SQL = "select * from " + tabela + "  where " + colunaLocalizaInt +" = ?";
         PreparedStatement stmt = con.prepareStatement(SQL);
         stmt.setInt(1, id);
         return stmt;
@@ -151,7 +163,7 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
 
         try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
 
-            try (PreparedStatement stmt = CriaPreparedStatementLocalizaPorId(conexao, filtro)) {
+            try (PreparedStatement stmt = CriaPreparedStatementFiltraPorInt(conexao, filtro)) {
                 try (ResultSet rs = stmt.executeQuery()) {
                     while (rs.next()){
                         E entidade = preencheEntidade(rs);

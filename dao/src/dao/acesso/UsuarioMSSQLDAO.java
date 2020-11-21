@@ -18,6 +18,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         setTabela("Usuario");
         setColunaLocaliza("Email");
         setColunaChaveId("IdUser");
+        setColunaLocalizaInt("IdTipoDeUsuário");
     }
 
     @Override

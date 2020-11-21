@@ -147,7 +147,7 @@ public class  Acesso {
 
     public static ArrayList obtemListPostsPorUser (int id) throws SQLException {
         DAO dao = EntidadeDAO.POSTAGEM.getEntidadeDAO();
-        return dao.listaTodos();
+        return dao.listaFiltroInt(id);
     }
 
     public static ArrayList obtemPostsFiltro (String filtro) throws SQLException{
