@@ -146,6 +146,24 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
     }
 
     @Override
+    public ArrayList listaFiltroInt(int filtro) throws SQLException {
+        ArrayList<E> entidades = new ArrayList<E>();
+
+        try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
+
+            try (PreparedStatement stmt = CriaPreparedStatementLocalizaPorId(conexao, filtro)) {
+                try (ResultSet rs = stmt.executeQuery()) {
+                    while (rs.next()){
+                        E entidade = preencheEntidade(rs);
+                        entidades.add(entidade);
+                    }
+                }
+            }
+        }
+        return entidades;
+    }
+
+    @Override
     public ArrayList<E> listaTodos() throws SQLException {
         ArrayList<E> entidades = new ArrayList<E>();
 
@@ -163,5 +181,7 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
         }
         return entidades;
     }
+
+
 
 }

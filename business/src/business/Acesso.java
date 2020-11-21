@@ -140,6 +140,11 @@ public class  Acesso {
         return dao.listaTodos();
     }
 
+    public static ArrayList obtemListCom (int filtro) throws SQLException{
+        DAO dao = EntidadeDAO.COMENTARIO.getEntidadeDAO();
+        return dao.listaFiltroInt(filtro);
+    }
+
     public static ArrayList obtemPostsFiltro (String filtro) throws SQLException{
         DAO dao = EntidadeDAO.POSTAGEM.getEntidadeDAO();
         return dao.listaFiltro(filtro);

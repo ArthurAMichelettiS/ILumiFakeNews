@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ComentarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
@@ -16,7 +17,7 @@ public class ComentarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         super(Usuario.class);
         setTabela("Comentario");
         setColunaLocaliza("IdPost");
-        setColunaChaveId("IdCom");
+        setColunaChaveId("IdPost");
     }
 
     @Override
@@ -70,24 +71,17 @@ public class ComentarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         return stmt;
     }
 
-
     @Override
     protected E preencheEntidade(ResultSet rs) {
         Comentario entidade = new Comentario();
         try {
             entidade.setIdCom(rs.getInt("IdCom"));
             entidade.setIdPost(rs.getInt("IdPost"));
-            entidade.setConteudo(rs.getString("Conteúdo"));
+            entidade.setConteudo(rs.getString("Conteudo"));
             entidade.setData(rs.getDate("Data"));
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return (E) entidade;
-    }
-
-    @Override
-    public Entidade localiza(String codigo) throws SQLException {
-        Comentario p = (Comentario) super.localiza(codigo);
-        return p;
     }
 }
