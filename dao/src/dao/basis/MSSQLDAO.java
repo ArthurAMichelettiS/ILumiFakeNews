@@ -42,8 +42,6 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
         this.colunaLocalizaInt = colunaChaveId;
     }
 
-
-
     protected PreparedStatement CriaPreparedStatementLocaliza(Connection con, String codigo) throws SQLException {
         String SQL = "select * from " + tabela + "  where " + colunaLocaliza +" = ?";
         PreparedStatement stmt = con.prepareStatement(SQL);
