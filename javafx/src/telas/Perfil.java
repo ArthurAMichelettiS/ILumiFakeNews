@@ -75,7 +75,7 @@ public class Perfil {
             ivProfile.setImage(Acesso.bytesToImg(user.getImagem()));
         }
 
-        //criaListViewPostagemUser(Acesso.obtemListPosts()); -retorna null
+        criaListViewPostagemUser(Acesso.obtemListPostsPorUser(user.getId()));// -retorna null
     }
 
     public void btnVoltarAction(ActionEvent actionEvent) {
@@ -114,6 +114,7 @@ public class Perfil {
             HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
         }
     };
+
     public void criaListViewPostagemUser (ArrayList posts) throws SQLException {
 
         List<CustomControlPost> list = new ArrayList<CustomControlPost>();

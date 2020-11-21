@@ -34,7 +34,7 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="500.0">
                      <children>
                         <ScrollBar layoutX="750.0" layoutY="15.0" orientation="VERTICAL" prefHeight="503.0" prefWidth="14.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="750.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="15.0" />
-                        <ListView layoutX="26.0" layoutY="15.0" prefHeight="502.0" prefWidth="716.0" styleClass="textarea" />
+                        <ListView fx:id="pnPostsUser" layoutX="26.0" layoutY="15.0" prefHeight="502.0" prefWidth="716.0" styleClass="textarea" />
                      </children>
                   </AnchorPane>
             </content>
