@@ -59,6 +59,9 @@ public class Feed {
     public ListView pnPosts;
 
     @FXML
+    public ListView pnPostsParaVc;
+
+    @FXML
     public TextField txtPesquisa;
 
     @FXML
@@ -66,15 +69,20 @@ public class Feed {
 
     //public TableView tb;
 
-    @FXML
-    private void initialize() throws SQLException {
-        Postagem d = Acesso.obtemPost(04);
+    public void AtivaBotoesCorrespondentes(){
         btnFazPostCientifico.setVisible(Acesso.ehPesquisadorLogado());
         btnFazPost.setVisible(!Acesso.ehModeradorLogado());
         btnFazLogin.setVisible(!Acesso.ehLogado());
         btnFazLogoff.setVisible(Acesso.ehLogado());
         btnModerar.setVisible(Acesso.ehModeradorLogado());
         btnVerMeuPerfil.setVisible(Acesso.ehLogado());
+    }
+
+    @FXML
+    private void initialize() throws SQLException {
+
+        AtivaBotoesCorrespondentes();
+
         if(Acesso.ehLogado()){
             LbNome.setText(DefinicoesPadrao.getInstance().getUsuarioLogado().getNome());
         }
@@ -84,17 +92,16 @@ public class Feed {
                 ivUser.setImage(Acesso.bytesToImg(img));
             }
         }
-        txtTitulo.setText(d.getTitulo());
-        txtTexto.setText(d.getConteudo());
 
-        criaListViewPostagem(Acesso.obtemListPosts());
+        criaListViewPostagem(Acesso.obtemListPosts(), pnPosts);
+        criaListViewPostagem(Acesso.obtemListPosts(), pnPostsParaVc);
         cbxPesquisa.getItems().add("Título");
         cbxPesquisa.getItems().add("Conteúdo");
         cbxPesquisa.getItems().add("Usuários");
         cbxPesquisa.getSelectionModel().select(0);
     }
 
-    public void criaListViewPostagem(ArrayList posts) throws SQLException {
+    public void criaListViewPostagem(ArrayList posts, ListView lv) throws SQLException {
 
         List<CustomControlPost> list = new ArrayList<CustomControlPost>();
 
@@ -104,7 +111,7 @@ public class Feed {
         }
 
         ObservableList<CustomControlPost> myObservableList = FXCollections.observableList(list);
-        pnPosts.setItems(myObservableList);
+        lv.setItems(myObservableList);
     }
 
 
@@ -166,7 +173,7 @@ public class Feed {
     public void PesquisaPosts(ActionEvent actionEvent) throws SQLException {
         switch (cbxPesquisa.getSelectionModel().getSelectedIndex()){
             case 0:
-                criaListViewPostagem(Acesso.obtemPostsFiltro(txtPesquisa.getText()));
+                criaListViewPostagem(Acesso.obtemPostsFiltro(txtPesquisa.getText()), pnPosts);
                 break;
             case 1:
                 break;
