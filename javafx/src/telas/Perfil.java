@@ -2,7 +2,7 @@ package telas;
 
 import business.DefinicoesPadrao;
 import business.Acesso;
-import comp.CustomControlPost;
+import comp.CustomControlPerfil;
 import comum.Postagem;
 import comum.Usuario;
 import helper.HelperTelas;
@@ -46,7 +46,7 @@ public class Perfil {
     private Button btnEditarPerfil;
 
     @FXML
-    public ListView<CustomControlPost> pnPostsUser;
+    public ListView<CustomControlPerfil> pnPostsUser;
 
     @FXML
     private void initialize() throws SQLException {
@@ -75,7 +75,7 @@ public class Perfil {
             ivProfile.setImage(Acesso.bytesToImg(user.getImagem()));
         }
 
-        criaListViewPostagemUser(Acesso.obtemListPostsPorUser(user.getId()));// -retorna null
+        criaListViewPostagemUser(Acesso.obtemListPostsPorUser(user.getId()));
     }
 
     public void btnVoltarAction(ActionEvent actionEvent) {
@@ -99,17 +99,25 @@ public class Perfil {
         }
     }
 
-    EventHandler<ActionEvent> onActionVerPostagem = new EventHandler<ActionEvent>() {
+    EventHandler<ActionEvent> onActionEditar = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
-            CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
-            HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
-            HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
+            CustomControlPerfil c = (CustomControlPerfil) ((Button) actionEvent.getSource()).getParent().getParent();
+          //  HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
+            // HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
+        }
+    };
+
+    EventHandler<ActionEvent> onActionDeletar = new EventHandler<ActionEvent>() {
+        public void handle(ActionEvent actionEvent){
+            CustomControlPerfil c = (CustomControlPerfil) ((Button) actionEvent.getSource()).getParent().getParent();
+            //HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
+            //HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
         }
     };
 
     EventHandler<ActionEvent> onActionVerPerfil = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
-            CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
+            CustomControlPerfil c = (CustomControlPerfil) ((Button) actionEvent.getSource()).getParent().getParent();
             HelperTelas.getInstance().setIdPerfilNavega(c.getIdPerfilNavega());
             HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
         }
@@ -117,17 +125,17 @@ public class Perfil {
 
     public void criaListViewPostagemUser (ArrayList posts) throws SQLException {
 
-        List<CustomControlPost> list = new ArrayList<CustomControlPost>();
+        List<CustomControlPerfil> list = new ArrayList<CustomControlPerfil>();
 
         for (var p : posts) {
 
             if(true) {
                 Postagem post = (Postagem) p;
-                list.add(new CustomControlPost(post, onActionVerPerfil, onActionVerPostagem));
+                list.add(new CustomControlPerfil(post, onActionVerPerfil, onActionEditar, onActionDeletar));
             }
         }
 
-        ObservableList<CustomControlPost> myObservableList = FXCollections.observableList(list);
+        ObservableList<CustomControlPerfil> myObservableList = FXCollections.observableList(list);
         pnPostsUser.setItems(myObservableList);
     }
 
