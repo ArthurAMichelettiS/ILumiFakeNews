@@ -100,4 +100,14 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         return entidades;
     }
 
+
+    //CriaPreparedStatementListaSeguindo
+    @Override
+    protected PreparedStatement CriaPreparedStatementFiltraPorInt(Connection con, int idUser) throws SQLException {
+        String SQL = "select u.* from Seguidores s inner join Usuario u on u.idUser = s.idUserCon where s.idUser = ?";
+        PreparedStatement stmt = con.prepareStatement(SQL);
+        stmt.setInt(1, idUser);
+        return stmt;
+    }
+
 }
