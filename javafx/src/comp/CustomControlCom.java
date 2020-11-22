@@ -17,17 +17,17 @@ public class CustomControlCom extends HBox {
     private int idCom;
 
     public CustomControlCom(Comentario com,
-                            EventHandler<ActionEvent> editarCom, EventHandler<ActionEvent> excluirCom) {
+                            EventHandler<ActionEvent> editarCom, EventHandler<ActionEvent> excluirCom, boolean y) {
         super();
 
         setIdCom(com.getIdCom());
-        hBoxButtonsCom = new HBoxButtonsCom(editarCom,excluirCom);
+        hBoxButtonsCom = new HBoxButtonsCom(editarCom, excluirCom, y);
 
         textField.setText(com.getConteudo());
         textField.setMaxHeight(Double.MAX_VALUE);
         HBox.setHgrow(textField, Priority.ALWAYS);
+        this.getChildren().addAll(textField, hBoxButtonsCom);
 
-        this.getChildren().addAll(textField,hBoxButtonsCom);
     }
 
     public String getText() {

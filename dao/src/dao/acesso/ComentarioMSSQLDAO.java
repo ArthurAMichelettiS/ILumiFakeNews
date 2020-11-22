@@ -45,6 +45,16 @@ public class ComentarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     }
 
     @Override
+    protected PreparedStatement CriaPreparedStatementApaga(Connection con, Entidade e) throws SQLException {
+        String SQL = "delete from Comentario where IdCom = ?";
+        PreparedStatement stmt = con.prepareStatement(SQL);
+        Comentario p = (Comentario) e;
+        stmt.setInt(1, p.getIdCom());
+
+        return stmt;
+    }
+
+    @Override
     protected E preencheEntidade(ResultSet rs) {
         Comentario entidade = new Comentario();
         try {
@@ -52,9 +62,15 @@ public class ComentarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
             entidade.setIdPost(rs.getInt("IdPost"));
             entidade.setConteudo(rs.getString("Conteudo"));
             entidade.setData(rs.getDate("Data"));
+            entidade.setIdUser(rs.getInt("IdUser"));
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return (E) entidade;
+    }
+
+    @Override
+    public void Apaga(Entidade e) throws SQLException {
+
     }
 }

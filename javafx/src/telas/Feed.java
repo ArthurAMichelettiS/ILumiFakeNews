@@ -68,30 +68,35 @@ public class Feed {
 
     @FXML
     private void initialize() throws SQLException {
-        Postagem d = Acesso.obtemPost(04);
-        btnFazPostCientifico.setVisible(Acesso.ehPesquisadorLogado());
-        btnFazPost.setVisible(!Acesso.ehModeradorLogado());
-        btnFazLogin.setVisible(!Acesso.ehLogado());
-        btnFazLogoff.setVisible(Acesso.ehLogado());
-        btnModerar.setVisible(Acesso.ehModeradorLogado());
-        btnVerMeuPerfil.setVisible(Acesso.ehLogado());
-        if(Acesso.ehLogado()){
-            LbNome.setText(DefinicoesPadrao.getInstance().getUsuarioLogado().getNome());
-        }
-        if(Acesso.ehLogado()){
-            byte[] img = DefinicoesPadrao.getInstance().getUsuarioLogado().getImagem();
-            if(img != null && img.length!=0){
-                ivUser.setImage(Acesso.bytesToImg(img));
+        try {
+            Postagem d = Acesso.obtemPost(04);
+            btnFazPostCientifico.setVisible(Acesso.ehPesquisadorLogado());
+            btnFazPost.setVisible(!Acesso.ehModeradorLogado());
+            btnFazLogin.setVisible(!Acesso.ehLogado());
+            btnFazLogoff.setVisible(Acesso.ehLogado());
+            btnModerar.setVisible(Acesso.ehModeradorLogado());
+            btnVerMeuPerfil.setVisible(Acesso.ehLogado());
+            if (Acesso.ehLogado()) {
+                LbNome.setText(DefinicoesPadrao.getInstance().getUsuarioLogado().getNome());
             }
-        }
-        txtTitulo.setText(d.getTitulo());
-        txtTexto.setText(d.getConteudo());
+            if (Acesso.ehLogado()) {
+                byte[] img = DefinicoesPadrao.getInstance().getUsuarioLogado().getImagem();
+                if (img != null && img.length != 0) {
+                    ivUser.setImage(Acesso.bytesToImg(img));
+                }
+            }
+            txtTitulo.setText(d.getTitulo());
+            txtTexto.setText(d.getConteudo());
 
-        criaListViewPostagem(Acesso.obtemListPosts());
-        cbxPesquisa.getItems().add("Título");
-        cbxPesquisa.getItems().add("Conteúdo");
-        cbxPesquisa.getItems().add("Usuários");
-        cbxPesquisa.getSelectionModel().select(0);
+            criaListViewPostagem(Acesso.obtemListPosts());
+            cbxPesquisa.getItems().add("Título");
+            cbxPesquisa.getItems().add("Conteúdo");
+            cbxPesquisa.getItems().add("Usuários");
+            cbxPesquisa.getSelectionModel().select(0);
+        } catch (SQLException erro) {
+            new Alert(Alert.AlertType.ERROR, "Existe um problema com a sua conexão a internet!\nverifique-a e tente novamente.", ButtonType.OK, ButtonType.CANCEL).showAndWait();
+            System.exit(0);
+        }
     }
 
     public void criaListViewPostagem(ArrayList posts) throws SQLException {
@@ -99,7 +104,7 @@ public class Feed {
         List<CustomControlPost> list = new ArrayList<CustomControlPost>();
 
         for (var p : posts) {
-            Postagem post = (Postagem)p;
+            Postagem post = (Postagem) p;
             list.add(new CustomControlPost(post, onActionVerPerfil, onActionVerPostagem));
         }
 
@@ -108,9 +113,8 @@ public class Feed {
     }
 
 
-
     EventHandler<ActionEvent> onActionVerPostagem = new EventHandler<ActionEvent>() {
-        public void handle(ActionEvent actionEvent){
+        public void handle(ActionEvent actionEvent) {
             CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
             HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
             HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
@@ -118,7 +122,7 @@ public class Feed {
     };
 
     EventHandler<ActionEvent> onActionVerPerfil = new EventHandler<ActionEvent>() {
-        public void handle(ActionEvent actionEvent){
+        public void handle(ActionEvent actionEvent) {
             CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
             HelperTelas.getInstance().setIdPerfilNavega(c.getIdPerfilNavega());
             HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
@@ -126,7 +130,7 @@ public class Feed {
     };
 
     EventHandler<ActionEvent> onActionVerPerfilUser = new EventHandler<ActionEvent>() {
-        public void handle(ActionEvent actionEvent){
+        public void handle(ActionEvent actionEvent) {
             HboxUsuario c = (HboxUsuario) ((Button) actionEvent.getSource()).getParent();
             HelperTelas.getInstance().setIdPerfilNavega(c.getIdPerfilNavega());
             HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
@@ -134,7 +138,7 @@ public class Feed {
     };
 
     EventHandler<ActionEvent> onActionSeguir = new EventHandler<ActionEvent>() {
-        public void handle(ActionEvent actionEvent){
+        public void handle(ActionEvent actionEvent) {
 
         }
     };
@@ -147,11 +151,10 @@ public class Feed {
         HelperTelas.getInstance().IrParaTela(rootPane, "Login.fxml");
     }
 
-    public void btnFazPostagem(ActionEvent actionEvent){
-        if(Acesso.ehLogado()){
+    public void btnFazPostagem(ActionEvent actionEvent) {
+        if (Acesso.ehLogado()) {
             HelperTelas.getInstance().IrParaTela(rootPane, "CriarPost.fxml");
-        }
-        else{
+        } else {
             HelperTelas.getInstance().IrParaTela(rootPane, "Login.fxml");
         }
 
@@ -164,7 +167,7 @@ public class Feed {
     }
 
     public void PesquisaPosts(ActionEvent actionEvent) throws SQLException {
-        switch (cbxPesquisa.getSelectionModel().getSelectedIndex()){
+        switch (cbxPesquisa.getSelectionModel().getSelectedIndex()) {
             case 0:
                 criaListViewPostagem(Acesso.obtemPostsFiltro(txtPesquisa.getText()));
                 break;
@@ -191,16 +194,14 @@ public class Feed {
         pnPosts.setItems(myObservableList);
     }
 
-    public void btnVerPostagem(ActionEvent actionEvent){
+    public void btnVerPostagem(ActionEvent actionEvent) {
         HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
     }
 
-    public void btnVerPerfil(ActionEvent actionEvent)
-    {
-        if(Acesso.ehLogado()) {
+    public void btnVerPerfil(ActionEvent actionEvent) {
+        if (Acesso.ehLogado()) {
             HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
-        }
-        else
+        } else
             new Alert(Alert.AlertType.ERROR, "Antes de efetuar está ação, favor logar!!!").showAndWait();
     }
 

@@ -52,10 +52,14 @@ public class VisualizaPost {
     public ListView<CustomControlCom> pnCom;
 
     @FXML
-    private void initialize() throws SQLException {
+    public Label lbNome;
+
+    @FXML
+    protected void initialize() throws SQLException {
         if(Acesso.ehLogado()){
             Usuario user = DefinicoesPadrao.getInstance().getUsuarioLogado();
             ivUser.setImage(Acesso.bytesToImg(user.getImagem()));
+            lbNome.setText(user.getNome());
         }
 
         //post especifico a ser visualizado
@@ -96,11 +100,20 @@ public class VisualizaPost {
     public void criaListViewCom(ArrayList com) {
 
         List<CustomControlCom> list = new ArrayList<CustomControlCom>();
-
+        boolean y = true;
         for (var u : com) {
             Comentario c = (Comentario) u;
-            list.add(new CustomControlCom(c, editarCom, excluirCom));
-        }
+            if (Acesso.ehLogado() == true) {
+                if (DefinicoesPadrao.getInstance().getUsuarioLogado().getId() == c.getIdUser()){
+                    y = true;
+                }
+                else{
+                    y = false;}
+            }
+            else if(Acesso.ehLogado() == false){
+                y = false;}
+            list.add(new CustomControlCom(c, excluirCom, editarCom, y));
+            }
 
         ObservableList<CustomControlCom> myObservableList = FXCollections.observableList(list);
         pnCom.setItems(myObservableList);
@@ -115,8 +128,9 @@ public class VisualizaPost {
     EventHandler<ActionEvent> excluirCom = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
             HBoxButtonsCom c = (HBoxButtonsCom) ((Button) actionEvent.getSource()).getParent();
-            //if()
-                //Acesso.excluirCom;
+            System.out.println(c.getId());
+            Alert alert = new Alert(Alert.AlertType.WARNING, c.getId(), ButtonType.OK, ButtonType.CANCEL);
+            alert.showAndWait();
         }
     };
 }

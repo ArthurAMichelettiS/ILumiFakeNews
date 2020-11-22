@@ -3,7 +3,8 @@ package comum.enums;
 public enum TipoUsuario {
     COMUM(0),
     PESQUISADOR(1),
-    MODERADOR(2);
+    MODERADOR(2),
+    PROBATIO(3);
 
     int idTipo;
 
@@ -23,6 +24,8 @@ public enum TipoUsuario {
                 return TipoUsuario.PESQUISADOR;
             case 2:
                 return TipoUsuario.MODERADOR;
+            case 3:
+                return TipoUsuario.PROBATIO;
             default:
                 return null;
         }

@@ -30,7 +30,7 @@ public class ArquivosParaValidacoes {
     private AnchorPane rootPane;
 
     public void carregaDocFoto() throws IOException {
-        JFileChooser chooseFile = new JFileChooser();
+        /*JFileChooser chooseFile = new JFileChooser();
         JPanel test = new JPanel();
         chooseFile.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
         int result = chooseFile.showOpenDialog(test);
@@ -40,7 +40,7 @@ public class ArquivosParaValidacoes {
             BufferedImage bufferedImage = ImageIO.read(selectedFile);
             Image image = SwingFXUtils.toFXImage(bufferedImage, null);
             imageDocCFoto.setImage(image);
-        }
+        }*/
 
         try {
             Stage primaryStage = new Stage();
@@ -49,6 +49,7 @@ public class ArquivosParaValidacoes {
             Image image = new Image(selectedFile.toURI().toString());
             imageDocCFoto.setImage(image);
             docFotoByte = Acesso.imgToBytes(selectedFile);
+            HelperTelas.getInstance().setDocFotoByte(docFotoByte);
         } catch (Exception ex) {
             new Alert(Alert.AlertType.ERROR, ex.getMessage()).showAndWait();
         }
@@ -75,6 +76,7 @@ public class ArquivosParaValidacoes {
             Image image = new Image(selectedFile.toURI().toString());
             imageComprovantePesquisador.setImage(image);
             comprovantePesquisadorByte = Acesso.imgToBytes(selectedFile);
+            HelperTelas.getInstance().setComprovantePesquisadorByte(comprovantePesquisadorByte);
         } catch(Exception ex) {
             new Alert(Alert.AlertType.ERROR, ex.getMessage()).showAndWait();
         }

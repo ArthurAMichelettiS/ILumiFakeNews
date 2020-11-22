@@ -6,6 +6,7 @@
 package dao.acesso;
 
 import comum.Entidade;
+import comum.Postagem;
 import comum.Usuario;
 import dao.basis.MSSQLDAO;
 
@@ -24,7 +25,8 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     @Override
     protected PreparedStatement CriaPreparedStatementInsere(Connection con, Entidade e) throws SQLException {
         String SQL = "insert into Usuario (Email, Senha, Pais, " +
-                "Nome, Genero, DataNasc, IdTipoDeUsuário, Imagem) values (?,?,?,?,?,?,?,?)";
+                "Nome, Genero, DataNasc, IdTipoDeUsuário, Imagem, ComprovantePesq, DocFoto) " +
+                "values (?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement stmt = con.prepareStatement(SQL);
 
         Usuario u = (Usuario) e;
@@ -37,6 +39,8 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         stmt.setString(6, s);
         stmt.setInt(7, u.getIdTipoDeUsuario());
         stmt.setBytes(8, u.getImagem());
+        stmt.setBytes(9, u.getComprovantePesquisadorByte());
+        stmt.setBytes(10,u.getDocFotoByte());
 
         return stmt;
     }
@@ -52,6 +56,15 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         stmt.setString(3, u.getBio());
         stmt.setInt(4, u.getId());
 
+        return stmt;
+    }
+
+    @Override
+    protected PreparedStatement CriaPreparedStatementApaga(Connection con, Entidade e) throws SQLException {
+        String SQL = "delete from Usuario where IdUser = ?";
+        PreparedStatement stmt = con.prepareStatement(SQL);
+        Usuario p = (Usuario) e;
+        stmt.setInt(1, p.getId());
         return stmt;
     }
 

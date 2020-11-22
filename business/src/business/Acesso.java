@@ -3,6 +3,7 @@ package business;
 
 import business.Log.ControleAuditoria;
 import comum.Comentario;
+import comum.Entidade;
 import comum.Postagem;
 import comum.Usuario;
 import comum.enums.TipoUsuario;
@@ -176,7 +177,22 @@ public class  Acesso {
         DAO dao = EntidadeDAO.COMENTARIO.getEntidadeDAO();
         return (Comentario) dao.localizaPorId(id);
     }
-    
+
+    public static void apagaUsuario(Usuario u) throws SQLException{
+        DAO dao  = EntidadeDAO.USUARIO.getEntidadeDAO();
+        dao.Apaga(u);
+    }
+
+    public static void apagaPostagem(Postagem p) throws SQLException{
+        DAO dao  = EntidadeDAO.POSTAGEM.getEntidadeDAO();
+        dao.Apaga(p);
+    }
+
+    public static void apagaComentario(Comentario c) throws SQLException{
+        DAO dao  = EntidadeDAO.COMENTARIO.getEntidadeDAO();
+        dao.Apaga(c);
+    }
+
     public static boolean ehModeradorLogado(){
         return DefinicoesPadrao.getInstance().getTipoUsuario() == TipoUsuario.MODERADOR;
     }
