@@ -26,6 +26,7 @@ public abstract class DAO <E extends Entidade> {
     public abstract ArrayList<E> listaFiltroInt(int filtro) throws SQLException;
     public abstract void Insere(E entidade) throws SQLException;
     public abstract void Alter (E entidade) throws SQLException;
+    public abstract void Apaga(E entidade) throws SQLException;
     
     protected E getInstanceOfE()
     {

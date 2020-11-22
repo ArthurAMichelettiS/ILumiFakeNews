@@ -67,11 +67,15 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
 
     abstract protected PreparedStatement CriaPreparedStatementAltera(Connection con, Entidade e) throws SQLException;
 
+    abstract protected PreparedStatement CriaPreparedStatementApaga(Connection con, Entidade entidade) throws SQLException;
+
     protected PreparedStatement CriaPreparedStatementListagem(Connection con) throws SQLException{
         String SQL = "select * from " + tabela;
         PreparedStatement stmt = con.prepareStatement(SQL);
         return stmt;
     }
+
+
 
     @Override
     public E localiza (String codigo) throws SQLException {
@@ -127,6 +131,20 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
 
             try (PreparedStatement stmt = CriaPreparedStatementAltera(conexao, entidade)) {
                 stmt.executeUpdate();
+            }
+        }
+        catch (SQLException ea)
+        {
+            System.out.println(ea.getMessage());
+        }
+    }
+
+    @Override
+    public void Apaga(Entidade entidade) throws SQLException{
+        try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
+
+            try (PreparedStatement stmt = CriaPreparedStatementAltera(conexao, entidade)) {
+                stmt.execute();
             }
         }
         catch (SQLException ea)

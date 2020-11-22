@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.AnchorPane;
 
 import java.sql.SQLException;
@@ -29,7 +30,15 @@ public class CriarPost {
     @FXML
     private AnchorPane rootPane;
 
+    @FXML
+    private void initialize() throws SQLException {
+        final int max = 1000;
+        txtConteudo.setTextFormatter(new TextFormatter<String>(change -> change.getControlNewText().length() <= max ? change : null));
+    }
+
+
     public void salvarPostagem(ActionEvent actionEvent){
+
 
         //salva post e stuff
 

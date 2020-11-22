@@ -26,6 +26,26 @@ public class Usuario extends Entidade {
 
     private byte[] Imagem;
 
+    public byte[] comprovantePesquisadorByte;
+
+    public byte[] docFotoByte;
+
+    public byte[] getComprovantePesquisadorByte() {
+        return comprovantePesquisadorByte;
+    }
+
+    public void setComprovantePesquisadorByte(byte[] comprovantePesquisadorByte) {
+        this.comprovantePesquisadorByte = comprovantePesquisadorByte;
+    }
+
+    public byte[] getDocFotoByte() {
+        return docFotoByte;
+    }
+
+    public void setDocFotoByte(byte[] docFotoByte) {
+        this.docFotoByte = docFotoByte;
+    }
+
     public byte[] getImagem() {
         return Imagem;
     }

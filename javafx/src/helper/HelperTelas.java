@@ -23,6 +23,35 @@ public class HelperTelas {
         return instance;
     }
 
+    private int idComNavega;
+
+    public int getIdComNavega() {
+        return idComNavega;
+    }
+
+    public void setIdComNavega(int idComNavega) {
+        this.idComNavega = idComNavega;
+    }
+
+    public byte[] docFotoByte;
+
+    public byte[] getDocFotoByte() {
+        return docFotoByte;
+    }
+
+    public void setDocFotoByte(byte[] docFotoByte) {
+        this.docFotoByte = docFotoByte;
+    }
+
+    public byte[] comprovantePesquisadorByte;
+
+    public byte[] getComprovantePesquisadorByte() {
+        return comprovantePesquisadorByte;
+    }
+
+    public void setComprovantePesquisadorByte(byte[] comprovantePesquisadorByte) {
+        this.comprovantePesquisadorByte = comprovantePesquisadorByte;
+    }
 
     public int getIdPostNavega() {
         return idPostNavega;

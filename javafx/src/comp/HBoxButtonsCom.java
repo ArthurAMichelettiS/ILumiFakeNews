@@ -13,7 +13,7 @@ public class HBoxButtonsCom extends HBox {
     private Button btnEditarCom = new Button();
     private Button btnExcluirCom = new Button();
 
-    HBoxButtonsCom(EventHandler<ActionEvent> editarCom, EventHandler<ActionEvent> excluirCom) {
+    HBoxButtonsCom(EventHandler<ActionEvent> editarCom, EventHandler<ActionEvent> excluirCom, boolean y) {
         super();
 
         textField.setMaxHeight(Double.MAX_VALUE);
@@ -26,9 +26,13 @@ public class HBoxButtonsCom extends HBox {
 
         btnExcluirCom.setText("Excluir Comentário");
         btnExcluirCom.setMaxWidth(Double.MAX_VALUE);
-        btnEditarCom.setOnAction(editarCom);
+        btnEditarCom.setOnAction(excluirCom);
         HBox.setHgrow(btnExcluirCom, Priority.ALWAYS);
 
+        if (y == false) {
+            btnEditarCom.setVisible(false);
+            btnExcluirCom.setVisible(false);
+        }
         this.getChildren().addAll(textField,btnEditarCom,btnExcluirCom);
     }
 }

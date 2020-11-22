@@ -70,6 +70,15 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         return stmt;
     }
 
+    @Override
+    protected PreparedStatement CriaPreparedStatementApaga(Connection con, Entidade e) throws SQLException {
+        String SQL = "delete from Postagem where titulo = ?";
+        PreparedStatement stmt = con.prepareStatement(SQL);
+        Postagem p = (Postagem) e;
+        stmt.setString(1, p.getTitulo());
+        return stmt;
+    }
+
 
     @Override
     protected E preencheEntidade(ResultSet rs) {
@@ -119,5 +128,6 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         stmt.setString(1, "%"+filtro+"%");
         return stmt;
     }
+
 
 }

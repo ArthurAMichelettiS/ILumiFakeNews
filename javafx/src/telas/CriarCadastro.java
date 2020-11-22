@@ -56,6 +56,9 @@ public class CriarCadastro {
     @FXML
     private ImageView ivProfile;
 
+    @FXML
+    private CheckBox ckValida;
+
     private byte[] imgBytes;
 
     @FXML
@@ -95,6 +98,15 @@ public class CriarCadastro {
             d.setGenero(cbGen.getValue().toString());
             d.setIdTipoDeUsuario(0);
             d.setImagem(imgBytes);
+
+            if(ckValida.isSelected())
+            {
+                d.setComprovantePesquisadorByte(HelperTelas.getInstance().getComprovantePesquisadorByte());
+                d.setDocFotoByte(HelperTelas.getInstance().getDocFotoByte());
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Você se cadastrou como pesquisador, \nlevará algum tempo até que sua solicitação seja aprovada ou não", ButtonType.OK);
+                alert.showAndWait();
+                d.setIdTipoDeUsuario(3);
+            }
 
             Acesso.enviaDadosUsuario(d);
             HelperTelas.getInstance().VoltarTela(rootPane);

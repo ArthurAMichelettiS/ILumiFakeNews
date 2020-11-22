@@ -80,8 +80,9 @@ public class Feed {
 
     @FXML
     private void initialize() throws SQLException {
+        try{
 
-        AtivaBotoesCorrespondentes();
+            AtivaBotoesCorrespondentes();
 
         if(Acesso.ehLogado()){
             LbNome.setText(DefinicoesPadrao.getInstance().getUsuarioLogado().getNome());
@@ -93,12 +94,17 @@ public class Feed {
             }
         }
 
+
         criaListViewPostagem(Acesso.obtemListPosts(), pnPosts);
         criaListViewPostagem(Acesso.obtemListPosts(), pnPostsParaVc);
-        cbxPesquisa.getItems().add("Título");
-        cbxPesquisa.getItems().add("Conteúdo");
-        cbxPesquisa.getItems().add("Usuários");
-        cbxPesquisa.getSelectionModel().select(0);
+            cbxPesquisa.getItems().add("Título");
+            cbxPesquisa.getItems().add("Conteúdo");
+            cbxPesquisa.getItems().add("Usuários");
+            cbxPesquisa.getSelectionModel().select(0);
+        } catch (SQLException erro) {
+            new Alert(Alert.AlertType.ERROR, "Existe um problema com a sua conexão a internet!\nverifique-a e tente novamente.", ButtonType.OK, ButtonType.CANCEL).showAndWait();
+            System.exit(0);
+        }
     }
 
     public void criaListViewPostagem(ArrayList posts, ListView lv) throws SQLException {
@@ -173,7 +179,7 @@ public class Feed {
     public void PesquisaPosts(ActionEvent actionEvent) throws SQLException {
         switch (cbxPesquisa.getSelectionModel().getSelectedIndex()){
             case 0:
-                criaListViewPostagem(Acesso.obtemPostsFiltro(txtPesquisa.getText()), pnPosts);
+                criaListViewPostagem(Acesso.obtemPostsFiltro(txtPesquisa.getText()));
                 break;
             case 1:
                 break;

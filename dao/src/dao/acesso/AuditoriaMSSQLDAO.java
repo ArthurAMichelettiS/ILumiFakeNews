@@ -23,6 +23,11 @@ public class AuditoriaMSSQLDAO <E extends Entidade> extends MSSQLDAO {
         return null;
     }
 
+    @Override
+    protected PreparedStatement CriaPreparedStatementApaga(Connection con, Entidade entidade) throws SQLException {
+        return null;
+    }
+
 
     @Override
     protected PreparedStatement CriaPreparedStatementInsere(Connection con, Entidade e) throws SQLException {
