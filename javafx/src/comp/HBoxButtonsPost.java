@@ -11,7 +11,7 @@ public class HBoxButtonsPost extends HBox{
     private Button verPerfil = new Button();
     private Button seguirPerfil = new Button();
     private Button comentarios = new Button();
-    private Button reportar = new Button();
+    private Button denunciar = new Button();
     private Button curtir = new Button();
     private Button dislike = new Button();
 
@@ -32,9 +32,9 @@ public class HBoxButtonsPost extends HBox{
         comentarios.setOnAction(metodoPostagem);
         HBox.setHgrow(comentarios, Priority.ALWAYS);
 
-        reportar.setText("Reportar");
-        reportar.setMaxWidth(Double.MAX_VALUE);
-        HBox.setHgrow(reportar, Priority.ALWAYS);
+        denunciar.setText("Denunciar");
+        denunciar.setMaxWidth(Double.MAX_VALUE);
+        HBox.setHgrow(denunciar, Priority.ALWAYS);
 
         curtir.setText("☆");
         curtir.setMaxWidth(Double.MAX_VALUE);
@@ -44,6 +44,6 @@ public class HBoxButtonsPost extends HBox{
         dislike.setMaxWidth(Double.MAX_VALUE);
         HBox.setHgrow(dislike, Priority.ALWAYS);
 
-        this.getChildren().addAll(verPerfil, seguirPerfil, comentarios, reportar, curtir, dislike);
+        this.getChildren().addAll(verPerfil, seguirPerfil, comentarios, denunciar, curtir, dislike);
     }
 }

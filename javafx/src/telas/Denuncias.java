@@ -15,7 +15,6 @@ public class Denuncias {
     }
 
     public void voltarModeradores(ActionEvent actionEvent){
-
         HelperTelas.getInstance().VoltarTela(rootPane);
     }
 
