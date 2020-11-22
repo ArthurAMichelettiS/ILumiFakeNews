@@ -219,7 +219,7 @@
 }
 
 .list-cell:filled:hover {
-    -fx-background-color: (#084559,50%)
+    -fx-background-color: derive(#084559,50%);
     -fx-text-fill: white;
 }
 
@@ -247,7 +247,7 @@
 
 .combo-box-popup .list-view 
 {
-    -fx-background-color: derive(,50%), derive(#084559,50%);
+    -fx-background-color: derive(#084559,50%), derive(#084559,50%);
 	-fx-font-size: 9pt;
     -fx-font-family: "Segoe UI Semibold";
     -fx-text-fill: white;
