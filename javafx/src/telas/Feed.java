@@ -47,12 +47,6 @@ public class Feed {
     public ImageView ivUser;
 
     @FXML
-    public TextField txtTitulo;
-
-    @FXML
-    public TextArea txtTexto;
-
-    @FXML
     public Label LbNome;
 
     @FXML
@@ -81,22 +75,19 @@ public class Feed {
     @FXML
     private void initialize() throws SQLException {
         try{
-
             AtivaBotoesCorrespondentes();
-
-        if(Acesso.ehLogado()){
-            LbNome.setText(DefinicoesPadrao.getInstance().getUsuarioLogado().getNome());
-        }
-        if(Acesso.ehLogado()){
-            byte[] img = DefinicoesPadrao.getInstance().getUsuarioLogado().getImagem();
-            if(img != null && img.length!=0){
-                ivUser.setImage(Acesso.bytesToImg(img));
+            if(Acesso.ehLogado()){
+                LbNome.setText(DefinicoesPadrao.getInstance().getUsuarioLogado().getNome());
             }
-        }
+            if(Acesso.ehLogado()){
+                byte[] img = DefinicoesPadrao.getInstance().getUsuarioLogado().getImagem();
+                if(img != null && img.length!=0){
+                    ivUser.setImage(Acesso.bytesToImg(img));
+                }
+            }
 
-
-        criaListViewPostagem(Acesso.obtemListPosts(), pnPosts);
-        criaListViewPostagem(Acesso.obtemListPosts(), pnPostsParaVc);
+            criaListViewPostagem(Acesso.obtemListPosts(), pnPosts);
+            criaListViewPostagem(Acesso.obtemListPosts(), pnPostsParaVc);
             cbxPesquisa.getItems().add("Título");
             cbxPesquisa.getItems().add("Conteúdo");
             cbxPesquisa.getItems().add("Usuários");
@@ -179,7 +170,7 @@ public class Feed {
     public void PesquisaPosts(ActionEvent actionEvent) throws SQLException {
         switch (cbxPesquisa.getSelectionModel().getSelectedIndex()){
             case 0:
-                criaListViewPostagem(Acesso.obtemPostsFiltro(txtPesquisa.getText()));
+                criaListViewPostagem(Acesso.obtemPostsFiltro(txtPesquisa.getText()), pnPosts);
                 break;
             case 1:
                 break;
