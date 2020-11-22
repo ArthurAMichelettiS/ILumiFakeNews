@@ -3,7 +3,6 @@ package telas;
 import business.DefinicoesPadrao;
 import business.Acesso;
 import comp.CustomControlPerfil;
-import comp.CustomControlPost;
 import comum.Postagem;
 import comum.Usuario;
 import helper.HelperTelas;
@@ -100,11 +99,19 @@ public class Perfil {
         }
     }
 
-    EventHandler<ActionEvent> onActionVerPostagem = new EventHandler<ActionEvent>() {
+    EventHandler<ActionEvent> onActionEditar = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
             CustomControlPerfil c = (CustomControlPerfil) ((Button) actionEvent.getSource()).getParent().getParent();
-            HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
-            HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
+          //  HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
+            // HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
+        }
+    };
+
+    EventHandler<ActionEvent> onActionDeletar = new EventHandler<ActionEvent>() {
+        public void handle(ActionEvent actionEvent){
+            CustomControlPerfil c = (CustomControlPerfil) ((Button) actionEvent.getSource()).getParent().getParent();
+            //HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
+            //HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
         }
     };
 
@@ -124,7 +131,7 @@ public class Perfil {
 
             if(true) {
                 Postagem post = (Postagem) p;
-                list.add(new CustomControlPerfil(post, onActionVerPerfil, onActionVerPostagem));
+                list.add(new CustomControlPerfil(post, onActionVerPerfil, onActionEditar, onActionDeletar));
             }
         }
 
