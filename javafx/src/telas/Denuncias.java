@@ -34,7 +34,6 @@ public class Denuncias {
             d.setIdPost(DefinicoesPadrao.getInstance().getPostagem().getId());
             Acesso.enviaDenuncia(d);
             HelperTelas.getInstance().VoltarTela(rootPane);
-
         }
         catch (SQLException erro){
             new Alert(Alert.AlertType.ERROR, "Algo de errado ao salvar!").showAndWait();

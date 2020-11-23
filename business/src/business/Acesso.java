@@ -16,6 +16,7 @@ import java.io.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.ServiceLoader;
 
 public class  Acesso {
 
@@ -241,5 +242,9 @@ public class  Acesso {
         return dao.listaFiltroInt(3);
     }
 
+    public static ArrayList obtemDenuncias() throws SQLException{
+        DAO dao = EntidadeDAO.DENUNCIA.getEntidadeDAO();
+        return dao.listaTodos();
+    }
 }
 
