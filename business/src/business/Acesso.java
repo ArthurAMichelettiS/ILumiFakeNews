@@ -231,6 +231,10 @@ public class  Acesso {
         return new Image(new ByteArrayInputStream(img));
     }
 
+    public static ArrayList obtemUsuarioTipo3 () throws SQLException{
+        DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
+        return dao.listaFiltroInt(3);
+    }
 
 }
 
