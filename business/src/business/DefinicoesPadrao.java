@@ -1,7 +1,10 @@
 package business;
 
+import comum.Postagem;
+import comum.Status;
 import comum.Usuario;
 import comum.enums.TipoUsuario;
+import jdk.jshell.Snippet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,4 +67,10 @@ public class DefinicoesPadrao {
         this.usuarioLogado = null;
         this.tipoUsuario = null;
     }
+
+    private Postagem postagem;
+    public Postagem getPostagem() {return postagem;}
+
+    private Status status;
+    public Status getStatus() {return  status;}
 }

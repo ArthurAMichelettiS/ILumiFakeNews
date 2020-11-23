@@ -39,9 +39,6 @@ public class CriarPost {
 
     public void salvarPostagem(ActionEvent actionEvent){
 
-
-        //salva post e stuff
-
         try{
             Postagem p = new Postagem();
             p.setTitulo(txtTituloPergunta.getText());

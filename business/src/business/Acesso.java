@@ -2,10 +2,7 @@
 package business;
 
 import business.Log.ControleAuditoria;
-import comum.Comentario;
-import comum.Entidade;
-import comum.Postagem;
-import comum.Usuario;
+import comum.*;
 import comum.enums.TipoUsuario;
 import dao.basis.DAO;
 import dao.enums.EntidadeDAO;
@@ -173,6 +170,11 @@ public class  Acesso {
         ControleAuditoria.getInstance().AddAuditoria("Comentario salvo: " + c.getConteudo() + " - no post " + c.getIdPost());
     }
 
+    public static void enviaDenuncia (Denuncia d) throws SQLException{
+        DAO dao = EntidadeDAO.DENUNCIA.getEntidadeDAO();
+        dao.Insere(d);
+    }
+
     public static Comentario obtemComentario(int id) throws SQLException{
         DAO dao = EntidadeDAO.COMENTARIO.getEntidadeDAO();
         return (Comentario) dao.localizaPorId(id);
@@ -223,4 +225,7 @@ public class  Acesso {
     public static Image bytesToImg(byte[] img)  {
         return new Image(new ByteArrayInputStream(img));
     }
+
+
 }
+
