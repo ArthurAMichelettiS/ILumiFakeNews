@@ -195,6 +195,10 @@ public class  Acesso {
         dao.Apaga(p);
     }
 
+    public static void alteraComentario(Comentario c) throws SQLException{
+        DAO dao = EntidadeDAO.COMENTARIO.getEntidadeDAO();
+        dao.Alter(c);
+    }
     public static void apagaComentario(Comentario c) throws SQLException{
         DAO dao  = EntidadeDAO.COMENTARIO.getEntidadeDAO();
         dao.Apaga(c);

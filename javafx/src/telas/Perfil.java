@@ -11,10 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import java.sql.SQLException;
@@ -102,23 +99,39 @@ public class Perfil {
     EventHandler<ActionEvent> onActionEditar = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
             CustomControlPerfil c = (CustomControlPerfil) ((Button) actionEvent.getSource()).getParent().getParent();
-          //  HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
-            // HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
+            HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
+            HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
         }
     };
 
     EventHandler<ActionEvent> onActionDeletar = new EventHandler<ActionEvent>() {
-        public void handle(ActionEvent actionEvent){
+        public void handle(ActionEvent actionEvent) {
             CustomControlPerfil c = (CustomControlPerfil) ((Button) actionEvent.getSource()).getParent().getParent();
+            try {
+                Postagem p = Acesso.obtemPost(c.getIdPostNavega());
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Você realmente deseja apagar este comentário?", ButtonType.OK, ButtonType.CANCEL);
+                alert.showAndWait();
+                if(alert.getResult()==ButtonType.OK) {
+                    Acesso.apagaPostagem(p);
+                    criaListViewPostagemUser(Acesso.obtemListPostsPorUser(p.getId()));
+                }
+                if(alert.getResult()==ButtonType.CANCEL)
+                {
+                    alert.close();
+                }
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
             //HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
             //HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
         }
     };
 
-    EventHandler<ActionEvent> onActionVerPerfil = new EventHandler<ActionEvent>() {
+    EventHandler<ActionEvent> onActionVerPost = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
             CustomControlPerfil c = (CustomControlPerfil) ((Button) actionEvent.getSource()).getParent().getParent();
-            HelperTelas.getInstance().setIdPerfilNavega(c.getIdPerfilNavega());
+            HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
             HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
         }
     };
@@ -131,7 +144,7 @@ public class Perfil {
 
             if(true) {
                 Postagem post = (Postagem) p;
-                list.add(new CustomControlPerfil(post, onActionVerPerfil, onActionEditar, onActionDeletar));
+                list.add(new CustomControlPerfil(post, onActionVerPost, onActionEditar, onActionDeletar));
             }
         }
 

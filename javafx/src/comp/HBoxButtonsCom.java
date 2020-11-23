@@ -26,12 +26,13 @@ public class HBoxButtonsCom extends HBox {
 
         btnExcluirCom.setText("Excluir Comentário");
         btnExcluirCom.setMaxWidth(Double.MAX_VALUE);
-        btnEditarCom.setOnAction(excluirCom);
+        btnExcluirCom.setOnAction(excluirCom);
         HBox.setHgrow(btnExcluirCom, Priority.ALWAYS);
 
         if (y == false) {
             btnEditarCom.setVisible(false);
             btnExcluirCom.setVisible(false);
+            textField.setEditable(false);
         }
         this.getChildren().addAll(textField,btnEditarCom,btnExcluirCom);
     }

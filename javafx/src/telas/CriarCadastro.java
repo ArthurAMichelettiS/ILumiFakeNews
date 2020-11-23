@@ -99,7 +99,7 @@ public class CriarCadastro {
             d.setIdTipoDeUsuario(0);
             d.setImagem(imgBytes);
 
-            if(ckValida.isSelected())
+            if(ckValida.isSelected() == true)
             {
                 d.setComprovantePesquisadorByte(HelperTelas.getInstance().getComprovantePesquisadorByte());
                 d.setDocFotoByte(HelperTelas.getInstance().getDocFotoByte());
@@ -107,7 +107,6 @@ public class CriarCadastro {
                 alert.showAndWait();
                 d.setIdTipoDeUsuario(3);
             }
-
             Acesso.enviaDadosUsuario(d);
             HelperTelas.getInstance().VoltarTela(rootPane);
         } catch (SQLException erro) {

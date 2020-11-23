@@ -22,9 +22,9 @@ public class CustomControlCom extends HBox {
 
         setIdCom(com.getIdCom());
         hBoxButtonsCom = new HBoxButtonsCom(editarCom, excluirCom, y);
-
         textField.setText(com.getConteudo());
         textField.setMaxHeight(Double.MAX_VALUE);
+        textField.setEditable(y);
         HBox.setHgrow(textField, Priority.ALWAYS);
         this.getChildren().addAll(textField, hBoxButtonsCom);
 

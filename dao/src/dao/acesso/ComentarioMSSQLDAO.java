@@ -2,6 +2,7 @@ package dao.acesso;
 
 import comum.Comentario;
 import comum.Entidade;
+import comum.Postagem;
 import comum.Usuario;
 import dao.basis.MSSQLDAO;
 
@@ -50,7 +51,6 @@ public class ComentarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         PreparedStatement stmt = con.prepareStatement(SQL);
         Comentario p = (Comentario) e;
         stmt.setInt(1, p.getIdCom());
-
         return stmt;
     }
 
@@ -71,6 +71,13 @@ public class ComentarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     @Override
     public void Apaga(Entidade e) throws SQLException {
+        Comentario c = (Comentario) e;
+        super.Apaga(c);
+    }
 
+    @Override
+    public void Alter(Entidade e) throws SQLException{
+        Comentario c = (Comentario) e;
+        super.Alter(c);
     }
 }

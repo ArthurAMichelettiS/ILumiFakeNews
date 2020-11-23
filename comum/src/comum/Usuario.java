@@ -64,7 +64,6 @@ public class Usuario extends Entidade {
 
     private String bio;
 
-
     public String getNome() {
         return Nome;
     }

@@ -143,7 +143,7 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
     public void Apaga(Entidade entidade) throws SQLException{
         try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA)) {
 
-            try (PreparedStatement stmt = CriaPreparedStatementAltera(conexao, entidade)) {
+            try (PreparedStatement stmt = CriaPreparedStatementApaga(conexao, entidade)) {
                 stmt.execute();
             }
         }

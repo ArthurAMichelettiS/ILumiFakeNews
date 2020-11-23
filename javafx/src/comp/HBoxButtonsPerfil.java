@@ -14,12 +14,12 @@ public class HBoxButtonsPerfil extends HBox{
 
 
 
-    HBoxButtonsPerfil(EventHandler<ActionEvent> metodoPerfil, EventHandler<ActionEvent> metodoEditar, EventHandler<ActionEvent> metodoApagar) {
+    HBoxButtonsPerfil(EventHandler<ActionEvent> metodoPost, EventHandler<ActionEvent> metodoEditar, EventHandler<ActionEvent> metodoApagar) {
         super();
 
         verPost.setText("Visualizar Post");
         verPost.setMaxWidth(Double.MAX_VALUE);
-        verPost.setOnAction(metodoPerfil);
+        verPost.setOnAction(metodoPost);
         HBox.setHgrow(verPost, Priority.ALWAYS);
 
         editarPost.setText("Editar Post");
@@ -32,6 +32,6 @@ public class HBoxButtonsPerfil extends HBox{
         editarPost.setOnAction(metodoApagar);
         HBox.setHgrow(deletarPost, Priority.ALWAYS);
 
-        this.getChildren().addAll(verPost,editarPost, deletarPost);
+        this.getChildren().addAll(verPost,editarPost,deletarPost);
     }
 }

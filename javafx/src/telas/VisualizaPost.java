@@ -60,8 +60,8 @@ public class VisualizaPost {
             Usuario user = DefinicoesPadrao.getInstance().getUsuarioLogado();
             ivUser.setImage(Acesso.bytesToImg(user.getImagem()));
             lbNome.setText(user.getNome());
-        }
 
+        }
         //post especifico a ser visualizado
         Postagem p = Acesso.obtemPost(HelperTelas.getInstance().getIdPostNavega());
         Comentario c = Acesso.obtemComentario(p.getId());
@@ -112,7 +112,7 @@ public class VisualizaPost {
             }
             else if(Acesso.ehLogado() == false){
                 y = false;}
-            list.add(new CustomControlCom(c, excluirCom, editarCom, y));
+            list.add(new CustomControlCom(c, editarCom, excluirCom, y));
             }
 
         ObservableList<CustomControlCom> myObservableList = FXCollections.observableList(list);
@@ -121,16 +121,52 @@ public class VisualizaPost {
 
     EventHandler<ActionEvent> editarCom = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
-            HBoxButtonsCom c = (HBoxButtonsCom) ((Button) actionEvent.getSource()).getParent();
+            try {
+                CustomControlCom c = (CustomControlCom) ((Button) actionEvent.getSource()).getParent().getParent();
+                Comentario com = Acesso.obtemComentario(c.getIdCom());
+                com.setConteudo(c.getText());
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Você realmente deseja editar este comentário?", ButtonType.OK, ButtonType.CANCEL);
+                alert.showAndWait();
+                if(alert.getResult()==ButtonType.OK) {
+                    Acesso.alteraComentario(com);
+                    Postagem p = Acesso.obtemPost(HelperTelas.getInstance().getIdPostNavega());
+                    criaListViewCom(Acesso.obtemListCom(p.getId()));
+                }
+                if(alert.getResult()==ButtonType.CANCEL)
+                {
+                    alert.close();
+                    Postagem p = Acesso.obtemPost(HelperTelas.getInstance().getIdPostNavega());
+                    criaListViewCom(Acesso.obtemListCom(p.getId()));
+                }
+            }
+            catch (SQLException erro) {
+                new Alert(Alert.AlertType.ERROR, "Algo de errado ao salvar!").showAndWait();
+            }
         }
     };
 
     EventHandler<ActionEvent> excluirCom = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
-            HBoxButtonsCom c = (HBoxButtonsCom) ((Button) actionEvent.getSource()).getParent();
-            System.out.println(c.getId());
-            Alert alert = new Alert(Alert.AlertType.WARNING, c.getId(), ButtonType.OK, ButtonType.CANCEL);
-            alert.showAndWait();
+            try {
+                CustomControlCom c = (CustomControlCom) ((Button) actionEvent.getSource()).getParent().getParent();
+                Comentario com = null;
+                com = Acesso.obtemComentario(c.getIdCom());
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Você realmente deseja apagar este comentário?", ButtonType.OK, ButtonType.CANCEL);
+                alert.showAndWait();
+                if(alert.getResult()==ButtonType.OK) {
+                    Acesso.apagaComentario(com);
+                    Postagem p = Acesso.obtemPost(HelperTelas.getInstance().getIdPostNavega());
+                    criaListViewCom(Acesso.obtemListCom(p.getId()));
+                }
+                if(alert.getResult()==ButtonType.CANCEL)
+                {
+                    alert.close();
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         }
     };
+
+
 }
