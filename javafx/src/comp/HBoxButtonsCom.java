@@ -16,9 +16,6 @@ public class HBoxButtonsCom extends HBox {
     HBoxButtonsCom(EventHandler<ActionEvent> editarCom, EventHandler<ActionEvent> excluirCom, boolean y) {
         super();
 
-        textField.setMaxHeight(Double.MAX_VALUE);
-        HBox.setHgrow(textField, Priority.ALWAYS);
-
         btnEditarCom.setText("Editar Comentário");
         btnEditarCom.setMaxWidth(Double.MAX_VALUE);
         btnEditarCom.setOnAction(editarCom);
@@ -34,6 +31,6 @@ public class HBoxButtonsCom extends HBox {
             btnExcluirCom.setVisible(false);
             textField.setEditable(false);
         }
-        this.getChildren().addAll(textField,btnEditarCom,btnExcluirCom);
+        this.getChildren().addAll(btnEditarCom,btnExcluirCom);
     }
 }

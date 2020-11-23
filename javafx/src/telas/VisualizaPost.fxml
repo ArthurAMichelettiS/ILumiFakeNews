@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -37,5 +38,10 @@
       <Button fx:id="btnCom" layoutX="1109.0" layoutY="640.0" mnemonicParsing="false" onAction="#btnComAction" text="Comentar" />
       <ListView fx:id="pnCom" layoutX="407.0" layoutY="486.0" prefHeight="124.0" prefWidth="794.0" styleClass="listview" stylesheets="@../estilos.css" />
       <ImageView fitHeight="262.0" fitWidth="271.0" layoutX="995.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnEnviaEdit" layoutX="1071.0" layoutY="9.0" mnemonicParsing="false" onAction="#enviaEdit" text="Enviar Edição de Post" />
    </children>
+   <stylesheets>
+      <URL value="@../estilos.css" />
+      <URL value="@../estilos.css" />
+   </stylesheets>
 </AnchorPane>

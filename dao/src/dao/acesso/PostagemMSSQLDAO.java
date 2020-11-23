@@ -36,7 +36,6 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
     @Override
     public void Alter(Entidade entidade) throws SQLException {
         super.Alter(entidade);
-
         Postagem p = (Postagem) entidade;
 
         /*TagsMSSQLDAO daoTag = new TagsMSSQLDAO();
@@ -60,7 +59,7 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected PreparedStatement CriaPreparedStatementAltera(Connection con, Entidade e) throws SQLException {
-        String SQL = "update Postagem set titulo = ?, conteudo = ?, where idpost = ?";
+        String SQL = "update Postagem set titulo = ?, conteudo = ? where IdPost = ?";
         PreparedStatement stmt = con.prepareStatement(SQL);
         Postagem p = (Postagem) e;
         stmt.setString(1, p.getTitulo());

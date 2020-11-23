@@ -16,6 +16,7 @@ import java.io.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.ServiceLoader;
 
 public class  Acesso {
 
@@ -175,10 +176,6 @@ public class  Acesso {
         dao.Insere(d);
     }
 
-    public static void enviaStatus (Status d) throws SQLException{
-        DAO dao = EntidadeDAO.STATUS.getEntidadeDAO();
-        dao.Insere(d);
-    }
 
     public static Comentario obtemComentario(int id) throws SQLException{
         DAO dao = EntidadeDAO.COMENTARIO.getEntidadeDAO();
@@ -188,6 +185,11 @@ public class  Acesso {
     public static void apagaUsuario(Usuario u) throws SQLException{
         DAO dao  = EntidadeDAO.USUARIO.getEntidadeDAO();
         dao.Apaga(u);
+    }
+
+    public static void alteraPostagem(Postagem p) throws SQLException{
+        DAO dao = EntidadeDAO.POSTAGEM.getEntidadeDAO();
+        dao.Alter(p);
     }
 
     public static void apagaPostagem(Postagem p) throws SQLException{
@@ -235,6 +237,14 @@ public class  Acesso {
         return new Image(new ByteArrayInputStream(img));
     }
 
+    public static ArrayList obtemUsuarioTipo3 () throws SQLException{
+        DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
+        return dao.listaFiltroInt(3);
+    }
 
+    public static ArrayList obtemDenuncias() throws SQLException{
+        DAO dao = EntidadeDAO.DENUNCIA.getEntidadeDAO();
+        return dao.listaTodos();
+    }
 }
 

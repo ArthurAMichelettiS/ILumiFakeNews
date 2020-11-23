@@ -46,6 +46,9 @@ public class Perfil {
     public ListView<CustomControlPerfil> pnPostsUser;
 
     @FXML
+    public Label lbNome;
+
+    @FXML
     private void initialize() throws SQLException {
         Usuario user;
         boolean ehEditavel = false;
@@ -67,6 +70,7 @@ public class Perfil {
         txtBio.setText(user.getBio());
         txtSenha.setText(user.getSenha());
         txtSenhaConf.setText(user.getSenha());
+        lbNome.setText(user.getNome());
 
         if(user.getImagem() != null && user.getImagem().length!=0){
             ivProfile.setImage(Acesso.bytesToImg(user.getImagem()));
@@ -76,7 +80,7 @@ public class Perfil {
     }
 
     public void btnVoltarAction(ActionEvent actionEvent) {
-        HelperTelas.getInstance().VoltarTela(rootPane);
+        HelperTelas.getInstance().IrParaTela(rootPane, "Feed.fxml");
     }
 
     public void editarCadastro (ActionEvent actionEvent) {
@@ -96,7 +100,7 @@ public class Perfil {
         }
     }
 
-    EventHandler<ActionEvent> onActionEditar = new EventHandler<ActionEvent>() {
+    EventHandler<ActionEvent> metodoEditar = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
             CustomControlPerfil c = (CustomControlPerfil) ((Button) actionEvent.getSource()).getParent().getParent();
             HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
@@ -104,7 +108,7 @@ public class Perfil {
         }
     };
 
-    EventHandler<ActionEvent> onActionDeletar = new EventHandler<ActionEvent>() {
+    EventHandler<ActionEvent> metodoApagar = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent) {
             CustomControlPerfil c = (CustomControlPerfil) ((Button) actionEvent.getSource()).getParent().getParent();
             try {
@@ -113,7 +117,7 @@ public class Perfil {
                 alert.showAndWait();
                 if(alert.getResult()==ButtonType.OK) {
                     Acesso.apagaPostagem(p);
-                    criaListViewPostagemUser(Acesso.obtemListPostsPorUser(p.getId()));
+                    criaListViewPostagemUser(Acesso.obtemListPostsPorUser(DefinicoesPadrao.getInstance().getUsuarioLogado().getId()));
                 }
                 if(alert.getResult()==ButtonType.CANCEL)
                 {
@@ -123,16 +127,15 @@ public class Perfil {
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-            //HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
-            //HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
         }
     };
 
-    EventHandler<ActionEvent> onActionVerPost = new EventHandler<ActionEvent>() {
+    EventHandler<ActionEvent> metodoPost = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
             CustomControlPerfil c = (CustomControlPerfil) ((Button) actionEvent.getSource()).getParent().getParent();
             HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
-            HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
+            HelperTelas.getInstance().IrParaTela(rootPane, "VisualizaPost.fxml");
+
         }
     };
 
@@ -144,7 +147,7 @@ public class Perfil {
 
             if(true) {
                 Postagem post = (Postagem) p;
-                list.add(new CustomControlPerfil(post, onActionVerPost, onActionEditar, onActionDeletar));
+                list.add(new CustomControlPerfil(post,metodoPost,metodoApagar,metodoEditar));
             }
         }
 

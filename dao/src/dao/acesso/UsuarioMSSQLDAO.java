@@ -47,14 +47,15 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected PreparedStatement CriaPreparedStatementAltera(Connection con, Entidade e) throws SQLException {
-        String SQL = "update Usuario set Email = ?, Senha = ?, Bio = ? where IdUser = ?";
+        String SQL = "update Usuario set Email = ?, Senha = ?, Bio = ?, IdTipoDeUsuário = ? where IdUser = ?";
         PreparedStatement stmt = con.prepareStatement(SQL);
 
         Usuario u = (Usuario) e;
         stmt.setString(1, u.getEmail());
         stmt.setString(2, u.getSenha());
         stmt.setString(3, u.getBio());
-        stmt.setInt(4, u.getId());
+        stmt.setInt(4, u.getIdTipoDeUsuario());
+        stmt.setInt(5, u.getId());
 
         return stmt;
     }
@@ -82,6 +83,8 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
             entidade.setGenero(rs.getString("Genero"));
             entidade.setBio(rs.getString("Bio"));
             entidade.setImagem(rs.getBytes("Imagem"));
+            entidade.setComprovantePesquisadorByte(rs.getBytes("ComprovantePesq"));
+            entidade.setDocFotoByte(rs.getBytes("DocFoto"));
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -115,6 +118,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
 
     //CriaPreparedStatementListaSeguindo
+    /*
     @Override
     protected PreparedStatement CriaPreparedStatementFiltraPorInt(Connection con, int idUser) throws SQLException {
         String SQL = "select u.* from Seguidores s inner join Usuario u on u.idUser = s.idUserCon where s.idUser = ?";
@@ -122,5 +126,7 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         stmt.setInt(1, idUser);
         return stmt;
     }
+    */
+
 
 }

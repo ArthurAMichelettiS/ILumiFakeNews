@@ -20,13 +20,13 @@ public class CustomControlPerfil extends VBox {
     private int idPostNavega;
 
     public CustomControlPerfil(Postagem post,
-                               EventHandler<ActionEvent> metodoPost, EventHandler<ActionEvent> metodoEditar,EventHandler<ActionEvent> metodoApagar ) {
+                               EventHandler<ActionEvent> metodoPost,EventHandler<ActionEvent> metodoApagar , EventHandler<ActionEvent> metodoEditar) {
         super();
 
         setIdPerfilNavega(post.getIdUser());
         setIdPostNavega(post.getId());
 
-        btnsInteragir = new HBoxButtonsPerfil(metodoPost, metodoEditar, metodoApagar);
+        btnsInteragir = new HBoxButtonsPerfil(metodoPost, metodoApagar, metodoEditar);
 
         label.setText(post.getTitulo());
         label.setMaxHeight(Double.MAX_VALUE);

@@ -14,8 +14,7 @@ public class DenunciaMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     public DenunciaMSSQLDAO() {
         super(Usuario.class);
-        setTabela("Denuncia");
-        setColunaLocalizaInt("IdStatus");
+        setTabela("Denuncias");
         setColunaLocalizaInt("IdPost");
         setColunaChaveId("IdDenuncia");
         setColunaLocaliza("Descricao");
@@ -23,20 +22,19 @@ public class DenunciaMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected PreparedStatement CriaPreparedStatementInsere(Connection con, Entidade e) throws SQLException {
-        String SQL = "insert into Denuncia (IdDenuncia, Denuncia, IdPost, IdStatus) values (?,?,?,?)";
+        String SQL = "insert into Denuncias (Descricao, IdPost, StatusDenuncia) values (?,?,?)";
         PreparedStatement stmt = con.prepareStatement(SQL);
         Denuncia p = (Denuncia) e;
-        stmt.setInt(1, (p.getIdDenuncia()));
+        stmt.setString(1, p.getDescricao());
         stmt.setInt(2, p.getIdPost());
-        stmt.setString(3, p.getDescricao());
-        stmt.setInt(4, p.getIdStatus());
+        stmt.setString(3, p.getStatusDenuncia());
 
         return stmt;
     }
 
     @Override
     protected PreparedStatement CriaPreparedStatementAltera(Connection con, Entidade e) throws SQLException {
-        String SQL = "update Denuncia set Descricao = ? where IdDenuncia = ?";
+        String SQL = "update Denuncias set Descricao = ? where IdDenuncia = ?";
         PreparedStatement stmt = con.prepareStatement(SQL);
         Denuncia p = (Denuncia) e;
         stmt.setString(1, p.getDescricao());
@@ -47,7 +45,7 @@ public class DenunciaMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected PreparedStatement CriaPreparedStatementApaga(Connection con, Entidade e) throws SQLException {
-        String SQL = "delete from Denuncia where IdDenuncia = ?";
+        String SQL = "delete from Denuncias where IdDenuncia = ?";
         PreparedStatement stmt = con.prepareStatement(SQL);
         Denuncia p = (Denuncia) e;
         stmt.setInt(1, p.getIdDenuncia());
@@ -62,7 +60,7 @@ public class DenunciaMSSQLDAO<E extends Entidade> extends MSSQLDAO {
             entidade.setIdDenuncia(rs.getInt("IdDenuncia"));
             entidade.setIdPost(rs.getInt("IdPost"));
             entidade.setDescricao(rs.getString("Descricao"));
-            entidade.setIdStatus(rs.getInt("IdStatus"));
+            entidade.setStatusDenuncia(rs.getString("StatusDenuncia"));
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
