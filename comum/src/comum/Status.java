@@ -6,12 +6,12 @@ public class Status extends Entidade{
     private String Descricao;
 
 
-    public int getIdDenuncia() {
+    public int getIdStatus() {
         return idStatus;
     }
 
-    public void setIdDenuncia(int idCom) {
-        this.idStatus = idCom;
+    public void setIdStatus(int idStatus) {
+        this.idStatus = idStatus;
     }
 
     public String getDescricao() {

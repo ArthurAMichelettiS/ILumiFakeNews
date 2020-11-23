@@ -13,8 +13,8 @@ public class Denuncia extends Entidade{
         return idDenuncia;
     }
 
-    public void setIdDenuncia(int idCom) {
-        this.idDenuncia = idCom;
+    public void setIdDenuncia(int idDenuncia) {
+        this.idDenuncia = idDenuncia;
     }
 
     public int getIdPost() {
