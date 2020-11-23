@@ -3,7 +3,8 @@ package dao.enums;
 import dao.acesso.*;
 import dao.basis.DAO;
 
-public enum EntidadeDAO {
+public enum
+EntidadeDAO {
     USUARIO(getUsuarioDao()),
     POSTAGEM(getPostagemDao()),
     AUDITORIA(getAuditoriaDao()),

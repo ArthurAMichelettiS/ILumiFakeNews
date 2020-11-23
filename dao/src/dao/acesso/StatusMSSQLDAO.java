@@ -21,44 +21,42 @@ public class StatusMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected PreparedStatement CriaPreparedStatementInsere(Connection con, Entidade e) throws SQLException {
-        String SQL = "insert into Denuncia (IdDenuncia, Denuncia, IdPost, IdStatus) values (?,?,?,?)";
+        String SQL = "insert into Denuncia (IdStatus, Descricao) values (?,?)";
         PreparedStatement stmt = con.prepareStatement(SQL);
         Status p = (Status) e;
         stmt.setInt(1, (p.getIdStatus()));
-        stmt.setString(3, p.getDescricao());
+        stmt.setString(2, p.getDescricao());
 
         return stmt;
     }
 
     @Override
     protected PreparedStatement CriaPreparedStatementAltera(Connection con, Entidade e) throws SQLException {
-        String SQL = "update Denuncia set Descricao = ? where IdDenuncia = ?";
+        String SQL = "update Status set Descricao = ? where IdStatus = ?";
         PreparedStatement stmt = con.prepareStatement(SQL);
-        Denuncia p = (Denuncia) e;
+        Status p = (Status) e;
         stmt.setString(1, p.getDescricao());
-        stmt.setInt(2, p.getIdDenuncia());
+        stmt.setInt(2, p.getIdStatus());
 
         return stmt;
     }
 
     @Override
     protected PreparedStatement CriaPreparedStatementApaga(Connection con, Entidade e) throws SQLException {
-        String SQL = "delete from Denuncia where IdDenuncia = ?";
+        String SQL = "delete from Status where IdStatus = ?";
         PreparedStatement stmt = con.prepareStatement(SQL);
-        Denuncia p = (Denuncia) e;
-        stmt.setInt(1, p.getIdDenuncia());
+        Status p = (Status) e;
+        stmt.setInt(1, p.getIdStatus());
 
         return stmt;
     }
 
     @Override
     protected E preencheEntidade(ResultSet rs) {
-        Denuncia entidade = new Denuncia();
+        Status entidade = new Status();
         try {
-            entidade.setIdDenuncia(rs.getInt("IdDenuncia"));
-            entidade.setIdPost(rs.getInt("IdPost"));
+            entidade.setIdStatus(rs.getInt("IdDenuncia"));
             entidade.setDescricao(rs.getString("Descricao"));
-            entidade.setIdStatus(rs.getInt("IdStatus"));
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
