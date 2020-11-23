@@ -22,7 +22,7 @@
       <Button fx:id="btnFazLogoff" layoutX="39.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnFazLogoff" prefHeight="33.0" prefWidth="133.0" text="Fazer Logoff" />
       <Button fx:id="btnFazLogin" layoutX="39.0" layoutY="40.0" mnemonicParsing="false" onAction="#FazLogin" prefHeight="33.0" prefWidth="133.0" text="Fazer Login" />
       <Button fx:id="btnModerar" layoutX="1089.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnOnActionModerar" prefHeight="33.0" prefWidth="133.0" text="Moderar" />
-      <TabPane layoutX="268.0" layoutY="118.0" prefHeight="546.0" prefWidth="806.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tbPane" layoutX="268.0" layoutY="118.0" prefHeight="546.0" prefWidth="806.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab text="Início">
                <content>
@@ -39,7 +39,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Em Alta">
+            <Tab text="Pesquisa">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="515.0" prefWidth="843.0" styleClass="background">
                      <children>
@@ -60,7 +60,7 @@
          </tabs>
       </TabPane>
       <Button fx:id="btnPesquisa" layoutX="1072.0" layoutY="94.0" mnemonicParsing="false" onAction="#PesquisaPosts" prefHeight="35.0" prefWidth="127.0" text="Pesquisar" />
-      <TextField fx:id="txtPesquisa" layoutX="610.0" layoutY="93.0" prefHeight="15.0" prefWidth="285.0" promptText="Pesquise uma postagem" />
+      <TextField fx:id="txtPesquisa" layoutX="610.0" layoutY="93.0" prefHeight="15.0" prefWidth="285.0" promptText="Digite sua pesquisa..." />
       <Label fx:id="LbNome" layoutX="70.0" layoutY="270.0" prefHeight="17.0" prefWidth="144.0" text="Nome do usuário" textFill="#b23144">
          <font>
             <Font name="Corbel Light" size="17.0" />
@@ -75,7 +75,7 @@
       <Button fx:id="btnFazPost" layoutX="304.0" layoutY="671.0" mnemonicParsing="false" onAction="#btnFazPostagem" prefHeight="33.0" prefWidth="156.0" text="Fazer Postagem" />
       <Button fx:id="btnFazPostCientifico" layoutX="855.0" layoutY="671.0" mnemonicParsing="false" onAction="#btnFazPostCientifico" prefHeight="35.0" prefWidth="222.0" text="Fazer Postagem Científica" />
       <ComboBox fx:id="cbxPesquisa" layoutX="900.0" layoutY="95.0" prefHeight="33.0" prefWidth="169.0" styleClass="combo-box" visibleRowCount="3" />
-      <Label layoutX="901.0" layoutY="75.0" text="Pesquisar por" />
+      <Label layoutX="901.0" layoutY="75.0" prefHeight="21.0" prefWidth="96.0" text="Pesquisar por:" />
       <Button fx:id="btnVerMeuPerfil" layoutX="177.0" layoutY="40.0" mnemonicParsing="false" onAction="#verMeuPerfil" prefHeight="35.0" prefWidth="150.0" text="Ver Meu Perfil" />
       <Label layoutX="1130.0" layoutY="148.0" prefHeight="25.0" prefWidth="83.0" text="Patrocinado" textAlignment="CENTER" textFill="#b23144">
          <font>

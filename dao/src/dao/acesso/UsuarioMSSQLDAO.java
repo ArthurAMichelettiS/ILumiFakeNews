@@ -6,7 +6,6 @@
 package dao.acesso;
 
 import comum.Entidade;
-import comum.Postagem;
 import comum.Usuario;
 import dao.basis.MSSQLDAO;
 
@@ -57,15 +56,6 @@ public class UsuarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         stmt.setInt(4, u.getIdTipoDeUsuario());
         stmt.setInt(5, u.getId());
 
-        return stmt;
-    }
-
-    @Override
-    protected PreparedStatement CriaPreparedStatementApaga(Connection con, Entidade e) throws SQLException {
-        String SQL = "delete from Usuario where IdUser = ?";
-        PreparedStatement stmt = con.prepareStatement(SQL);
-        Usuario p = (Usuario) e;
-        stmt.setInt(1, p.getId());
         return stmt;
     }
 

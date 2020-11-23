@@ -20,7 +20,7 @@ public class Postagem extends Entidade {
 
     private int idUser;
 
-    private Anexo imagem = new Anexo();
+    private Foto imagem = new Foto();
 
     public void setImagem(byte[] imagem) {
         this.imagem.setAnexo(imagem);
@@ -65,7 +65,7 @@ public class Postagem extends Entidade {
 
     public byte[] getImagemBytes() { return imagem.getAnexo(); }
 
-    public Anexo getImagem() {
+    public Foto getImagem() {
         imagem.setIdPost(getId());
         return imagem;
     }

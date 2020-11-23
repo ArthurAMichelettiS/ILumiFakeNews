@@ -2,7 +2,6 @@ package dao.acesso;
 
 import comum.Comentario;
 import comum.Entidade;
-import comum.Postagem;
 import comum.Usuario;
 import dao.basis.MSSQLDAO;
 
@@ -40,25 +39,17 @@ public class ComentarioMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         PreparedStatement stmt = con.prepareStatement(SQL);
         Comentario p = (Comentario) e;
         stmt.setString(1, p.getConteudo());
-        stmt.setInt(2, p.getIdCom());
+        stmt.setInt(2, p.getId());
 
         return stmt;
     }
 
-    @Override
-    protected PreparedStatement CriaPreparedStatementApaga(Connection con, Entidade e) throws SQLException {
-        String SQL = "delete from Comentario where IdCom = ?";
-        PreparedStatement stmt = con.prepareStatement(SQL);
-        Comentario p = (Comentario) e;
-        stmt.setInt(1, p.getIdCom());
-        return stmt;
-    }
 
     @Override
     protected E preencheEntidade(ResultSet rs) {
         Comentario entidade = new Comentario();
         try {
-            entidade.setIdCom(rs.getInt("IdCom"));
+            entidade.setId(rs.getInt("IdCom"));
             entidade.setIdPost(rs.getInt("IdPost"));
             entidade.setConteudo(rs.getString("Conteudo"));
             entidade.setData(rs.getDate("Data"));

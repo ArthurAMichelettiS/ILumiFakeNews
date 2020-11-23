@@ -4,6 +4,7 @@ package business;
 import business.Log.ControleAuditoria;
 import comum.*;
 import comum.enums.TipoUsuario;
+import dao.acesso.SeguidoresMSSQLDAO;
 import dao.basis.DAO;
 import dao.enums.EntidadeDAO;
 import javafx.scene.control.ComboBox;
@@ -16,7 +17,6 @@ import java.io.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.ServiceLoader;
 
 public class  Acesso {
 
@@ -234,6 +234,9 @@ public class  Acesso {
     }
 
     public static Image bytesToImg(byte[] img)  {
+        if(img == null){
+            return  new Image(new ByteArrayInputStream(new byte[0]));
+        }
         return new Image(new ByteArrayInputStream(img));
     }
 
@@ -246,5 +249,33 @@ public class  Acesso {
         DAO dao = EntidadeDAO.DENUNCIA.getEntidadeDAO();
         return dao.listaTodos();
     }
+
+    public static ArrayList obtemSeguindo (int userId) throws SQLException{
+        DAO dao = EntidadeDAO.SEGUIDORES.getEntidadeDAO();
+        return dao.listaFiltroInt(userId);
+    }
+
+    public static Boolean logadoEstaSeguindo(int userId) throws SQLException{
+        SeguidoresMSSQLDAO dao = new SeguidoresMSSQLDAO();
+        if(!ehLogado())
+            return false;
+        return dao.LocalizaSeguidor(userId, DefinicoesPadrao.getInstance().getUsuarioLogado().getId()) != null;
+    }
+
+    public static void insereSeguindo(int idPerfil) throws SQLException{
+        DAO dao = EntidadeDAO.COMENTARIO.getEntidadeDAO();
+        Seguidores s = new Seguidores();
+        s.setIdUser(DefinicoesPadrao.getInstance().getUsuarioLogado().getId());
+        s.setIdUserCon(idPerfil);
+        dao.Insere(s);
+    }
+    public static void apagaSeguindo(int idPerfil) throws SQLException{
+        DAO dao = EntidadeDAO.COMENTARIO.getEntidadeDAO();
+        Seguidores s = new Seguidores();
+        s.setIdUser(DefinicoesPadrao.getInstance().getUsuarioLogado().getId());
+        s.setIdUserCon(idPerfil);
+        dao.Apaga(s);
+    }
+
 }
 

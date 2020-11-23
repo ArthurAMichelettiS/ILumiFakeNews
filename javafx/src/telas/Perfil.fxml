@@ -33,17 +33,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="500.0">
                      <children>
-                        <ScrollBar layoutX="750.0" layoutY="15.0" orientation="VERTICAL" prefHeight="503.0" prefWidth="14.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="750.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="15.0" />
                         <ListView fx:id="pnPostsUser" layoutX="26.0" layoutY="15.0" prefHeight="502.0" prefWidth="716.0" styleClass="textarea" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Postagens Marcadas">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="530.0" prefWidth="855.0">
-                     <children>
-                        <ScrollBar layoutX="750.0" layoutY="15.0" orientation="VERTICAL" prefHeight="510.0" prefWidth="14.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="750.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="15.0" />
                      </children>
                   </AnchorPane>
             </content>
@@ -52,18 +42,18 @@
       </TabPane>
       <PasswordField fx:id="txtSenha" layoutX="45.0" layoutY="509.0" prefHeight="47.0" prefWidth="210.0" AnchorPane.bottomAnchor="174.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="1035.0" AnchorPane.topAnchor="509.0" />
       <PasswordField fx:id="txtSenhaConf" layoutX="45.0" layoutY="578.0" prefHeight="47.0" prefWidth="210.0" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="1035.0" AnchorPane.topAnchor="578.0" />
-      <Label layoutX="47.0" layoutY="483.0" text="Nova senha:" textFill="#b23144" AnchorPane.bottomAnchor="216.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="1151.0" AnchorPane.topAnchor="483.0">
+       <Label fx:id="lblSenha" layoutX="47.0" layoutY="483.0" text="Nova senha:" textFill="#b23144" AnchorPane.bottomAnchor="216.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="1151.0" AnchorPane.topAnchor="483.0">
          <font>
             <Font name="Corbel Light" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="47.0" layoutY="552.0" text="Confirmar senha:" textFill="#b23144" AnchorPane.bottomAnchor="147.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="1119.0" AnchorPane.topAnchor="552.0">
+      <Label fx:id="lblSenhaConf" layoutX="47.0" layoutY="552.0" text="Confirmar senha:" textFill="#b23144" AnchorPane.bottomAnchor="147.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="1119.0" AnchorPane.topAnchor="552.0">
          <font>
             <Font name="Corbel Light" size="14.0" />
          </font>
       </Label>
       <TextField fx:id="txtEmail" layoutX="44.0" layoutY="438.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.bottomAnchor="245.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="1036.0" AnchorPane.topAnchor="438.0" />
-      <Label layoutX="47.0" layoutY="413.0" text="Email:" textFill="#b23144" AnchorPane.bottomAnchor="286.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="1193.0" AnchorPane.topAnchor="413.0">
+       <Label fx:id="lblEmail" layoutX="47.0" layoutY="413.0" text="Email:" textFill="#b23144" AnchorPane.bottomAnchor="286.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="1193.0" AnchorPane.topAnchor="413.0">
          <font>
             <Font name="Corbel Light" size="14.0" />
          </font>

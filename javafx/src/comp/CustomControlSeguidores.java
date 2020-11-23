@@ -32,22 +32,22 @@ public class CustomControlSeguidores extends HBox {
             ivUser.setImage(Acesso.bytesToImg(u.getImagem()));
         }
         ivUser.setPreserveRatio(true);
-        ivUser.setFitWidth(120);
+        ivUser.setFitWidth(50);
         HBox.setHgrow(ivUser, Priority.ALWAYS);
 
         labelNome.setText(u.getNome());
-        labelNome.setMaxWidth(220);
+        labelNome.setMaxWidth(70);
         HBox.setHgrow(labelNome, Priority.ALWAYS);
 
-        verPerfil.setText("Ver Perfil");
-        verPerfil.setMaxWidth(Double.MAX_VALUE);
+        verPerfil.setText("Perfil");
+        verPerfil.setMaxWidth(100);
         verPerfil.setOnAction(metodoPerfil);
         HBox.setHgrow(verPerfil, Priority.ALWAYS);
 
-        seguirPerfil.setText("Seguir Perfil");
-        seguirPerfil.setMaxWidth(Double.MAX_VALUE);
-        HBox.setHgrow(seguirPerfil, Priority.ALWAYS);
+        /*seguirPerfil.setText("");
+        seguirPerfil.setMaxWidth(100);
+        HBox.setHgrow(seguirPerfil, Priority.ALWAYS);*/
 
-        this.getChildren().addAll(ivUser, labelNome, verPerfil, seguirPerfil);
+        this.getChildren().addAll(ivUser, labelNome, verPerfil);
     }
 }

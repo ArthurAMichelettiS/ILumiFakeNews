@@ -1,21 +1,19 @@
 package comum;
 
-import java.util.Date;
-
 public class Denuncia extends Entidade{
 
-    private int idDenuncia;
+    //private int idDenuncia;
     private String Descricao;
     private int idPost;
     private String StatusDenuncia;
 
-    public int getIdDenuncia() {
+    /*public int getIdDenuncia() {
         return idDenuncia;
     }
 
     public void setIdDenuncia(int idDenuncia) {
         this.idDenuncia = idDenuncia;
-    }
+    }*/
 
     public int getIdPost() {
         return idPost;

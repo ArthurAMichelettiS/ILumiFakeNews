@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Comentario extends Entidade{
 
-    private int idCom;
+    //private int idCom;
     private int idPost;
     private int idUser;
     private String conteudo;
@@ -18,13 +18,13 @@ public class Comentario extends Entidade{
         this.idUser = idUser;
     }
 
-    public int getIdCom() {
+    /*public int getIdCom() {
         return idCom;
     }
 
     public void setIdCom(int idCom) {
         this.idCom = idCom;
-    }
+    }*/
 
     public int getIdPost() {
         return idPost;

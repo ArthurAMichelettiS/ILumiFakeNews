@@ -3,9 +3,6 @@ package telas;
 import business.Acesso;
 import business.DefinicoesPadrao;
 import comp.CustomControlCom;
-import comp.CustomControlPost;
-import comp.HBoxButtonsCom;
-import comp.HboxUsuario;
 import comum.Comentario;
 import comum.Postagem;
 import comum.Usuario;
@@ -20,10 +17,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -83,6 +76,11 @@ public class VisualizaPost {
     }
 
     public void btnComAction (ActionEvent actionEvent) throws SQLException {
+
+        if(!Acesso.ehLogado()){
+            HelperTelas.getInstance().IrParaTela(rootPane, "Login.fxml");
+            return;
+        }
 
         try {
             Acesso.validaCampoVazio(txtInsCom);

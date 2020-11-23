@@ -12,10 +12,8 @@ public class HBoxButtonsPost extends HBox{
     private Button seguirPerfil = new Button();
     private Button comentarios = new Button();
     private Button denunciar = new Button();
-    private Button curtir = new Button();
-    private Button dislike = new Button();
 
-    HBoxButtonsPost(EventHandler<ActionEvent> metodoPerfil, EventHandler<ActionEvent> metodoPostagem, EventHandler<ActionEvent> metodoDenunciar) {
+    HBoxButtonsPost(Boolean jaSegue, EventHandler<ActionEvent> metodoPerfil, EventHandler<ActionEvent> metodoPostagem, EventHandler<ActionEvent> metodoDenunciar, EventHandler<ActionEvent> metodoSeguir) {
         super();
 
         verPerfil.setText("Ver Perfil");
@@ -23,8 +21,9 @@ public class HBoxButtonsPost extends HBox{
         verPerfil.setOnAction(metodoPerfil);
         HBox.setHgrow(verPerfil, Priority.ALWAYS);
 
-        seguirPerfil.setText("Seguir Perfil");
+        seguirPerfil.setText(jaSegue? "Deixar de Seguir Perfil":"Seguir Perfil");
         seguirPerfil.setMaxWidth(Double.MAX_VALUE);
+        seguirPerfil.setOnAction(metodoSeguir);
         HBox.setHgrow(seguirPerfil, Priority.ALWAYS);
 
         comentarios.setText("Comentários");
@@ -37,14 +36,6 @@ public class HBoxButtonsPost extends HBox{
         denunciar.setOnAction(metodoDenunciar);
         HBox.setHgrow(denunciar, Priority.ALWAYS);
 
-        curtir.setText("☆");
-        curtir.setMaxWidth(Double.MAX_VALUE);
-        HBox.setHgrow(curtir, Priority.ALWAYS);
-
-        dislike.setText("\uD83D\uDC4E");
-        dislike.setMaxWidth(Double.MAX_VALUE);
-        HBox.setHgrow(dislike, Priority.ALWAYS);
-
-        this.getChildren().addAll(verPerfil, seguirPerfil, comentarios, denunciar, curtir, dislike);
+        this.getChildren().addAll(verPerfil, seguirPerfil, comentarios, denunciar);
     }
 }

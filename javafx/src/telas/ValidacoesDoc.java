@@ -5,6 +5,7 @@ import comum.Usuario;
 import helper.HelperTelas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -20,6 +21,11 @@ public class ValidacoesDoc {
     @FXML
     private void initialize() throws SQLException {
         listaUsuariosDocs = Acesso.obtemUsuarioTipo3();
+        if(listaUsuariosDocs.size()==0){
+            new Alert(Alert.AlertType.ERROR, "Algo de errado ao salvar!").showAndWait();
+            HelperTelas.getInstance().VoltarTela(rootPane);
+            return;
+        }
         imageDocCFoto.setImage(Acesso.bytesToImg(listaUsuariosDocs.get(position).getDocFotoByte()));
         imageComprovante.setImage(Acesso.bytesToImg(listaUsuariosDocs.get(position).getComprovantePesquisadorByte()));
     }

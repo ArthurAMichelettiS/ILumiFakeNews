@@ -4,12 +4,9 @@ import comum.Comentario;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
 
 public class CustomControlCom extends HBox {
     private TextField textField = new TextField();
@@ -20,7 +17,7 @@ public class CustomControlCom extends HBox {
                             EventHandler<ActionEvent> editarCom, EventHandler<ActionEvent> excluirCom, boolean y) {
         super();
 
-        setIdCom(com.getIdCom());
+        setIdCom(com.getId());
         hBoxButtonsCom = new HBoxButtonsCom(editarCom, excluirCom, y);
         textField.setText(com.getConteudo());
         textField.setMaxHeight(Double.MAX_VALUE);

@@ -3,6 +3,7 @@ package telas;
 import business.Acesso;
 import business.DefinicoesPadrao;
 import comp.CustomControlPost;
+import comp.CustomControlSeguidores;
 import comp.HboxUsuario;
 import comum.Postagem;
 import comum.Usuario;
@@ -56,10 +57,16 @@ public class Feed {
     public ListView pnPostsParaVc;
 
     @FXML
+    public ListView lvSeguindo;
+
+    @FXML
     public TextField txtPesquisa;
 
     @FXML
     public ComboBox cbxPesquisa;
+
+    @FXML
+    public TabPane tbPane;
 
     //public TableView tb;
 
@@ -78,6 +85,7 @@ public class Feed {
             AtivaBotoesCorrespondentes();
             if(Acesso.ehLogado()){
                 LbNome.setText(DefinicoesPadrao.getInstance().getUsuarioLogado().getNome());
+                criaListViewSeguindo(Acesso.obtemSeguindo(DefinicoesPadrao.getInstance().getUsuarioLogado().getId()));
             }
             if(Acesso.ehLogado()){
                 byte[] img = DefinicoesPadrao.getInstance().getUsuarioLogado().getImagem();
@@ -85,11 +93,10 @@ public class Feed {
                     ivUser.setImage(Acesso.bytesToImg(img));
                 }
             }
-
-            criaListViewPostagem(Acesso.obtemListPosts(), pnPosts);
-            criaListViewPostagem(Acesso.obtemListPosts(), pnPostsParaVc);
-            cbxPesquisa.getItems().add("Título");
-            cbxPesquisa.getItems().add("Conteúdo");
+            ArrayList p = Acesso.obtemListPosts();
+            criaListViewPostagem(p, pnPosts);
+            criaListViewPostagem(p, pnPostsParaVc);
+            cbxPesquisa.getItems().add("Postagens");
             cbxPesquisa.getItems().add("Usuários");
             cbxPesquisa.getSelectionModel().select(0);
         } catch (SQLException erro) {
@@ -104,7 +111,7 @@ public class Feed {
 
         for (var p : posts) {
             Postagem post = (Postagem)p;
-            list.add(new CustomControlPost(post, onActionVerPerfil, onActionVerPostagem, onActionDenunciar));
+            list.add(new CustomControlPost(post, onActionVerPerfil, onActionVerPostagem, onActionDenunciar, onActionSeguir));
         }
 
         ObservableList<CustomControlPost> myObservableList = FXCollections.observableList(list);
@@ -112,6 +119,28 @@ public class Feed {
     }
 
 
+    EventHandler<ActionEvent> onActionSeguir = new EventHandler<ActionEvent>() {
+        public void handle(ActionEvent actionEvent){
+            if(!Acesso.ehLogado()){
+                HelperTelas.getInstance().IrParaTela(rootPane, "Login.fxml");
+            }
+
+            Button btnSegue = (Button) actionEvent.getSource();
+            CustomControlPost c = (CustomControlPost) btnSegue.getParent().getParent();
+            try {
+                if(Acesso.logadoEstaSeguindo(c.getIdPerfilNavega())){
+                    Acesso.insereSeguindo(c.getIdPerfilNavega());
+                    btnSegue.setText("Deixar de Seguir Perfil");
+                }
+                else{
+                    Acesso.apagaSeguindo(c.getIdPerfilNavega());
+                    btnSegue.setText("Seguir Perfil");
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+    };
 
     EventHandler<ActionEvent> onActionVerPostagem = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
@@ -134,12 +163,6 @@ public class Feed {
             HboxUsuario c = (HboxUsuario) ((Button) actionEvent.getSource()).getParent();
             HelperTelas.getInstance().setIdPerfilNavega(c.getIdPerfilNavega());
             HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
-        }
-    };
-
-    EventHandler<ActionEvent> onActionSeguir = new EventHandler<ActionEvent>() {
-        public void handle(ActionEvent actionEvent){
-
         }
     };
 
@@ -176,13 +199,12 @@ public class Feed {
     }
 
     public void PesquisaPosts(ActionEvent actionEvent) throws SQLException {
+        tbPane.getSelectionModel().select(1);
         switch (cbxPesquisa.getSelectionModel().getSelectedIndex()){
             case 0:
                 criaListViewPostagem(Acesso.obtemPostsFiltro(txtPesquisa.getText()), pnPosts);
                 break;
             case 1:
-                break;
-            case 2:
                 criaListViewUsuario(Acesso.obtemUsuariosFiltro(txtPesquisa.getText()));
                 break;
             default:
@@ -201,6 +223,19 @@ public class Feed {
 
         ObservableList<HboxUsuario> myObservableList = FXCollections.observableList(list);
         pnPosts.setItems(myObservableList);
+    }
+
+    public void criaListViewSeguindo(ArrayList users) {
+
+        List<CustomControlSeguidores> list = new ArrayList<CustomControlSeguidores>();
+
+        for (var u : users) {
+            Usuario user = (Usuario) u;
+            list.add(new CustomControlSeguidores(user, onActionVerPerfilUser, onActionSeguir));
+        }
+
+        ObservableList<CustomControlSeguidores> myObservableList = FXCollections.observableList(list);
+        lvSeguindo.setItems(myObservableList);
     }
 
     public void btnVerPostagem(ActionEvent actionEvent){

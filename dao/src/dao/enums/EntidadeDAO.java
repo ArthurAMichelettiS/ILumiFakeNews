@@ -9,8 +9,8 @@ EntidadeDAO {
     POSTAGEM(getPostagemDao()),
     AUDITORIA(getAuditoriaDao()),
     COMENTARIO(getComentarioDAO()),
-    DENUNCIA(getDenunciaDAO());
-
+    DENUNCIA(getDenunciaDAO()),
+    SEGUIDORES(getSeguidoresDAO());
 
     DAO entidadeDAO;
 
@@ -42,6 +42,10 @@ EntidadeDAO {
         return new DenunciaMSSQLDAO();
     }
 
+    static private DAO getSeguidoresDAO() {
+        return new SeguidoresMSSQLDAO();
     }
+
+}
 
 

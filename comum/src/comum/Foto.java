@@ -1,6 +1,6 @@
 package comum;
 
-public class Anexo extends Entidade{
+public class Foto extends Entidade{
     private int idPost;
 
     public int getIdPost() {

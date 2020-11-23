@@ -67,8 +67,13 @@ public abstract class MSSQLDAO <E extends Entidade> extends DAO {
 
     abstract protected PreparedStatement CriaPreparedStatementAltera(Connection con, Entidade e) throws SQLException;
 
-    abstract protected PreparedStatement CriaPreparedStatementApaga(Connection con, Entidade entidade) throws SQLException;
 
+    protected PreparedStatement CriaPreparedStatementApaga(Connection con, Entidade e) throws SQLException {
+        String SQL = "delete from "+tabela+" where "+ colunaChaveId +" = ?";
+        PreparedStatement stmt = con.prepareStatement(SQL);
+        stmt.setInt(1, e.getId());
+        return stmt;
+    }
     protected PreparedStatement CriaPreparedStatementListagem(Connection con) throws SQLException{
         String SQL = "select * from " + tabela;
         PreparedStatement stmt = con.prepareStatement(SQL);

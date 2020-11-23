@@ -37,14 +37,14 @@ public class TagsMSSQLDAO  <E extends Entidade> extends MSSQLDAO {
         return stmt;
     }
 
-    @Override
+    /*@Override
     protected PreparedStatement CriaPreparedStatementApaga(Connection con, Entidade e) throws SQLException {
         String SQL = "delete from Tags where titulo = ?";
         PreparedStatement stmt = con.prepareStatement(SQL);
         Postagem p = (Postagem) e;
         stmt.setString(1, p.getTitulo());
         return stmt;
-    }
+    }*/
 
 
     @Override

@@ -34,6 +34,15 @@ public class Perfil {
     private TextField txtEmail;
 
     @FXML
+    private Label lblEmail;
+
+    @FXML
+    private Label lblSenha;
+
+    @FXML
+    private Label lblSenhaConf;
+
+    @FXML
     private TextField txtBio;
 
     @FXML
@@ -65,6 +74,13 @@ public class Perfil {
         txtSenhaConf.setEditable(ehEditavel);
         txtEmail.setEditable(ehEditavel);
         btnEditarPerfil.setVisible(ehEditavel);
+
+        txtSenha.setVisible(ehEditavel);
+        txtSenhaConf.setVisible(ehEditavel);
+        txtEmail.setVisible(ehEditavel);
+        lblEmail.setVisible(ehEditavel);
+        lblSenha.setVisible(ehEditavel);
+        lblSenhaConf.setVisible(ehEditavel);
 
         txtEmail.setText(user.getEmail());
         txtBio.setText(user.getBio());
