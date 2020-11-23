@@ -17,8 +17,8 @@
          </children>
       </HBox>
       <CheckBox fx:id="cbxConfirmaDenuncia" layoutX="100.0" layoutY="598.0" mnemonicParsing="false" styleClass="label" text="Confirma a denúncia?" />
-      <Button fx:id="btnProximoDenuncia" layoutX="1125.0" layoutY="651.0" mnemonicParsing="false" onAction="#irProProximo" text="OK" />
-      <Button fx:id="btnProximoDenuncia1" layoutX="314.0" layoutY="555.0" mnemonicParsing="false" onAction="#voltarModeradores" prefHeight="39.0" prefWidth="104.0" text="Voltar" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="1113.0" AnchorPane.topAnchor="651.0" />
+      <Button fx:id="btnProximoDenuncia" layoutX="1125.0" layoutY="651.0" mnemonicParsing="false" onAction="#salvarDenuncia" text="OK" />
+      <Button fx:id="btnProximoDenuncia1" layoutX="314.0" layoutY="555.0" mnemonicParsing="false" onAction="#voltarFeed" prefHeight="39.0" prefWidth="104.0" text="Voltar" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="1113.0" AnchorPane.topAnchor="651.0" />
       <Label layoutX="100.0" layoutY="119.0" text="Descreva sua denúncia:" />
    </children>
 </AnchorPane>

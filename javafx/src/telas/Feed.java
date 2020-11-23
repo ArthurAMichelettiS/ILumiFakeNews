@@ -146,7 +146,6 @@ public class Feed {
     EventHandler<ActionEvent> onActionDenunciar = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
             CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
-            HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
             DefinicoesPadrao.getInstance().setIdPostagem(c.getIdPostNavega());
             HelperTelas.getInstance().IrParaTela(rootPane,"Denuncias.fxml");
         }

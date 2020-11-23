@@ -7,7 +7,7 @@ public class Denuncia extends Entidade{
     private int idDenuncia;
     private String Descricao;
     private int idPost;
-    private int IdStatus;
+    private String StatusDenuncia;
 
     public int getIdDenuncia() {
         return idDenuncia;
@@ -33,12 +33,12 @@ public class Denuncia extends Entidade{
         this.Descricao = conteudo;
     }
 
-    public int getIdStatus() {
-        return IdStatus;
+    public String getStatusDenuncia() {
+        return StatusDenuncia;
     }
 
-    public void setIdStatus(int idPost) {
-        this.IdStatus = idPost;
+    public void setStatusDenuncia(String idPost) {
+        this.StatusDenuncia = idPost;
     }
 
 
