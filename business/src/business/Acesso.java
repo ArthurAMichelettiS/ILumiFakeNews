@@ -175,6 +175,11 @@ public class  Acesso {
         dao.Insere(d);
     }
 
+    public static void enviaStatus (Status d) throws SQLException{
+        DAO dao = EntidadeDAO.STATUS.getEntidadeDAO();
+        dao.Insere(d);
+    }
+
     public static Comentario obtemComentario(int id) throws SQLException{
         DAO dao = EntidadeDAO.COMENTARIO.getEntidadeDAO();
         return (Comentario) dao.localizaPorId(id);

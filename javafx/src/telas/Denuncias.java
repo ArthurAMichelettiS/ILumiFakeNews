@@ -4,6 +4,7 @@ import business.Acesso;
 import business.DefinicoesPadrao;
 import comum.Denuncia;
 import comum.Postagem;
+import comum.Status;
 import helper.HelperTelas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,6 +37,10 @@ public class Denuncias {
             d.setIdPost(DefinicoesPadrao.getInstance().getPostagem().getId());
             Acesso.enviaDenuncia(d);
             HelperTelas.getInstance().VoltarTela(rootPane);
+
+            Status s = new Status();
+            s.setDescricao("Não avaliado");
+            Acesso.enviaStatus(s);
         }
         catch (SQLException erro){
             new Alert(Alert.AlertType.ERROR, "Algo de errado ao salvar!").showAndWait();
