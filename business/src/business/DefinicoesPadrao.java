@@ -78,7 +78,7 @@ public class DefinicoesPadrao {
     private Status status;
     public Status getStatus() {return  status;}
 
-    public void setIdStatus(int status){
-        this.status.setId(status);
+    public void setStatus(String status){
+        this.status.setDescricao(status);
     }
 }

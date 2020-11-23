@@ -148,7 +148,7 @@ public class Feed {
             CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
             HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
             DefinicoesPadrao.getInstance().setIdPostagem(c.getIdPostNavega());
-            DefinicoesPadrao.getInstance().setIdStatus(c.getIdPostNavega());
+            DefinicoesPadrao.getInstance().setStatus("Não Avaliado");
             HelperTelas.getInstance().IrParaTela(rootPane,"Denuncias.fxml");
         }
     };
