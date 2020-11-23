@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../new 1.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.CriarPost">
+<AnchorPane fx:id="rootPane" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../estilos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.CriarPost">
     <children>
         <Button layoutX="542.0" layoutY="630.0" mnemonicParsing="false" onAction="#salvarPostagem" prefHeight="51.0" prefWidth="212.0" text="Postar">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <TextArea fx:id="txtConteudo" layoutX="372.0" layoutY="151.0" prefHeight="350.0" prefWidth="429.0" styleClass="textarea" stylesheets="@../new 1.css">
+      <TextArea fx:id="txtConteudo" layoutX="372.0" layoutY="151.0" prefHeight="350.0" prefWidth="429.0" styleClass="textarea" stylesheets="@../estilos.css">
          <font>
             <Font size="14.0" />
          </font></TextArea>
@@ -30,7 +30,7 @@
       </Button>
       <Label layoutX="42.0" layoutY="20.0" prefHeight="79.0" prefWidth="237.0" styleClass="label-header" text="O que está " />
       <Label layoutX="29.0" layoutY="93.0" styleClass="label-header" text="acontecendo?" />
-      <TextArea fx:id="txtTags" layoutX="907.0" layoutY="276.0" prefHeight="226.0" prefWidth="191.0" styleClass="textarea" stylesheets="@../new 1.css">
+      <TextArea fx:id="txtTags" layoutX="907.0" layoutY="276.0" prefHeight="226.0" prefWidth="191.0" styleClass="textarea" stylesheets="@../estilos.css">
          <font>
             <Font size="14.0" />
          </font>

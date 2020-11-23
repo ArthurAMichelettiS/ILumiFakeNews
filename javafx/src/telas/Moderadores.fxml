@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../new%201.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.Moderadores">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../estilos.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.Moderadores">
    <children>
       <Button fx:id="btnDenuncias" layoutX="298.0" layoutY="503.0" mnemonicParsing="false" onAction="#btnDenuncias" prefHeight="52.0" prefWidth="207.0" text="Validação de denúncias" />
       <Button fx:id="btnValidacoes" layoutX="805.0" layoutY="503.0" mnemonicParsing="false" onAction="#btnValidacoes" prefHeight="52.0" prefWidth="231.0" text="Validação de documentos" />
