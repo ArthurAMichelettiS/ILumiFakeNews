@@ -46,13 +46,13 @@ public class VisualizaPost {
     private TextField txtInsCom;
 
     @FXML
-    private TextArea txtCom;
-
-    @FXML
     public ListView<CustomControlCom> pnCom;
 
     @FXML
     public Label lbNome;
+
+    @FXML
+    public Button btnEnviaEdit;
 
     @FXML
     protected void initialize() throws SQLException {
@@ -60,16 +60,21 @@ public class VisualizaPost {
             Usuario user = DefinicoesPadrao.getInstance().getUsuarioLogado();
             ivUser.setImage(Acesso.bytesToImg(user.getImagem()));
             lbNome.setText(user.getNome());
-
         }
         //post especifico a ser visualizado
+        btnEnviaEdit.setVisible(false);
         Postagem p = Acesso.obtemPost(HelperTelas.getInstance().getIdPostNavega());
         Comentario c = Acesso.obtemComentario(p.getId());
-
+        if(Acesso.ehLogado()) {
+            if (DefinicoesPadrao.getInstance().getUsuarioLogado().getId() == p.getIdUser()) {
+                txtConteudo.setEditable(true);
+                txtTitulo.setEditable(true);
+                btnEnviaEdit.setVisible(true);
+            }
+        }
         txtTitulo.setText(p.getTitulo());
         txtConteudo.setText(p.getConteudo());
         criaListViewCom(Acesso.obtemListCom(p.getId()));
-
     }
 
     public void btnVoltarAction(ActionEvent actionEvent) {
@@ -168,5 +173,11 @@ public class VisualizaPost {
         }
     };
 
-
+    public void enviaEdit(ActionEvent actionEvent) throws SQLException {
+        Postagem p = Acesso.obtemPost(HelperTelas.getInstance().getIdPostNavega());
+        p.setConteudo(txtConteudo.getText());
+        p.setTitulo(txtConteudo.getText());
+        Acesso.alteraPostagem(p);
+        HelperTelas.getInstance().VoltarTela(rootPane);
+    }
 }

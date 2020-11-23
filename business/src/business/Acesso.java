@@ -186,6 +186,11 @@ public class  Acesso {
         dao.Apaga(u);
     }
 
+    public static void alteraPostagem(Postagem p) throws SQLException{
+        DAO dao = EntidadeDAO.POSTAGEM.getEntidadeDAO();
+        dao.Alter(p);
+    }
+
     public static void apagaPostagem(Postagem p) throws SQLException{
         DAO dao  = EntidadeDAO.POSTAGEM.getEntidadeDAO();
         dao.Apaga(p);

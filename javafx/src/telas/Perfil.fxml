@@ -19,7 +19,7 @@
             </ImageView>
          </children>
       </HBox>
-      <Label layoutX="60.0" layoutY="246.0" prefHeight="33.0" prefWidth="165.0" text="Nome do usuário" textFill="#b23144" AnchorPane.bottomAnchor="441.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="1055.0" AnchorPane.topAnchor="246.0">
+      <Label fx:id="lbNome" layoutX="60.0" layoutY="246.0" prefHeight="33.0" prefWidth="165.0" text="Nome do usuário" textFill="#b23144" AnchorPane.bottomAnchor="441.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="1055.0" AnchorPane.topAnchor="246.0">
          <font>
             <Font name="Corbel Light" size="23.0" />
          </font></Label>
