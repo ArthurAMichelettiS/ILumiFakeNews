@@ -147,6 +147,8 @@ public class Feed {
         public void handle(ActionEvent actionEvent){
             CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
             HelperTelas.getInstance().setIdPostNavega(c.getIdPostNavega());
+            DefinicoesPadrao.getInstance().setIdPostagem(c.getIdPostNavega());
+            DefinicoesPadrao.getInstance().setIdStatus(c.getIdPostNavega());
             HelperTelas.getInstance().IrParaTela(rootPane,"Denuncias.fxml");
         }
     };

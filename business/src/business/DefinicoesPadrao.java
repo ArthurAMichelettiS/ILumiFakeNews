@@ -71,6 +71,14 @@ public class DefinicoesPadrao {
     private Postagem postagem;
     public Postagem getPostagem() {return postagem;}
 
+    public void setIdPostagem(int postagem){
+        this.postagem.setId(postagem);
+    }
+
     private Status status;
     public Status getStatus() {return  status;}
+
+    public void setIdStatus(int status){
+        this.status.setId(status);
+    }
 }
