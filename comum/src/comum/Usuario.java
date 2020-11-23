@@ -30,6 +30,8 @@ public class Usuario extends Entidade {
 
     public byte[] docFotoByte;
 
+    private String bio;
+
     public byte[] getComprovantePesquisadorByte() {
         return comprovantePesquisadorByte;
     }
@@ -61,8 +63,6 @@ public class Usuario extends Entidade {
     public void setBio(String bio) {
         this.bio = bio;
     }
-
-    private String bio;
 
     public String getNome() {
         return Nome;
