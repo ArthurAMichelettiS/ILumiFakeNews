@@ -15,7 +15,7 @@ public class HBoxButtonsPost extends HBox{
     private Button curtir = new Button();
     private Button dislike = new Button();
 
-    HBoxButtonsPost(EventHandler<ActionEvent> metodoPerfil, EventHandler<ActionEvent> metodoPostagem) {
+    HBoxButtonsPost(EventHandler<ActionEvent> metodoPerfil, EventHandler<ActionEvent> metodoPostagem, EventHandler<ActionEvent> metodoDenunciar) {
         super();
 
         verPerfil.setText("Ver Perfil");
@@ -34,6 +34,7 @@ public class HBoxButtonsPost extends HBox{
 
         denunciar.setText("Denunciar");
         denunciar.setMaxWidth(Double.MAX_VALUE);
+        denunciar.setOnAction(metodoDenunciar);
         HBox.setHgrow(denunciar, Priority.ALWAYS);
 
         curtir.setText("☆");

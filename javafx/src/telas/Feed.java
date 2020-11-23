@@ -104,7 +104,7 @@ public class Feed {
 
         for (var p : posts) {
             Postagem post = (Postagem)p;
-            list.add(new CustomControlPost(post, onActionVerPerfil, onActionVerPostagem));
+            list.add(new CustomControlPost(post, onActionVerPerfil, onActionVerPostagem, onActionDenunciar));
         }
 
         ObservableList<CustomControlPost> myObservableList = FXCollections.observableList(list);
@@ -140,6 +140,12 @@ public class Feed {
     EventHandler<ActionEvent> onActionSeguir = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
 
+        }
+    };
+
+    EventHandler<ActionEvent> onActionDenunciar = new EventHandler<ActionEvent>() {
+        public void handle(ActionEvent actionEvent){
+            HelperTelas.getInstance().IrParaTela(rootPane,"Denuncias.fxml");
         }
     };
 

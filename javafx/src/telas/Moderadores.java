@@ -11,7 +11,7 @@ public class Moderadores {
     private AnchorPane rootPane;
 
     public void btnDenuncias() {
-        HelperTelas.getInstance().IrParaTela(rootPane, "Denuncias.fxml");
+        HelperTelas.getInstance().IrParaTela(rootPane, "ValidacoesDenuncia.fxml");
     }
     public void btnValidacoes() {
         HelperTelas.getInstance().IrParaTela(rootPane, "ValidacoesDoc.fxml");
