@@ -74,6 +74,7 @@
             <Font name="Corbel Light" size="14.0" />
          </font>
       </Button>
+      <Button fx:id="btnTrocar" layoutX="337.0" layoutY="20.0" mnemonicParsing="false" onAction="#trocarFoto" text="Trocar foto" />
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

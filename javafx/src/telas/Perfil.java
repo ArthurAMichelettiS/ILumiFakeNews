@@ -12,8 +12,13 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +61,11 @@ public class Perfil {
 
     @FXML
     public Label lbNome;
+
+    @FXML
+    public Button btnTrocar;
+
+    private byte[] imgBytes;
 
     @FXML
     private void initialize() throws SQLException {
@@ -106,6 +116,7 @@ public class Perfil {
             user.setBio(txtBio.getText());
             user.setEmail(txtEmail.getText());
             user.setSenha(txtSenha.getText());
+            user.setImagem(imgBytes);
             Acesso.alterarDadosUsuario(user);
             HelperTelas.getInstance().VoltarTela(rootPane);
 
@@ -171,4 +182,16 @@ public class Perfil {
         pnPostsUser.setItems(myObservableList);
     }
 
+    public void trocarFoto(ActionEvent actionEvent) {
+        try {
+            Stage primaryStage = new Stage();
+            FileChooser fileChooser = new FileChooser();
+            File selectedFile = fileChooser.showOpenDialog(primaryStage);
+            Image image = new Image(selectedFile.toURI().toString());
+            ivProfile.setImage(image);
+            imgBytes = Acesso.imgToBytes(selectedFile);
+        } catch (Exception ex) {
+            //nothing
+        }
+    }
 }
