@@ -100,7 +100,7 @@ public class Feed {
             cbxPesquisa.getItems().add("Usuários");
             cbxPesquisa.getSelectionModel().select(0);
         } catch (SQLException erro) {
-            new Alert(Alert.AlertType.ERROR, "Existe um problema com a sua conexão a internet!\nverifique-a e tente novamente.", ButtonType.OK, ButtonType.CANCEL).showAndWait();
+            new Alert(Alert.AlertType.ERROR, "Existe um problema com a sua conexão a internet!\nverifique-a e tente novamente." + erro, ButtonType.OK, ButtonType.CANCEL).showAndWait();
             System.exit(0);
         }
     }
