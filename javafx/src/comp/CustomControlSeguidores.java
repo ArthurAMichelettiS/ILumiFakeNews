@@ -25,7 +25,7 @@ public class CustomControlSeguidores extends HBox {
         this.idPerfilNavega = idPerfilNavega;
     }
 
-    public CustomControlSeguidores(Usuario u, EventHandler<ActionEvent> metodoPerfil, EventHandler<ActionEvent> metodoSeguir) {
+    public CustomControlSeguidores(Usuario u, EventHandler<ActionEvent> metodoPerfil) {
         super();
         setIdPerfilNavega(u.getId());
         if(u.getImagem()!=null){
@@ -43,10 +43,6 @@ public class CustomControlSeguidores extends HBox {
         verPerfil.setMaxWidth(100);
         verPerfil.setOnAction(metodoPerfil);
         HBox.setHgrow(verPerfil, Priority.ALWAYS);
-
-        /*seguirPerfil.setText("");
-        seguirPerfil.setMaxWidth(100);
-        HBox.setHgrow(seguirPerfil, Priority.ALWAYS);*/
 
         this.getChildren().addAll(ivUser, labelNome, verPerfil);
     }

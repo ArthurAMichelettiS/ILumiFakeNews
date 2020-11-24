@@ -166,6 +166,14 @@ public class Feed {
         }
     };
 
+    EventHandler<ActionEvent> onActionVerPerfilSegue = new EventHandler<ActionEvent>() {
+        public void handle(ActionEvent actionEvent){
+            CustomControlSeguidores c = (CustomControlSeguidores) ((Button) actionEvent.getSource()).getParent();
+            HelperTelas.getInstance().setIdPerfilNavega(c.getIdPerfilNavega());
+            HelperTelas.getInstance().IrParaTela(rootPane, "Perfil.fxml");
+        }
+    };
+
     EventHandler<ActionEvent> onActionDenunciar = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
             if(!Acesso.ehLogado()){
@@ -234,7 +242,7 @@ public class Feed {
 
         for (var u : users) {
             Usuario user = (Usuario) u;
-            list.add(new CustomControlSeguidores(user, onActionVerPerfilUser, onActionSeguir));
+            list.add(new CustomControlSeguidores(user, onActionVerPerfilSegue));
         }
 
         ObservableList<CustomControlSeguidores> myObservableList = FXCollections.observableList(list);

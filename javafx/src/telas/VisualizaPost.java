@@ -69,8 +69,9 @@ public class VisualizaPost {
             }
         }
         if(p.getImagemBytes()!=null){
+            ivPost.setPreserveRatio(true);
             ivPost.setImage(Acesso.bytesToImg(p.getImagemBytes()));
-            txtConteudo.setPrefWidth(txtConteudo.getWidth()-500);
+            txtConteudo.setPrefWidth(500);
         }
         txtTitulo.setText(p.getTitulo());
         txtConteudo.setText(p.getConteudo());

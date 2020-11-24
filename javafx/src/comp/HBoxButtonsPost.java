@@ -21,7 +21,7 @@ public class HBoxButtonsPost extends HBox{
         verPerfil.setOnAction(metodoPerfil);
         HBox.setHgrow(verPerfil, Priority.ALWAYS);
 
-        seguirPerfil.setText(jaSegue? "Deixar de Seguir Perfil":"Seguir Perfil");
+        seguirPerfil.setText(jaSegue? "Deixar de Seguir":"Seguir Perfil");
         seguirPerfil.setMaxWidth(Double.MAX_VALUE);
         seguirPerfil.setOnAction(metodoSeguir);
         HBox.setHgrow(seguirPerfil, Priority.ALWAYS);

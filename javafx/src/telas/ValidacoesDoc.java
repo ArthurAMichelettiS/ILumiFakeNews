@@ -22,12 +22,13 @@ public class ValidacoesDoc {
     private void initialize() throws SQLException {
         listaUsuariosDocs = Acesso.obtemUsuarioTipo3();
         if(listaUsuariosDocs.size()==0){
-            new Alert(Alert.AlertType.ERROR, "Algo de errado ao salvar!").showAndWait();
+            new Alert(Alert.AlertType.ERROR, "Nenhum Documento a Validar").showAndWait();
             HelperTelas.getInstance().VoltarTela(rootPane);
-            return;
         }
-        imageDocCFoto.setImage(Acesso.bytesToImg(listaUsuariosDocs.get(position).getDocFotoByte()));
-        imageComprovante.setImage(Acesso.bytesToImg(listaUsuariosDocs.get(position).getComprovantePesquisadorByte()));
+        else{
+            imageDocCFoto.setImage(Acesso.bytesToImg(listaUsuariosDocs.get(position).getDocFotoByte()));
+            imageComprovante.setImage(Acesso.bytesToImg(listaUsuariosDocs.get(position).getComprovantePesquisadorByte()));
+        }
     }
 
     @FXML

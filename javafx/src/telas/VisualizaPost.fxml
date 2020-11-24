@@ -37,7 +37,7 @@
       <Label layoutX="315.0" layoutY="647.0" prefWidth="164.0" text="Digite o seu comentário:" />
       <Button fx:id="btnCom" layoutX="1109.0" layoutY="640.0" mnemonicParsing="false" onAction="#btnComAction" text="Comentar" />
       <ListView fx:id="pnCom" layoutX="407.0" layoutY="486.0" prefHeight="124.0" prefWidth="794.0" styleClass="listview" stylesheets="@../estilos.css" />
-      <ImageView fx:id="ivPost" fitHeight="302.0" fitWidth="315.0" layoutX="951.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivPost" fitHeight="328.0" fitWidth="387.0" layoutX="879.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="btnEnviaEdit" layoutX="1071.0" layoutY="9.0" mnemonicParsing="false" onAction="#enviaEdit" text="Enviar Edição de Post" />
    </children>
    <stylesheets>
