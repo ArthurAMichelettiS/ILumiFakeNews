@@ -4,42 +4,18 @@ import comum.Postagem;
 import comum.Usuario;
 import comum.enums.TipoUsuario;
 
-import java.util.ArrayList;
-import java.util.List;
+public class DadosDaSecao {
 
-public class DefinicoesPadrao {
-
-    private DefinicoesPadrao(){
+    private DadosDaSecao(){
         usuarioLogado = null;
         tipoUsuario = null;
-        tagsExistentes = new ArrayList<String>();
-        //fazer: puxa do banco as tags
     }
 
-    public int getCriterioPesquisaPost() {
-        return CriterioPesquisaPost;
-    }
+    private static DadosDaSecao instance;
 
-    public void setCriterioPesquisaPost(int criterioPesquisaPost) {
-        CriterioPesquisaPost = criterioPesquisaPost;
-    }
-
-    //0 -> Titulo, 1 -> Conteudo, 2 -> Usuarios
-    private int CriterioPesquisaPost;
-
-
-
-    public List<String> getTagsExistentes() {
-        return tagsExistentes;
-    }
-
-    private List<String> tagsExistentes;
-
-    private static DefinicoesPadrao instance;
-
-    public static DefinicoesPadrao getInstance(){
+    public static DadosDaSecao getInstance(){
         if(instance == null){
-           instance = new DefinicoesPadrao();
+           instance = new DadosDaSecao();
         }
         return instance;
     }

@@ -1,7 +1,7 @@
 package telas;
 
 import business.Acesso;
-import business.DefinicoesPadrao;
+import business.DadosDaSecao;
 import comum.Denuncia;
 import helper.HelperTelas;
 import javafx.event.ActionEvent;
@@ -31,7 +31,7 @@ public class Denuncias {
             Denuncia d = new Denuncia();
             d.setDescricao(txtAreaDenuncias.getText());
             d.setStatusDenuncia("Não Avaliado");
-            d.setIdPost(DefinicoesPadrao.getInstance().getPostagem().getId());
+            d.setIdPost(DadosDaSecao.getInstance().getPostagem().getId());
             Acesso.enviaDenuncia(d);
             HelperTelas.getInstance().VoltarTela(rootPane);
         }

@@ -1,7 +1,7 @@
 package telas;
 
 import business.Acesso;
-import business.DefinicoesPadrao;
+import business.DadosDaSecao;
 import comum.Postagem;
 import helper.HelperTelas;
 import javafx.event.ActionEvent;
@@ -18,8 +18,6 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.regex.Pattern;
 
 public class CriarPostCientifico {
 
@@ -31,9 +29,6 @@ public class CriarPostCientifico {
 
     @FXML
     private AnchorPane rootPane;
-
-    @FXML
-    private TextArea txtTags;
 
     public byte[] person_image;
 
@@ -48,10 +43,9 @@ public class CriarPostCientifico {
             Postagem pc = new Postagem();
             pc.setTitulo(txtTitulo.getText());
             pc.setConteudo(txtConteudo.getText());
-            pc.setStringTags(Arrays.asList(txtTags.getText().split(Pattern.quote(" "))));
             pc.setImagem(person_image);
             pc.setIdTipoPost(1);
-            pc.setIdUser(DefinicoesPadrao.getInstance().getUsuarioLogado().getId());
+            pc.setIdUser(DadosDaSecao.getInstance().getUsuarioLogado().getId());
             Acesso.enviaPostCientifico(pc);
             HelperTelas.getInstance().VoltarTela(rootPane);
         } catch (SQLException erro) {

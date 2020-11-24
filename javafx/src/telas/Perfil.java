@@ -1,6 +1,6 @@
 package telas;
 
-import business.DefinicoesPadrao;
+import business.DadosDaSecao;
 import business.Acesso;
 import comp.CustomControlPerfil;
 import comum.Postagem;
@@ -72,7 +72,7 @@ public class Perfil {
         Usuario user;
         boolean ehEditavel = false;
         if(HelperTelas.getInstance().getIdPerfilNavega() == -1){
-             user = DefinicoesPadrao.getInstance().getUsuarioLogado();
+             user = DadosDaSecao.getInstance().getUsuarioLogado();
              ehEditavel=true;
         }
         else{
@@ -96,7 +96,7 @@ public class Perfil {
         txtBio.setText(user.getBio());
         txtSenha.setText(user.getSenha());
         txtSenhaConf.setText(user.getSenha());
-        lbNome.setText(user.getNome());
+        lbNome.setText(user.getNome() + (user.getIdTipoDeUsuario()==1?"✓":""));
 
         if(user.getImagem() != null && user.getImagem().length!=0){
             ivProfile.setImage(Acesso.bytesToImg(user.getImagem()));
@@ -111,7 +111,7 @@ public class Perfil {
 
     public void editarCadastro (ActionEvent actionEvent) {
 
-        Usuario user = DefinicoesPadrao.getInstance().getUsuarioLogado();
+        Usuario user = DadosDaSecao.getInstance().getUsuarioLogado();
         try {
             user.setBio(txtBio.getText());
             user.setEmail(txtEmail.getText());
@@ -144,7 +144,7 @@ public class Perfil {
                 alert.showAndWait();
                 if(alert.getResult()==ButtonType.OK) {
                     Acesso.apagaPostagem(p);
-                    criaListViewPostagemUser(Acesso.obtemListPostsPorUser(DefinicoesPadrao.getInstance().getUsuarioLogado().getId()));
+                    criaListViewPostagemUser(Acesso.obtemListPostsPorUser(DadosDaSecao.getInstance().getUsuarioLogado().getId()));
                 }
                 if(alert.getResult()==ButtonType.CANCEL)
                 {

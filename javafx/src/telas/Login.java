@@ -1,11 +1,10 @@
 package telas;
 
 import business.Acesso;
-import business.DefinicoesPadrao;
+import business.DadosDaSecao;
 import comum.Usuario;
 import helper.HelperTelas;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -51,7 +50,7 @@ public class Login {
         try{
             Usuario logando = Acesso.validaLogin(txtEmail.getText(), txtSenha.getText());
             if(logando != null){
-                DefinicoesPadrao.getInstance().setUsuarioLogado(logando);
+                DadosDaSecao.getInstance().setUsuarioLogado(logando);
                 HelperTelas.getInstance().VoltarTela(rootPane);
             }
             else{

@@ -1,7 +1,7 @@
 package telas;
 
 import business.Acesso;
-import business.DefinicoesPadrao;
+import business.DadosDaSecao;
 import comp.CustomControlPost;
 import comp.CustomControlSeguidores;
 import comp.HboxUsuario;
@@ -84,11 +84,11 @@ public class Feed {
         try{
             AtivaBotoesCorrespondentes();
             if(Acesso.ehLogado()){
-                LbNome.setText(DefinicoesPadrao.getInstance().getUsuarioLogado().getNome());
-                criaListViewSeguindo(Acesso.obtemSeguindo(DefinicoesPadrao.getInstance().getUsuarioLogado().getId()));
+                LbNome.setText(DadosDaSecao.getInstance().getUsuarioLogado().getNome());
+                criaListViewSeguindo(Acesso.obtemSeguindo(DadosDaSecao.getInstance().getUsuarioLogado().getId()));
             }
             if(Acesso.ehLogado()){
-                byte[] img = DefinicoesPadrao.getInstance().getUsuarioLogado().getImagem();
+                byte[] img = DadosDaSecao.getInstance().getUsuarioLogado().getImagem();
                 if(img != null && img.length!=0){
                     ivUser.setImage(Acesso.bytesToImg(img));
                 }
@@ -180,7 +180,7 @@ public class Feed {
                 HelperTelas.getInstance().IrParaTela(rootPane, "Login.fxml");
             }
             CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
-            DefinicoesPadrao.getInstance().setIdPostagem(c.getIdPostNavega());
+            DadosDaSecao.getInstance().setIdPostagem(c.getIdPostNavega());
             HelperTelas.getInstance().IrParaTela(rootPane,"Denuncias.fxml");
         }
     };
@@ -205,7 +205,7 @@ public class Feed {
 
 
     public void btnFazLogoff(ActionEvent actionEvent) {
-        DefinicoesPadrao.getInstance().DeslogarUsuario();
+        DadosDaSecao.getInstance().DeslogarUsuario();
         HelperTelas.getInstance().IrParaTela(rootPane, "Login.fxml");
     }
 

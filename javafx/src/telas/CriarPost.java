@@ -1,7 +1,7 @@
 package telas;
 
 import business.Acesso;
-import business.DefinicoesPadrao;
+import business.DadosDaSecao;
 import comum.Postagem;
 import helper.HelperTelas;
 import javafx.event.ActionEvent;
@@ -13,8 +13,6 @@ import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.AnchorPane;
 
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.regex.Pattern;
 
 public class CriarPost {
 
@@ -23,9 +21,6 @@ public class CriarPost {
 
     @FXML
     private TextArea txtConteudo;
-
-    @FXML
-    private TextArea txtTags;
 
     @FXML
     private AnchorPane rootPane;
@@ -43,8 +38,7 @@ public class CriarPost {
             Postagem p = new Postagem();
             p.setTitulo(txtTituloPergunta.getText());
             p.setConteudo(txtConteudo.getText());
-            p.setStringTags(Arrays.asList(txtTags.getText().split(Pattern.quote(" "))));
-            p.setIdUser(DefinicoesPadrao.getInstance().getUsuarioLogado().getId());
+            p.setIdUser(DadosDaSecao.getInstance().getUsuarioLogado().getId());
             p.setIdTipoPost(0);
             Acesso.enviaPost(p);
             HelperTelas.getInstance().VoltarTela(rootPane);

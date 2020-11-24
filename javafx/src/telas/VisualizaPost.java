@@ -1,7 +1,7 @@
 package telas;
 
 import business.Acesso;
-import business.DefinicoesPadrao;
+import business.DadosDaSecao;
 import comp.CustomControlCom;
 import comum.Comentario;
 import comum.Postagem;
@@ -53,7 +53,7 @@ public class VisualizaPost {
     @FXML
     protected void initialize() throws SQLException {
         if(Acesso.ehLogado()){
-            Usuario user = DefinicoesPadrao.getInstance().getUsuarioLogado();
+            Usuario user = DadosDaSecao.getInstance().getUsuarioLogado();
             ivUser.setImage(Acesso.bytesToImg(user.getImagem()));
             lbNome.setText(user.getNome());
         }
@@ -62,7 +62,7 @@ public class VisualizaPost {
         Postagem p = Acesso.obtemPost(HelperTelas.getInstance().getIdPostNavega());
         Comentario c = Acesso.obtemComentario(p.getId());
         if(Acesso.ehLogado()) {
-            if (DefinicoesPadrao.getInstance().getUsuarioLogado().getId() == p.getIdUser()) {
+            if (DadosDaSecao.getInstance().getUsuarioLogado().getId() == p.getIdUser()) {
                 txtConteudo.setEditable(true);
                 txtTitulo.setEditable(true);
                 btnEnviaEdit.setVisible(true);
@@ -98,7 +98,7 @@ public class VisualizaPost {
             c.setConteudo(txtInsCom.getText());
             java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
             c.setData(date);
-            c.setIdUser(DefinicoesPadrao.getInstance().getUsuarioLogado().getId());
+            c.setIdUser(DadosDaSecao.getInstance().getUsuarioLogado().getId());
             Acesso.enviaComentario(c);
             HelperTelas.getInstance().VoltarTela(rootPane);
         } catch (SQLException erro) {
@@ -115,7 +115,7 @@ public class VisualizaPost {
         for (var u : com) {
             Comentario c = (Comentario) u;
             if (Acesso.ehLogado() == true) {
-                if (DefinicoesPadrao.getInstance().getUsuarioLogado().getId() == c.getIdUser()){
+                if (DadosDaSecao.getInstance().getUsuarioLogado().getId() == c.getIdUser()){
                     y = true;
                 }
                 else{

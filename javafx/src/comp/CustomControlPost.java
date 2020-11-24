@@ -29,8 +29,10 @@ public class CustomControlPost extends VBox {
         setIdPerfilNavega(post.getIdUser());
         setIdPostNavega(post.getId());
 
-        if(post.getIdTipoPost()==1)
-            this.setStyle("-fx-background-color: #FFD692;");
+        if(post.getIdTipoPost()==1){
+            label.setStyle("-fx-text-fill: #FFD692; ");
+            textField.setStyle("-fx-text-fill: #FFD692;");
+        }
 
         btnsInteragir = new HBoxButtonsPost(Acesso.logadoEstaSeguindo(getIdPerfilNavega()), metodoPerfil, metodoPostagem, metodoDenunciar, metodoSeguir);
 

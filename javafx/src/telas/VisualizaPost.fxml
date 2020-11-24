@@ -20,12 +20,7 @@
          <font>
             <Font name="Corbel Light" size="17.0" />
          </font></Label>
-      <Label layoutX="32.0" layoutY="453.0" text="Recomendados" textFill="#b23144">
-         <font>
-            <Font name="Corbel Light" size="17.0" />
-         </font></Label>
-      <ListView layoutX="32.0" layoutY="294.0" prefHeight="133.0" prefWidth="210.0" styleClass="text-field" stylesheets="@../estilos.css" />
-      <ListView layoutX="32.0" layoutY="497.0" prefHeight="133.0" prefWidth="210.0" styleClass="text-field" stylesheets="@../estilos.css" />
+      <ListView layoutX="32.0" layoutY="294.0" prefHeight="328.0" prefWidth="210.0" styleClass="text-field" stylesheets="@../estilos.css" />
       <HBox layoutX="20.0" layoutY="26.0" prefHeight="160.0" prefWidth="230.0" styleClass="hbox-group">
          <children>
             <ImageView fx:id="ivUser" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" />
