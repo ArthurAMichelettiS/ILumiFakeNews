@@ -48,6 +48,9 @@ public class VisualizaPost {
     public Button btnEnviaEdit;
 
     @FXML
+    public ImageView ivPost;
+
+    @FXML
     protected void initialize() throws SQLException {
         if(Acesso.ehLogado()){
             Usuario user = DefinicoesPadrao.getInstance().getUsuarioLogado();
@@ -64,6 +67,10 @@ public class VisualizaPost {
                 txtTitulo.setEditable(true);
                 btnEnviaEdit.setVisible(true);
             }
+        }
+        if(p.getImagemBytes()!=null){
+            ivPost.setImage(Acesso.bytesToImg(p.getImagemBytes()));
+            txtConteudo.setPrefWidth(txtConteudo.getWidth()-500);
         }
         txtTitulo.setText(p.getTitulo());
         txtConteudo.setText(p.getConteudo());

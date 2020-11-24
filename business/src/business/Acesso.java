@@ -259,18 +259,18 @@ public class  Acesso {
         SeguidoresMSSQLDAO dao = new SeguidoresMSSQLDAO();
         if(!ehLogado())
             return false;
-        return dao.LocalizaSeguidor(userId, DefinicoesPadrao.getInstance().getUsuarioLogado().getId()) != null;
+        return dao.LocalizaSeguidor(userId, DefinicoesPadrao.getInstance().getUsuarioLogado().getId());
     }
 
     public static void insereSeguindo(int idPerfil) throws SQLException{
-        DAO dao = EntidadeDAO.COMENTARIO.getEntidadeDAO();
+        DAO dao = EntidadeDAO.SEGUIDORES.getEntidadeDAO();
         Seguidores s = new Seguidores();
         s.setIdUser(DefinicoesPadrao.getInstance().getUsuarioLogado().getId());
         s.setIdUserCon(idPerfil);
         dao.Insere(s);
     }
     public static void apagaSeguindo(int idPerfil) throws SQLException{
-        DAO dao = EntidadeDAO.COMENTARIO.getEntidadeDAO();
+        DAO dao = EntidadeDAO.SEGUIDORES.getEntidadeDAO();
         Seguidores s = new Seguidores();
         s.setIdUser(DefinicoesPadrao.getInstance().getUsuarioLogado().getId());
         s.setIdUserCon(idPerfil);

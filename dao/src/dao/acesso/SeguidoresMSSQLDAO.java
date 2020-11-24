@@ -46,7 +46,7 @@ public class SeguidoresMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         PreparedStatement stmt = con.prepareStatement(SQL);
         Seguidores u = (Seguidores) e;
         stmt.setInt(1, u.getIdUser());
-        stmt.setInt(1, u.getIdUserCon());
+        stmt.setInt(2, u.getIdUserCon());
         return stmt;
     }
 
@@ -80,20 +80,19 @@ public class SeguidoresMSSQLDAO<E extends Entidade> extends MSSQLDAO {
         return stmt;
     }
 
-    public Usuario LocalizaSeguidor(int idUser, int idLogado) throws SQLException {
-        Usuario entidade = null;
+    public boolean LocalizaSeguidor(int idUser, int idLogado) throws SQLException {
         try (Connection conexao = DriverManager.getConnection(STRING_CONEXAO, USUARIO, SENHA )) {
 
             try (PreparedStatement stmt = CriaPreparedStatementBuscaSeguidor(conexao, idUser, idLogado);) {
 
                 try (ResultSet rs = stmt.executeQuery()) {
                     if (rs.next()){
-                        entidade = preencheEntidade(rs);
+                        return true;
                     }
                 }
             }
         }
-        return entidade;
+        return false;
     }
 
     protected PreparedStatement CriaPreparedStatementBuscaSeguidor(Connection con, int id, int idLogado) throws SQLException {

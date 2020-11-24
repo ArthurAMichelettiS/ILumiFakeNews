@@ -129,12 +129,12 @@ public class Feed {
             CustomControlPost c = (CustomControlPost) btnSegue.getParent().getParent();
             try {
                 if(Acesso.logadoEstaSeguindo(c.getIdPerfilNavega())){
-                    Acesso.insereSeguindo(c.getIdPerfilNavega());
-                    btnSegue.setText("Deixar de Seguir Perfil");
-                }
-                else{
                     Acesso.apagaSeguindo(c.getIdPerfilNavega());
                     btnSegue.setText("Seguir Perfil");
+                }
+                else{
+                    Acesso.insereSeguindo(c.getIdPerfilNavega());
+                    btnSegue.setText("Deixar de Seguir Perfil");
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
@@ -168,6 +168,9 @@ public class Feed {
 
     EventHandler<ActionEvent> onActionDenunciar = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent actionEvent){
+            if(!Acesso.ehLogado()){
+                HelperTelas.getInstance().IrParaTela(rootPane, "Login.fxml");
+            }
             CustomControlPost c = (CustomControlPost) ((Button) actionEvent.getSource()).getParent().getParent();
             DefinicoesPadrao.getInstance().setIdPostagem(c.getIdPostNavega());
             HelperTelas.getInstance().IrParaTela(rootPane,"Denuncias.fxml");
