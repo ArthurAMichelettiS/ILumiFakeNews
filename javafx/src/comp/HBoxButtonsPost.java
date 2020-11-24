@@ -26,7 +26,7 @@ public class HBoxButtonsPost extends HBox{
         seguirPerfil.setOnAction(metodoSeguir);
         HBox.setHgrow(seguirPerfil, Priority.ALWAYS);
 
-        comentarios.setText("Comentários");
+        comentarios.setText("Postagem e Comentários");
         comentarios.setMaxWidth(Double.MAX_VALUE);
         comentarios.setOnAction(metodoPostagem);
         HBox.setHgrow(comentarios, Priority.ALWAYS);
