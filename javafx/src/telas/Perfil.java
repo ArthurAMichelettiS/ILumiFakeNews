@@ -91,6 +91,7 @@ public class Perfil {
         lblEmail.setVisible(ehEditavel);
         lblSenha.setVisible(ehEditavel);
         lblSenhaConf.setVisible(ehEditavel);
+        btnTrocar.setVisible(ehEditavel);
 
         txtEmail.setText(user.getEmail());
         txtBio.setText(user.getBio());
