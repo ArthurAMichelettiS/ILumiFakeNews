@@ -1,5 +1,7 @@
 package comp;
 
+import business.Acesso;
+import business.DadosDaSecao;
 import comum.Postagem;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
@@ -25,8 +27,17 @@ public class CustomControlPerfil extends VBox {
 
         setIdPerfilNavega(post.getIdUser());
         setIdPostNavega(post.getId());
+        boolean x;
 
-        btnsInteragir = new HBoxButtonsPerfil(metodoPost, metodoApagar, metodoEditar);
+        if(Acesso.ehLogado())
+        {
+            x = DadosDaSecao.getInstance().getUsuarioLogado().getId() == getIdPerfilNavega();
+        }
+        else {
+            x = false;
+        }
+
+        btnsInteragir = new HBoxButtonsPerfil(metodoPost, metodoApagar, metodoEditar, x);
 
         label.setText(post.getTitulo());
         label.setMaxHeight(Double.MAX_VALUE);
