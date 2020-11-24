@@ -45,6 +45,7 @@ public class CriarPost {
             p.setConteudo(txtConteudo.getText());
             p.setStringTags(Arrays.asList(txtTags.getText().split(Pattern.quote(" "))));
             p.setIdUser(DefinicoesPadrao.getInstance().getUsuarioLogado().getId());
+            p.setIdTipoPost(0);
             Acesso.enviaPost(p);
             HelperTelas.getInstance().VoltarTela(rootPane);
         }

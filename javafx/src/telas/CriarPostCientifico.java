@@ -50,6 +50,7 @@ public class CriarPostCientifico {
             pc.setConteudo(txtConteudo.getText());
             pc.setStringTags(Arrays.asList(txtTags.getText().split(Pattern.quote(" "))));
             pc.setImagem(person_image);
+            pc.setIdTipoPost(1);
             pc.setIdUser(DefinicoesPadrao.getInstance().getUsuarioLogado().getId());
             Acesso.enviaPostCientifico(pc);
             HelperTelas.getInstance().VoltarTela(rootPane);

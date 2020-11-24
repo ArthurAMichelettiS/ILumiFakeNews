@@ -20,6 +20,16 @@ public class Postagem extends Entidade {
 
     private int idUser;
 
+    public int getIdTipoPost() {
+        return IdTipoPost;
+    }
+
+    public void setIdTipoPost(int idTipoPost) {
+        IdTipoPost = idTipoPost;
+    }
+
+    private int IdTipoPost;
+
     private Foto imagem = new Foto();
 
     public void setImagem(byte[] imagem) {

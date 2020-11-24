@@ -277,5 +277,11 @@ public class  Acesso {
         dao.Apaga(s);
     }
 
+    public static boolean ehUserCientista(int id) throws SQLException {
+        DAO dao = EntidadeDAO.USUARIO.getEntidadeDAO();
+        Usuario u = (Usuario)dao.localizaPorId(id);
+        return u.getIdTipoDeUsuario() == 1;
+    }
+
 }
 

@@ -47,13 +47,14 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
 
     @Override
     protected PreparedStatement CriaPreparedStatementInsere(Connection con, Entidade e) throws SQLException {
-        String SQL = "insert into Postagem (titulo, conteudo, IdUser, Imagem) values (?,?,?,?)";
+        String SQL = "insert into Postagem (titulo, conteudo, IdUser, Imagem, idTipoPost) values (?,?,?,?,?)";
         PreparedStatement stmt = con.prepareStatement(SQL);
         Postagem p = (Postagem) e;
         stmt.setString(1, p.getTitulo());
         stmt.setString(2, p.getConteudo());
         stmt.setInt(3, p.getIdUser());
         stmt.setBytes(4, p.getImagemBytes());
+        stmt.setInt(5, p.getIdTipoPost());
 
         return stmt;
     }
@@ -80,6 +81,7 @@ public class PostagemMSSQLDAO<E extends Entidade> extends MSSQLDAO {
             entidade.setConteudo(rs.getString("conteudo"));
             entidade.setImagem(rs.getBytes("imagem"));
             entidade.setIdUser(rs.getInt("idUser"));
+            entidade.setIdTipoPost(rs.getInt("IdTipoPost"));
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
